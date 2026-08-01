@@ -97,3 +97,23 @@ body {
   animation: node-breathe 3.6s ease-in-out infinite;
 }
 
+.infra-node {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.infra-node.node-active {
+  border-color: var(--color-signal);
+  box-shadow:
+    0 0 0 5px rgba(252, 237, 79, 0.14),
+    0 0 20px 3px rgba(252, 237, 79, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infra-node {
+    border-color: var(--color-signal);
+    box-shadow:
+      0 0 0 5px rgba(252, 237, 79, 0.14),
+      0 0 20px 3px rgba(252, 237, 79, 0.35);
+  }
+}
+

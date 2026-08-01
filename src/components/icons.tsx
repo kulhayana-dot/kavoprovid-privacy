@@ -103,3 +103,75 @@ export function IconShield({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconMachine({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="5" y="4" width="12" height="16" rx="2" />
+      <path d="M8 9h6M8 13h3" />
+      <circle cx="15.5" cy="16" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IconCupFull({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M6 8h10l-1 9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 8Z" />
+      <path d="M16 9h1.5a2.5 2.5 0 0 1 0 5H16" />
+      <path d="M8.5 5.5c0-1 1-1 1-2M12 5.5c0-1 1-1 1-2" />
+      <path d="M8 11.5h8" strokeWidth="1.2" opacity="0.6" />
+    </svg>
+  );
+}
+
+export function IconWrench({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M14.7 6.3a4 4 0 0 0-5.4 4.6L4 16.2V20h3.8l5.3-5.3a4 4 0 0 0 4.6-5.4l-2.8 2.8-2-2 2.8-2.8Z" />
+    </svg>
+  );
+}
+
+export function IconTruck({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="2.5" y="7" width="11" height="9" rx="1" />
+      <path d="M13.5 10h3.5l3 3v3h-6.5v-6Z" />
+      <circle cx="6.5" cy="17.5" r="1.6" />
+      <circle cx="16" cy="17.5" r="1.6" />
+    </svg>
+  );
+}
+
+export function IconRefresh({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 12a8 8 0 0 1 13.7-5.7L20 8" />
+      <path d="M20 4v4h-4" />
+      <path d="M20 12a8 8 0 0 1-13.7 5.7L4 16" />
+      <path d="M4 20v-4h4" />
+    </svg>
+  );
+}
+
+export function IconHeadset({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 13v-1a8 8 0 0 1 16 0v1" />
+      <rect x="3" y="13" width="4" height="6" rx="1.5" />
+      <rect x="17" y="13" width="4" height="6" rx="1.5" />
+      <path d="M19 19v1a2 2 0 0 1-2 2h-3" />
+    </svg>
+  );
+}
+
+export function IconBuilding({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="5" y="3" width="14" height="18" rx="1" />
+      <path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1" />
+      <path d="M10 21v-4h4v4" />
+    </svg>
+  );
+}

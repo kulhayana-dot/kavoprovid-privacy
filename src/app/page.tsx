@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Hero } from "@/components/sections/Hero";
+import { Infrastructure } from "@/components/sections/Infrastructure";
 import { Problem } from "@/components/sections/Problem";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <Problem />
+        <Infrastructure />
       </main>
     </>
   );
