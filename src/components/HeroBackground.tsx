@@ -7,20 +7,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const NODES = [
-  { x: "12%", y: "22%", delay: 0 },
-  { x: "26%", y: "58%", delay: 0.4 },
-  { x: "42%", y: "16%", delay: 1.1 },
-  { x: "58%", y: "44%", delay: 0.7 },
-  { x: "74%", y: "20%", delay: 1.6 },
-  { x: "83%", y: "62%", delay: 0.2 },
-  { x: "18%", y: "80%", delay: 1.3 },
-  { x: "64%", y: "78%", delay: 0.9 },
+const TICKS = [
+  { x: "12%", y: "22%" },
+  { x: "26%", y: "58%" },
+  { x: "42%", y: "16%" },
+  { x: "74%", y: "20%" },
+  { x: "83%", y: "62%" },
+  { x: "18%", y: "80%" },
+  { x: "64%", y: "78%" },
 ];
+
+const CALLOUTS = [
+  { x: "58%", y: "42%", label: "15°" },
+  { x: "77%", y: "70%", label: "0.35X" },
+];
+
+function Tick({ x, y }: { x: string; y: string }) {
+  return (
+    <span
+      className="absolute block size-2.5"
+      style={{ left: x, top: y }}
+      aria-hidden="true"
+    >
+      <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-paper/25" />
+      <span className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-paper/25" />
+    </span>
+  );
+}
 
 export function HeroBackground() {
   const ref = useRef<HTMLDivElement>(null);
-  const networkRef = useRef<HTMLDivElement>(null);
+  const schematicRef = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const springX = useSpring(mx, { stiffness: 40, damping: 20 });
@@ -40,12 +57,14 @@ export function HeroBackground() {
 
   useLayoutEffect(() => {
     const section = ref.current?.closest("section");
-    if (!section || !networkRef.current) return;
+    if (!section || !schematicRef.current) return;
 
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({
+        gsap.to(schematicRef.current, {
+          opacity: 0.08,
+          ease: "none",
           scrollTrigger: {
             trigger: section,
             start: "top top",
@@ -53,12 +72,6 @@ export function HeroBackground() {
             scrub: 0.4,
           },
         });
-        // the network "powers down" as you scroll out of the hero —
-        // a brief flicker before it fades, instead of a plain cross-fade
-        tl.to(networkRef.current, { opacity: 0.5, duration: 0.4 })
-          .to(networkRef.current, { opacity: 0.1, duration: 0.08 })
-          .to(networkRef.current, { opacity: 0.45, duration: 0.07 })
-          .to(networkRef.current, { opacity: 0.03, duration: 0.45 });
       });
     });
 
@@ -72,10 +85,10 @@ export function HeroBackground() {
       aria-hidden="true"
       className="absolute inset-0 overflow-hidden"
     >
-      <div ref={networkRef}>
+      <div ref={schematicRef}>
         <motion.div
           style={{ x: gridX, y: gridY }}
-          className="absolute -inset-8 opacity-[0.08]"
+          className="absolute -inset-8 opacity-[0.1]"
         >
           <div
             className="h-full w-full"
@@ -87,33 +100,38 @@ export function HeroBackground() {
           />
         </motion.div>
 
-        {NODES.map((node, i) => (
-          <span
-            key={i}
-            className="animate-node-breathe absolute size-1.5 rounded-full bg-signal"
-            style={{
-              left: node.x,
-              top: node.y,
-              animationDelay: `${node.delay}s`,
-              boxShadow: "0 0 10px 2px rgba(252, 237, 79, 0.5)",
-            }}
-          />
+        {TICKS.map((t, i) => (
+          <Tick key={i} x={t.x} y={t.y} />
         ))}
 
-        <span
-          className="animate-pulse-travel-x absolute left-[52%] top-[18%] hidden h-px w-1/3 bg-linear-to-r from-transparent via-signal to-transparent lg:block"
-          style={{ boxShadow: "0 0 14px 2px rgba(252, 237, 79, 0.5)" }}
-        />
-        <span
-          className="animate-pulse-travel-x absolute left-[58%] top-[78%] hidden h-px w-1/4 bg-linear-to-r from-transparent via-signal to-transparent lg:block"
-          style={{
-            animationDelay: "-3.2s",
-            boxShadow: "0 0 14px 2px rgba(252, 237, 79, 0.5)",
-          }}
-        />
+        {CALLOUTS.map((c, i) => (
+          <span
+            key={i}
+            className="font-label absolute hidden text-xs tracking-widest text-paper/35 lg:block"
+            style={{ left: c.x, top: c.y }}
+          >
+            {c.label}
+          </span>
+        ))}
+
+        <span className="absolute left-[52%] top-[18%] hidden h-px w-1/3 bg-paper/20 lg:block">
+          <span className="absolute -left-1 -top-[3px] h-[7px] w-px bg-paper/40" />
+          <span className="absolute -right-1 -top-[3px] h-[7px] w-px bg-paper/40" />
+        </span>
+        <span className="absolute left-[58%] top-[78%] hidden h-px w-1/4 bg-paper/20 lg:block">
+          <span className="absolute -left-1 -top-[3px] h-[7px] w-px bg-paper/40" />
+          <span className="absolute -right-1 -top-[3px] h-[7px] w-px bg-paper/40" />
+        </span>
+
+        <div className="absolute left-0 top-[30%] h-[40%] w-px overflow-hidden bg-paper/15 lg:left-[8%]">
+          <span
+            className="animate-flow-travel absolute left-1/2 top-0 h-8 w-[3px] -translate-x-1/2 bg-signal"
+            aria-hidden="true"
+          />
+        </div>
       </div>
 
-      <div className="absolute inset-0 bg-radial-[at_50%_30%] from-transparent via-ink/40 to-ink" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-ink" />
     </div>
   );
 }

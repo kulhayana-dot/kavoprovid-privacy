@@ -1,5 +1,6 @@
 import { HeroBackground } from "@/components/HeroBackground";
 import { HeroContent } from "@/components/HeroContent";
+import { Button } from "@/components/Button";
 
 export function Hero() {
   return (
@@ -11,12 +12,12 @@ export function Hero() {
 
       <HeroContent>
         <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-paper/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-paper/60">
-            <span className="size-1.5 rounded-full bg-signal" />
+          <span className="font-label inline-flex items-center gap-2 border border-paper/20 px-4 py-1.5 text-xs uppercase tracking-widest text-paper/60">
+            <span className="size-1.5 bg-signal" />
             Київ та Київська область
           </span>
 
-          <h1 className="font-display mt-8 text-5xl font-semibold leading-[1.05] tracking-tight text-paper sm:text-6xl lg:text-7xl">
+          <h1 className="font-display mt-8 text-5xl font-bold leading-[1.05] tracking-tight text-paper sm:text-6xl lg:text-7xl">
             Проводимо каву
             <br />в бізнес<span className="text-signal">.</span>
           </h1>
@@ -27,25 +28,17 @@ export function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href="#cta"
-              className="rounded-full bg-signal px-7 py-3.5 text-center text-sm font-medium text-ink transition-transform hover:scale-105"
-            >
-              Отримати консультацію
-            </a>
-            <a
-              href="#solutions"
-              className="rounded-full border border-paper/20 px-7 py-3.5 text-center text-sm font-medium text-paper/90 transition-colors hover:border-paper/40"
-            >
+            <Button href="#cta">Отримати консультацію</Button>
+            <Button href="#solutions" variant="secondary">
               Спробувати 7-денний тест-драйв
-            </a>
+            </Button>
           </div>
         </div>
       </HeroContent>
 
       <div className="absolute inset-x-0 bottom-8 flex justify-center">
-        <div className="flex h-9 w-6 justify-center rounded-full border border-paper/20 pt-2">
-          <span className="h-1.5 w-px animate-pulse-travel bg-signal" />
+        <div className="flex h-9 w-6 justify-center overflow-hidden border border-paper/20 pt-2">
+          <span className="animate-flow-travel h-2 w-[3px] bg-signal" />
         </div>
       </div>
     </section>

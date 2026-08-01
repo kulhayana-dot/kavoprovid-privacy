@@ -179,10 +179,10 @@ export function Problem() {
     >
       <div className="mx-auto max-w-7xl px-6 pb-16 pt-28 lg:px-8 lg:pb-0">
         <div className="max-w-2xl">
-          <span className="text-xs font-medium uppercase tracking-wider text-ink/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
             Знайомо?
           </span>
-          <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Кава в офісі — це не одна кавомашина. Це п&apos;ять окремих
             проблем, замаскованих під одну.
           </h2>
@@ -201,7 +201,7 @@ export function Problem() {
         className="relative overflow-hidden lg:h-screen"
       >
         {pinned && (
-          <div className="pointer-events-none absolute left-6 top-8 z-10 font-display text-sm text-ink/40 lg:left-8">
+          <div className="font-label pointer-events-none absolute left-6 top-8 z-10 text-sm tracking-widest text-ink/40 lg:left-8">
             {String(active + 1).padStart(2, "0")} / {String(BREAKS.length).padStart(2, "0")}
           </div>
         )}
@@ -213,7 +213,7 @@ export function Problem() {
           {BREAKS.map((item, i) => (
             <div key={item.title} className="flex items-stretch gap-6 lg:items-center lg:gap-0">
               <div className="flex flex-col items-center lg:hidden">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-paper">
+                <div className="chamfer-sm flex size-12 shrink-0 items-center justify-center border border-ink/20 bg-paper">
                   <item.icon className="size-5 text-ink/70" />
                 </div>
                 {i < BREAKS.length - 1 && (
@@ -232,10 +232,10 @@ export function Problem() {
                 }}
                 className="w-full lg:w-[22vw] lg:shrink-0"
               >
-                <div className="hidden size-14 items-center justify-center rounded-full border border-ink/15 bg-paper lg:flex">
+                <div className="chamfer-sm hidden size-14 items-center justify-center border border-ink/20 bg-paper lg:flex">
                   <item.icon className="size-6 text-ink/70" />
                 </div>
-                <h3 className="font-display mt-4 text-lg font-semibold lg:mt-6 lg:text-xl">
+                <h3 className="font-display mt-4 text-lg font-bold lg:mt-6 lg:text-xl">
                   {item.title}
                 </h3>
                 <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink/60">
@@ -261,7 +261,7 @@ export function Problem() {
           ))}
 
           <div className="max-w-md pt-4 lg:w-[26vw] lg:shrink-0 lg:pl-16 lg:pt-0">
-            <p className="font-display text-xl font-semibold leading-snug sm:text-2xl">
+            <p className="font-display text-xl font-bold leading-snug sm:text-2xl">
               Проблема не в кавомашині.
             </p>
             <p className="mt-3 text-ink/60">

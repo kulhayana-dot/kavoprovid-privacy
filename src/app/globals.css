@@ -10,8 +10,9 @@
   --color-ink: var(--color-ink);
   --color-paper: var(--color-paper);
   --color-signal: var(--color-signal);
-  --font-display: var(--font-manrope);
+  --font-display: var(--font-unbounded);
   --font-sans: var(--font-inter);
+  --font-label: var(--font-gilroy);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -39,81 +40,87 @@ body {
   color: var(--color-ink);
 }
 
-@keyframes pulse-travel {
+/* Brand system is flat and printed, not glowing — no blurred shadows.
+   A single 15deg-cut corner echoes the wordmark's construction angle. */
+.chamfer {
+  clip-path: polygon(
+    14px 0,
+    100% 0,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    0 100%,
+    0 14px
+  );
+}
+
+.chamfer-sm {
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
+}
+
+/* Double signal-yellow band, the recurring wordmark lockup pattern. */
+.stripe-band {
+  --stripe-h: 0.5em;
+  background-image: linear-gradient(
+    var(--color-signal),
+    var(--color-signal)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% var(--stripe-h);
+  background-position:
+    0 0,
+    0 100%;
+}
+
+@keyframes flow-travel {
   0% {
-    transform: translateY(-10%);
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
+    transform: translateY(-120%);
   }
   100% {
-    transform: translateY(110%);
-    opacity: 0;
+    transform: translateY(220%);
   }
 }
 
-.animate-pulse-travel {
-  animation: pulse-travel 5s linear infinite;
+.animate-flow-travel {
+  animation: flow-travel 3.4s linear infinite;
 }
 
-@keyframes pulse-travel-x {
+@keyframes flow-travel-x {
   0% {
-    transform: translateX(-10%);
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
+    transform: translateX(-120%);
   }
   100% {
-    transform: translateX(110%);
-    opacity: 0;
+    transform: translateX(220%);
   }
 }
 
-.animate-pulse-travel-x {
-  animation: pulse-travel-x 7s linear infinite;
-}
-
-@keyframes node-breathe {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.4);
-  }
-}
-
-.animate-node-breathe {
-  animation: node-breathe 3.6s ease-in-out infinite;
+.animate-flow-travel-x {
+  animation: flow-travel-x 4.2s linear infinite;
 }
 
 .infra-node {
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .infra-node.node-active {
+  background-color: var(--color-signal);
   border-color: var(--color-signal);
-  box-shadow:
-    0 0 0 5px rgba(252, 237, 79, 0.14),
-    0 0 20px 3px rgba(252, 237, 79, 0.35);
+  color: var(--color-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .infra-node {
+    background-color: var(--color-signal);
     border-color: var(--color-signal);
-    box-shadow:
-      0 0 0 5px rgba(252, 237, 79, 0.14),
-      0 0 20px 3px rgba(252, 237, 79, 0.35);
+    color: var(--color-ink);
   }
 }
-

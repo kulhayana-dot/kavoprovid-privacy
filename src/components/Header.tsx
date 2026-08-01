@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { Logo } from "@/components/Logo";
+import { Button } from "@/components/Button";
 
 const NAV = [
   { href: "#infrastructure", label: "Інфраструктура" },
@@ -15,14 +17,10 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/80 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link
-          href="#top"
-          className="font-display text-lg font-semibold tracking-tight text-paper"
-        >
-          Кавопровід
-          <span className="text-signal">.</span>
+        <Link href="#top" aria-label="Kavoprovid — на початок">
+          <Logo tone="dark" className="h-4 sm:h-5" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -44,12 +42,9 @@ export function Header() {
           >
             063 627-15-67
           </a>
-          <a
-            href="#cta"
-            className="rounded-full bg-signal px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:scale-105"
-          >
+          <Button href="#cta" className="px-5 py-2.5">
             Отримати консультацію
-          </a>
+          </Button>
         </div>
 
         <button
@@ -57,7 +52,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Меню"
-          className="flex size-10 items-center justify-center rounded-full border border-paper/20 md:hidden"
+          className="chamfer-sm flex size-10 items-center justify-center border border-paper/20 md:hidden"
         >
           <span className="relative block h-3 w-4">
             <span
@@ -89,19 +84,16 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="tel:+380636271567"
-              className="text-base text-paper/80"
-            >
+            <a href="tel:+380636271567" className="text-base text-paper/80">
               063 627-15-67
             </a>
-            <a
+            <Button
               href="#cta"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-signal px-5 py-3 text-center text-sm font-medium text-ink"
+              className="mt-2"
             >
               Отримати консультацію
-            </a>
+            </Button>
           </nav>
         </div>
       )}

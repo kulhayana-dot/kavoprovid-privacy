@@ -166,6 +166,18 @@ export function IconHeadset({ className }: IconProps) {
   );
 }
 
+export function IconValve({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 12h5" />
+      <path d="M15 12h5" />
+      <path d="M9 8h6v8H9Z" />
+      <path d="M12 8V5M9.5 5h5" />
+      <path d="M12 19c2.5-2.5 2.5-4.5 0-7" strokeWidth="1.3" opacity="0.55" />
+    </svg>
+  );
+}
+
 export function IconBuilding({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

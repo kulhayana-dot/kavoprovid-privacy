@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,10 +9,22 @@ const inter = Inter({
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
   subsets: ["latin", "cyrillic"],
   display: "swap",
+});
+
+const gilroy = localFont({
+  variable: "--font-gilroy",
+  display: "swap",
+  src: [
+    {
+      path: "../assets/fonts/GilroyUltraLight.ttf",
+      weight: "200",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="uk"
-      className={`${inter.variable} ${manrope.variable} h-full antialiased`}
+      className={`${inter.variable} ${unbounded.variable} ${gilroy.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ink text-paper font-sans">
         {children}

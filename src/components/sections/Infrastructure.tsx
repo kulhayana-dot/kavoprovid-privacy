@@ -5,11 +5,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   IconBuilding,
-  IconCupFull,
   IconHeadset,
   IconMachine,
   IconRefresh,
   IconTruck,
+  IconValve,
   IconWrench,
 } from "@/components/icons";
 
@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const NODES = [
   { icon: IconMachine, title: "Апарат", text: "Підібраний під навантаження вашої команди." },
-  { icon: IconCupFull, title: "Кава", text: "Преміум-зерно, офіційний дистриб'ютор Strauss Ukraine." },
+  { icon: IconValve, title: "Кава", text: "Преміум-зерно, офіційний дистриб'ютор Strauss Ukraine." },
   { icon: IconWrench, title: "Сервіс", text: "Калібрування смаку та профілактика без нагадувань." },
   { icon: IconTruck, title: "Постачання", text: "Зерно й витратні матеріали приїжджають до того, як закінчаться." },
   { icon: IconRefresh, title: "Обслуговування", text: "Підмінне обладнання аналогічного класу за лічені години." },
@@ -97,10 +97,10 @@ export function Infrastructure() {
     >
       <div className="mx-auto max-w-7xl px-6 pb-16 pt-28 lg:px-8">
         <div className="max-w-2xl">
-          <span className="text-xs font-medium uppercase tracking-wider text-paper/50">
+          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Як це працює
           </span>
-          <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Кавова інфраструктура — це ланцюг, а не апарат.
           </h2>
           <p className="mt-5 text-paper/50">
@@ -116,7 +116,7 @@ export function Infrastructure() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-6 top-8 font-display text-sm text-paper/40 lg:left-8"
+          className="font-label pointer-events-none absolute left-6 top-8 text-sm tracking-widest text-paper/40 lg:left-8"
         >
           {String(activeIndex + 1).padStart(2, "0")} /{" "}
           {String(NODES.length).padStart(2, "0")}
@@ -124,11 +124,10 @@ export function Infrastructure() {
 
         <div className="mx-auto flex h-full max-w-2xl items-center px-6 lg:px-8">
           <div className="relative w-full py-10">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-paper/10" />
+            <div className="absolute left-6 top-0 bottom-0 w-1 -translate-x-1/2 bg-paper/10" />
             <div
               ref={lineFillRef}
-              className="absolute left-6 top-0 bottom-0 w-px origin-top scale-y-0 bg-signal motion-reduce:scale-y-100"
-              style={{ boxShadow: "0 0 16px 2px rgba(252, 237, 79, 0.6)" }}
+              className="absolute left-6 top-0 bottom-0 w-1 -translate-x-1/2 origin-top scale-y-0 bg-signal motion-reduce:scale-y-100"
             />
 
             <div className="relative flex flex-col justify-between gap-8 sm:gap-0">
@@ -138,12 +137,12 @@ export function Infrastructure() {
                     ref={(el) => {
                       nodeRefs.current[i] = el;
                     }}
-                    className="infra-node relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full border border-paper/25 bg-ink"
+                    className="infra-node chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-paper/25 bg-ink"
                   >
                     <node.icon className="size-5 text-paper" />
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-semibold sm:text-lg">
+                    <h3 className="font-display text-base font-bold sm:text-lg">
                       {node.title}
                     </h3>
                     <p className="mt-1 max-w-xs text-sm leading-relaxed text-paper/55">
