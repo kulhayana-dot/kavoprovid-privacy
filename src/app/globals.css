@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-signal: #fced4f;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-signal: var(--color-signal);
+  --font-display: var(--font-manrope);
+  --font-sans: var(--font-inter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+@keyframes pulse-travel {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-travel {
+  animation: pulse-travel 5s linear infinite;
+}
+
+@keyframes pulse-travel-x {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-travel-x {
+  animation: pulse-travel-x 7s linear infinite;
+}
+
+@keyframes node-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+.animate-node-breathe {
+  animation: node-breathe 3.6s ease-in-out infinite;
+}
+
