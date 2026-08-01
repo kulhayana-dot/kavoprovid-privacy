@@ -1,4 +1,5 @@
 import { HeroBackground } from "@/components/HeroBackground";
+import { HeroContent } from "@/components/HeroContent";
 
 export function Hero() {
   return (
@@ -8,7 +9,7 @@ export function Hero() {
     >
       <HeroBackground />
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
+      <HeroContent>
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-paper/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-paper/60">
             <span className="size-1.5 rounded-full bg-signal" />
@@ -40,7 +41,7 @@ export function Hero() {
             </a>
           </div>
         </div>
-      </div>
+      </HeroContent>
 
       <div className="absolute inset-x-0 bottom-8 flex justify-center">
         <div className="flex h-9 w-6 justify-center rounded-full border border-paper/20 pt-2">
