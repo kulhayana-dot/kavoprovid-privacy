@@ -41,15 +41,15 @@ export function Hero() {
             </h1>
 
             <HeroEntranceItem className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 sm:text-xl">
-              Не продаємо кавомашини. Будуємо безперервну кавову
-              інфраструктуру для офісів і підприємств — від апарату до
-              чашки, без перебоїв.
+              Апарат, зерно, сервіс і відповідальність — в одного партнера,
+              а не в списку контактів у телефоні. Ваша команда просто п&apos;є
+              каву.
             </HeroEntranceItem>
 
             <HeroEntranceItem className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button href="#cta">Отримати консультацію</Button>
+              <Button href="#cta">Підключити офіс</Button>
               <Button href="#solutions" variant="secondary">
-                Спробувати 7-денний тест-драйв
+                7 днів на пробу — без підпису
               </Button>
             </HeroEntranceItem>
           </div>

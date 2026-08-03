@@ -16,34 +16,54 @@ type Profile = {
 
 const PROFILES: Profile[] = [
   {
-    tag: "Затишний офіс",
+    tag: "Просто і без зайвого",
     machine: "Bianchi Gaia Touch",
-    features: ["Італійська надійність", "8 видів напоїв", "Сухі вершки та шоколад"],
+    features: [
+      "Італійська збірка, перевірена роками",
+      "8 напоїв — цього досить майже завжди",
+      "Какао й вершки без окремого бару",
+    ],
     threshold: 10,
   },
   {
-    tag: "Активний офіс",
+    tag: "Найбільший вибір напоїв",
     machine: "Dr. Coffee Minibar S",
-    badge: "Хіт вибору",
-    features: ["Великий сенсорний екран", "24–30 видів напоїв", "Ідеальна молочна піна"],
+    badge: "Обирають найчастіше",
+    features: [
+      "Екран, у якому розберуться з першого разу",
+      "24–30 напоїв — від еспресо до какао",
+      "Молочна піна як у бариста",
+    ],
     threshold: 15,
   },
   {
-    tag: "Універсальний",
+    tag: "Для щоденного навантаження",
     machine: "Dr. Coffee Coffeebar S",
-    features: ["Міцний металевий корпус", "24 напої", "Швидка видача напоїв"],
+    features: [
+      "Металевий корпус витримує щоденний потік людей",
+      "24 напої без компромісів у смаку",
+      "Чашка готова за секунди, не за хвилини",
+    ],
     threshold: 15,
   },
   {
-    tag: "Великий бізнес / ІТ",
+    tag: "Коли черга не спиняється",
     machine: "Dr. Coffee Coffeecenter",
-    features: ["Промислова надійність", "Величезні контейнери", "Працює нон-стоп"],
+    features: [
+      "Розрахований на промислове навантаження",
+      "Контейнери, які не спорожніють до обіду",
+      "Не зупиняється навіть у пікові години",
+    ],
     threshold: 20,
   },
   {
-    tag: "Кавова станція",
+    tag: "Преміальний варіант",
     machine: "Bianchi Talia Touch",
-    features: ["12+ видів напоїв", "4 види сухих інгредієнтів", "Преміальний дизайн"],
+    features: [
+      "12+ напоїв на будь-який смак у команді",
+      "4 сухих інгредієнти для різноманіття",
+      "Дизайн, який не соромно поставити в переговорній",
+    ],
     threshold: 15,
   },
 ];
@@ -104,11 +124,11 @@ export function Solutions() {
             as="h2"
             className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Скажіть розмір команди — ми зробимо решту.
+            Ми вже вирішили, яка машина вам підійде.
           </RevealText>
           <p className="mt-5 text-ink/50">
-            Не марнуйте час на характеристики кавомашин. П&apos;ять профілів
-            покривають будь-який офіс — оберіть свій.
+            П&apos;ять перевірених конфігурацій під різні команди. Оберіть
+            свою — решта деталей нижче.
           </p>
         </div>
 
@@ -174,7 +194,7 @@ export function Solutions() {
 
                 <div className="chamfer-sm mt-8 flex items-center justify-between border border-ink/10 bg-paper px-5 py-4">
                   <span className="font-label text-xs uppercase tracking-widest text-ink/40">
-                    Умова free оренди
+                    Оренда безкоштовна від
                   </span>
                   <span className="font-display flex items-baseline gap-1 text-2xl font-bold">
                     <ThresholdNumber value={profile.threshold} /> кг
@@ -187,7 +207,7 @@ export function Solutions() {
 
         <div className="mt-20 grid gap-10 border-t border-ink/10 pt-14 sm:grid-cols-2">
           <div>
-            <h4 className="font-display text-lg font-bold">Підходимо для:</h4>
+            <h4 className="font-display text-lg font-bold">Кому підходимо:</h4>
             <ul className="mt-4 space-y-2">
               {FIT.map((f) => (
                 <li key={f} className="flex items-center gap-3 text-ink/60">
@@ -198,7 +218,7 @@ export function Solutions() {
             </ul>
           </div>
           <div>
-            <h4 className="font-display text-lg font-bold">Не працюємо з:</h4>
+            <h4 className="font-display text-lg font-bold">Кому — ні:</h4>
             <ul className="mt-4 space-y-2">
               {NOT_FIT.map((f) => (
                 <li key={f} className="flex items-center gap-3 text-ink/40">

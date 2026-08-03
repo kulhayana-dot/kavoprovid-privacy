@@ -187,8 +187,7 @@ export function Problem() {
             as="h2"
             className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Кава в офісі — це не одна кавомашина. Це п&apos;ять окремих
-            проблем, замаскованих під одну.
+            Кавомашина — це одна річ в офісі. Проблем навколо неї — п&apos;ять.
           </RevealText>
           <p className="mt-5 text-ink/50 lg:hidden">
             Гортайте — кожна проблема веде до наступної.

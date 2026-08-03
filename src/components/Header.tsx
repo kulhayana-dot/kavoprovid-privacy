@@ -44,7 +44,7 @@ export function Header() {
             063 627-15-67
           </a>
           <Button href="#cta" className="px-5 py-2.5">
-            Отримати консультацію
+            Підключити офіс
           </Button>
         </div>
 
@@ -93,7 +93,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-2"
             >
-              Отримати консультацію
+              Підключити офіс
             </Button>
           </nav>
         </div>

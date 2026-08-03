@@ -17,11 +17,11 @@ import { RevealText } from "@/components/RevealText";
 gsap.registerPlugin(ScrollTrigger);
 
 const NODES = [
-  { icon: IconMachine, title: "Апарат", text: "Підібраний під навантаження вашої команди." },
-  { icon: IconValve, title: "Кава", text: "Преміум-зерно, офіційний дистриб'ютор Strauss Ukraine." },
-  { icon: IconWrench, title: "Сервіс", text: "Калібрування смаку та профілактика без нагадувань." },
-  { icon: IconTruck, title: "Постачання", text: "Зерно й витратні матеріали приїжджають до того, як закінчаться." },
-  { icon: IconRefresh, title: "Обслуговування", text: "Підмінне обладнання аналогічного класу за лічені години." },
+  { icon: IconMachine, title: "Апарат", text: "Точна модель під розмір команди, а не найближча за ціною." },
+  { icon: IconValve, title: "Кава", text: "Зерно Strauss Ukraine — офіційно, без посередників між обсмажувальнею і вашою чашкою." },
+  { icon: IconWrench, title: "Сервіс", text: "Смак підлаштовуємо на місці — за графіком, а не за скаргою." },
+  { icon: IconTruck, title: "Постачання", text: "Зерно приїжджає раніше, ніж закінчується. Рахувати запаси — не ваша робота." },
+  { icon: IconRefresh, title: "Обслуговування", text: "Апарат вийшов з ладу — на заміну приїжджає рівнозначний, поки ваш ремонтують." },
   { icon: IconHeadset, title: "Підтримка", text: "Один номер. Одна відповідальна команда." },
   { icon: IconBuilding, title: "Бізнес", text: "Кава працює на вас, а не навпаки." },
 ];
