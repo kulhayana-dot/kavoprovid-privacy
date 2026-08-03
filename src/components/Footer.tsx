@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 const NAV = [
   { href: "#infrastructure", label: "Інфраструктура" },
@@ -49,9 +50,12 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} ТОВ «ЮНІТ КЕЙ». Усі права захищені.</p>
-          <Link href="/privacy" className="hover:text-paper/70">
-            Політика конфіденційності
-          </Link>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-paper/70">
+              Політика конфіденційності
+            </Link>
+            <CookieSettingsButton className="hover:text-paper/70" />
+          </div>
         </div>
       </div>
     </footer>
