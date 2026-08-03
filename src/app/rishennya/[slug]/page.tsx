@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
+import { LeadForm } from "@/components/LeadForm";
 import { IconCheck } from "@/components/icons";
 import { MACHINES, getMachine } from "@/lib/machines";
 import { FIT_AUDIENCE, NOT_FIT_AUDIENCE } from "@/lib/audience";
@@ -193,6 +194,13 @@ export default async function MachinePage({
           </p>
           <div className="mt-8 flex justify-center">
             <Button href="tel:+380636271567">Підключити офіс</Button>
+          </div>
+
+          <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
+            <p className="text-center text-sm text-paper/45">
+              Або залиште контакти — передзвонимо самі.
+            </p>
+            <LeadForm source={`Модель — ${machine.machine}`} className="mt-5" />
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/Button";
+import { LeadForm } from "@/components/LeadForm";
 
 export function FinalCta() {
   return (
@@ -36,6 +37,13 @@ export function FinalCta() {
           >
             hello@kavoprovid.com.ua
           </a>
+        </div>
+
+        <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10">
+          <p className="text-sm text-paper/45">
+            Або залиште контакти — передзвонимо самі.
+          </p>
+          <LeadForm source="Головна — фінальний CTA" className="mt-5 text-left" />
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MACHINES } from "@/lib/machines";
+import { LeadForm } from "@/components/LeadForm";
 
 export const metadata: Metadata = {
   title: "Оренда кавомашини для офісу — 5 моделей | Kavoprovid",
@@ -62,6 +63,22 @@ export default function RishennyaPage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+            Ще не визначились із моделлю?
+          </h2>
+          <p className="mt-4 text-paper/60">
+            Залиште контакти — розкажемо про вашу команду й підберемо модель
+            самі.
+          </p>
+          <LeadForm
+            source="Rishennya hub"
+            className="mx-auto mt-8 max-w-sm text-left"
+          />
         </div>
       </section>
     </>
