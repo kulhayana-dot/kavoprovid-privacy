@@ -10,6 +10,7 @@ import {
   IconMachineOff,
   IconQuestionCall,
 } from "@/components/icons";
+import { RevealText } from "@/components/RevealText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,10 +183,13 @@ export function Problem() {
           <span className="font-label text-xs uppercase tracking-widest text-ink/50">
             Знайомо?
           </span>
-          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          <RevealText
+            as="h2"
+            className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+          >
             Кава в офісі — це не одна кавомашина. Це п&apos;ять окремих
             проблем, замаскованих під одну.
-          </h2>
+          </RevealText>
           <p className="mt-5 text-ink/50 lg:hidden">
             Гортайте — кожна проблема веде до наступної.
           </p>

@@ -12,6 +12,7 @@ import {
   IconValve,
   IconWrench,
 } from "@/components/icons";
+import { RevealText } from "@/components/RevealText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,9 +101,12 @@ export function Infrastructure() {
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Як це працює
           </span>
-          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          <RevealText
+            as="h2"
+            className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+          >
             Кавова інфраструктура — це ланцюг, а не апарат.
-          </h2>
+          </RevealText>
           <p className="mt-5 text-paper/50">
             Кожна ланка тримає наступну. Прокрутіть — і подивіться, що
             станеться, якщо жодна не випаде.

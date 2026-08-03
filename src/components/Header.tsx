@@ -28,9 +28,10 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-paper/70 transition-colors hover:text-paper"
+              className="group relative text-sm text-paper/70 transition-colors hover:text-paper"
             >
               {item.label}
+              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </a>
           ))}
         </nav>

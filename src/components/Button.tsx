@@ -1,14 +1,20 @@
-import type { AnchorHTMLAttributes } from "react";
+"use client";
+
+import { type AnchorHTMLAttributes, useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/cn";
 
-type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+type ButtonProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+> & {
   variant?: "primary" | "secondary";
 };
 
 /**
  * Flat, hard-edged CTA: a fill sweeps in on hover like the signal
- * traveling through a pipe. No scale, no glow — the brand is printed,
- * not lit.
+ * traveling through a pipe, and the button leans toward the cursor
+ * (magnetic pull) instead of a generic scale-up.
  */
 export function Button({
   variant = "primary",
@@ -17,10 +23,32 @@ export function Button({
   ...props
 }: ButtonProps) {
   const isPrimary = variant === "primary";
+  const ref = useRef<HTMLAnchorElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 20, mass: 0.4 });
+  const springY = useSpring(y, { stiffness: 300, damping: 20, mass: 0.4 });
+
+  function handlePointerMove(e: React.PointerEvent<HTMLAnchorElement>) {
+    const el = ref.current;
+    if (!el || e.pointerType !== "mouse") return;
+    const rect = el.getBoundingClientRect();
+    x.set((e.clientX - rect.left - rect.width / 2) * 0.3);
+    y.set((e.clientY - rect.top - rect.height / 2) * 0.4);
+  }
+
+  function handlePointerLeave() {
+    x.set(0);
+    y.set(0);
+  }
 
   return (
-    <a
+    <motion.a
+      ref={ref}
       {...props}
+      style={{ x: springX, y: springY }}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
       className={cn(
         "chamfer-sm group relative inline-flex items-center justify-center overflow-hidden px-7 py-3.5 text-sm font-medium",
         isPrimary
@@ -39,13 +67,11 @@ export function Button({
       <span
         className={cn(
           "relative transition-colors duration-300",
-          isPrimary
-            ? "group-hover:text-paper"
-            : "group-hover:text-ink",
+          isPrimary ? "group-hover:text-paper" : "group-hover:text-ink",
         )}
       >
         {children}
       </span>
-    </a>
+    </motion.a>
   );
 }
