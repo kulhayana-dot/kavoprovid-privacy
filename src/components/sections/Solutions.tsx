@@ -1,86 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
 import { IconCheck } from "@/components/icons";
 import { cn } from "@/lib/cn";
-
-type Profile = {
-  tag: string;
-  machine: string;
-  badge?: string;
-  features: string[];
-  threshold: number;
-};
-
-const PROFILES: Profile[] = [
-  {
-    tag: "Просто і без зайвого",
-    machine: "Bianchi Gaia Touch",
-    features: [
-      "Італійська збірка, перевірена роками",
-      "8 напоїв — цього досить майже завжди",
-      "Какао й вершки без окремого бару",
-    ],
-    threshold: 10,
-  },
-  {
-    tag: "Найбільший вибір напоїв",
-    machine: "Dr. Coffee Minibar S",
-    badge: "Обирають найчастіше",
-    features: [
-      "Екран, у якому розберуться з першого разу",
-      "24–30 напоїв — від еспресо до какао",
-      "Молочна піна як у бариста",
-    ],
-    threshold: 15,
-  },
-  {
-    tag: "Для щоденного навантаження",
-    machine: "Dr. Coffee Coffeebar S",
-    features: [
-      "Металевий корпус витримує щоденний потік людей",
-      "24 напої без компромісів у смаку",
-      "Чашка готова за секунди, не за хвилини",
-    ],
-    threshold: 15,
-  },
-  {
-    tag: "Коли черга не спиняється",
-    machine: "Dr. Coffee Coffeecenter",
-    features: [
-      "Розрахований на промислове навантаження",
-      "Контейнери, які не спорожніють до обіду",
-      "Не зупиняється навіть у пікові години",
-    ],
-    threshold: 20,
-  },
-  {
-    tag: "Преміальний варіант",
-    machine: "Bianchi Talia Touch",
-    features: [
-      "12+ напоїв на будь-який смак у команді",
-      "4 сухих інгредієнти для різноманіття",
-      "Дизайн, який не соромно поставити в переговорній",
-    ],
-    threshold: 15,
-  },
-];
-
-const FIT = [
-  "Великих ІТ-компаній",
-  "Державних установ",
-  "Заводів і виробництв",
-  "Логістичних центрів",
-  "Автосалонів",
-];
-
-const NOT_FIT = [
-  "Домашніх користувачів",
-  "Офісів до 20 осіб",
-  "Кав'ярень-острівців",
-];
+import { MACHINES } from "@/lib/machines";
+import { FIT_AUDIENCE, NOT_FIT_AUDIENCE } from "@/lib/audience";
 
 const slideVariants: Variants = {
   enter: (dir: number) => ({ opacity: 0, x: dir * 40 }),
@@ -111,7 +38,7 @@ export function Solutions() {
     setActive(i);
   }
 
-  const profile = PROFILES[active];
+  const profile = MACHINES[active];
 
   return (
     <section id="solutions" className="relative bg-paper py-28 text-ink sm:py-36">
@@ -138,9 +65,9 @@ export function Solutions() {
             aria-label="Профілі офісу"
             className="scrollbar-none -mx-6 flex gap-3 overflow-x-auto px-6 lg:mx-0 lg:flex-col lg:gap-2 lg:overflow-visible lg:px-0"
           >
-            {PROFILES.map((p, i) => (
+            {MACHINES.map((p, i) => (
               <button
-                key={p.tag}
+                key={p.slug}
                 role="tab"
                 aria-selected={i === active}
                 onClick={() => select(i)}
@@ -200,6 +127,14 @@ export function Solutions() {
                     <ThresholdNumber value={profile.threshold} /> кг
                   </span>
                 </div>
+
+                <Link
+                  href={`/rishennya/${profile.slug}`}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors hover:decoration-ink"
+                >
+                  Детальніше про модель
+                  <span aria-hidden="true">→</span>
+                </Link>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -209,7 +144,7 @@ export function Solutions() {
           <div>
             <h4 className="font-display text-lg font-bold">Кому підходимо:</h4>
             <ul className="mt-4 space-y-2">
-              {FIT.map((f) => (
+              {FIT_AUDIENCE.map((f) => (
                 <li key={f} className="flex items-center gap-3 text-ink/60">
                   <IconCheck className="size-4 shrink-0 text-signal" />
                   {f}
@@ -220,7 +155,7 @@ export function Solutions() {
           <div>
             <h4 className="font-display text-lg font-bold">Кому — ні:</h4>
             <ul className="mt-4 space-y-2">
-              {NOT_FIT.map((f) => (
+              {NOT_FIT_AUDIENCE.map((f) => (
                 <li key={f} className="flex items-center gap-3 text-ink/40">
                   <span className="block size-4 shrink-0 text-center leading-4 text-ink/30">
                     ×

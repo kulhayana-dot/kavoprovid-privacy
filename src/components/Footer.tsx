@@ -3,11 +3,11 @@ import { Logo } from "@/components/Logo";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 const NAV = [
-  { href: "#infrastructure", label: "Інфраструктура" },
-  { href: "#solutions", label: "Рішення" },
-  { href: "#why", label: "Переваги" },
-  { href: "#process", label: "Процес" },
-  { href: "#coverage", label: "Покриття" },
+  { href: "/#infrastructure", label: "Інфраструктура" },
+  { href: "/rishennya", label: "Рішення" },
+  { href: "/#why", label: "Переваги" },
+  { href: "/#process", label: "Процес" },
+  { href: "/#coverage", label: "Покриття" },
 ];
 
 export function Footer() {
