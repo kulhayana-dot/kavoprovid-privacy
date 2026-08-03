@@ -166,6 +166,14 @@ export function IconHeadset({ className }: IconProps) {
   );
 }
 
+export function IconCheck({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 13l4.5 5L20 6" />
+    </svg>
+  );
+}
+
 export function IconValve({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

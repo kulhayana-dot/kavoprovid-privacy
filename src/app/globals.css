@@ -104,6 +104,15 @@ body {
   animation: flow-travel-x 4.2s linear infinite;
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .infra-node {
   transition:
     background-color 0.2s ease,
