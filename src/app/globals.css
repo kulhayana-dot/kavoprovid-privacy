@@ -66,13 +66,14 @@ body {
 
 /* Double signal-yellow band, the recurring wordmark lockup pattern. */
 .stripe-band {
-  --stripe-h: 0.5em;
-  background-image: linear-gradient(
-    var(--color-signal),
-    var(--color-signal)
-  );
-  background-repeat: no-repeat;
-  background-size: 100% var(--stripe-h);
+  --stripe-h: 0.4em;
+  background-image:
+    linear-gradient(var(--color-signal), var(--color-signal)),
+    linear-gradient(var(--color-signal), var(--color-signal));
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    100% var(--stripe-h),
+    100% var(--stripe-h);
   background-position:
     0 0,
     0 100%;
