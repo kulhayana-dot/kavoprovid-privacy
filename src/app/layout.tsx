@@ -28,18 +28,40 @@ const gilroy = localFont({
   ],
 });
 
+const SITE_TITLE = "Оренда кавомашини для офісу — Кавопровід";
+const SITE_DESCRIPTION =
+  "Оренда кавомашини для офісу та бізнесу в Києві й Київській області: апарат, зерно й сервіс — в одного партнера. Безкоштовно від 10 кг кави. Перші 7 днів на пробу.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://kavoprovid.com.ua"),
-  title: "Кавопровід — кавова інфраструктура для бізнесу",
-  description:
-    "Не продаємо кавомашини. Будуємо безперервну кавову інфраструктуру для офісів і підприємств Києва та Київської області.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: "Кавопровід — кавова інфраструктура для бізнесу",
-    description:
-      "Не продаємо кавомашини. Будуємо безперервну кавову інфраструктуру для офісів і підприємств Києва та Київської області.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     locale: "uk_UA",
     type: "website",
   },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Kavoprovid",
+  legalName: "ТОВ «ЮНІТ КЕЙ»",
+  url: "https://kavoprovid.com.ua",
+  logo: "https://kavoprovid.com.ua/brand/kavoprovid-mark.svg",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+380-63-627-15-67",
+    email: "hello@kavoprovid.com.ua",
+    contactType: "sales",
+    areaServed: "UA-32",
+  },
+  areaServed: [
+    { "@type": "City", name: "Київ" },
+    { "@type": "AdministrativeArea", name: "Київська область" },
+  ],
 };
 
 export default function RootLayout({
@@ -53,6 +75,10 @@ export default function RootLayout({
       className={`${inter.variable} ${unbounded.variable} ${gilroy.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ink text-paper font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {children}
         <CookieConsent />
       </body>

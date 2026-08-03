@@ -3,9 +3,9 @@ import Link from "next/link";
 import { MACHINES } from "@/lib/machines";
 
 export const metadata: Metadata = {
-  title: "Кавові рішення для офісу — Kavoprovid",
+  title: "Оренда кавомашини для офісу — 5 моделей | Kavoprovid",
   description:
-    "П'ять моделей кавомашин в оренду для офісів і підприємств Києва та Київської області. Апарат, зерно, сервіс і підтримка — в одного партнера.",
+    "Оренда кавомашини для офісу в Києві та Київській області — 5 перевірених моделей. Апарат, зерно, сервіс і підтримка в одного партнера.",
 };
 
 export default function RishennyaPage() {
