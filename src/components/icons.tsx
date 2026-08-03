@@ -195,3 +195,22 @@ export function IconBuilding({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconSwitch({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="3" y="8" width="18" height="8" rx="4" />
+      <circle cx="8" cy="12" r="2.4" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IconDocument({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M7 3h7l4 4v14H7Z" />
+      <path d="M14 3v4h4" />
+      <path d="M9.5 12h5M9.5 15.5h5M9.5 8.5h2" />
+    </svg>
+  );
+}

@@ -9,6 +9,7 @@ import { Button } from "@/components/Button";
 const NAV = [
   { href: "#infrastructure", label: "Інфраструктура" },
   { href: "#solutions", label: "Рішення" },
+  { href: "#why", label: "Переваги" },
   { href: "#process", label: "Процес" },
   { href: "#coverage", label: "Покриття" },
 ];
