@@ -120,7 +120,7 @@ export function Infrastructure() {
       >
         <div
           aria-hidden="true"
-          className="font-label pointer-events-none absolute left-6 top-8 text-sm tracking-widest text-paper/40 lg:left-8"
+          className="font-label pointer-events-none absolute left-6 top-8 text-sm tracking-widest text-paper/60 lg:left-8"
         >
           {String(activeIndex + 1).padStart(2, "0")} /{" "}
           {String(NODES.length).padStart(2, "0")}

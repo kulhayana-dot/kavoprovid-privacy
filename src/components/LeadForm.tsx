@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent } from "react";
 import { cn } from "@/lib/cn";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "chamfer-sm w-full border border-paper/20 bg-paper/5 px-4 py-3 text-sm text-paper placeholder:text-paper/40 focus:border-signal focus:outline-none";
+  "chamfer-sm w-full border border-paper/20 bg-paper/5 px-4 py-3 text-sm text-paper placeholder:text-paper/40 focus:border-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal";
 
 export function LeadForm({
   source,
@@ -16,6 +16,7 @@ export function LeadForm({
   className?: string;
 }) {
   const [status, setStatus] = useState<Status>("idle");
+  const idPrefix = useId();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -48,6 +49,7 @@ export function LeadForm({
   if (status === "success") {
     return (
       <div
+        role="status"
         className={cn(
           "chamfer-sm border border-paper/15 bg-paper/5 p-6 text-center",
           className,
@@ -61,6 +63,10 @@ export function LeadForm({
     );
   }
 
+  const nameId = `${idPrefix}-name`;
+  const phoneId = `${idPrefix}-phone`;
+  const companyId = `${idPrefix}-company`;
+
   return (
     <form onSubmit={handleSubmit} className={cn("space-y-3", className)}>
       <input
@@ -71,26 +77,42 @@ export function LeadForm({
         className="absolute left-[-9999px] h-0 w-0 overflow-hidden"
         aria-hidden="true"
       />
+
+      <label htmlFor={nameId} className="sr-only">
+        Ваше ім&apos;я
+      </label>
       <input
+        id={nameId}
         type="text"
         name="name"
         required
         placeholder="Ваше ім'я"
         className={inputClass}
       />
+
+      <label htmlFor={phoneId} className="sr-only">
+        Телефон
+      </label>
       <input
+        id={phoneId}
         type="tel"
         name="phone"
         required
         placeholder="Телефон"
         className={inputClass}
       />
+
+      <label htmlFor={companyId} className="sr-only">
+        Компанія (необов&apos;язково)
+      </label>
       <input
+        id={companyId}
         type="text"
         name="company"
         placeholder="Компанія (необов'язково)"
         className={inputClass}
       />
+
       <button
         type="submit"
         disabled={status === "submitting"}
@@ -98,8 +120,9 @@ export function LeadForm({
       >
         {status === "submitting" ? "Надсилаємо…" : "Залишити заявку"}
       </button>
+
       {status === "error" && (
-        <p className="text-sm text-paper/60">
+        <p role="alert" className="text-sm text-paper/60">
           Не вдалося надіслати. Зателефонуйте нам:{" "}
           <a href="tel:+380636271567" className="text-paper underline">
             063 627-15-67

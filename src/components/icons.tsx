@@ -7,6 +7,7 @@ const base = {
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
   viewBox: "0 0 24 24",
+  "aria-hidden": true as const,
 };
 
 export function IconMachineOff({ className }: IconProps) {

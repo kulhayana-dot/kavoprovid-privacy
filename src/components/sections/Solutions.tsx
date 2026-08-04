@@ -44,7 +44,7 @@ export function Solutions() {
     <section id="solutions" className="relative bg-paper py-28 text-ink sm:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/60">
             Підбір рішення
           </span>
           <RevealText
@@ -53,7 +53,7 @@ export function Solutions() {
           >
             Ми вже вирішили, яка машина вам підійде.
           </RevealText>
-          <p className="mt-5 text-ink/50">
+          <p className="mt-5 text-ink/60">
             П&apos;ять перевірених конфігурацій під різні команди. Оберіть
             свою — решта деталей нижче.
           </p>
@@ -96,7 +96,7 @@ export function Solutions() {
                 className="chamfer border border-ink/10 bg-ink/[0.02] p-8 sm:p-10"
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/50">
+                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
                     {profile.tag}
                   </span>
                   {profile.badge && (
@@ -120,7 +120,7 @@ export function Solutions() {
                 </ul>
 
                 <div className="chamfer-sm mt-8 flex items-center justify-between border border-ink/10 bg-paper px-5 py-4">
-                  <span className="font-label text-xs uppercase tracking-widest text-ink/40">
+                  <span className="font-label text-xs uppercase tracking-widest text-ink/60">
                     Оренда безкоштовна від
                   </span>
                   <span className="font-display flex items-baseline gap-1 text-2xl font-bold">
@@ -156,8 +156,8 @@ export function Solutions() {
             <h4 className="font-display text-lg font-bold">Кому — ні:</h4>
             <ul className="mt-4 space-y-2">
               {NOT_FIT_AUDIENCE.map((f) => (
-                <li key={f} className="flex items-center gap-3 text-ink/40">
-                  <span className="block size-4 shrink-0 text-center leading-4 text-ink/30">
+                <li key={f} className="flex items-center gap-3 text-ink/60">
+                  <span className="block size-4 shrink-0 text-center leading-4 text-ink/50">
                     ×
                   </span>
                   {f}

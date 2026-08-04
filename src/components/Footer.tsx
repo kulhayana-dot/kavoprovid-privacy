@@ -48,7 +48,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} ТОВ «ЮНІТ КЕЙ». Усі права захищені.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-paper/70">

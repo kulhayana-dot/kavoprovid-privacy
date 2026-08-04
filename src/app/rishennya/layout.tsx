@@ -11,7 +11,7 @@ export default function RishennyaLayout({
     <>
       <SmoothScroll />
       <Header />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <Footer />
     </>
   );

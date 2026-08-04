@@ -18,7 +18,7 @@ export default function Home() {
       <Preloader />
       <SmoothScroll />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <Problem />
         <Infrastructure />

@@ -6,7 +6,7 @@ export function Trust() {
     <section id="trust" className="relative bg-paper py-28 text-ink sm:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/60">
             Кому ми довіряємо
           </span>
           <RevealText

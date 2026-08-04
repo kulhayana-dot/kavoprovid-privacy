@@ -32,6 +32,13 @@ const SITE_TITLE = "Оренда кавомашини для офісу — Ка
 const SITE_DESCRIPTION =
   "Оренда кавомашини для офісу та бізнесу в Києві й Київській області: апарат, зерно й сервіс — в одного партнера. Безкоштовно від 10 кг кави. Перші 7 днів на пробу.";
 
+const SITE_OG_IMAGE = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: SITE_TITLE,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://kavoprovid.com.ua"),
   title: SITE_TITLE,
@@ -41,6 +48,13 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     locale: "uk_UA",
     type: "website",
+    images: [SITE_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE.url],
   },
 };
 
@@ -79,6 +93,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-signal focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"
+        >
+          Перейти до основного контенту
+        </a>
         {children}
         <CookieConsent />
       </body>

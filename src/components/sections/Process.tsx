@@ -67,7 +67,7 @@ export function Process() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/60">
             Як це відбувається
           </span>
           <RevealText

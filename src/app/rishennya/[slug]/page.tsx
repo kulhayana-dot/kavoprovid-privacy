@@ -29,6 +29,15 @@ export async function generateMetadata({
       description: machine.metaDescription,
       locale: "uk_UA",
       type: "website",
+      images: [
+        { url: "/og-image.png", width: 1200, height: 630, alt: machine.metaTitle },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: machine.metaTitle,
+      description: machine.metaDescription,
+      images: ["/og-image.png"],
     },
   };
 }
@@ -130,7 +139,7 @@ export default async function MachinePage({
             </ul>
 
             <div className="chamfer-sm flex items-center justify-between gap-6 border border-ink/10 bg-ink/[0.02] px-5 py-4 sm:flex-col sm:items-start sm:justify-start">
-              <span className="font-label text-xs uppercase tracking-widest text-ink/40">
+              <span className="font-label text-xs uppercase tracking-widest text-ink/60">
                 Оренда безкоштовна від
               </span>
               <span className="font-display text-2xl font-bold">
@@ -157,8 +166,8 @@ export default async function MachinePage({
               <h2 className="font-display text-lg font-bold">Кому — ні:</h2>
               <ul className="mt-4 space-y-2">
                 {NOT_FIT_AUDIENCE.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-ink/40">
-                    <span className="block size-4 shrink-0 text-center leading-4 text-ink/30">
+                  <li key={f} className="flex items-center gap-3 text-ink/60">
+                    <span className="block size-4 shrink-0 text-center leading-4 text-ink/50">
                       ×
                     </span>
                     {f}
@@ -197,7 +206,7 @@ export default async function MachinePage({
           </div>
 
           <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
-            <p className="text-center text-sm text-paper/45">
+            <p className="text-center text-sm text-paper/60">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source={`Модель — ${machine.machine}`} className="mt-5" />

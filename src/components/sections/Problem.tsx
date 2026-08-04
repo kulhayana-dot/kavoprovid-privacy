@@ -180,7 +180,7 @@ export function Problem() {
     >
       <div className="mx-auto max-w-7xl px-6 pb-16 pt-28 lg:px-8 lg:pb-0">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/60">
             Знайомо?
           </span>
           <RevealText
@@ -189,10 +189,10 @@ export function Problem() {
           >
             Кавомашина — це одна річ в офісі. Проблем навколо неї — п&apos;ять.
           </RevealText>
-          <p className="mt-5 text-ink/50 lg:hidden">
+          <p className="mt-5 text-ink/60 lg:hidden">
             Гортайте — кожна проблема веде до наступної.
           </p>
-          <p className="mt-5 hidden items-center gap-2 text-ink/50 lg:flex">
+          <p className="mt-5 hidden items-center gap-2 text-ink/60 lg:flex">
             <span aria-hidden="true">↓</span>
             Прокрутіть — камера проведе вас крізь розрив за розривом.
           </p>
@@ -204,7 +204,7 @@ export function Problem() {
         className="relative overflow-hidden lg:h-screen"
       >
         {pinned && (
-          <div className="font-label pointer-events-none absolute left-6 top-8 z-10 text-sm tracking-widest text-ink/40 lg:left-8">
+          <div className="font-label pointer-events-none absolute left-6 top-8 z-10 text-sm tracking-widest text-ink/60 lg:left-8">
             {String(active + 1).padStart(2, "0")} / {String(BREAKS.length).padStart(2, "0")}
           </div>
         )}

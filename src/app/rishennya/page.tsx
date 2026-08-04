@@ -3,10 +3,26 @@ import Link from "next/link";
 import { MACHINES } from "@/lib/machines";
 import { LeadForm } from "@/components/LeadForm";
 
+const TITLE = "Оренда кавомашини для офісу — 5 моделей | Kavoprovid";
+const DESCRIPTION =
+  "Оренда кавомашини для офісу в Києві та Київській області — 5 перевірених моделей. Апарат, зерно, сервіс і підтримка в одного партнера.";
+
 export const metadata: Metadata = {
-  title: "Оренда кавомашини для офісу — 5 моделей | Kavoprovid",
-  description:
-    "Оренда кавомашини для офісу в Києві та Київській області — 5 перевірених моделей. Апарат, зерно, сервіс і підтримка в одного партнера.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "uk_UA",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RishennyaPage() {
@@ -38,7 +54,7 @@ export default function RishennyaPage() {
                 className="chamfer group flex flex-col border border-ink/10 bg-ink/[0.02] p-7 transition-colors hover:border-signal"
               >
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/50">
+                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
                     {m.tag}
                   </span>
                   {m.badge && (

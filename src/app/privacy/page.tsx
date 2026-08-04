@@ -10,12 +10,12 @@ export default function PrivacyPage() {
   return (
     <>
       <Header />
-      <main className="bg-paper pb-24 pt-32 text-ink">
+      <main id="main-content" className="bg-paper pb-24 pt-32 text-ink">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Політика конфіденційності сайту Kavoprovid
           </h1>
-          <p className="mt-3 text-sm text-ink/50">
+          <p className="mt-3 text-sm text-ink/60">
             Дата набрання чинності: 3 серпня 2026 р.
           </p>
 
