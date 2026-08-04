@@ -63,21 +63,29 @@ export const MACHINES: Machine[] = [
     ],
   },
   {
-    slug: "dr-coffee-coffeebar-s",
-    machine: "Dr. Coffee Coffeebar S",
+    slug: "dr-coffee-coffeebar-plus",
+    machine: "Dr. Coffee Coffeebar Plus",
     tag: "Для щоденного навантаження",
     threshold: 15,
-    metaTitle: "Оренда кавомашини Dr. Coffee Coffeebar S для офісу — Kavoprovid",
+    metaTitle: "Оренда кавомашини Dr. Coffee Coffeebar Plus для офісу — Kavoprovid",
     metaDescription:
-      "Dr. Coffee Coffeebar S витримує щоденний потік людей в офісі. Оренда для бізнесу в Києві та Київській області. 7 днів на пробу.",
+      "Dr. Coffee Coffeebar Plus витримує щоденний потік людей в офісі. Оренда для бізнесу в Києві та Київській області. 7 днів на пробу.",
     intro:
-      "Dr. Coffee Coffeebar S зібрана під щоденний потік людей: металевий корпус витримує інтенсивне використання, а чашка готується за секунди — без черги біля апарата в пікові години.",
+      "Dr. Coffee Coffeebar Plus зібрана під щоденний потік людей: металевий корпус витримує інтенсивне використання, а чашка готується за секунди — без черги біля апарата в пікові години.",
     features: [
       "Металевий корпус витримує щоденний потік людей",
       "24 напої без компромісів у смаку",
       "Чашка готова за секунди, не за хвилини",
       "Холодильник для молока в комплекті",
     ],
+    photo: {
+      src: "/machines/dr-coffee-coffeebar-plus.png",
+      callouts: [
+        { x: 0.428, y: 0.218, label: "Металевий корпус", side: "left" },
+        { x: 0.404, y: 0.342, label: "24 напої без компромісів", side: "right" },
+        { x: 0.414, y: 0.5, label: "Чашка за секунди", side: "left" },
+      ],
+    },
   },
   {
     slug: "dr-coffee-coffeecenter",
