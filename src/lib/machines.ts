@@ -68,14 +68,14 @@ export const MACHINES: Machine[] = [
     ],
     photo: {
       src: "/machines/dr-coffee-minibar-s-with-fridge.png",
-      aspectClassName: "aspect-[1679/1239]",
+      aspectClassName: "aspect-[1642/1239]",
       marginPct: 14,
       callouts: [
         { x: 0.3, y: 0.06, label: "24–30 напоїв", side: "left" },
         { x: 0.19, y: 0.2, label: "Простий екран", side: "left" },
         { x: 0.2, y: 0.53, label: "Молочна піна", side: "left" },
-        { x: 0.745, y: 0.445, label: "Регульована температура", side: "right" },
-        { x: 0.73, y: 0.72, label: "Молоко в комплекті", side: "right" },
+        { x: 0.735, y: 0.445, label: "Регульована температура", side: "right" },
+        { x: 0.72, y: 0.72, label: "Молоко в комплекті", side: "right" },
       ],
     },
   },
@@ -97,7 +97,7 @@ export const MACHINES: Machine[] = [
     ],
     photo: {
       src: "/machines/dr-coffee-coffeebar-plus-with-fridge.png",
-      aspectClassName: "aspect-[683/504]",
+      aspectClassName: "aspect-[47/36]",
       marginPct: 14,
       callouts: [
         { x: 0.42, y: 0.05, label: "Металевий корпус", side: "left" },
