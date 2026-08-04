@@ -15,7 +15,12 @@ export type Machine = {
   metaDescription: string;
   intro: string;
   features: string[];
-  photo?: { src: string; callouts: PhotoCallout[] };
+  photo?: {
+    src: string;
+    callouts: PhotoCallout[];
+    aspectClassName?: string;
+    marginPct?: number;
+  };
 };
 
 export const MACHINES: Machine[] = [
@@ -61,6 +66,18 @@ export const MACHINES: Machine[] = [
       "Молочна піна як у бариста",
       "Холодильник для молока в комплекті",
     ],
+    photo: {
+      src: "/machines/dr-coffee-minibar-s-with-fridge.png",
+      aspectClassName: "aspect-[10/9]",
+      marginPct: 14,
+      callouts: [
+        { x: 0.356, y: 0.104, label: "24–30 напоїв", side: "left" },
+        { x: 0.356, y: 0.254, label: "Простий екран", side: "left" },
+        { x: 0.363, y: 0.5, label: "Молочна піна", side: "left" },
+        { x: 0.622, y: 0.456, label: "Регульована температура", side: "right" },
+        { x: 0.63, y: 0.658, label: "Молоко в комплекті", side: "right" },
+      ],
+    },
   },
   {
     slug: "dr-coffee-coffeebar-plus",
@@ -79,11 +96,15 @@ export const MACHINES: Machine[] = [
       "Холодильник для молока в комплекті",
     ],
     photo: {
-      src: "/machines/dr-coffee-coffeebar-plus.png",
+      src: "/machines/dr-coffee-coffeebar-plus-with-fridge.png",
+      aspectClassName: "aspect-[4/3]",
+      marginPct: 14,
       callouts: [
-        { x: 0.428, y: 0.218, label: "Металевий корпус", side: "left" },
-        { x: 0.404, y: 0.342, label: "24 напої без компромісів", side: "right" },
-        { x: 0.414, y: 0.5, label: "Чашка за секунди", side: "left" },
+        { x: 0.342, y: 0.104, label: "Металевий корпус", side: "left" },
+        { x: 0.262, y: 0.236, label: "24 напої", side: "left" },
+        { x: 0.277, y: 0.5, label: "Чашка за секунди", side: "left" },
+        { x: 0.68, y: 0.509, label: "Регульована температура", side: "right" },
+        { x: 0.687, y: 0.72, label: "Молоко в комплекті", side: "right" },
       ],
     },
   },

@@ -7,10 +7,6 @@ import { cn } from "@/lib/cn";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** % of card width reserved on each side for the callout line + label,
- *  matching the image's own inset (see the <img> className below). */
-const GUTTER = 22;
-
 export type PhotoCallout = {
   /** anchor point on the photo, 0..1 normalized */
   x: number;
@@ -23,13 +19,22 @@ export function MachinePhoto({
   src,
   alt,
   callouts,
-  className,
+  className = "max-w-md",
+  aspectClassName = "aspect-[4/5]",
+  marginPct = 26,
 }: {
   src: string;
   alt: string;
   callouts: PhotoCallout[];
+  /** controls width/margin only — do not pass another aspect-* class here */
   className?: string;
+  aspectClassName?: string;
+  /** % of card width/height reserved around the image for callout lines +
+   *  labels; also drives where the image itself sits. Narrow product shots
+   *  want a big margin (default 26); a wide two-subject composite needs less. */
+  marginPct?: number;
 }) {
+  const gutter = marginPct;
   const rootRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -88,7 +93,8 @@ export function MachinePhoto({
     <div
       ref={rootRef}
       className={cn(
-        "relative mx-auto aspect-[4/5] w-full max-w-xl overflow-hidden border border-paper/10 bg-ink",
+        "relative mx-auto w-full overflow-hidden border border-paper/10 bg-ink",
+        aspectClassName,
         className,
       )}
     >
@@ -108,7 +114,15 @@ export function MachinePhoto({
       <img
         src={src}
         alt={alt}
-        className="absolute inset-y-[6%] inset-x-[26%] h-[88%] w-[48%] object-contain"
+        className="absolute object-contain"
+        style={{
+          top: "6%",
+          bottom: "6%",
+          left: `${marginPct}%`,
+          right: `${marginPct}%`,
+          width: `${100 - marginPct * 2}%`,
+          height: "88%",
+        }}
       />
 
       <svg
@@ -119,7 +133,7 @@ export function MachinePhoto({
         aria-hidden="true"
       >
         {callouts.map((c) => {
-          const endX = c.side === "left" ? GUTTER : 100 - GUTTER;
+          const endX = c.side === "left" ? gutter : 100 - gutter;
           return (
             <line
               key={c.label}
@@ -147,7 +161,7 @@ export function MachinePhoto({
       </svg>
 
       {callouts.map((c) => {
-        const endX = c.side === "left" ? GUTTER : 100 - GUTTER;
+        const endX = c.side === "left" ? gutter : 100 - gutter;
         const edgeStyle =
           c.side === "left"
             ? { right: `${100 - endX}%` }
@@ -157,12 +171,13 @@ export function MachinePhoto({
             key={c.label}
             data-callout-label
             className={cn(
-              "font-label pointer-events-none absolute max-w-[6.5rem] text-[10px] uppercase leading-snug tracking-widest text-paper/70",
+              "font-label pointer-events-none absolute text-[10px] uppercase leading-snug tracking-widest text-paper/70",
               c.side === "left" ? "text-right" : "text-left",
             )}
             style={{
               top: `${c.y * 100}%`,
               ...edgeStyle,
+              maxWidth: `min(6.5rem, calc(${gutter}% - 10px))`,
               transform: "translateY(-50%)",
               margin: c.side === "left" ? "0 6px 0 0" : "0 0 0 6px",
             }}

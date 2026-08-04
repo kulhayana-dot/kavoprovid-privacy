@@ -97,7 +97,7 @@ export default async function MachinePage({
           <div
             className={
               machine.photo
-                ? "grid gap-12 lg:grid-cols-[420px_1fr] lg:items-center lg:gap-16"
+                ? "grid gap-12 lg:grid-cols-[480px_1fr] lg:items-center lg:gap-16"
                 : "max-w-4xl"
             }
           >
@@ -139,6 +139,9 @@ export default async function MachinePage({
                 src={machine.photo.src}
                 alt={machine.machine}
                 callouts={machine.photo.callouts}
+                aspectClassName={machine.photo.aspectClassName}
+                marginPct={machine.photo.marginPct}
+                className="max-w-lg"
               />
             )}
           </div>
@@ -167,7 +170,7 @@ export default async function MachinePage({
             </div>
           </div>
 
-          {machine.slug.startsWith("dr-coffee") && (
+          {machine.slug.startsWith("dr-coffee") && !machine.photo && (
             <div className="mt-16 border-t border-ink/10 pt-14">
               <h2 className="font-display text-lg font-bold">У комплекті:</h2>
               <p className="mt-2 max-w-lg text-ink/60">
