@@ -1,3 +1,10 @@
+export type PhotoCallout = {
+  x: number;
+  y: number;
+  label: string;
+  side: "left" | "right";
+};
+
 export type Machine = {
   slug: string;
   machine: string;
@@ -8,6 +15,7 @@ export type Machine = {
   metaDescription: string;
   intro: string;
   features: string[];
+  photo?: { src: string; callouts: PhotoCallout[] };
 };
 
 export const MACHINES: Machine[] = [
@@ -26,6 +34,15 @@ export const MACHINES: Machine[] = [
       "8 напоїв — цього досить майже завжди",
       "Какао й вершки без окремого бару",
     ],
+    photo: {
+      src: "/machines/bianchi-gaia-touch.png",
+      callouts: [
+        { x: 0.428, y: 0.183, label: "Італійська збірка", side: "left" },
+        { x: 0.476, y: 0.324, label: "8 напоїв", side: "right" },
+        { x: 0.471, y: 0.553, label: "Какао й вершки", side: "left" },
+        { x: 0.471, y: 0.817, label: "Від 10 кг кави", side: "right" },
+      ],
+    },
   },
   {
     slug: "dr-coffee-minibar-s",

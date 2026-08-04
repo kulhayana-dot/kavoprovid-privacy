@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { LeadForm } from "@/components/LeadForm";
+import { MachinePhoto } from "@/components/MachinePhoto";
 import { IconCheck } from "@/components/icons";
 import { MACHINES, getMachine } from "@/lib/machines";
 import { FIT_AUDIENCE, NOT_FIT_AUDIENCE } from "@/lib/audience";
@@ -92,36 +93,54 @@ export default async function MachinePage({
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <Link
-            href="/rishennya"
-            className="text-sm text-paper/50 transition-colors hover:text-paper/80"
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div
+            className={
+              machine.photo
+                ? "grid gap-12 lg:grid-cols-[420px_1fr] lg:items-center lg:gap-16"
+                : "max-w-4xl"
+            }
           >
-            ← Усі рішення
-          </Link>
+            <div>
+              <Link
+                href="/rishennya"
+                className="text-sm text-paper/50 transition-colors hover:text-paper/80"
+              >
+                ← Усі рішення
+              </Link>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <span className="font-label border border-paper/20 px-3 py-1 text-[11px] uppercase tracking-widest text-paper/50">
-              {machine.tag}
-            </span>
-            {machine.badge && (
-              <span className="font-label bg-signal px-3 py-1 text-[11px] uppercase tracking-widest text-ink">
-                {machine.badge}
-              </span>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <span className="font-label border border-paper/20 px-3 py-1 text-[11px] uppercase tracking-widest text-paper/50">
+                  {machine.tag}
+                </span>
+                {machine.badge && (
+                  <span className="font-label bg-signal px-3 py-1 text-[11px] uppercase tracking-widest text-ink">
+                    {machine.badge}
+                  </span>
+                )}
+              </div>
+
+              <h1 className="font-display mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                {machine.machine} в оренду для офісу
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-paper/60">{machine.intro}</p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button href="tel:+380636271567">Підключити офіс</Button>
+                <Button href="#faq" variant="secondary">
+                  Умови й запитання
+                </Button>
+              </div>
+            </div>
+
+            {machine.photo && (
+              <MachinePhoto
+                src={machine.photo.src}
+                alt={machine.machine}
+                callouts={machine.photo.callouts}
+              />
             )}
-          </div>
-
-          <h1 className="font-display mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {machine.machine} в оренду для офісу
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-paper/60">{machine.intro}</p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="tel:+380636271567">Підключити офіс</Button>
-            <Button href="#faq" variant="secondary">
-              Умови й запитання
-            </Button>
           </div>
         </div>
       </section>
