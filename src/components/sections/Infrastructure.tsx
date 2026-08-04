@@ -62,7 +62,7 @@ export function Infrastructure() {
           },
           onUpdate: () => {
             const p = state.progress;
-            lineFillRef.current!.style.transform = `scaleY(${p})`;
+            lineFillRef.current!.style.clipPath = `inset(0 0 ${(1 - p) * 100}% 0)`;
 
             const idx = Math.min(n - 1, Math.floor(p * n + 0.0001));
             if (idx !== lastIndexRef.current) {
@@ -131,7 +131,7 @@ export function Infrastructure() {
             <div className="absolute left-6 top-0 bottom-0 w-1 -translate-x-1/2 bg-paper/10" />
             <div
               ref={lineFillRef}
-              className="absolute left-6 top-0 bottom-0 w-1 -translate-x-1/2 origin-top scale-y-0 bg-signal motion-reduce:scale-y-100"
+              className="pipe-fill absolute left-6 top-0 bottom-0 w-1 -translate-x-1/2"
             />
 
             <div className="relative flex flex-col justify-between gap-8 sm:gap-0">
