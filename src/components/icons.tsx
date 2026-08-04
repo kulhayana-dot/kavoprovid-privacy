@@ -215,3 +215,22 @@ export function IconDocument({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconDroplet({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 3c3.5 4 6 7.4 6 10.5a6 6 0 1 1-12 0C6 10.4 8.5 7 12 3Z" />
+    </svg>
+  );
+}
+
+export function IconWifi({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 9.5a12 12 0 0 1 16 0" />
+      <path d="M7.3 13a8 8 0 0 1 9.4 0" />
+      <path d="M10.5 16.3a4 4 0 0 1 3 0" />
+      <circle cx="12" cy="19.2" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}

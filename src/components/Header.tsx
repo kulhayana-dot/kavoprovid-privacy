@@ -21,7 +21,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link href="/" aria-label="Kavoprovid — на початок">
-          <Logo tone="dark" className="h-4 sm:h-5" />
+          <Logo tone="dark" className="h-7 sm:h-9" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
