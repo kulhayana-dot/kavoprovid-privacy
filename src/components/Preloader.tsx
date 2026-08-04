@@ -78,6 +78,8 @@ export function Preloader() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/brand/kavoprovid-mark-dark.svg"
+          width={290}
+          height={270}
           alt=""
           className="h-12 w-auto"
         />
