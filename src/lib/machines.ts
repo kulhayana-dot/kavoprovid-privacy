@@ -117,3 +117,12 @@ export const MACHINES: Machine[] = [
 export function getMachine(slug: string): Machine | undefined {
   return MACHINES.find((m) => m.slug === slug);
 }
+
+/** Included with every Dr. Coffee rental — same unit across all three models. */
+export const MILK_FRIDGE_PHOTO = {
+  src: "/machines/milk-fridge.png",
+  callouts: [
+    { x: 0.42, y: 0.3, label: "Регульована температура", side: "left" as const },
+    { x: 0.42, y: 0.57, label: "Молоко завжди свіже", side: "right" as const },
+  ],
+};

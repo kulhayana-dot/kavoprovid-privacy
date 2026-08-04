@@ -5,7 +5,7 @@ import { Button } from "@/components/Button";
 import { LeadForm } from "@/components/LeadForm";
 import { MachinePhoto } from "@/components/MachinePhoto";
 import { IconCheck } from "@/components/icons";
-import { MACHINES, getMachine } from "@/lib/machines";
+import { MACHINES, MILK_FRIDGE_PHOTO, getMachine } from "@/lib/machines";
 import { FIT_AUDIENCE, NOT_FIT_AUDIENCE } from "@/lib/audience";
 
 export function generateStaticParams() {
@@ -166,6 +166,22 @@ export default async function MachinePage({
               </span>
             </div>
           </div>
+
+          {machine.slug.startsWith("dr-coffee") && (
+            <div className="mt-16 border-t border-ink/10 pt-14">
+              <h2 className="font-display text-lg font-bold">У комплекті:</h2>
+              <p className="mt-2 max-w-lg text-ink/60">
+                Холодильник для молока йде разом з апаратом — без окремої
+                оренди чи пошуку постачальника.
+              </p>
+              <MachinePhoto
+                src={MILK_FRIDGE_PHOTO.src}
+                alt="Холодильник для молока"
+                callouts={MILK_FRIDGE_PHOTO.callouts}
+                className="mt-8 max-w-sm"
+              />
+            </div>
+          )}
 
           <div className="mt-16 grid gap-10 border-t border-ink/10 pt-14 sm:grid-cols-2">
             <div>
