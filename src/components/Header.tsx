@@ -9,10 +9,9 @@ import { Button } from "@/components/Button";
 const NAV = [
   { href: "/office", label: "Офіси" },
   { href: "/production", label: "Виробництва" },
-  { href: "/#infrastructure", label: "Інфраструктура" },
   { href: "/rishennya", label: "Рішення" },
+  { href: "/kava-v-biznesi", label: "Кава в бізнесі" },
   { href: "/#why", label: "Переваги" },
-  { href: "/#process", label: "Процес" },
   { href: "/#coverage", label: "Покриття" },
 ];
 

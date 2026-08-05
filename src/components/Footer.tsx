@@ -9,6 +9,7 @@ const NAV = [
   { href: "/rishennya", label: "Рішення" },
   { href: "/#why", label: "Переваги" },
   { href: "/#process", label: "Процес" },
+  { href: "/kava-v-biznesi", label: "Кава в бізнесі" },
   { href: "/#coverage", label: "Покриття" },
 ];
 

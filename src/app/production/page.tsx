@@ -236,6 +236,13 @@ export default function ProductionPage() {
                 співробітників × встановлений ліміт, без несподіванок і без
                 ручного контролю споживання.
               </p>
+              <Link
+                href="/kava-v-biznesi/kontrol-vytrat-na-kavu-na-vyrobnytstvi"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors hover:decoration-ink"
+              >
+                Детальніше про систему лімітів
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>
