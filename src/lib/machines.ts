@@ -126,6 +126,17 @@ export const MACHINES: Machine[] = [
       "Не зупиняється навіть у пікові години",
       "Холодильник для молока в комплекті",
     ],
+    photo: {
+      src: "/products/dr-coffee-coffeecenter.png",
+      aspectClassName: "aspect-square",
+      marginPct: 17,
+      callouts: [
+        { x: 0.401, y: 0.174, label: "Контейнери, які не спорожніють", side: "left" },
+        { x: 0.388, y: 0.324, label: "Не зупиняється в пікові години", side: "left" },
+        { x: 0.302, y: 0.5, label: "Промислове навантаження", side: "left" },
+        { x: 0.632, y: 0.456, label: "Холодильник у комплекті", side: "right" },
+      ],
+    },
   },
   {
     slug: "bianchi-talia-touch",
