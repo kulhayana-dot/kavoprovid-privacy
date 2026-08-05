@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { LeadForm } from "@/components/LeadForm";
 import { RevealText } from "@/components/RevealText";
-import { IconCheck } from "@/components/icons";
+import { IconCheck, IconGauge } from "@/components/icons";
 import { MACHINES } from "@/lib/machines";
 
 const TITLE = "Кава для виробництва — кавова інфраструктура на зміну | Kavoprovid";
@@ -40,6 +40,7 @@ const WE_HANDLE = [
   "Постачання великих обсягів кави та витратних матеріалів",
   "Планове обслуговування без зупинки виробничого процесу",
   "Технічну підтримку зі швидким виїздом при поломці",
+  "Контроль витрат — денний ліміт порцій на кожного співробітника",
 ];
 
 const STEPS = [
@@ -85,6 +86,10 @@ const FAQ = [
   {
     q: "Яка географія обслуговування?",
     a: "Київ та Київська область — технік доїжджає в межах години, а не днів.",
+  },
+  {
+    q: "Чи можна контролювати витрати на каву?",
+    a: "Так — для великих виробництв підключаємо облік на картках, які вже є на майданчику. Компанія встановлює денний ліміт напоїв на співробітника, апарат не видає понад норму, а витрати стають прогнозованими.",
   },
 ];
 
@@ -200,6 +205,37 @@ export default function ProductionPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-ink/10 bg-paper py-20 text-ink sm:py-28">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <div className="chamfer grid gap-10 border border-ink/10 bg-ink/[0.02] p-8 sm:p-10 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-14">
+            <div className="chamfer-sm flex size-14 items-center justify-center border border-ink/15 bg-paper">
+              <IconGauge className="size-6 text-signal" />
+            </div>
+            <div>
+              <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+                Для великих виробництв
+              </span>
+              <h2 className="font-display mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+                Контрольовані витрати на каву.
+              </h2>
+              <p className="mt-4 max-w-2xl text-ink/60">
+                Для виробництв із великим споживанням ми підключаємо систему
+                обліку на тих самих картках, які вже використовуються на
+                майданчику — наприклад, для доступу через прохідну. До картки
+                прив&apos;язується денний ліміт напоїв: компанія встановлює
+                норму, скажімо, три порції на співробітника на день —
+                апарат не видасть понад неї. Пити менше можна, більше — ні.
+              </p>
+              <p className="mt-4 max-w-2xl text-ink/60">
+                Це дає прогнозовані витрати на каву щомісяця: кількість
+                співробітників × встановлений ліміт, без несподіванок і без
+                ручного контролю споживання.
+              </p>
             </div>
           </div>
         </div>
