@@ -36,7 +36,10 @@ export function HeroUtilityStack({ className }: { className?: string }) {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // the component is only visible from the lg breakpoint up (hidden
+      // lg:block); below that its SVG has no render box, and calling
+      // getTotalLength() on a non-rendered geometry element throws.
+      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 1024px)", () => {
         const svg = svgRef.current;
         if (!svg) return;
 

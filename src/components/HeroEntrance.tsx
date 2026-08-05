@@ -9,7 +9,9 @@ const container: Variants = {
   show: {
     transition: {
       staggerChildren: 0.12,
-      delayChildren: PRELOADER_SECONDS + 0.35,
+      // text follows the hero pipeline's draw-in (bars + logo + connector,
+      // ~1.65s) so it reads as a sequence, not simultaneous clutter.
+      delayChildren: PRELOADER_SECONDS + 1.85,
     },
   },
 };
