@@ -296,19 +296,31 @@ export default function ProductionPage() {
               <Link
                 key={m.slug}
                 href={`/rishennya/${m.slug}`}
-                className="chamfer group flex flex-col border border-ink/10 bg-ink/[0.02] p-6 transition-colors hover:border-signal"
+                className="chamfer group flex flex-col overflow-hidden border border-ink/10 bg-ink/[0.02] transition-colors hover:border-signal"
               >
-                <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
-                  {m.tag}
-                </span>
-                <h3 className="font-display mt-4 text-lg font-bold">{m.machine}</h3>
-                <p className="font-label mt-2 text-[11px] uppercase tracking-widest text-ink/40">
-                  {m.audienceFit}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
-                  Детальніше про модель
-                  <span aria-hidden="true">→</span>
-                </span>
+                {m.photo && (
+                  <div className="relative aspect-[4/3] bg-ink">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={m.photo.src}
+                      alt={m.machine}
+                      className="absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col p-6">
+                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
+                    {m.tag}
+                  </span>
+                  <h3 className="font-display mt-4 text-lg font-bold">{m.machine}</h3>
+                  <p className="font-label mt-2 text-[11px] uppercase tracking-widest text-ink/40">
+                    {m.audienceFit}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
+                    Детальніше про модель
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
