@@ -3,9 +3,9 @@ import Link from "next/link";
 import { MACHINES } from "@/lib/machines";
 import { LeadForm } from "@/components/LeadForm";
 
-const TITLE = "Оренда кавомашини для офісу — 5 моделей | Kavoprovid";
+const TITLE = "Кавове обладнання для офісу та виробництва — Kavoprovid";
 const DESCRIPTION =
-  "Оренда кавомашини для офісу в Києві та Київській області — 5 перевірених моделей. Апарат, зерно, сервіс і підтримка в одного партнера.";
+  "Обладнання — частина кавової інфраструктури Kavoprovid: апарат, кава, сервіс і підтримка працюють як одна система для офісів і виробництв у Києві та Київській області.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -71,12 +71,13 @@ export default function RishennyaPage() {
             Кавові рішення
           </span>
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            П&apos;ять моделей для будь-якого офісу.
+            Обладнання — частина кавової інфраструктури.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-paper/60">
-            Кожна модель — під конкретне навантаження, а не універсальний
-            каталог на вибір. Оберіть свою — характеристики й умови оренди
-            на кожній сторінці.
+            Ми не продаємо кавомашини поштучно. Кожна модель — вузол одного
+            рішення: обладнання, кава, сервіс і підтримка працюють разом.
+            Оберіть модель під ваше навантаження — решту інфраструктури ми
+            вже зібрали навколо неї.
           </p>
         </div>
       </section>
@@ -105,12 +106,16 @@ export default function RishennyaPage() {
                   {m.machine}
                 </h2>
 
+                <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/40">
+                  {m.audienceFit}
+                </p>
+
                 <p className="mt-3 flex-1 text-sm text-ink/60">
                   {m.features[0]}
                 </p>
 
                 <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
-                  Детальніше
+                  Підібрати рішення
                   <span aria-hidden="true">→</span>
                 </span>
               </Link>

@@ -162,7 +162,15 @@ export default async function MachinePage({
                 {machine.machine} в оренду для офісу
               </h1>
 
+              <p className="font-label mt-3 text-xs uppercase tracking-widest text-paper/40">
+                Підходить: {machine.audienceFit}
+              </p>
+
               <p className="mt-6 max-w-2xl text-paper/60">{machine.intro}</p>
+
+              <p className="mt-4 max-w-2xl border-l-2 border-signal pl-4 text-sm text-paper/50">
+                {machine.infraNote}
+              </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button href="tel:+380636271567">Підключити офіс</Button>
