@@ -24,8 +24,12 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="group relative text-sm text-paper/70 transition-colors hover:text-paper"
+              className="group relative flex items-center gap-2.5 text-sm text-paper/70 transition-colors hover:text-paper"
             >
+              <span
+                aria-hidden="true"
+                className="size-1.5 shrink-0 border border-paper/30 transition-all duration-200 group-hover:scale-125 group-hover:border-signal group-hover:bg-signal"
+              />
               {item.label}
               <span className="absolute -bottom-1 left-0 h-px w-full overflow-hidden bg-paper/15">
                 <span className="absolute inset-y-0 left-0 w-1/3 bg-signal opacity-0 transition-opacity duration-200 group-hover:animate-nav-flow group-hover:opacity-100" />
