@@ -68,7 +68,7 @@ const organizationJsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+380-63-627-15-67",
-    email: "hello@kavoprovid.com.ua",
+    email: "office@kavoprovid.com.ua",
     contactType: "sales",
     areaServed: "UA-32",
   },

@@ -9,18 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const RADIUS = 150;
 const CENTER = 200;
+const POINT_COUNT = 8;
 
-const TOWNS = [
-  "Бровари",
-  "Ірпінь",
-  "Буча",
-  "Бориспіль",
-  "Вишневе",
-  "Обухів",
-].map((name, i, arr) => {
-  const angle = (i / arr.length) * Math.PI * 2 - Math.PI / 2;
+const POINTS = Array.from({ length: POINT_COUNT }, (_, i) => {
+  const angle = (i / POINT_COUNT) * Math.PI * 2 - Math.PI / 2;
   return {
-    name,
     x: CENTER + RADIUS * Math.cos(angle),
     y: CENTER + RADIUS * Math.sin(angle),
   };
@@ -32,14 +25,13 @@ export function Coverage() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const lines = svgRef.current?.querySelectorAll<SVGLineElement>(
-        "[data-spoke]",
-      );
-      const dots = svgRef.current?.querySelectorAll<SVGCircleElement>(
-        "[data-town]",
-      );
-      if (!lines || !dots) return;
+      const ring = svgRef.current?.querySelector<SVGCircleElement>("[data-ring]");
+      const lines = svgRef.current?.querySelectorAll<SVGLineElement>("[data-spoke]");
+      const dots = svgRef.current?.querySelectorAll<SVGCircleElement>("[data-point]");
+      if (!ring || !lines || !dots) return;
 
+      const ringLength = ring.getTotalLength();
+      gsap.set(ring, { strokeDasharray: ringLength, strokeDashoffset: ringLength });
       gsap.set(lines, { strokeDasharray: RADIUS, strokeDashoffset: RADIUS });
       gsap.set(dots, { opacity: 0, scale: 0, transformOrigin: "center" });
 
@@ -47,16 +39,17 @@ export function Coverage() {
         scrollTrigger: { trigger: svgRef.current, start: "top 75%" },
       });
 
-      tl.to(lines, {
-        strokeDashoffset: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.12,
-      }).to(
-        dots,
-        { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", stagger: 0.12 },
-        "-=0.6",
-      );
+      tl.to(ring, { strokeDashoffset: 0, duration: 1, ease: "power2.out" })
+        .to(
+          lines,
+          { strokeDashoffset: 0, duration: 0.6, ease: "power2.out", stagger: 0.06 },
+          "-=0.7",
+        )
+        .to(
+          dots,
+          { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.06 },
+          "-=0.5",
+        );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -94,27 +87,37 @@ export function Coverage() {
               className="h-full w-full"
               aria-hidden="true"
             >
-              {TOWNS.map((t, i) => (
+              <circle
+                data-ring
+                cx={CENTER}
+                cy={CENTER}
+                r={RADIUS}
+                fill="none"
+                stroke="rgba(255,255,255,0.2)"
+                strokeWidth={1.5}
+              />
+
+              {POINTS.map((p, i) => (
                 <line
-                  key={t.name}
+                  key={i}
                   data-spoke={i}
                   x1={CENTER}
                   y1={CENTER}
-                  x2={t.x}
-                  y2={t.y}
-                  stroke="rgba(255,255,255,0.25)"
-                  strokeWidth={1.5}
+                  x2={p.x}
+                  y2={p.y}
+                  stroke="rgba(255,255,255,0.15)"
+                  strokeWidth={1}
                 />
               ))}
 
-              {TOWNS.map((t) => (
+              {POINTS.map((p, i) => (
                 <circle
-                  key={t.name}
-                  data-town={t.name}
-                  cx={t.x}
-                  cy={t.y}
-                  r={7}
-                  className="fill-paper"
+                  key={i}
+                  data-point={i}
+                  cx={p.x}
+                  cy={p.y}
+                  r={5}
+                  className="fill-paper/50"
                 />
               ))}
 
@@ -131,18 +134,15 @@ export function Coverage() {
               Київ
             </span>
 
-            {TOWNS.map((t) => (
-              <span
-                key={t.name}
-                className="font-label pointer-events-none absolute -translate-x-1/2 translate-y-3 text-[11px] uppercase tracking-widest text-paper/60"
-                style={{
-                  left: `${(t.x / 400) * 100}%`,
-                  top: `${(t.y / 400) * 100}%`,
-                }}
-              >
-                {t.name}
-              </span>
-            ))}
+            <span
+              className="font-label pointer-events-none absolute -translate-x-1/2 -translate-y-full text-[11px] uppercase tracking-widest text-paper/50"
+              style={{
+                left: `${(CENTER / 400) * 100}%`,
+                top: `${((CENTER - RADIUS) / 400) * 100}%`,
+              }}
+            >
+              та Київська область
+            </span>
           </div>
         </div>
       </div>

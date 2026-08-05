@@ -43,10 +43,10 @@ export function Footer() {
               063 627-15-67
             </a>
             <a
-              href="mailto:hello@kavoprovid.com.ua"
+              href="mailto:office@kavoprovid.com.ua"
               className="hover:text-paper"
             >
-              hello@kavoprovid.com.ua
+              office@kavoprovid.com.ua
             </a>
           </div>
         </div>
