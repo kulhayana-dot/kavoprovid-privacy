@@ -7,12 +7,20 @@ import { PRELOADER_SECONDS } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// The wordmark lockup's own bars sit at these vertical bands within its
+// viewBox (0 190 566.929 100): top bar 11–29%, bottom bar 66–84%. Full-bleed
+// bars are positioned at the same bands, behind the logo, so they read as
+// the same two lines continuing past the wordmark rather than a second,
+// unrelated pair.
+const TOP_BAND = { top: "11%", height: "18%" };
+const BOTTOM_BAND = { top: "66%", height: "18%" };
+
 /**
- * The Kavoprovid mark is already a white "K" sandwiched between two
- * signal-yellow bars — the brand's own pipe motif. This extends those
- * bars into full-bleed lines that run edge to edge (reading as if the
- * system continues past the frame) while the mark itself stays
- * completely untouched, just large and centered between them.
+ * The official Kavoprovid wordmark is already "KAVOPROVID" sandwiched
+ * between two signal-yellow bars. This renders that lockup untouched and
+ * full-bleed bars behind it, in the same two bands, so the logo's own bars
+ * appear to keep running edge to edge — the wordmark sitting in the middle
+ * of its own infrastructure, not redrawn or reconstructed.
  */
 export function HeroPipeline() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -30,7 +38,7 @@ export function HeroPipeline() {
           scaleX: 0,
           transformOrigin: "center",
         });
-        gsap.set(logoRef.current, { opacity: 0, scale: 0.92, y: 8 });
+        gsap.set(logoRef.current, { opacity: 0, scale: 0.94, y: 8 });
         gsap.set(connectorRef.current, { scaleY: 0, transformOrigin: "top" });
 
         const tl = gsap.timeline({ delay: PRELOADER_SECONDS + 0.15 });
@@ -52,21 +60,9 @@ export function HeroPipeline() {
             "-=0.1",
           );
 
-        // subtle parallax as the hero scrolls away: the logo drifts
-        // slower than the pipeline bars, giving the lockup depth
-        // instead of moving as one flat sticker.
+        // subtle parallax as the hero scrolls away
         gsap.to(logoRef.current, {
-          y: -18,
-          ease: "none",
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.6,
-          },
-        });
-        gsap.to([topBarRef.current, bottomBarRef.current], {
-          y: (i) => (i === 0 ? -8 : 8),
+          y: -14,
           ease: "none",
           scrollTrigger: {
             trigger: rootRef.current,
@@ -89,29 +85,30 @@ export function HeroPipeline() {
 
   return (
     <div ref={rootRef} className="relative w-full">
-      <div
-        ref={topBarRef}
-        className="pipe-flow-x h-1 w-full sm:h-1.5 lg:h-2"
-        aria-hidden="true"
-      />
+      <div className="relative flex h-16 items-center justify-center sm:h-20 md:h-24 lg:h-28 xl:h-32">
+        <div
+          ref={topBarRef}
+          className="pipe-flow-x absolute inset-x-0"
+          style={TOP_BAND}
+          aria-hidden="true"
+        />
+        <div
+          ref={bottomBarRef}
+          className="pipe-flow-x absolute inset-x-0"
+          style={BOTTOM_BAND}
+          aria-hidden="true"
+        />
 
-      <div className="flex justify-center py-5 sm:py-7 lg:py-9">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={logoRef}
-          src="/brand/kavoprovid-mark-dark.svg"
-          width={290}
-          height={270}
+          src="/brand/kavoprovid-wordmark-dark.svg"
+          width={566.929}
+          height={100}
           alt="Kavoprovid"
-          className="h-24 w-auto sm:h-32 lg:h-40 xl:h-48"
+          className="relative z-10 h-full w-auto"
         />
       </div>
-
-      <div
-        ref={bottomBarRef}
-        className="pipe-flow-x h-1 w-full sm:h-1.5 lg:h-2"
-        aria-hidden="true"
-      />
 
       <div className="flex justify-center">
         <div
