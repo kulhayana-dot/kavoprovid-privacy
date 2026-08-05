@@ -27,7 +27,9 @@ export function Header() {
               className="group relative text-sm text-paper/70 transition-colors hover:text-paper"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-signal transition-transform duration-300 ease-out group-hover:scale-x-100" />
+              <span className="absolute -bottom-1 left-0 h-px w-full overflow-hidden bg-paper/15">
+                <span className="absolute inset-y-0 left-0 w-1/3 bg-signal opacity-0 transition-opacity duration-200 group-hover:animate-nav-flow group-hover:opacity-100" />
+              </span>
             </a>
           ))}
         </nav>
