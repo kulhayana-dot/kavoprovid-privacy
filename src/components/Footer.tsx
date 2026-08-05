@@ -3,6 +3,8 @@ import { Logo } from "@/components/Logo";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 const NAV = [
+  { href: "/office", label: "Офіси" },
+  { href: "/production", label: "Виробництва" },
   { href: "/#infrastructure", label: "Інфраструктура" },
   { href: "/rishennya", label: "Рішення" },
   { href: "/#why", label: "Переваги" },

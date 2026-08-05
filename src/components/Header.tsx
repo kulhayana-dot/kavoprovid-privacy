@@ -7,8 +7,10 @@ import { Logo } from "@/components/Logo";
 import { Button } from "@/components/Button";
 
 const NAV = [
+  { href: "/office", label: "Офіси" },
+  { href: "/production", label: "Виробництва" },
   { href: "/#infrastructure", label: "Інфраструктура" },
-  { href: "/#solutions", label: "Рішення" },
+  { href: "/rishennya", label: "Рішення" },
   { href: "/#why", label: "Переваги" },
   { href: "/#process", label: "Процес" },
   { href: "/#coverage", label: "Покриття" },
