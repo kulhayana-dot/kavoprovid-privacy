@@ -24,7 +24,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="group relative flex items-center gap-2.5 text-sm text-paper/70 transition-colors hover:text-paper"
+              className="group relative flex items-center gap-2.5 text-sm font-medium text-paper/85 transition-colors hover:text-paper"
             >
               <span
                 aria-hidden="true"
@@ -41,7 +41,7 @@ export function Header() {
         <div className="hidden items-center gap-6 md:flex">
           <a
             href="tel:+380636271567"
-            className="text-sm text-paper/70 transition-colors hover:text-paper"
+            className="text-sm font-medium text-paper/85 transition-colors hover:text-paper"
           >
             063 627-15-67
           </a>
@@ -82,12 +82,12 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-base text-paper/80"
+                className="text-base font-medium text-paper/90"
               >
                 {item.label}
               </a>
             ))}
-            <a href="tel:+380636271567" className="text-base text-paper/80">
+            <a href="tel:+380636271567" className="text-base font-medium text-paper/90">
               063 627-15-67
             </a>
             <Button
