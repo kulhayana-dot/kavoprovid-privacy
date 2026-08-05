@@ -142,6 +142,16 @@ export const MACHINES: Machine[] = [
       "4 сухих інгредієнти для різноманіття",
       "Дизайн, який не соромно поставити в переговорній",
     ],
+    photo: {
+      src: "/products/bianchi-vending.png",
+      aspectClassName: "aspect-square",
+      marginPct: 20,
+      callouts: [
+        { x: 0.44, y: 0.139, label: "4 інгредієнти", side: "left" },
+        { x: 0.47, y: 0.28, label: "12+ напоїв", side: "left" },
+        { x: 0.53, y: 0.518, label: "Преміальний дизайн", side: "right" },
+      ],
+    },
   },
 ];
 
