@@ -167,33 +167,8 @@ body {
   }
 }
 
-/* Continuous flow for the hero's full-bleed pipeline bars: a flat,
-   diagonal-hatched fill echoing .pipe-fill's printed-not-glowing
-   language, drifting horizontally to read as "the system runs
-   constantly" rather than a one-off entrance animation. */
-@keyframes pipe-flow-x {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 28px;
-  }
-}
-
+/* The hero's full-bleed pipeline bars: solid signal yellow, continuing
+   the wordmark's own bars edge to edge. */
 .pipe-flow-x {
   background-color: var(--color-signal);
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(0, 0, 0, 0.32) 0px,
-    rgba(0, 0, 0, 0.32) 3px,
-    transparent 3px,
-    transparent 14px
-  );
-  animation: pipe-flow-x 1.1s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pipe-flow-x {
-    animation: none;
-  }
 }

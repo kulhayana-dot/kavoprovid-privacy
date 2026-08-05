@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/cn";
-import { Logo } from "@/components/Logo";
 import { Button } from "@/components/Button";
 
 const NAV = [
@@ -21,10 +19,6 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link href="/" aria-label="Kavoprovid — на початок">
-          <Logo tone="dark" className="h-7 sm:h-9" />
-        </Link>
-
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
             <a
@@ -55,7 +49,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Меню"
-          className="chamfer-sm flex size-10 items-center justify-center border border-paper/20 md:hidden"
+          className="chamfer-sm ml-auto flex size-10 items-center justify-center border border-paper/20 md:hidden"
         >
           <span className="relative block h-3 w-4">
             <span
