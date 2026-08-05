@@ -78,6 +78,23 @@ const organizationJsonLd = {
   ],
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Кавова інфраструктура для бізнесу",
+  provider: { "@type": "Organization", name: "Kavoprovid" },
+  areaServed: [
+    { "@type": "City", name: "Київ" },
+    { "@type": "AdministrativeArea", name: "Київська область" },
+  ],
+  audience: [
+    { "@type": "BusinessAudience", audienceType: "Офіси" },
+    { "@type": "BusinessAudience", audienceType: "Виробництва" },
+  ],
+  description:
+    "Комплексна кавова інфраструктура для офісів і виробництв: обладнання, кава, витратні матеріали, постачання, сервіс і технічна підтримка від одного партнера.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -92,6 +109,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
         <a
           href="#main-content"

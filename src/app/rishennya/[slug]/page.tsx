@@ -85,11 +85,30 @@ export default async function MachinePage({
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://kavoprovid.com.ua/" },
+      { "@type": "ListItem", position: 2, name: "Рішення", item: "https://kavoprovid.com.ua/rishennya" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: machine.machine,
+        item: `https://kavoprovid.com.ua/rishennya/${machine.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
@@ -102,6 +121,25 @@ export default async function MachinePage({
             }
           >
             <div>
+              <nav aria-label="breadcrumb" className="mb-3">
+                <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/40">
+                  <li>
+                    <Link href="/" className="hover:text-paper/70">
+                      Kavoprovid
+                    </Link>
+                  </li>
+                  <li aria-hidden="true">/</li>
+                  <li>
+                    <Link href="/rishennya" className="hover:text-paper/70">
+                      Рішення
+                    </Link>
+                  </li>
+                  <li aria-hidden="true">/</li>
+                  <li className="text-paper/60" aria-current="page">
+                    {machine.machine}
+                  </li>
+                </ol>
+              </nav>
               <Link
                 href="/rishennya"
                 className="text-sm text-paper/50 transition-colors hover:text-paper/80"
