@@ -85,7 +85,7 @@ export function HeroPipeline() {
 
   return (
     <div ref={rootRef} className="relative w-full">
-      <div className="relative flex h-16 items-center justify-center sm:h-20 md:h-24 lg:h-28 xl:h-32">
+      <div className="relative flex h-9 items-center justify-center sm:h-14 md:h-20 lg:h-24 xl:h-28">
         <div
           ref={topBarRef}
           className="pipe-flow-x absolute inset-x-0"
