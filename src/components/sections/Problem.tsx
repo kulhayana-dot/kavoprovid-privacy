@@ -191,10 +191,6 @@ export function Problem() {
           <p className="mt-5 text-ink/60 lg:hidden">
             Гортайте — кожна проблема веде до наступної.
           </p>
-          <p className="mt-5 hidden items-center gap-2 text-ink/60 lg:flex">
-            <span aria-hidden="true">↓</span>
-            Прокрутіть — камера проведе вас крізь розрив за розривом.
-          </p>
         </div>
       </div>
 
