@@ -93,48 +93,61 @@ export function Solutions() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.35, ease: "easeOut" }}
-                className="chamfer border border-ink/10 bg-ink/[0.02] p-8 sm:p-10"
+                className="chamfer grid overflow-hidden border border-ink/10 bg-ink/[0.02] sm:grid-cols-[280px_1fr] sm:items-stretch"
               >
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
-                    {profile.tag}
-                  </span>
-                  {profile.badge && (
-                    <span className="font-label bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
-                      {profile.badge}
+                {profile.photo && (
+                  <div className="relative aspect-[4/3] bg-ink sm:aspect-auto">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={profile.photo.src}
+                      alt={profile.machine}
+                      className="absolute inset-0 h-full w-full object-contain p-6"
+                    />
+                  </div>
+                )}
+
+                <div className="p-8 sm:p-10">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
+                      {profile.tag}
                     </span>
-                  )}
+                    {profile.badge && (
+                      <span className="font-label bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
+                        {profile.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="font-display mt-5 text-2xl font-bold sm:text-3xl">
+                    {profile.machine}
+                  </h3>
+
+                  <ul className="mt-6 space-y-3">
+                    {profile.features.map((f) => (
+                      <li key={f} className="flex items-center gap-3 text-ink/70">
+                        <IconCheck className="size-4 shrink-0 text-signal" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="chamfer-sm mt-8 flex items-center justify-between border border-ink/10 bg-paper px-5 py-4">
+                    <span className="font-label text-xs uppercase tracking-widest text-ink/60">
+                      Оренда безкоштовна від
+                    </span>
+                    <span className="font-display flex items-baseline gap-1 text-2xl font-bold">
+                      <ThresholdNumber value={profile.threshold} /> кг
+                    </span>
+                  </div>
+
+                  <Link
+                    href={`/rishennya/${profile.slug}`}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors hover:decoration-ink"
+                  >
+                    Детальніше про модель
+                    <span aria-hidden="true">→</span>
+                  </Link>
                 </div>
-
-                <h3 className="font-display mt-5 text-2xl font-bold sm:text-3xl">
-                  {profile.machine}
-                </h3>
-
-                <ul className="mt-6 space-y-3">
-                  {profile.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-ink/70">
-                      <IconCheck className="size-4 shrink-0 text-signal" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="chamfer-sm mt-8 flex items-center justify-between border border-ink/10 bg-paper px-5 py-4">
-                  <span className="font-label text-xs uppercase tracking-widest text-ink/60">
-                    Оренда безкоштовна від
-                  </span>
-                  <span className="font-display flex items-baseline gap-1 text-2xl font-bold">
-                    <ThresholdNumber value={profile.threshold} /> кг
-                  </span>
-                </div>
-
-                <Link
-                  href={`/rishennya/${profile.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors hover:decoration-ink"
-                >
-                  Детальніше про модель
-                  <span aria-hidden="true">→</span>
-                </Link>
               </motion.div>
             </AnimatePresence>
           </div>
