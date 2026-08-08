@@ -101,7 +101,8 @@ export function Solutions() {
                     <img
                       src={profile.photo.src}
                       alt={profile.machine}
-                      className="absolute inset-0 h-full w-full object-contain p-6"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      style={{ objectPosition: "center 30%" }}
                     />
                   </div>
                 )}
