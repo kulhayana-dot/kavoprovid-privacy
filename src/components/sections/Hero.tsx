@@ -45,7 +45,7 @@ export function Hero() {
             </h1>
 
             <HeroEntranceItem className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 sm:text-xl">
-              Апарат, зерно, сервіс і відповідальність — в одного
+              Кавомашина, зерно, сервіс і відповідальність — в одного
               партнера, а не в списку контактів у телефоні. Ваша команда
               просто п&apos;є каву.
             </HeroEntranceItem>

@@ -17,11 +17,11 @@ import { RevealText } from "@/components/RevealText";
 gsap.registerPlugin(ScrollTrigger);
 
 const NODES = [
-  { icon: IconMachine, title: "Апарат", text: "Точна модель під розмір команди, а не найближча за ціною." },
+  { icon: IconMachine, title: "Кавомашина", text: "Точна модель під розмір команди, а не найближча за ціною." },
   { icon: IconValve, title: "Кава", text: "Зерно Strauss Ukraine — офіційно, без посередників між обсмажувальнею і вашою чашкою." },
   { icon: IconWrench, title: "Сервіс", text: "Смак підлаштовуємо на місці — за графіком, а не за скаргою." },
   { icon: IconTruck, title: "Постачання", text: "Зерно приїжджає раніше, ніж закінчується. Рахувати запаси — не ваша робота." },
-  { icon: IconRefresh, title: "Обслуговування", text: "Апарат вийшов з ладу — на заміну приїжджає рівнозначний, поки ваш ремонтують." },
+  { icon: IconRefresh, title: "Обслуговування", text: "Кавомашина вийшла з ладу — на заміну приїжджає рівнозначна, поки вашу ремонтують." },
   { icon: IconHeadset, title: "Підтримка", text: "Один номер. Одна відповідальна команда." },
   { icon: IconBuilding, title: "Бізнес", text: "Кава працює на вас, а не навпаки." },
 ];
@@ -105,7 +105,7 @@ export function Infrastructure() {
             as="h2"
             className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Кавова інфраструктура — це ланцюг, а не апарат.
+            Кавова інфраструктура — це ланцюг, а не кавомашина.
           </RevealText>
           <p className="mt-5 text-paper/50">
             Кожна ланка тримає наступну. Прокрутіть — і подивіться, що

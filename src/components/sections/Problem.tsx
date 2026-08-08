@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 const BREAKS = [
   {
     icon: IconMachineOff,
-    title: "Апарат ламається",
+    title: "Кавомашина ламається",
     text: "У понеділок вранці. Найгірший можливий момент.",
   },
   {
