@@ -50,7 +50,7 @@ export function Hero() {
               просто п&apos;є каву.
             </HeroEntranceItem>
 
-            <HeroEntranceItem className="mt-4 max-w-xl text-sm text-paper/45">
+            <HeroEntranceItem className="mt-4 max-w-xl text-sm text-paper/62">
               Воду, електрику й інтернет в офіс проводять не питаючи.
               Каву — теж пора.
             </HeroEntranceItem>

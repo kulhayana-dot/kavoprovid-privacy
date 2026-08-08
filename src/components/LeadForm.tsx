@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "chamfer-sm w-full border border-paper/20 bg-paper/5 px-4 py-3 text-sm text-paper placeholder:text-paper/40 focus:border-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal";
+  "chamfer-sm w-full border border-paper/20 bg-paper/5 px-4 py-3 text-sm text-paper placeholder:text-paper/58 focus:border-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal";
 
 export function LeadForm({
   source,

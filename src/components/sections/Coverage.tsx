@@ -125,7 +125,7 @@ export function Coverage() {
             </svg>
 
             <span
-              className="font-label pointer-events-none absolute -translate-x-1/2 translate-y-4 text-xs font-bold uppercase tracking-widest text-signal"
+              className="font-display pointer-events-none absolute -translate-x-1/2 translate-y-4 text-xs font-bold uppercase tracking-widest text-signal"
               style={{
                 left: `${(CENTER / 400) * 100}%`,
                 top: `${(CENTER / 400) * 100}%`,
@@ -135,7 +135,7 @@ export function Coverage() {
             </span>
 
             <span
-              className="font-label pointer-events-none absolute -translate-x-1/2 -translate-y-full text-[11px] uppercase tracking-widest text-paper/50"
+              className="font-label pointer-events-none absolute -translate-x-1/2 -translate-y-full text-xs uppercase tracking-widest text-paper/50"
               style={{
                 left: `${(CENTER / 400) * 100}%`,
                 top: `${((CENTER - RADIUS) / 400) * 100}%`,

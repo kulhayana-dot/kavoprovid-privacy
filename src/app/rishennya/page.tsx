@@ -55,7 +55,7 @@ export default function RishennyaPage() {
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center justify-center gap-2 text-xs text-paper/40">
+            <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="hover:text-paper/70">
                   Kavoprovid
@@ -104,11 +104,11 @@ export default function RishennyaPage() {
 
                 <div className="flex flex-1 flex-col p-7">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
+                    <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
                       {m.tag}
                     </span>
                     {m.badge && (
-                      <span className="font-label bg-signal px-3 py-1 text-[11px] uppercase tracking-widest text-ink">
+                      <span className="font-label bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
                         {m.badge}
                       </span>
                     )}
@@ -118,7 +118,7 @@ export default function RishennyaPage() {
                     {m.machine}
                   </h2>
 
-                  <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/40">
+                  <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/65">
                     {m.audienceFit}
                   </p>
 

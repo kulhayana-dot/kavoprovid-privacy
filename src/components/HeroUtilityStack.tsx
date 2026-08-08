@@ -106,7 +106,7 @@ export function HeroUtilityStack({ className }: { className?: string }) {
 
   return (
     <div className={cn("relative w-full max-w-md", className)}>
-      <span className="font-label block text-xs uppercase tracking-widest text-paper/40">
+      <span className="font-label block text-xs uppercase tracking-widest text-paper/58">
         Комунікації офісу
       </span>
       <div className="relative mt-5">

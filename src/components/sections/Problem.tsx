@@ -98,10 +98,9 @@ export function Problem() {
               if (!card) return;
               gsap.fromTo(
                 card,
-                { opacity: 0.2, scale: 0.9, y: 16 },
+                { opacity: 0.2, y: 16 },
                 {
                   opacity: 1,
-                  scale: 1,
                   y: 0,
                   ease: "none",
                   scrollTrigger: {

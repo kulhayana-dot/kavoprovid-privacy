@@ -122,7 +122,7 @@ export default async function MachinePage({
           >
             <div>
               <nav aria-label="breadcrumb" className="mb-3">
-                <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/40">
+                <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
                   <li>
                     <Link href="/" className="hover:text-paper/70">
                       Kavoprovid
@@ -148,11 +148,11 @@ export default async function MachinePage({
               </Link>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <span className="font-label border border-paper/20 px-3 py-1 text-[11px] uppercase tracking-widest text-paper/50">
+                <span className="font-label border border-paper/20 px-3 py-1 text-xs uppercase tracking-widest text-paper/50">
                   {machine.tag}
                 </span>
                 {machine.badge && (
-                  <span className="font-label bg-signal px-3 py-1 text-[11px] uppercase tracking-widest text-ink">
+                  <span className="font-label bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
                     {machine.badge}
                   </span>
                 )}
@@ -162,7 +162,7 @@ export default async function MachinePage({
                 {machine.machine} в оренду для офісу
               </h1>
 
-              <p className="font-label mt-3 text-xs uppercase tracking-widest text-paper/40">
+              <p className="font-label mt-3 text-xs uppercase tracking-widest text-paper/58">
                 Підходить: {machine.audienceFit}
               </p>
 
@@ -251,7 +251,7 @@ export default async function MachinePage({
               <ul className="mt-4 space-y-2">
                 {NOT_FIT_AUDIENCE.map((f) => (
                   <li key={f} className="flex items-center gap-3 text-ink/60">
-                    <span className="block size-4 shrink-0 text-center leading-4 text-ink/50">
+                    <span className="block size-4 shrink-0 text-center leading-4 text-ink/65">
                       ×
                     </span>
                     {f}

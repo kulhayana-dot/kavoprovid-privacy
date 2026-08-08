@@ -96,11 +96,11 @@ export function Solutions() {
                 className="chamfer border border-ink/10 bg-ink/[0.02] p-8 sm:p-10"
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
+                  <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
                     {profile.tag}
                   </span>
                   {profile.badge && (
-                    <span className="font-label bg-signal px-3 py-1 text-[11px] uppercase tracking-widest text-ink">
+                    <span className="font-label bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
                       {profile.badge}
                     </span>
                   )}
@@ -157,7 +157,7 @@ export function Solutions() {
             <ul className="mt-4 space-y-2">
               {NOT_FIT_AUDIENCE.map((f) => (
                 <li key={f} className="flex items-center gap-3 text-ink/60">
-                  <span className="block size-4 shrink-0 text-center leading-4 text-ink/50">
+                  <span className="block size-4 shrink-0 text-center leading-4 text-ink/65">
                     ×
                   </span>
                   {f}

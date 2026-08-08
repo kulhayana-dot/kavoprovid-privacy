@@ -33,6 +33,9 @@ html {
 body {
   background: var(--color-ink);
   color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {

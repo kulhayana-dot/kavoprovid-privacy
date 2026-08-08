@@ -19,7 +19,6 @@ export function HeroContent({ children }: { children: ReactNode }) {
         gsap.to(ref.current, {
           opacity: 0,
           y: -60,
-          scale: 0.96,
           ease: "none",
           scrollTrigger: {
             trigger: section,

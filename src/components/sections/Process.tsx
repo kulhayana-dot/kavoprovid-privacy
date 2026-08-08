@@ -90,7 +90,7 @@ export function Process() {
                 }}
                 className="relative flex gap-6 sm:gap-8"
               >
-                <div className="font-label chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-ink/15 bg-paper text-sm font-bold text-ink/70">
+                <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-ink/15 bg-paper text-sm font-bold text-ink/70">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="pt-1.5">

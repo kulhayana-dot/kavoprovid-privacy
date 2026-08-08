@@ -106,7 +106,7 @@ export default async function ArticlePage({
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/40">
+            <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="hover:text-paper/70">
                   Kavoprovid

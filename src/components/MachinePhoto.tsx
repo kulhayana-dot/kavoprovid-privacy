@@ -171,7 +171,7 @@ export function MachinePhoto({
             key={c.label}
             data-callout-label
             className={cn(
-              "font-label pointer-events-none absolute text-[10px] uppercase leading-snug tracking-widest text-paper/70",
+              "font-label pointer-events-none absolute text-[11px] uppercase leading-snug tracking-widest text-paper/70",
               c.side === "left" ? "text-right" : "text-left",
             )}
             style={{

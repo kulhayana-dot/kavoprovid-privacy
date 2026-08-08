@@ -124,7 +124,7 @@ export default function OfficePage() {
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-24 sm:pt-40">
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center justify-center gap-2 text-xs text-paper/40">
+            <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="hover:text-paper/70">
                   Kavoprovid
@@ -173,7 +173,7 @@ export default function OfficePage() {
 
           <div className="mt-12 grid gap-10 sm:grid-cols-2">
             <div>
-              <h3 className="font-label text-xs uppercase tracking-widest text-ink/50">
+              <h3 className="font-label text-xs uppercase tracking-widest text-ink/65">
                 Що очікує команда
               </h3>
               <ul className="mt-4 space-y-3">
@@ -186,7 +186,7 @@ export default function OfficePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-label text-xs uppercase tracking-widest text-ink/50">
+              <h3 className="font-label text-xs uppercase tracking-widest text-ink/65">
                 Що ми беремо на себе
               </h3>
               <ul className="mt-4 space-y-3">
@@ -219,7 +219,7 @@ export default function OfficePage() {
             <div className="space-y-10">
               {STEPS.map((step, i) => (
                 <div key={step.title} className="relative flex gap-6 sm:gap-8">
-                  <div className="font-label chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-paper/15 bg-ink text-sm font-bold text-paper/70">
+                  <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-paper/15 bg-ink text-sm font-bold text-paper/70">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div className="pt-1.5">
@@ -235,7 +235,7 @@ export default function OfficePage() {
 
       <section className="bg-paper py-20 text-ink sm:py-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/65">
             Обладнання для офісів
           </span>
           <RevealText
@@ -263,11 +263,11 @@ export default function OfficePage() {
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-6">
-                  <span className="font-label border border-ink/20 px-3 py-1 text-[11px] uppercase tracking-widest text-ink/60">
+                  <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
                     {m.tag}
                   </span>
                   <h3 className="font-display mt-4 text-lg font-bold">{m.machine}</h3>
-                  <p className="font-label mt-2 text-[11px] uppercase tracking-widest text-ink/40">
+                  <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/65">
                     {m.audienceFit}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
@@ -279,7 +279,7 @@ export default function OfficePage() {
             ))}
           </div>
 
-          <p className="mt-8 max-w-2xl text-sm text-ink/50">
+          <p className="mt-8 max-w-2xl text-sm text-ink/65">
             Офіс виріс — додаємо апарат або переходимо на модель із більшим
             навантаженням без розірвання договору. Інфраструктура
             масштабується разом із командою.
