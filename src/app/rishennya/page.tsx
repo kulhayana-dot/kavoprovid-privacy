@@ -134,6 +134,16 @@ export default function RishennyaPage() {
               </Link>
             ))}
           </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/rishennya/porivnyannya"
+              className="chamfer-sm inline-flex items-center gap-2 border border-ink/15 px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-signal"
+            >
+              Порівняти характеристики моделей
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 

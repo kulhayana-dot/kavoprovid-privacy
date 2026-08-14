@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/office`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/production`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/rishennya`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/rishennya/porivnyannya`, lastModified, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/kava-v-biznesi`, lastModified, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.2 },
   ];
