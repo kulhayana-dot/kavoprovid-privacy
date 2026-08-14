@@ -17,8 +17,8 @@ export function Trust() {
           </RevealText>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <div className="chamfer border border-ink/10 p-8 sm:p-10">
+        <div className="mt-14 grid gap-6 lg:grid-cols-5">
+          <div className="chamfer border border-ink/10 p-8 sm:p-10 lg:col-span-3">
             <IconValve className="size-8 text-signal" />
             <h3 className="font-display mt-6 text-xl font-bold">
               Офіційний дистриб&apos;ютор Strauss Ukraine
@@ -30,7 +30,7 @@ export function Trust() {
             </p>
           </div>
 
-          <div className="chamfer border border-ink/10 p-8 sm:p-10">
+          <div className="chamfer border border-ink/10 p-8 sm:p-10 lg:col-span-2 lg:mt-10">
             <IconDocument className="size-8 text-signal" />
             <h3 className="font-display mt-6 text-xl font-bold">
               ТОВ «ЮНІТ КЕЙ», ЄДРПОУ 46306370

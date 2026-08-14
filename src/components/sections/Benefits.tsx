@@ -67,36 +67,43 @@ export function Benefits() {
           className="relative mt-16"
           onMouseLeave={() => setActive(0)}
         >
-          <div className="absolute inset-x-0 top-6 hidden h-px bg-paper/10 lg:block" />
-          <div
-            className="absolute top-6 hidden h-px bg-signal transition-all duration-300 ease-out lg:block"
-            style={{
-              width: `${100 / PILLARS.length}%`,
-              transform: `translateX(${active * 100}%)`,
-            }}
-          />
-
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
             {PILLARS.map((p, i) => (
               <div
                 key={p.title}
                 onMouseEnter={() => setActive(i)}
-                className="relative"
+                className={cn(
+                  "relative",
+                  i === 0 && "lg:col-span-2",
+                  i === 0 &&
+                    "chamfer border border-signal/25 bg-signal/[0.04] p-6",
+                )}
               >
                 <div
                   className={cn(
-                    "chamfer-sm flex size-12 items-center justify-center border transition-colors duration-200",
+                    "chamfer-sm flex items-center justify-center border transition-colors duration-200",
+                    i === 0 ? "size-14" : "size-12",
                     i === active
                       ? "border-signal bg-signal text-ink"
                       : "border-paper/25 text-paper",
                   )}
                 >
-                  <p.icon className="size-5" />
+                  <p.icon className={i === 0 ? "size-6" : "size-5"} />
                 </div>
-                <h3 className="font-display mt-5 text-base font-bold">
+                <h3
+                  className={cn(
+                    "font-display mt-5 font-bold",
+                    i === 0 ? "text-xl" : "text-base",
+                  )}
+                >
                   {p.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-paper/55">
+                <p
+                  className={cn(
+                    "mt-2 leading-relaxed text-paper/55",
+                    i === 0 ? "max-w-sm text-base" : "text-sm",
+                  )}
+                >
                   {p.text}
                 </p>
               </div>
