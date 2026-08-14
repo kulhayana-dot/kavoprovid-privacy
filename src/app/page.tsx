@@ -23,9 +23,12 @@ export default function Home() {
         <Problem />
         <Infrastructure />
         <Solutions />
+        <div className="h-[3px] bg-signal" aria-hidden="true" />
         <Benefits />
         <Process />
+        <div className="h-[3px] bg-signal" aria-hidden="true" />
         <Coverage />
+        <div className="h-[3px] bg-signal" aria-hidden="true" />
         <Trust />
         <FinalCta />
       </main>
