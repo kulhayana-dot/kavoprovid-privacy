@@ -5,13 +5,13 @@ export function Trust() {
   return (
     <section id="trust" className="relative bg-paper py-28 text-ink sm:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/60">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
+          <span className="font-label shrink-0 text-xs uppercase tracking-widest text-ink/60">
             Кому ми довіряємо
           </span>
           <RevealText
             as="h2"
-            className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+            className="font-display text-xl font-bold tracking-tight sm:text-2xl"
           >
             Ми не просимо повірити нам на слово.
           </RevealText>

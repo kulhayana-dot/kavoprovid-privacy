@@ -97,21 +97,21 @@ export function Infrastructure() {
       className="relative bg-ink text-paper"
     >
       <div className="mx-auto max-w-7xl px-6 pb-16 pt-28 lg:px-8">
-        <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
-            Як це працює
-          </span>
+        <span className="font-label block text-xs uppercase tracking-widest text-paper/50">
+          Як це працює
+        </span>
+        <div className="stripe-band mt-5 inline-block max-w-5xl px-1 py-3 sm:py-4">
           <RevealText
             as="h2"
-            className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+            className="font-display text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl"
           >
             Кавова інфраструктура — це ланцюг, а не кавомашина.
           </RevealText>
-          <p className="mt-5 text-paper/50">
-            Кожна ланка тримає наступну. Прокрутіть — і подивіться, що
-            станеться, якщо жодна не випаде.
-          </p>
         </div>
+        <p className="mt-6 max-w-2xl text-paper/50">
+          Кожна ланка тримає наступну. Прокрутіть — і подивіться, що
+          станеться, якщо жодна не випаде.
+        </p>
       </div>
 
       <div

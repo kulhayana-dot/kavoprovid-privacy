@@ -13,7 +13,7 @@ export function FinalCta() {
           <RevealText
             as="h2"
             trigger="scroll"
-            className="font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl"
+            className="font-display text-3xl font-bold leading-tight tracking-tight text-paper sm:text-4xl lg:text-5xl"
           >
             Підключіть офіс до кавопроводу.
           </RevealText>

@@ -49,12 +49,14 @@ export function Benefits() {
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Чому Kavoprovid
           </span>
-          <RevealText
-            as="h2"
-            className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-          >
-            Ви купуєте не каву. Ви купуєте ось це.
-          </RevealText>
+          <div className="stripe-band mt-4 inline-block px-1 py-3 sm:py-4">
+            <RevealText
+              as="h2"
+              className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+            >
+              Ви купуєте не каву. Ви купуєте ось це.
+            </RevealText>
+          </div>
           <p className="mt-5 text-paper/50">
             Смак — це данність. Різницю роблять речі, які ви помічаєте лише
             тоді, коли щось іде не так — або не помічаєте взагалі.
