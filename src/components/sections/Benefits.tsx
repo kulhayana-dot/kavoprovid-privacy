@@ -79,16 +79,21 @@ export function Benefits() {
                     "chamfer border border-signal/25 bg-signal/[0.04] p-6",
                 )}
               >
-                <div
-                  className={cn(
-                    "chamfer-sm flex items-center justify-center border transition-colors duration-200",
-                    i === 0 ? "size-14" : "size-12",
-                    i === active
-                      ? "border-signal bg-signal text-ink"
-                      : "border-paper/25 text-paper",
-                  )}
-                >
-                  <p.icon className={i === 0 ? "size-6" : "size-5"} />
+                <div className="flex items-center gap-3">
+                  <div
+                    className={cn(
+                      "chamfer-sm flex items-center justify-center border transition-colors duration-200",
+                      i === 0 ? "size-14" : "size-12",
+                      i === active
+                        ? "border-signal bg-signal text-ink"
+                        : "border-paper/25 text-paper",
+                    )}
+                  >
+                    <p.icon className={i === 0 ? "size-6" : "size-5"} />
+                  </div>
+                  <span className="font-label text-xs tracking-widest text-paper/60">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
                 <h3
                   className={cn(
