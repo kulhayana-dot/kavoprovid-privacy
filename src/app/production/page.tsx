@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
 import { RevealText } from "@/components/RevealText";
 import { IconCheck, IconGauge } from "@/components/icons";
+import { MachineCard } from "@/components/MachineCard";
 import { MACHINES } from "@/lib/machines";
 
 const TITLE = "Кава для виробництва — кавова інфраструктура на зміну | Kavoprovid";
@@ -293,35 +294,7 @@ export default function ProductionPage() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {PRODUCTION_MACHINES.map((m) => (
-              <Link
-                key={m.slug}
-                href={`/rishennya/${m.slug}`}
-                className="chamfer group flex flex-col overflow-hidden border border-ink/10 bg-ink/[0.02] transition-colors hover:border-signal"
-              >
-                {m.photo && (
-                  <div className="relative aspect-[4/3] bg-ink">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={m.photo.src}
-                      alt={m.machine}
-                      className="absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col p-6">
-                  <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
-                    {m.tag}
-                  </span>
-                  <h3 className="font-display mt-4 text-lg font-bold">{m.machine}</h3>
-                  <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/65">
-                    {m.audienceFit}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
-                    Детальніше про модель
-                    <span aria-hidden="true">→</span>
-                  </span>
-                </div>
-              </Link>
+              <MachineCard key={m.slug} machine={m} />
             ))}
           </div>
 

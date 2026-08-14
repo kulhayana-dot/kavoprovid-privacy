@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/cn";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 
 const NAV = [
   { href: "/office", label: "Офіси" },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MACHINES } from "@/lib/machines";
 import { LeadForm } from "@/components/LeadForm";
+import { MachineCard } from "@/components/MachineCard";
 
 const TITLE = "Кавове обладнання для офісу та виробництва — Kavoprovid";
 const DESCRIPTION =
@@ -86,52 +87,14 @@ export default function RishennyaPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MACHINES.map((m) => (
-              <Link
+              <MachineCard
                 key={m.slug}
-                href={`/rishennya/${m.slug}`}
-                className="chamfer group flex flex-col overflow-hidden border border-ink/10 bg-ink/[0.02] transition-colors hover:border-signal"
-              >
-                {m.photo && (
-                  <div className="relative aspect-[4/3] bg-ink">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={m.photo.src}
-                      alt={m.machine}
-                      className="absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                )}
-
-                <div className="flex flex-1 flex-col p-7">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
-                      {m.tag}
-                    </span>
-                    {m.badge && (
-                      <span className="font-label bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
-                        {m.badge}
-                      </span>
-                    )}
-                  </div>
-
-                  <h2 className="font-display mt-5 text-xl font-bold">
-                    {m.machine}
-                  </h2>
-
-                  <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/65">
-                    {m.audienceFit}
-                  </p>
-
-                  <p className="mt-3 flex-1 text-sm text-ink/60">
-                    {m.features[0]}
-                  </p>
-
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
-                    Підібрати рішення
-                    <span aria-hidden="true">→</span>
-                  </span>
-                </div>
-              </Link>
+                machine={m}
+                headingLevel="h2"
+                showBadge
+                showFeature
+                ctaLabel="Підібрати рішення"
+              />
             ))}
           </div>
 

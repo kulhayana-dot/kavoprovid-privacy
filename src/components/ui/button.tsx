@@ -2,27 +2,35 @@
 
 import { type AnchorHTMLAttributes, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/cn";
+
+const buttonVariants = cva(
+  "chamfer-sm group relative inline-flex items-center justify-center overflow-hidden px-7 py-3.5 text-sm font-medium",
+  {
+    variants: {
+      variant: {
+        primary: "bg-signal text-ink",
+        secondary: "border border-paper/25 text-paper/90",
+      },
+    },
+    defaultVariants: { variant: "primary" },
+  },
+);
 
 type ButtonProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
-> & {
-  variant?: "primary" | "secondary";
-};
+> &
+  VariantProps<typeof buttonVariants>;
 
 /**
  * Flat, hard-edged CTA: a fill sweeps in on hover like the signal
  * traveling through a pipe, and the button leans toward the cursor
  * (magnetic pull) instead of a generic scale-up.
  */
-export function Button({
-  variant = "primary",
-  className,
-  children,
-  ...props
-}: ButtonProps) {
-  const isPrimary = variant === "primary";
+export function Button({ variant, className, children, ...props }: ButtonProps) {
+  const isPrimary = variant !== "secondary";
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -49,13 +57,7 @@ export function Button({
       style={{ x: springX, y: springY }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className={cn(
-        "chamfer-sm group relative inline-flex items-center justify-center overflow-hidden px-7 py-3.5 text-sm font-medium",
-        isPrimary
-          ? "bg-signal text-ink"
-          : "border border-paper/25 text-paper/90",
-        className,
-      )}
+      className={cn(buttonVariants({ variant }), className)}
     >
       <span
         aria-hidden="true"

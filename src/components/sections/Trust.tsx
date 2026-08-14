@@ -1,5 +1,6 @@
 import { RevealText } from "@/components/RevealText";
 import { IconDocument, IconValve } from "@/components/icons";
+import { Card, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 export function Trust() {
   return (
@@ -18,29 +19,29 @@ export function Trust() {
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-5">
-          <div className="chamfer border border-ink/10 bg-paper p-8 sm:p-10 lg:col-span-3">
+          <Card className="bg-paper p-8 sm:p-10 lg:col-span-3">
             <IconValve className="size-8 text-ink" />
-            <h3 className="font-display mt-6 text-xl font-bold">
-              Офіційний дистриб&apos;ютор Strauss Ukraine
-            </h3>
-            <p className="mt-3 text-ink/60">
-              Зерно, яке проводимо у ваш офіс, обсмажене й поставлене
-              офіційним партнером — без посередників і підміни на дешевший
-              аналог.
-            </p>
-          </div>
+            <CardContent className="mt-6">
+              <CardTitle>Офіційний дистриб&apos;ютор Strauss Ukraine</CardTitle>
+              <CardDescription className="mt-3">
+                Зерно, яке проводимо у ваш офіс, обсмажене й поставлене
+                офіційним партнером — без посередників і підміни на дешевший
+                аналог.
+              </CardDescription>
+            </CardContent>
+          </Card>
 
-          <div className="chamfer border border-ink/10 bg-paper p-8 sm:p-10 lg:col-span-2 lg:mt-10">
+          <Card className="bg-paper p-8 sm:p-10 lg:col-span-2 lg:mt-10">
             <IconDocument className="size-8 text-ink" />
-            <h3 className="font-display mt-6 text-xl font-bold">
-              ТОВ «ЮНІТ КЕЙ», ЄДРПОУ 46306370
-            </h3>
-            <p className="mt-3 text-ink/60">
-              Працюємо як юридична особа, платник ПДВ на загальних
-              підставах. Перевірити нас можна в реєстрі — не тільки на
-              слово.
-            </p>
-          </div>
+            <CardContent className="mt-6">
+              <CardTitle>ТОВ «ЮНІТ КЕЙ», ЄДРПОУ 46306370</CardTitle>
+              <CardDescription className="mt-3">
+                Працюємо як юридична особа, платник ПДВ на загальних
+                підставах. Перевірити нас можна в реєстрі — не тільки на
+                слово.
+              </CardDescription>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

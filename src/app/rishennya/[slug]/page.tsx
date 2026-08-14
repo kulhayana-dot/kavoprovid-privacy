@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
 import { MachinePhoto } from "@/components/MachinePhoto";
 import { IconCheck } from "@/components/icons";

@@ -4,7 +4,7 @@ import { HeroEntrance, HeroEntranceItem } from "@/components/HeroEntrance";
 import { HeroPipeline } from "@/components/HeroPipeline";
 import { HeroUtilityStack } from "@/components/HeroUtilityStack";
 import { RevealText } from "@/components/RevealText";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { PRELOADER_SECONDS } from "@/lib/motion";
 
 export function Hero() {

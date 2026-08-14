@@ -1,5 +1,5 @@
 import { RevealText } from "@/components/RevealText";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
 
 export function FinalCta() {
