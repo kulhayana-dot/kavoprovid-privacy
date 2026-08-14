@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { ARTICLES, getArticle } from "@/lib/knowledge";
 
 export function generateStaticParams() {
@@ -156,16 +162,14 @@ export default async function ArticlePage({
           {article.faq.length > 0 && (
             <div className="mt-16 border-t border-ink/10 pt-14">
               <h2 className="font-display text-xl font-bold">Запитання</h2>
-              <div className="mt-6 space-y-4">
+              <Accordion type="single" collapsible className="mt-6 space-y-4">
                 {article.faq.map((item) => (
-                  <details key={item.q} className="chamfer-sm group border border-ink/10 p-5">
-                    <summary className="cursor-pointer list-none font-medium text-ink marker:content-none">
-                      {item.q}
-                    </summary>
-                    <p className="mt-3 text-ink/60">{item.a}</p>
-                  </details>
+                  <AccordionItem key={item.q} value={item.q}>
+                    <AccordionTrigger>{item.q}</AccordionTrigger>
+                    <AccordionContent>{item.a}</AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           )}
         </div>

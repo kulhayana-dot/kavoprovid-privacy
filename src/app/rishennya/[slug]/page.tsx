@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
 import { MachinePhoto } from "@/components/MachinePhoto";
 import { IconCheck } from "@/components/icons";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { MACHINES, MILK_FRIDGE_PHOTO, getMachine } from "@/lib/machines";
 import { FIT_AUDIENCE, NOT_FIT_AUDIENCE } from "@/lib/audience";
 
@@ -263,16 +269,14 @@ export default async function MachinePage({
 
           <div id="faq" className="mt-16 scroll-mt-24 border-t border-ink/10 pt-14">
             <h2 className="font-display text-2xl font-bold">Запитання</h2>
-            <div className="mt-8 space-y-6">
+            <Accordion type="single" collapsible className="mt-8 space-y-4">
               {faq.map((item) => (
-                <details key={item.q} className="chamfer-sm group border border-ink/10 p-5">
-                  <summary className="cursor-pointer list-none font-medium text-ink marker:content-none">
-                    {item.q}
-                  </summary>
-                  <p className="mt-3 text-ink/60">{item.a}</p>
-                </details>
+                <AccordionItem key={item.q} value={item.q}>
+                  <AccordionTrigger>{item.q}</AccordionTrigger>
+                  <AccordionContent>{item.a}</AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
         </div>
       </section>

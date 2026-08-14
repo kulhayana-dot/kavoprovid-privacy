@@ -5,6 +5,12 @@ import { LeadForm } from "@/components/LeadForm";
 import { RevealText } from "@/components/RevealText";
 import { IconCheck } from "@/components/icons";
 import { MachineCard } from "@/components/MachineCard";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { MACHINES } from "@/lib/machines";
 
 const TITLE = "Кава в офіс — кавова інфраструктура для команди | Kavoprovid";
@@ -278,16 +284,14 @@ export default function OfficePage() {
       <section id="faq" className="scroll-mt-24 bg-paper py-20 text-ink sm:py-28">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Запитання</h2>
-          <div className="mt-8 space-y-6">
+          <Accordion type="single" collapsible className="mt-8 space-y-4">
             {FAQ.map((item) => (
-              <details key={item.q} className="chamfer-sm group border border-ink/10 p-5">
-                <summary className="cursor-pointer list-none font-medium text-ink marker:content-none">
-                  {item.q}
-                </summary>
-                <p className="mt-3 text-ink/60">{item.a}</p>
-              </details>
+              <AccordionItem key={item.q} value={item.q}>
+                <AccordionTrigger>{item.q}</AccordionTrigger>
+                <AccordionContent>{item.a}</AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
