@@ -1,7 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   IconBolt,
   IconBuilding,
@@ -28,81 +27,18 @@ const ROWS = [
   { icon: IconValve, label: "Кава", y: ROW_Y[3], isCoffee: true },
 ] as const;
 
+// Absolute delays mirror the original GSAP timeline's relative offsets
+// (rowLines+dots run in parallel staggered groups, spine overlaps their
+// tail, exitLine+building overlap each other after the spine, and the
+// coffee line's flow starts once everything else has settled).
+const BASE_DELAY = PRELOADER_SECONDS + 0.6;
+const ROW_STAGGER = 0.16;
+const SPINE_DELAY = BASE_DELAY + 0.88;
+const EXIT_DELAY = BASE_DELAY + 1.33;
+const COFFEE_FLOW_DELAY = BASE_DELAY + 1.73;
+
 export function HeroUtilityStack({ className }: { className?: string }) {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const coffeeLineRef = useRef<SVGLineElement>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-
-      // the component is only visible from the lg breakpoint up (hidden
-      // lg:block); below that its SVG has no render box, and calling
-      // getTotalLength() on a non-rendered geometry element throws.
-      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 1024px)", () => {
-        const svg = svgRef.current;
-        if (!svg) return;
-
-        const rowLines = svg.querySelectorAll<SVGLineElement>("[data-row-line]");
-        const dots = svg.querySelectorAll<SVGCircleElement>("[data-dot]");
-        const spine = svg.querySelector<SVGLineElement>("[data-spine]");
-        const exitLine = svg.querySelector<SVGLineElement>("[data-exit]");
-        const building = svg.querySelector<SVGRectElement>("[data-building]");
-        if (!spine || !exitLine || !building) return;
-
-        rowLines.forEach((line) => {
-          const len = line.getTotalLength();
-          gsap.set(line, { strokeDasharray: len, strokeDashoffset: len });
-        });
-        const spineLen = spine.getTotalLength();
-        gsap.set(spine, { strokeDasharray: spineLen, strokeDashoffset: spineLen });
-        const exitLen = exitLine.getTotalLength();
-        gsap.set(exitLine, { strokeDasharray: exitLen, strokeDashoffset: exitLen });
-        gsap.set(dots, { opacity: 0, scale: 0, transformOrigin: "center" });
-        gsap.set(building, { opacity: 0, scale: 0.7, transformOrigin: "center" });
-
-        const tl = gsap.timeline({ delay: PRELOADER_SECONDS + 0.6 });
-
-        tl.to(rowLines, {
-          strokeDashoffset: 0,
-          duration: 0.55,
-          ease: "power2.out",
-          stagger: 0.16,
-        })
-          .to(
-            dots,
-            {
-              opacity: 1,
-              scale: 1,
-              duration: 0.3,
-              ease: "back.out(2)",
-              stagger: 0.16,
-            },
-            "<",
-          )
-          .to(spine, { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" }, "-=0.15")
-          .to(exitLine, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" })
-          .to(
-            building,
-            { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" },
-            "<",
-          )
-          .add(() => {
-            const coffeeLine = coffeeLineRef.current;
-            if (!coffeeLine) return;
-            gsap.set(coffeeLine, { strokeDasharray: "9 7", strokeDashoffset: 0 });
-            gsap.to(coffeeLine, {
-              strokeDashoffset: -32,
-              duration: 0.85,
-              ease: "none",
-              repeat: -1,
-            });
-          });
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
+  const reduced = useReducedMotion();
 
   return (
     <div className={cn("relative w-full max-w-md", className)}>
@@ -110,108 +46,145 @@ export function HeroUtilityStack({ className }: { className?: string }) {
         Комунікації офісу
       </span>
       <div className="relative mt-5">
-      <svg
-        ref={svgRef}
-        viewBox={`0 0 ${W} ${H}`}
-        className="h-full w-full"
-        aria-hidden="true"
-      >
-        {ROWS.map((row) => (
-          <line
-            key={row.label}
-            data-row-line
-            ref={row.isCoffee ? coffeeLineRef : undefined}
-            x1={LINE_START_X}
-            y1={row.y}
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="h-full w-full"
+          aria-hidden="true"
+        >
+          {ROWS.map((row, i) => (
+            <motion.line
+              key={row.label}
+              x1={LINE_START_X}
+              y1={row.y}
+              x2={SPINE_X}
+              y2={row.y}
+              stroke={row.isCoffee ? "var(--color-signal)" : "rgba(255,255,255,0.3)"}
+              strokeWidth={row.isCoffee ? 2.5 : 1.5}
+              strokeDasharray={row.isCoffee && !reduced ? "9 7" : undefined}
+              initial={reduced ? false : { pathLength: 0 }}
+              animate={
+                row.isCoffee && !reduced
+                  ? { pathLength: 1, strokeDashoffset: [0, -32] }
+                  : { pathLength: 1 }
+              }
+              transition={
+                row.isCoffee && !reduced
+                  ? {
+                      pathLength: {
+                        duration: 0.55,
+                        ease: "easeOut",
+                        delay: BASE_DELAY + i * ROW_STAGGER,
+                      },
+                      strokeDashoffset: {
+                        duration: 0.85,
+                        ease: "linear",
+                        repeat: Infinity,
+                        delay: COFFEE_FLOW_DELAY,
+                      },
+                    }
+                  : {
+                      duration: 0.55,
+                      ease: "easeOut",
+                      delay: BASE_DELAY + i * ROW_STAGGER,
+                    }
+              }
+            />
+          ))}
+
+          {ROWS.map((row, i) => (
+            <motion.circle
+              key={row.label}
+              cx={SPINE_X}
+              cy={row.y}
+              fill={row.isCoffee ? "var(--color-signal)" : "rgba(255,255,255,0.55)"}
+              initial={reduced ? false : { opacity: 0, r: 0 }}
+              animate={{ opacity: 1, r: row.isCoffee ? 4 : 3 }}
+              transition={{
+                duration: 0.3,
+                ease: "backOut",
+                delay: BASE_DELAY + i * ROW_STAGGER,
+              }}
+            />
+          ))}
+
+          <motion.line
+            x1={SPINE_X}
+            y1={ROW_Y[0]}
             x2={SPINE_X}
-            y2={row.y}
-            stroke={row.isCoffee ? "var(--color-signal)" : "rgba(255,255,255,0.3)"}
-            strokeWidth={row.isCoffee ? 2.5 : 1.5}
+            y2={ROW_Y[3]}
+            stroke="rgba(255,255,255,0.3)"
+            strokeWidth={1.5}
+            initial={reduced ? false : { pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: SPINE_DELAY }}
           />
-        ))}
+          <motion.line
+            x1={SPINE_X}
+            y1={SPINE_MID_Y}
+            x2={BUILDING_CX - 18}
+            y2={SPINE_MID_Y}
+            stroke="var(--color-signal)"
+            strokeWidth={2}
+            initial={reduced ? false : { pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: EXIT_DELAY }}
+          />
+          <motion.rect
+            x={BUILDING_CX - 18}
+            y={SPINE_MID_Y - 18}
+            width={36}
+            height={36}
+            rx={3}
+            className="fill-ink stroke-paper/60"
+            strokeWidth={1.5}
+            style={{ transformBox: "fill-box", transformOrigin: "50% 50%" }}
+            initial={reduced ? false : { opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "backOut", delay: EXIT_DELAY }}
+          />
+        </svg>
 
         {ROWS.map((row) => (
-          <circle
+          <div
             key={row.label}
-            data-dot
-            cx={SPINE_X}
-            cy={row.y}
-            r={row.isCoffee ? 4 : 3}
-            fill={row.isCoffee ? "var(--color-signal)" : "rgba(255,255,255,0.55)"}
-          />
+            className="pointer-events-none absolute flex -translate-y-1/2 items-center gap-2.5"
+            style={{
+              left: `${((ICON_CX - 18) / W) * 100}%`,
+              top: `${(row.y / H) * 100}%`,
+            }}
+          >
+            <span
+              className={cn(
+                "chamfer-sm flex size-9 shrink-0 items-center justify-center border",
+                row.isCoffee
+                  ? "border-signal bg-signal"
+                  : "border-paper/25 bg-ink",
+              )}
+            >
+              <row.icon
+                className={cn("size-4", row.isCoffee ? "text-ink" : "text-paper/70")}
+              />
+            </span>
+            <span
+              className={cn(
+                "font-label whitespace-nowrap text-xs uppercase tracking-widest",
+                row.isCoffee ? "text-signal" : "text-paper/50",
+              )}
+            >
+              {row.label}
+            </span>
+          </div>
         ))}
 
-        <line
-          data-spine
-          x1={SPINE_X}
-          y1={ROW_Y[0]}
-          x2={SPINE_X}
-          y2={ROW_Y[3]}
-          stroke="rgba(255,255,255,0.3)"
-          strokeWidth={1.5}
-        />
-        <line
-          data-exit
-          x1={SPINE_X}
-          y1={SPINE_MID_Y}
-          x2={BUILDING_CX - 18}
-          y2={SPINE_MID_Y}
-          stroke="var(--color-signal)"
-          strokeWidth={2}
-        />
-        <rect
-          data-building
-          x={BUILDING_CX - 18}
-          y={SPINE_MID_Y - 18}
-          width={36}
-          height={36}
-          rx={3}
-          className="fill-ink stroke-paper/60"
-          strokeWidth={1.5}
-        />
-      </svg>
-
-      {ROWS.map((row) => (
         <div
-          key={row.label}
-          className="pointer-events-none absolute flex -translate-y-1/2 items-center gap-2.5"
+          className="pointer-events-none absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
           style={{
-            left: `${((ICON_CX - 18) / W) * 100}%`,
-            top: `${(row.y / H) * 100}%`,
+            left: `${(BUILDING_CX / W) * 100}%`,
+            top: `${(SPINE_MID_Y / H) * 100}%`,
           }}
         >
-          <span
-            className={cn(
-              "chamfer-sm flex size-9 shrink-0 items-center justify-center border",
-              row.isCoffee
-                ? "border-signal bg-signal"
-                : "border-paper/25 bg-ink",
-            )}
-          >
-            <row.icon
-              className={cn("size-4", row.isCoffee ? "text-ink" : "text-paper/70")}
-            />
-          </span>
-          <span
-            className={cn(
-              "font-label whitespace-nowrap text-xs uppercase tracking-widest",
-              row.isCoffee ? "text-signal" : "text-paper/50",
-            )}
-          >
-            {row.label}
-          </span>
+          <IconBuilding className="size-4 text-paper" />
         </div>
-      ))}
-
-      <div
-        className="pointer-events-none absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
-        style={{
-          left: `${(BUILDING_CX / W) * 100}%`,
-          top: `${(SPINE_MID_Y / H) * 100}%`,
-        }}
-      >
-        <IconBuilding className="size-4 text-paper" />
-      </div>
       </div>
     </div>
   );

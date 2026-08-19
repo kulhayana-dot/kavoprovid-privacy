@@ -2,7 +2,6 @@ import { HeroBackground } from "@/components/HeroBackground";
 import { HeroContent } from "@/components/HeroContent";
 import { HeroEntrance, HeroEntranceItem } from "@/components/HeroEntrance";
 import { HeroPipeline } from "@/components/HeroPipeline";
-import { HeroUtilityStack } from "@/components/HeroUtilityStack";
 import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
 import { PRELOADER_SECONDS } from "@/lib/motion";
@@ -33,14 +32,14 @@ export function Hero() {
                 trigger="load"
                 delay={PRELOADER_SECONDS + 1.8}
               >
-                Проводимо каву
+                Проводимо каву в бізнес
               </RevealText>
               <RevealText
                 as="div"
                 trigger="load"
                 delay={PRELOADER_SECONDS + 1.92}
               >
-                в бізнес<span className="text-signal">.</span>
+                під ключ<span className="text-signal">.</span>
               </RevealText>
             </h1>
 
@@ -56,14 +55,12 @@ export function Hero() {
             </HeroEntranceItem>
 
             <HeroEntranceItem className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button href="#cta">Підключити офіс</Button>
+              <Button href="#cta">Провести каву в мій бізнес</Button>
               <Button href="#solutions" variant="secondary">
-                7 днів на пробу — без підпису
+                Як це працює
               </Button>
             </HeroEntranceItem>
           </HeroEntrance>
-
-          <HeroUtilityStack className="mt-16 hidden opacity-90 lg:block" />
         </div>
       </HeroContent>
 

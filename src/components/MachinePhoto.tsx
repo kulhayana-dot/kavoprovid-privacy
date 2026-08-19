@@ -1,11 +1,8 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export type PhotoCallout = {
   /** anchor point on the photo, 0..1 normalized */
@@ -36,58 +33,9 @@ export function MachinePhoto({
 }) {
   const gutter = marginPct;
   const rootRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const svg = svgRef.current;
-        if (!svg) return;
-
-        const lines = svg.querySelectorAll<SVGLineElement>("[data-callout-line]");
-        const dots = svg.querySelectorAll<SVGCircleElement>("[data-callout-dot]");
-        const labels = rootRef.current?.querySelectorAll<HTMLElement>(
-          "[data-callout-label]",
-        );
-
-        lines.forEach((line) => {
-          const len = line.getTotalLength();
-          gsap.set(line, { strokeDasharray: len, strokeDashoffset: len });
-        });
-        gsap.set(dots, { opacity: 0, scale: 0, transformOrigin: "center" });
-        if (labels) gsap.set(labels, { opacity: 0, x: 0 });
-
-        gsap.to(lines, {
-          strokeDashoffset: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.15,
-          scrollTrigger: { trigger: rootRef.current, start: "top 70%" },
-        });
-        gsap.to(dots, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.3,
-          ease: "back.out(2)",
-          stagger: 0.15,
-          scrollTrigger: { trigger: rootRef.current, start: "top 70%" },
-        });
-        if (labels) {
-          gsap.to(labels, {
-            opacity: 1,
-            duration: 0.4,
-            stagger: 0.15,
-            delay: 0.25,
-            scrollTrigger: { trigger: rootRef.current, start: "top 70%" },
-          });
-        }
-      });
-    }, rootRef);
-
-    return () => ctx.revert();
-  }, []);
+  const reduced = useReducedMotion();
+  const inView = useInView(rootRef, { once: true, margin: "0px 0px -30% 0px" });
+  const play = reduced || inView;
 
   return (
     <div
@@ -126,18 +74,16 @@ export function MachinePhoto({
       />
 
       <svg
-        ref={svgRef}
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
         className="pointer-events-none absolute inset-0 h-full w-full"
         aria-hidden="true"
       >
-        {callouts.map((c) => {
+        {callouts.map((c, i) => {
           const endX = c.side === "left" ? gutter : 100 - gutter;
           return (
-            <line
+            <motion.line
               key={c.label}
-              data-callout-line
               x1={c.x * 100}
               y1={c.y * 100}
               x2={endX}
@@ -145,31 +91,34 @@ export function MachinePhoto({
               stroke="var(--color-signal)"
               strokeWidth={0.3}
               vectorEffect="non-scaling-stroke"
+              initial={reduced ? false : { pathLength: 0 }}
+              animate={play ? { pathLength: 1 } : { pathLength: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.15 }}
             />
           );
         })}
-        {callouts.map((c) => (
-          <circle
+        {callouts.map((c, i) => (
+          <motion.circle
             key={c.label}
-            data-callout-dot
             cx={c.x * 100}
             cy={c.y * 100}
-            r={1.1}
             className="fill-signal"
+            initial={reduced ? false : { opacity: 0, r: 0 }}
+            animate={play ? { opacity: 1, r: 1.1 } : { opacity: 0, r: 0 }}
+            transition={{ duration: 0.3, ease: "backOut", delay: i * 0.15 }}
           />
         ))}
       </svg>
 
-      {callouts.map((c) => {
+      {callouts.map((c, i) => {
         const endX = c.side === "left" ? gutter : 100 - gutter;
         const edgeStyle =
           c.side === "left"
             ? { right: `${100 - endX}%` }
             : { left: `${endX}%` };
         return (
-          <div
+          <motion.div
             key={c.label}
-            data-callout-label
             className={cn(
               "font-label pointer-events-none absolute text-[11px] uppercase leading-snug tracking-widest text-paper/70",
               c.side === "left" ? "text-right" : "text-left",
@@ -181,9 +130,12 @@ export function MachinePhoto({
               transform: "translateY(-50%)",
               margin: c.side === "left" ? "0 6px 0 0" : "0 0 0 6px",
             }}
+            initial={reduced ? false : { opacity: 0 }}
+            animate={play ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4, delay: 0.25 + i * 0.15 }}
           >
             {c.label}
-          </div>
+          </motion.div>
         );
       })}
     </div>

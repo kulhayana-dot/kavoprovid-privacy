@@ -60,12 +60,8 @@ function faqFor(machine: { machine: string; threshold: number }) {
       a: "Кавомашина, зерно, чистка й ремонт за графіком, підмінне обладнання на час ремонту та один контакт на всі випадки — без списку окремих постачальників.",
     },
     {
-      q: "Чи можна спробувати перед підписанням?",
-      a: "Так — кавомашина працює у вас 7 днів, команда п'є каву, ви оцінюєте сервіс до підпису договору.",
-    },
-    {
       q: `Де ви обслуговуєте ${machine.machine}?`,
-      a: "У Києві та Київській області — технік доїжджає в межах години, а не днів.",
+      a: "Київ та Київська область — ми завжди на зв'язку.",
     },
   ];
 }
@@ -179,7 +175,7 @@ export default async function MachinePage({
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <Button href="tel:+380636271567">Підключити офіс</Button>
+                <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
                 <Button href="#faq" variant="secondary">
                   Умови й запитання
                 </Button>
@@ -290,7 +286,7 @@ export default async function MachinePage({
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
           <div className="mt-8 flex justify-center">
-            <Button href="tel:+380636271567">Підключити офіс</Button>
+            <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
           </div>
 
           <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">

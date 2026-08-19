@@ -10,7 +10,7 @@ const NAV = [
   { href: "/#why", label: "Переваги" },
   { href: "/#process", label: "Процес" },
   { href: "/kava-v-biznesi", label: "Кава в бізнесі" },
-  { href: "/#coverage", label: "Покриття" },
+  { href: "/faq", label: "Запитання" },
 ];
 
 export function Footer() {

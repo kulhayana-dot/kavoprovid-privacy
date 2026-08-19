@@ -1,36 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, Unbounded } from "next/font/google";
 import localFont from "next/font/local";
 import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-});
-
-const unbounded = Unbounded({
-  variable: "--font-unbounded",
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-});
-
+// Brand typeface per brandbook p.38-39 ("Gilroy — чистий, сучасний і
+// добре читабельний гротеск"). All 9 weights we have on file — no
+// synthetic bold/light stand-ins for missing cuts.
 const gilroy = localFont({
   variable: "--font-gilroy",
   display: "swap",
   src: [
-    {
-      path: "../assets/fonts/GilroyUltraLight.ttf",
-      weight: "200",
-      style: "normal",
-    },
+    { path: "../assets/fonts/Gilroy-Thin.ttf", weight: "100", style: "normal" },
+    { path: "../assets/fonts/Gilroy-UltraLight.ttf", weight: "200", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Semibold.ttf", weight: "600", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Extrabold.ttf", weight: "800", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Black.ttf", weight: "900", style: "normal" },
+    { path: "../assets/fonts/Gilroy-Heavy.ttf", weight: "950", style: "normal" },
   ],
 });
 
 const SITE_TITLE = "Оренда кавомашини для офісу — Кавопровід";
 const SITE_DESCRIPTION =
-  "Оренда кавомашини для офісу та бізнесу в Києві й Київській області: кавомашина, зерно й сервіс — в одного партнера. Безкоштовно від 10 кг кави. Перші 7 днів на пробу.";
+  "Оренда кавомашини для офісу та бізнесу в Києві й Київській області: кавомашина, зерно й сервіс — в одного партнера. Безкоштовно від 10 кг кави.";
 
 const SITE_OG_IMAGE = {
   url: "/og-image.png",
@@ -103,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="uk"
-      className={`${inter.variable} ${unbounded.variable} ${gilroy.variable} h-full antialiased`}
+      className={`${gilroy.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ink text-paper font-sans">
         <script

@@ -10,8 +10,10 @@
   --color-ink: var(--color-ink);
   --color-paper: var(--color-paper);
   --color-signal: var(--color-signal);
-  --font-display: var(--font-unbounded);
-  --font-sans: var(--font-inter);
+  /* Gilroy is now the site's only typeface (display, body, and label
+     all point here) — no Unbounded/Inter fallback left in any role. */
+  --font-display: var(--font-gilroy);
+  --font-sans: var(--font-gilroy);
   --font-label: var(--font-gilroy);
 }
 
@@ -177,9 +179,30 @@ body {
 }
 
 /* The hero's full-bleed pipeline bars: solid signal yellow, continuing
-   the wordmark's own bars edge to edge. */
+   the wordmark's own bars edge to edge. Thickness/position (TOP_BAND /
+   BOTTOM_BAND in HeroPipeline.tsx) is measured exactly off
+   kavoprovid-wordmark-dark.svg's own bar rects, not estimated — so the
+   bars really are one continuous line, not a same-color coincidence.
+   The fade keeps that continuation from reading as a flat rectangle
+   dropped onto the viewport: it thins out toward both edges instead of
+   hard-cutting at the screen boundary, like a pipe running off past
+   what's in frame rather than a panel with a border. */
 .pipe-flow-x {
   background-color: var(--color-signal);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
 @keyframes accordion-down {

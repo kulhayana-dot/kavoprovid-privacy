@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import { animate } from "framer-motion";
 import { PRELOADER_SECONDS } from "@/lib/motion";
 
 export function Preloader() {
@@ -24,29 +24,41 @@ export function Preloader() {
       return;
     }
 
-    const state = { value: 0 };
-    const tl = gsap.timeline({
-      defaults: { ease: "power2.inOut" },
-      onComplete: () => {
-        gsap.set(overlay, { display: "none" });
-      },
-    });
-
-    tl.to(state, {
-      value: 100,
+    const counter = animate(0, 100, {
       duration: PRELOADER_SECONDS,
-      ease: "power1.inOut",
-      onUpdate: () => {
+      ease: "easeInOut",
+      onUpdate: (value) => {
         if (barRef.current) {
-          barRef.current.style.transform = `scaleX(${state.value / 100})`;
+          barRef.current.style.transform = `scaleX(${value / 100})`;
         }
         if (countRef.current) {
-          countRef.current.textContent = String(Math.round(state.value));
+          countRef.current.textContent = String(Math.round(value));
         }
       },
-    })
-      .to(panelTopRef.current, { yPercent: -100, duration: 0.6 }, "+=0.05")
-      .to(panelBottomRef.current, { yPercent: 100, duration: 0.6 }, "<");
+      onComplete: () => {
+        if (panelTopRef.current) {
+          animate(
+            panelTopRef.current,
+            { y: "-100%" },
+            { duration: 0.6, ease: "easeInOut", delay: 0.05 },
+          );
+        }
+        if (panelBottomRef.current) {
+          animate(
+            panelBottomRef.current,
+            { y: "100%" },
+            {
+              duration: 0.6,
+              ease: "easeInOut",
+              delay: 0.05,
+              onComplete: () => {
+                overlay.style.display = "none";
+              },
+            },
+          );
+        }
+      },
+    });
 
     // hard fallback in case anything above fails to fire
     const fallback = window.setTimeout(() => {
@@ -54,7 +66,7 @@ export function Preloader() {
     }, (PRELOADER_SECONDS + 1.5) * 1000);
 
     return () => {
-      tl.kill();
+      counter.stop();
       window.clearTimeout(fallback);
     };
   }, []);

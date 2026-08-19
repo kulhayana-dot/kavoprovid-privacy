@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
 import { RevealText } from "@/components/RevealText";
 import { IconCheck, IconGauge } from "@/components/icons";
 import { MachineCard } from "@/components/MachineCard";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
 import { MACHINES } from "@/lib/machines";
 
 const TITLE = "Кава для виробництва — кавова інфраструктура на зміну | Kavoprovid";
@@ -45,8 +40,8 @@ const EXPECTATIONS = [
 const WE_HANDLE = [
   "Обладнання під виробниче навантаження й багатозмінний графік",
   "Постачання великих обсягів кави та витратних матеріалів",
-  "Планове обслуговування без зупинки виробничого процесу",
-  "Технічну підтримку зі швидким виїздом при поломці",
+  "Планове обслуговування виробничого обладнання",
+  "Технічну підтримку — ми завжди на зв'язку",
   "Контроль витрат — денний ліміт порцій на кожного співробітника",
 ];
 
@@ -68,47 +63,14 @@ const STEPS = [
     text: "Постачання великих партій зерна й витратних матеріалів за графіком — без ручного контролю запасів.",
   },
   {
-    title: "Обслуговуємо без зупинок",
-    text: "Планове обслуговування підлаштовуємо під графік змін. Позаштатний ремонт — технік і підмінне обладнання виїжджають одразу.",
+    title: "Обслуговуємо за графіком змін",
+    text: "Планове обслуговування підлаштовуємо під графік змін. При позаштатному ремонті — ми завжди на зв'язку.",
   },
 ];
 
 const PRODUCTION_MACHINES = MACHINES.filter(
   (m) => m.slug === "dr-coffee-coffeecenter" || m.slug === "dr-coffee-coffeebar-plus",
 );
-
-const FAQ = [
-  {
-    q: "Скільки кавомашин потрібно на виробництво з кількома змінами?",
-    a: "Залежить від чисельності людей на зміні й кількості точок доступу. Порахуємо разом після короткої розмови про ваш майданчик.",
-  },
-  {
-    q: "Чи обслуговуєте цілодобово?",
-    a: "Планове обслуговування підлаштовуємо під графік змін вашого виробництва, а не під наш зручний час.",
-  },
-  {
-    q: "Що якщо кавомашина вийде з ладу під час зміни?",
-    a: "Технік і підмінне обладнання виїжджають одразу — виробництво не лишається без кави на час ремонту.",
-  },
-  {
-    q: "Яка географія обслуговування?",
-    a: "Київ та Київська область — технік доїжджає в межах години, а не днів.",
-  },
-  {
-    q: "Чи можна контролювати витрати на каву?",
-    a: "Так — для великих виробництв підключаємо облік на картках, які вже є на майданчику. Компанія встановлює денний ліміт напоїв на співробітника, кавомашина не видає понад норму, а витрати стають прогнозованими.",
-  },
-];
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -129,15 +91,20 @@ export default function ProductionPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <section className="bg-ink pb-16 pt-32 text-paper sm:pb-24 sm:pt-40">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+      <section className="relative overflow-hidden bg-ink pb-16 pt-32 text-paper sm:pb-24 sm:pt-40">
+        <Image
+          src="/hero/production.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-ink/50" />
+        <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
           <nav aria-label="breadcrumb" className="mb-4">
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
@@ -169,7 +136,7 @@ export default function ProductionPage() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button href="tel:+380636271567">Підключити виробництво</Button>
+            <Button href="tel:+380636271567">Провести каву на виробництво</Button>
             <Button href="#process" variant="secondary">
               Як це працює
             </Button>
@@ -295,7 +262,7 @@ export default function ProductionPage() {
             as="h2"
             className="font-display mt-4 max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
           >
-            Розраховане на потік, а не на тишу офісу.
+            Розраховане на безперервний потік, а не на поодинокі чашки.
           </RevealText>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -328,16 +295,17 @@ export default function ProductionPage() {
       </section>
 
       <section id="faq" className="scroll-mt-24 bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Запитання</h2>
-          <Accordion type="single" collapsible className="mt-8 space-y-4">
-            {FAQ.map((item) => (
-              <AccordionItem key={item.q} value={item.q}>
-                <AccordionTrigger>{item.q}</AccordionTrigger>
-                <AccordionContent>{item.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <p className="mt-3 text-ink/60">
+            Відповіді на часті запитання про графік змін, обслуговування й
+            контроль витрат зібрані на окремій сторінці.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <Button href="/faq" variant="outline">
+              Усі запитання <span aria-hidden="true">→</span>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -351,7 +319,7 @@ export default function ProductionPage() {
             того, хто сьогодні поїде в магазин.
           </p>
           <div className="mt-8 flex justify-center">
-            <Button href="tel:+380636271567">Підключити виробництво</Button>
+            <Button href="tel:+380636271567">Провести каву на виробництво</Button>
           </div>
 
           <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">

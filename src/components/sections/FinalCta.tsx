@@ -24,7 +24,7 @@ export function FinalCta() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <Button href="tel:+380636271567">Підключити офіс</Button>
+          <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-paper/60">

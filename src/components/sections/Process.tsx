@@ -1,11 +1,7 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const STEPS = [
   {
@@ -35,34 +31,9 @@ const STEPS = [
 ];
 
 export function Process() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      itemRefs.current.forEach((el) => {
-        if (!el) return;
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 24 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: { trigger: el, start: "top 85%" },
-          },
-        );
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="process"
-      ref={sectionRef}
       className="relative bg-paper py-28 text-ink sm:py-36"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -83,12 +54,13 @@ export function Process() {
 
           <div className="space-y-12">
             {STEPS.map((step, i) => (
-              <div
+              <motion.div
                 key={step.title}
-                ref={(el) => {
-                  itemRefs.current[i] = el;
-                }}
                 className="relative flex gap-6 sm:gap-8"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "0px 0px -15% 0px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-ink/15 bg-paper text-sm font-bold text-ink/70">
                   {String(i + 1).padStart(2, "0")}
@@ -99,7 +71,7 @@ export function Process() {
                   </h3>
                   <p className="mt-2 max-w-xl text-ink/60">{step.text}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
