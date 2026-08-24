@@ -14,7 +14,7 @@ export function HeroBackground() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[62%_center] sm:object-center"
+        className="object-contain object-top sm:object-cover sm:object-center"
       />
       {/* Dark overlay to mute the photo and keep hero text readable. */}
       <div className="absolute inset-0 bg-ink/50" />
