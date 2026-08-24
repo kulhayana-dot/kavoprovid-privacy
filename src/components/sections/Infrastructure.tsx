@@ -118,7 +118,7 @@ export function Infrastructure() {
         <div className="stripe-band mt-5 inline-block max-w-5xl px-1 py-3 sm:py-4">
           <RevealText
             as="h2"
-            className="font-display text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl"
+            className="font-display text-4xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
           >
             Кавова інфраструктура — це ланцюг, а не кавомашина.
           </RevealText>
