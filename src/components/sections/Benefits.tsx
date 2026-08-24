@@ -10,6 +10,7 @@ import {
   IconSwitch,
 } from "@/components/icons";
 import { cn } from "@/lib/cn";
+import { Wordmark } from "@/components/Wordmark";
 
 const PILLARS = [
   {
@@ -20,7 +21,7 @@ const PILLARS = [
   {
     icon: IconShield,
     title: "Поломка — наша проблема",
-    text: "Технік і підмінна кавомашина виїжджають одразу. Офіс лишається з кавою, поки ми розбираємось із несправністю.",
+    text: "Ми завжди на зв'язку і підключаємо підмінну кавомашину. Офіс лишається з кавою, поки ми розбираємось із несправністю.",
   },
   {
     icon: IconHeart,
@@ -46,8 +47,8 @@ export function Benefits() {
     <section id="why" className="relative bg-ink py-28 text-paper sm:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
-            Чому Kavoprovid
+          <span className="font-label inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-paper/50">
+            Чому <Wordmark tone="dark" className="h-3" />
           </span>
           <div className="stripe-band mt-4 inline-block px-1 py-3 sm:py-4">
             <RevealText

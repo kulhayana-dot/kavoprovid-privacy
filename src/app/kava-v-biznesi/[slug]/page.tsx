@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { ARTICLES, getArticle } from "@/lib/knowledge";
 import { cn } from "@/lib/cn";
+import { Wordmark } from "@/components/Wordmark";
 
 export function generateStaticParams() {
   return ARTICLES.map((a) => ({ slug: a.slug }));
@@ -123,8 +124,8 @@ export default async function ArticlePage({
             <nav aria-label="breadcrumb" className="mb-4">
               <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
                 <li>
-                  <Link href="/" className="hover:text-paper/70">
-                    Kavoprovid
+                  <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
+                    <Wordmark tone="dark" className="h-3" />
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>

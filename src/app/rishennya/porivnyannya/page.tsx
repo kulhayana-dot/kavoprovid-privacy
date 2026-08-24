@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MachineComparisonPanel } from "@/components/MachineComparisonPanel";
+import { Wordmark } from "@/components/Wordmark";
 
 const TITLE = "Порівняння кавомашин — Kavoprovid";
 const DESCRIPTION =
@@ -52,8 +53,8 @@ export default function PorivnyannyaPage() {
           <nav aria-label="breadcrumb" className="mb-4">
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
-                <Link href="/" className="hover:text-paper/70">
-                  Kavoprovid
+                <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
+                  <Wordmark tone="dark" className="h-3" />
                 </Link>
               </li>
               <li aria-hidden="true">/</li>

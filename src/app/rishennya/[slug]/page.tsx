@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { MACHINES, MILK_FRIDGE_PHOTO, getMachine } from "@/lib/machines";
 import { FIT_AUDIENCE, NOT_FIT_AUDIENCE } from "@/lib/audience";
+import { Wordmark } from "@/components/Wordmark";
 
 export function generateStaticParams() {
   return MACHINES.map((m) => ({ slug: m.slug }));
@@ -126,8 +127,8 @@ export default async function MachinePage({
               <nav aria-label="breadcrumb" className="mb-3">
                 <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
                   <li>
-                    <Link href="/" className="hover:text-paper/70">
-                      Kavoprovid
+                    <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
+                      <Wordmark tone="dark" className="h-3" />
                     </Link>
                   </li>
                   <li aria-hidden="true">/</li>
