@@ -7,7 +7,7 @@ export function HeroBackground() {
     // stretch to cover that full height crushed it down to a dead, faded
     // sliver by the time the section actually ended. Past one screen the
     // section's own bg-ink shows through instead.
-    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-screen overflow-hidden">
+    <div aria-hidden="true" className="absolute inset-x-0 top-[132px] h-screen overflow-hidden sm:top-0">
       <Image
         src="/hero/office.png"
         alt=""
