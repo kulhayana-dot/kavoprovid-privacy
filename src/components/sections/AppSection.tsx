@@ -1,6 +1,26 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
 import { IconCheck, IconGauge, IconRefresh, IconWrench } from "@/components/icons";
+import { cn } from "@/lib/cn";
+
+const SCREENS = [
+  {
+    src: "/app/kavoprovid-app-home.jpg",
+    alt: "Головний екран KAVOPROVID App — локація, замовлення й звернення до Кавопровідника",
+  },
+  {
+    src: "/app/kavoprovid-app-service.png",
+    alt: "Кавопровідник — опис проблеми з кавомашиною та фото поломки для AI-діагнозу",
+  },
+  {
+    src: "/app/kavoprovid-app-orders.png",
+    alt: "Мої замовлення — історія замовлень і повтор одним дотиком",
+  },
+];
 
 const FEATURES = [
   {
@@ -32,6 +52,61 @@ const FEATURES = [
   },
 ];
 
+function AppScreens() {
+  const [active, setActive] = useState(0);
+  const reduced = useReducedMotion();
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(wrapRef, { margin: "-10% 0px -10% 0px" });
+
+  useEffect(() => {
+    if (reduced || !inView) return;
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % SCREENS.length);
+    }, 3200);
+    return () => clearInterval(id);
+  }, [reduced, inView]);
+
+  return (
+    <div ref={wrapRef} className="flex shrink-0 flex-col items-center">
+      <div className="relative aspect-[1320/2868] w-[220px] overflow-hidden rounded-[2rem] border border-ink/10 shadow-2xl shadow-ink/20 sm:w-[260px]">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={active}
+            initial={reduced ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduced ? undefined : { opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={SCREENS[active].src}
+              alt={SCREENS[active].alt}
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 640px) 260px, 220px"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="mt-4 flex items-center gap-1.5">
+        {SCREENS.map((s, i) => (
+          <button
+            key={s.src}
+            type="button"
+            aria-label={`Показати екран ${i + 1} з ${SCREENS.length}`}
+            onClick={() => setActive(i)}
+            className={cn(
+              "h-1.5 rounded-full transition-all duration-300",
+              i === active ? "w-5 bg-ink" : "w-1.5 bg-ink/20 hover:bg-ink/40",
+            )}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function AppSection() {
   return (
     <section id="app" className="relative bg-paper py-28 text-ink sm:py-36">
@@ -56,16 +131,7 @@ export function AppSection() {
           </div>
 
           <div className="mt-10 flex shrink-0 justify-center lg:mt-0">
-            <div className="w-[220px] overflow-hidden rounded-[2rem] border border-ink/10 shadow-2xl shadow-ink/20 sm:w-[260px]">
-              <Image
-                src="/app/kavoprovid-app-home.jpg"
-                alt="Знімок екрана KAVOPROVID App — головний екран із локацією, замовленням і зверненням до Кавопровідника"
-                width={1320}
-                height={2868}
-                className="w-full h-auto"
-                sizes="(min-width: 640px) 260px, 220px"
-              />
-            </div>
+            <AppScreens />
           </div>
         </div>
 
