@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Preloader } from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import { AppSection } from "@/components/sections/AppSection";
 import { Benefits } from "@/components/sections/Benefits";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
@@ -22,6 +23,7 @@ export default function Home() {
         <Problem />
         <Infrastructure />
         <Solutions />
+        <AppSection />
         <div className="h-[3px] bg-signal" aria-hidden="true" />
         <Benefits />
         <Process />
