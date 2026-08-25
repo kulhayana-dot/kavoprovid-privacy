@@ -21,7 +21,7 @@ export function HeroContent({ children }: { children: ReactNode }) {
   return (
     <motion.div
       ref={ref}
-      className="relative mx-auto w-full max-w-7xl px-6 py-24 lg:px-8"
+      className="relative mx-auto w-full max-w-7xl px-6 pb-24 pt-8 sm:py-24 lg:px-8"
       style={reduced ? undefined : { opacity, y }}
     >
       {children}

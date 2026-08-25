@@ -170,7 +170,7 @@ export function Solutions() {
           ))}
         </div>
 
-        <div className="relative z-10 flex h-[calc(100%-72px)] max-w-lg flex-col justify-center px-6 sm:px-10">
+        <div className="relative z-10 flex h-[calc(100%-72px)] max-w-[60%] flex-col justify-center px-6 sm:max-w-lg sm:px-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={profile.slug}
@@ -189,7 +189,7 @@ export function Solutions() {
                 </span>
               )}
 
-              <h3 className="font-display mt-4 text-3xl font-bold sm:text-4xl">
+              <h3 className="font-display mt-4 text-2xl font-bold sm:text-4xl">
                 {profile.machine}
               </h3>
 
