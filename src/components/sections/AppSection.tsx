@@ -13,6 +13,10 @@ const SCREENS = [
     alt: "Головний екран KAVOPROVID App — локація, замовлення й звернення до Кавопровідника",
   },
   {
+    src: "/app/kavoprovid-app-catalog.jpg",
+    alt: "Каталог замовлення — кава в зернах, інгредієнти для вендингу та інші витратні матеріали",
+  },
+  {
     src: "/app/kavoprovid-app-service.png",
     alt: "Кавопровідник — опис проблеми з кавомашиною та фото поломки для AI-діагнозу",
   },
@@ -36,7 +40,7 @@ const FEATURES = [
     icon: IconRefresh,
     title: "Замовлення",
     points: [
-      "Створення замовлення в кілька дотиків",
+      "Каталог кави в зернах, інгредієнтів для вендингу та витратних матеріалів",
       "Історія попередніх замовлень",
       "Повтор попереднього замовлення без повторного вводу",
     ],
@@ -135,15 +139,21 @@ export function AppSection() {
           </div>
         </div>
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-3 sm:gap-8">
-          {FEATURES.map((f) => (
-            <div key={f.title} className="chamfer border border-ink/10 bg-ink/[0.02] p-6 sm:p-8">
-              <div className="chamfer-sm flex size-12 items-center justify-center border border-ink/15 bg-paper text-ink">
-                <f.icon className="size-5" />
+        <div className="mt-20 grid gap-12 sm:grid-cols-3 sm:gap-10">
+          {FEATURES.map((f, i) => (
+            <div key={f.title} className="group">
+              <div className="flex items-center justify-between">
+                <div className="chamfer-sm flex size-12 items-center justify-center border border-ink/15 text-ink transition-colors duration-200 group-hover:border-signal group-hover:bg-signal">
+                  <f.icon className="size-5" />
+                </div>
+                <span className="font-label text-xs tracking-widest text-ink/30">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
               <h3 className="font-display mt-5 text-lg font-bold sm:text-xl">
                 {f.title}
               </h3>
+              <div className="mt-4 h-px bg-ink/10" />
               <ul className="mt-4 space-y-2.5">
                 {f.points.map((point) => (
                   <li key={point} className="flex items-start gap-3 text-sm text-ink/60">
