@@ -141,19 +141,16 @@ export function AppSection() {
 
         <div className="mt-20 grid gap-12 sm:grid-cols-3 sm:gap-10">
           {FEATURES.map((f, i) => (
-            <div key={f.title} className="group">
+            <div key={f.title} className="border-l-2 border-signal pl-6">
               <div className="flex items-center justify-between">
-                <div className="chamfer-sm flex size-12 items-center justify-center border border-ink/15 text-ink transition-colors duration-200 group-hover:border-signal group-hover:bg-signal">
-                  <f.icon className="size-5" />
-                </div>
+                <f.icon className="size-5 text-ink" />
                 <span className="font-label text-xs tracking-widest text-ink/30">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="font-display mt-5 text-lg font-bold sm:text-xl">
+              <h3 className="font-display mt-4 text-lg font-bold sm:text-xl">
                 {f.title}
               </h3>
-              <div className="mt-4 h-px bg-ink/10" />
               <ul className="mt-4 space-y-2.5">
                 {f.points.map((point) => (
                   <li key={point} className="flex items-start gap-3 text-sm text-ink/60">
