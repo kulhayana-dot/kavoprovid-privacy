@@ -60,7 +60,7 @@ function AppScreens() {
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const wrapRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(wrapRef, { margin: "-10% 0px -10% 0px" });
+  const inView = useInView(wrapRef, { margin: "-10% 0px -10% 0px", once: true });
 
   useEffect(() => {
     if (reduced || !inView) return;
