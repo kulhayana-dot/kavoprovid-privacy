@@ -4,6 +4,7 @@ import { HeroEntrance, HeroEntranceItem } from "@/components/HeroEntrance";
 import { HeroPipeline } from "@/components/HeroPipeline";
 import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 import { PRELOADER_SECONDS } from "@/lib/motion";
 
 export function Hero() {
@@ -50,7 +51,7 @@ export function Hero() {
             </HeroEntranceItem>
 
             <HeroEntranceItem className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button href="#cta">Провести каву в мій бізнес</Button>
+              <MagneticButton href="#cta">Провести каву в мій бізнес</MagneticButton>
               <Button href="#solutions" variant="secondary">
                 Як це працює
               </Button>

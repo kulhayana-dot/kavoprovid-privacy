@@ -2,7 +2,7 @@ import { type AnchorHTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/cn";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "group relative inline-flex items-center justify-center text-sm font-medium transition-colors duration-200",
   {
     variants: {

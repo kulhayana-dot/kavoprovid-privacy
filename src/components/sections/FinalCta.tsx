@@ -1,14 +1,42 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
-import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 import { LeadForm } from "@/components/LeadForm";
 
 export function FinalCta() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
+
+  // Section-crossing progress (0 entering the bottom of the viewport, 1
+  // leaving the top) drives a slow horizontal drift on the oversized
+  // background mark — pure scroll-position read, nothing pins or blocks
+  // the actual scroll.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const markX = useTransform(scrollYProgress, [0, 1], ["6%", "-6%"]);
+
   return (
     <section
+      ref={sectionRef}
       id="cta"
       className="relative overflow-hidden bg-ink py-28 text-paper sm:py-40"
     >
-      <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+      {!reduced && (
+        <motion.div
+          aria-hidden="true"
+          style={{ x: markX }}
+          className="font-display pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center text-[22vw] font-extrabold leading-none text-paper/[0.03]"
+        >
+          KAVOPROVID
+        </motion.div>
+      )}
+
+      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
         <div className="stripe-band inline-block px-2 py-4 sm:py-5">
           <RevealText
             as="h2"
@@ -24,7 +52,9 @@ export function FinalCta() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
+          <MagneticButton href="tel:+380636271567">
+            Провести каву в мій бізнес
+          </MagneticButton>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-paper/60">

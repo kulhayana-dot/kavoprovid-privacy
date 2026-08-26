@@ -1,6 +1,7 @@
 import { RevealText } from "@/components/RevealText";
 import { IconDocument, IconValve } from "@/components/icons";
-import { Card, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function Trust() {
   return (
@@ -19,7 +20,7 @@ export function Trust() {
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-5">
-          <Card className="bg-paper p-8 sm:p-10 lg:col-span-3">
+          <TiltCard className="bg-paper p-8 sm:p-10 lg:col-span-3">
             <IconValve className="size-8 text-ink" />
             <CardContent className="mt-6">
               <CardTitle>Офіційний дистриб&apos;ютор Strauss Ukraine</CardTitle>
@@ -29,9 +30,9 @@ export function Trust() {
                 аналог.
               </CardDescription>
             </CardContent>
-          </Card>
+          </TiltCard>
 
-          <Card className="bg-paper p-8 sm:p-10 lg:col-span-2 lg:mt-10">
+          <TiltCard className="bg-paper p-8 sm:p-10 lg:col-span-2 lg:mt-10">
             <IconDocument className="size-8 text-ink" />
             <CardContent className="mt-6">
               <CardTitle>ТОВ «ЮНІТ КЕЙ», ЄДРПОУ 46306370</CardTitle>
@@ -41,7 +42,7 @@ export function Trust() {
                 слово.
               </CardDescription>
             </CardContent>
-          </Card>
+          </TiltCard>
         </div>
       </div>
     </section>
