@@ -10,8 +10,10 @@ const MAX_TILT = 8; // degrees at the card's edge
  * Same chamfer/border shell as Card, but leans in 3D toward the cursor and
  * casts a soft signal-yellow glow that follows it — clipped to the same
  * chamfer shape since clip-path doubles as a mask, no overflow-hidden
- * needed. Hover-only by nature — nothing to disable separately for touch,
- * since mousemove simply never fires there.
+ * needed. The lean itself is hover-only (mousemove never fires on touch),
+ * so on mobile it instead plays a one-off tilt-and-settle the moment the
+ * card scrolls into view, through the same rotateX/rotateY springs —
+ * otherwise touch users would never see any of this.
  */
 type TiltCardProps = Omit<
   ComponentProps<"div">,
@@ -44,11 +46,26 @@ export function TiltCard({ className, children, ...props }: TiltCardProps) {
     rotateY.set(0);
   }
 
+  function handleViewportEnter() {
+    if (reduced) return;
+    rotateX.set(-6);
+    rotateY.set(8);
+    setTimeout(() => {
+      rotateX.set(0);
+      rotateY.set(0);
+    }, 60);
+  }
+
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onViewportEnter={handleViewportEnter}
+      viewport={{ once: true, amount: 0.4 }}
+      initial={reduced ? undefined : { opacity: 0, y: 20 }}
+      whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       style={
         reduced
           ? undefined

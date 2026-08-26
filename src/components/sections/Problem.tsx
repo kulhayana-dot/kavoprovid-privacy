@@ -89,12 +89,8 @@ export function Problem() {
                   </span>
                   <span
                     className={cn(
-                      // Always expanded on mobile — there's no hover there to
-                      // discover it with, so it can't be gated behind an
-                      // interaction the way it is on desktop.
                       "block overflow-hidden text-base text-paper/55 transition-[max-height,opacity,margin-top] duration-300 ease-out sm:text-lg",
-                      "max-h-20 mt-3 opacity-100",
-                      !active && "sm:max-h-0 sm:mt-0 sm:opacity-0",
+                      active ? "max-h-20 mt-3 opacity-100" : "max-h-0 opacity-0",
                     )}
                   >
                     {item.text}
