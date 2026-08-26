@@ -114,7 +114,7 @@ function AppScreens() {
 
 export function AppSection() {
   return (
-    <section id="app" className="relative bg-paper py-28 text-ink sm:py-36">
+    <section id="app" className="relative bg-paper py-20 text-ink sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="lg:flex lg:items-start lg:justify-between lg:gap-16">
           <div className="max-w-2xl">

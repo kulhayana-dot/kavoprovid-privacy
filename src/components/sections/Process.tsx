@@ -34,7 +34,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="relative bg-paper py-28 text-ink sm:py-36"
+      className="relative bg-paper py-20 text-ink sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">

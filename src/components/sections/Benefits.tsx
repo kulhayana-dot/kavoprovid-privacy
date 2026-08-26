@@ -44,7 +44,7 @@ export function Benefits() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="why" className="relative bg-ink py-28 text-paper sm:py-36">
+    <section id="why" className="relative bg-ink py-20 text-paper sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
           <span className="font-label inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-paper/50">

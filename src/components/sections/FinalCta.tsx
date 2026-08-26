@@ -24,7 +24,7 @@ export function FinalCta() {
     <section
       ref={sectionRef}
       id="cta"
-      className="relative overflow-hidden bg-ink py-28 text-paper sm:py-40"
+      className="relative overflow-hidden bg-ink py-20 text-paper sm:py-28"
     >
       {!reduced && (
         <motion.div
