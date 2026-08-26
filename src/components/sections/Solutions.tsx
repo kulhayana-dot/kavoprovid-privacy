@@ -89,21 +89,26 @@ export function Solutions() {
         ref={stageRef}
         onMouseEnter={() => { hovering.current = true; }}
         onMouseLeave={() => { hovering.current = false; }}
-        className="relative mt-14 h-[560px] overflow-hidden sm:h-[640px] lg:h-[720px]"
+        className="relative mt-14 overflow-hidden sm:h-[640px] lg:h-[720px]"
       >
         {/* Signal-yellow glow behind the machine so it separates from the dark stage */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-[6%] top-1/2 h-[80%] w-[56%] -translate-y-1/2 blur-[4px]"
+          className="pointer-events-none absolute right-[6%] top-1/2 hidden h-[80%] w-[56%] -translate-y-1/2 blur-[4px] sm:block"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(252,237,79,.22), rgba(252,237,79,.06) 45%, transparent 72%)",
           }}
         />
 
-        {/* Draggable photo layer — swipe left/right to switch machines */}
+        {/* Draggable photo layer — swipe left/right to switch machines.
+            Mobile: its own contained box, photo centered, in flow — the
+            fixed-height overlay below only works once the photo and text
+            columns have room to sit side by side (sm+); on narrow screens
+            that same layout let the photo's cord/base bleed into the text
+            and the bottom nav, so mobile stacks instead of overlaying. */}
         <motion.div
-          className="absolute inset-0"
+          className="relative h-64 w-full sm:absolute sm:inset-0 sm:h-auto"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -120,14 +125,14 @@ export function Solutions() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute inset-0 flex items-center justify-end pr-[5%]"
+                className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[5%]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={profile.photo.src}
                   alt={profile.machine}
                   draggable={false}
-                  className="h-[86%] max-w-[58%] w-auto object-contain"
+                  className="h-[85%] max-w-[80%] w-auto object-contain sm:h-[86%] sm:max-w-[58%]"
                   style={{
                     filter:
                       "drop-shadow(0 40px 70px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.12))",
@@ -140,7 +145,7 @@ export function Solutions() {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 hidden sm:block"
           style={{
             background:
               "linear-gradient(90deg, rgba(10,10,10,.97), rgba(10,10,10,.6) 42%, rgba(10,10,10,.05) 68%)",
@@ -170,7 +175,7 @@ export function Solutions() {
           ))}
         </div>
 
-        <div className="relative z-10 flex h-[calc(100%-72px)] max-w-[60%] flex-col justify-center px-6 sm:max-w-lg sm:px-10">
+        <div className="relative z-10 flex flex-col px-6 pb-2 sm:h-[calc(100%-72px)] sm:max-w-lg sm:justify-center sm:px-10 sm:pb-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={profile.slug}
@@ -222,7 +227,7 @@ export function Solutions() {
           </AnimatePresence>
         </div>
 
-        <div className="absolute inset-x-6 bottom-6 z-10 flex items-center justify-between sm:inset-x-8 sm:bottom-8">
+        <div className="relative z-10 mt-4 flex items-center justify-between px-6 pb-6 sm:absolute sm:inset-x-8 sm:bottom-8 sm:mt-0 sm:px-0 sm:pb-0">
           <button
             type="button"
             aria-label="Попередня модель"
