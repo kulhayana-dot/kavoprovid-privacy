@@ -51,7 +51,7 @@ export function LeadForm({
       <div
         role="status"
         className={cn(
-          "chamfer-sm border border-paper/15 bg-paper/5 p-6 text-center",
+          "chamfer-sm w-full border border-paper/15 bg-paper/5 p-6 text-center",
           className,
         )}
       >
@@ -68,7 +68,7 @@ export function LeadForm({
   const companyId = `${idPrefix}-company`;
 
   return (
-    <form onSubmit={handleSubmit} className={cn("space-y-3", className)}>
+    <form onSubmit={handleSubmit} className={cn("w-full space-y-3", className)}>
       <input
         type="text"
         name="company_site"

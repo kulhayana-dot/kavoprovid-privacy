@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-mot
 import { RevealText } from "@/components/RevealText";
 import { IconCheck, IconGauge, IconRefresh, IconWrench } from "@/components/icons";
 import { cn } from "@/lib/cn";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const SCREENS = [
   {
@@ -141,14 +142,16 @@ export function AppSection() {
 
         <div className="mt-20 grid gap-12 sm:grid-cols-3 sm:gap-10">
           {FEATURES.map((f, i) => (
-            <div key={f.title} className="border-l-2 border-signal pl-6">
+            <TiltCard key={f.title} className="bg-ink/[0.02] p-6 sm:p-8">
               <div className="flex items-center justify-between">
-                <f.icon className="size-5 text-ink" />
+                <div className="chamfer-sm flex size-12 items-center justify-center border border-ink/15 bg-paper text-ink">
+                  <f.icon className="size-5" />
+                </div>
                 <span className="font-label text-xs tracking-widest text-ink/30">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="font-display mt-4 text-lg font-bold sm:text-xl">
+              <h3 className="font-display mt-5 text-lg font-bold sm:text-xl">
                 {f.title}
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -159,7 +162,7 @@ export function AppSection() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>
