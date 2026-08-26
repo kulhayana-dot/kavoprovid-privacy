@@ -102,7 +102,7 @@ export default function ProductionPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-contain object-top sm:object-cover sm:object-center"
         />
         <div className="absolute inset-0 bg-ink/50" />
         <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
