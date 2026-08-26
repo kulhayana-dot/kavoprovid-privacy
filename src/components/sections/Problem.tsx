@@ -30,6 +30,7 @@ const BREAKS = [
 
 export function Problem() {
   const [open, setOpen] = useState<Set<number>>(new Set());
+  const [hovered, setHovered] = useState<number | null>(null);
 
   function toggle(i: number) {
     setOpen((prev) => {
@@ -57,17 +58,22 @@ export function Problem() {
 
         <div className="mt-16 border-t border-paper/10">
           {BREAKS.map((item, i) => {
-            const isOpen = open.has(i);
+            const active = open.has(i) || hovered === i;
             return (
               <motion.button
                 key={item.title}
                 type="button"
                 onClick={() => toggle(i)}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
-                className="group flex w-full items-baseline gap-6 border-b border-paper/10 py-8 text-left transition-colors hover:bg-paper/[0.03] sm:gap-8"
+                className={cn(
+                  "flex w-full items-baseline gap-6 border-b border-paper/10 py-8 text-left transition-colors sm:gap-8",
+                  active && "bg-paper/[0.03]",
+                )}
               >
                 <span className="font-display w-10 shrink-0 text-base font-bold text-signal/50">
                   {String(i + 1).padStart(2, "0")}
@@ -76,8 +82,7 @@ export function Problem() {
                   <span
                     className={cn(
                       "font-display block text-2xl font-bold leading-tight transition-colors sm:text-4xl",
-                      "group-hover:text-signal",
-                      isOpen && "text-signal",
+                      active && "text-signal",
                     )}
                   >
                     {item.title}
@@ -85,8 +90,7 @@ export function Problem() {
                   <span
                     className={cn(
                       "block overflow-hidden text-base text-paper/55 transition-[max-height,opacity,margin-top] duration-300 ease-out sm:text-lg",
-                      "max-h-0 opacity-0 group-hover:max-h-20 group-hover:mt-3 group-hover:opacity-100",
-                      isOpen && "max-h-20! mt-3! opacity-100!",
+                      active ? "max-h-20 mt-3 opacity-100" : "max-h-0 opacity-0",
                     )}
                   >
                     {item.text}

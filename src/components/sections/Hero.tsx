@@ -49,11 +49,6 @@ export function Hero() {
               просто п&apos;є каву.
             </HeroEntranceItem>
 
-            <HeroEntranceItem className="mt-4 max-w-xl text-sm text-paper/62">
-              Воду, електрику й інтернет в офіс проводять не питаючи.
-              Каву — теж пора.
-            </HeroEntranceItem>
-
             <HeroEntranceItem className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button href="#cta">Провести каву в мій бізнес</Button>
               <Button href="#solutions" variant="secondary">

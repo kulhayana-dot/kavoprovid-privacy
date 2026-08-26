@@ -25,7 +25,7 @@ const NODES = [
 export function Infrastructure() {
   return (
     <section id="infrastructure" className="relative bg-ink text-paper">
-      <div className="mx-auto max-w-7xl px-6 pb-16 pt-28 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 pb-16 pt-8 lg:px-8">
         <span className="font-label block text-xs uppercase tracking-widest text-paper/50">
           Як це працює
         </span>
