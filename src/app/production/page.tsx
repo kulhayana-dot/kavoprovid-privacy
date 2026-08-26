@@ -97,7 +97,7 @@ export default function ProductionPage() {
 
       <section className="relative overflow-hidden bg-ink pb-16 pt-32 text-paper sm:pb-24 sm:pt-40">
         <Image
-          src="/hero/production.png"
+          src="/hero/production.jpg"
           alt=""
           fill
           priority
