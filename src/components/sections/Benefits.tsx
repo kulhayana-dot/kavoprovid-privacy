@@ -48,7 +48,7 @@ export function Benefits() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
           <span className="font-label inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-paper/50">
-            Чому <Wordmark tone="dark" className="h-3" />
+            Чому <Wordmark tone="dark" className="h-4" />
           </span>
           <div className="stripe-band mt-4 inline-block px-1 py-3 sm:py-4">
             <RevealText

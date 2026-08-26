@@ -102,7 +102,7 @@ export default function FaqPage() {
             <ol className="flex items-center gap-2 text-xs text-paper/50">
               <li>
                 <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
-                  <Wordmark tone="dark" className="h-3" />
+                  <Wordmark tone="dark" className="h-4" />
                 </Link>
               </li>
               <li aria-hidden="true">/</li>

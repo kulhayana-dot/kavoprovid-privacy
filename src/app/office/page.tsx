@@ -92,7 +92,7 @@ export default function OfficePage() {
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
-                  <Wordmark tone="dark" className="h-3" />
+                  <Wordmark tone="dark" className="h-4" />
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
