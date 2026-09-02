@@ -43,6 +43,8 @@ export function LeadForm({
       });
       if (!res.ok) throw new Error("request failed");
       setStatus("success");
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "generate_lead", form_source: source });
     } catch {
       setStatus("error");
     }

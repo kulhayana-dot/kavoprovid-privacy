@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { CONSENT_EVENT, getConsent, setConsent } from "@/lib/consent";
+import {
+  applyConsentToGoogle,
+  CONSENT_EVENT,
+  getConsent,
+  setConsent,
+} from "@/lib/consent";
 
 /**
  * Hidden by default so server and first client render match; an effect
@@ -19,6 +24,9 @@ export function CookieConsent() {
     }
 
     sync();
+    // Re-apply an earlier choice to Consent Mode on load (its default is
+    // "denied" until this runs).
+    applyConsentToGoogle(getConsent());
     window.addEventListener(CONSENT_EVENT, sync);
     return () => window.removeEventListener(CONSENT_EVENT, sync);
   }, []);
