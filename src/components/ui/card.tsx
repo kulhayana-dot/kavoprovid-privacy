@@ -16,7 +16,7 @@ export function CardHeader({ className, ...props }: React.ComponentProps<"div">)
 export function CardTitle({ className, ...props }: React.ComponentProps<"h3">) {
   return (
     <h3
-      className={cn("font-display text-xl font-bold", className)}
+      className={cn("font-display text-xl font-bold text-ink", className)}
       {...props}
     />
   );

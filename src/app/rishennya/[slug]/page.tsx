@@ -162,7 +162,7 @@ export default async function MachinePage({
               </div>
 
               <h1 className="font-display mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                {machine.machine} в оренду для офісу
+                {machine.machine} в оренду
               </h1>
 
               <p className="font-label mt-3 text-xs uppercase tracking-widest text-paper/58">
@@ -184,14 +184,26 @@ export default async function MachinePage({
             </div>
 
             {machine.photo && (
-              <MachinePhoto
-                src={machine.photo.src}
-                alt={machine.machine}
-                callouts={machine.photo.callouts}
-                aspectClassName={machine.photo.aspectClassName}
-                marginPct={machine.photo.marginPct}
-                className="max-w-lg"
-              />
+              <div className="relative mx-auto w-full max-w-lg">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -z-10 blur-[4px]"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at center, rgba(252,237,79,.22), rgba(252,237,79,.06) 45%, transparent 72%)",
+                  }}
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={machine.photo.src}
+                  alt={machine.machine}
+                  className="w-full object-contain"
+                  style={{
+                    filter:
+                      "drop-shadow(0 40px 70px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.12))",
+                  }}
+                />
+              </div>
             )}
           </div>
         </div>

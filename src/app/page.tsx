@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Preloader } from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import { StackSection } from "@/components/StackSection";
 import { AppSection } from "@/components/sections/AppSection";
 import { Benefits } from "@/components/sections/Benefits";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -19,17 +20,35 @@ export default function Home() {
       <SmoothScroll />
       <Header />
       <main id="main-content">
-        <Hero />
-        <Problem />
-        <Infrastructure />
-        <Solutions />
-        <AppSection />
+        <StackSection index={1} pullUp={false}>
+          <Hero />
+        </StackSection>
+        <StackSection index={2}>
+          <Problem />
+        </StackSection>
+        <StackSection index={3}>
+          <Infrastructure />
+        </StackSection>
+        <StackSection index={4}>
+          <Solutions />
+        </StackSection>
+        <StackSection index={5} dim={false}>
+          <AppSection />
+        </StackSection>
         <div className="h-[3px] bg-signal" aria-hidden="true" />
-        <Benefits />
-        <Process />
+        <StackSection index={6} pullUp={false}>
+          <Benefits />
+        </StackSection>
+        <StackSection index={7} dim={false}>
+          <Process />
+        </StackSection>
         <div className="h-[3px] bg-signal" aria-hidden="true" />
-        <Trust />
-        <FinalCta />
+        <StackSection index={8} pullUp={false}>
+          <Trust />
+        </StackSection>
+        <StackSection index={9} dim={false}>
+          <FinalCta />
+        </StackSection>
       </main>
       <Footer />
     </>

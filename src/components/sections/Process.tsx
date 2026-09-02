@@ -51,6 +51,7 @@ export function Process() {
 
         <div className="relative mt-16 max-w-3xl">
           <div className="absolute left-6 top-2 bottom-2 hidden w-px bg-ink/10 sm:block" />
+          <div className="animate-flow-line absolute left-6 top-2 bottom-2 hidden w-[3px] sm:block" />
 
           <div className="space-y-12">
             {STEPS.map((step, i) => (
@@ -62,7 +63,7 @@ export function Process() {
                 viewport={{ once: true, margin: "0px 0px -15% 0px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-ink/15 bg-paper text-sm font-bold text-ink/70">
+                <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center bg-ink text-sm font-bold text-paper">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="pt-1.5">

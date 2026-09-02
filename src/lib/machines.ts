@@ -56,9 +56,9 @@ export const MACHINES: Machine[] = [
     brand: "Bianchi",
     tag: "Просто і без зайвого",
     threshold: 10,
-    metaTitle: "Оренда кавомашини Bianchi Gaia Touch для офісу — Kavoprovid",
+    metaTitle: "Оренда кавомашини Bianchi Gaia Touch — Kavoprovid",
     metaDescription:
-      "Bianchi Gaia Touch в оренду для офісу у Києві та Київській області. Кавомашина, зерно, сервіс і підтримка — в одного партнера.",
+      "Bianchi Gaia Touch в оренду для бізнесу у Києві та Київській області. Кавомашина, зерно, сервіс і підтримка — в одного партнера.",
     intro:
       "Bianchi Gaia Touch — рішення для команд, яким не потрібен зайвий функціонал: італійська машина без складного меню, яка готує каву, какао й напої з вершками за одне натискання. Підходить офісам, де головне — стабільний смак щодня, а не список із тридцяти напоїв.",
     audienceFit: "Невеликі офіси, де важлива простота",
@@ -104,9 +104,9 @@ export const MACHINES: Machine[] = [
     tag: "Найбільший вибір напоїв",
     badge: "Обирають найчастіше",
     threshold: 15,
-    metaTitle: "Оренда кавомашини Dr. Coffee Minibar S для офісу — Kavoprovid",
+    metaTitle: "Оренда кавомашини Dr. Coffee Minibar S — Kavoprovid",
     metaDescription:
-      "Dr. Coffee Minibar S — модель, яку обирають найчастіше. 24 напої, оренда для офісу в Києві та Київській області.",
+      "Dr. Coffee Minibar S — модель, яку обирають найчастіше. 24 напої, оренда для бізнесу в Києві та Київській області.",
     intro:
       "Dr. Coffee Minibar S — модель, яку клієнти обирають найчастіше: екран із зрозумілим меню на 24 напої, від класичного еспресо до какао з молочною піною, як у бариста. Універсальний вибір для офісу, де команда п'є каву по-різному.",
     audienceFit: "Офіси зі змішаними смаковими звичками",
@@ -155,9 +155,9 @@ export const MACHINES: Machine[] = [
     brand: "Dr. Coffee",
     tag: "Для щоденного навантаження",
     threshold: 15,
-    metaTitle: "Оренда кавомашини Dr. Coffee Coffeebar Plus для офісу — Kavoprovid",
+    metaTitle: "Оренда кавомашини Dr. Coffee Coffeebar Plus — Kavoprovid",
     metaDescription:
-      "Dr. Coffee Coffeebar Plus витримує щоденний потік людей в офісі. Оренда для бізнесу в Києві та Київській області.",
+      "Dr. Coffee Coffeebar Plus витримує щоденний потік людей. Оренда для бізнесу в Києві та Київській області.",
     intro:
       "Dr. Coffee Coffeebar Plus зібрана під щоденний потік людей: металевий корпус витримує інтенсивне використання, а чашка готується за секунди — без черги біля кавомашини в пікові години.",
     audienceFit: "Офіси з інтенсивним щоденним потоком",
@@ -206,7 +206,7 @@ export const MACHINES: Machine[] = [
     brand: "Dr. Coffee",
     tag: "Коли черга не спиняється",
     threshold: 20,
-    metaTitle: "Оренда кавомашини Dr. Coffee Coffeecenter для офісу — Kavoprovid",
+    metaTitle: "Оренда кавомашини Dr. Coffee Coffeecenter — Kavoprovid",
     metaDescription:
       "Dr. Coffee Coffeecenter розрахований на промислове навантаження. Оренда для великих команд у Києві та Київській області.",
     intro:
@@ -256,9 +256,9 @@ export const MACHINES: Machine[] = [
     brand: "Bianchi",
     tag: "Преміальний варіант",
     threshold: 15,
-    metaTitle: "Оренда кавомашини Bianchi Talia Touch для офісу — Kavoprovid",
+    metaTitle: "Оренда кавомашини Bianchi Talia Touch — Kavoprovid",
     metaDescription:
-      "Bianchi Talia Touch — преміальна кавомашина в оренду для переговорних і представницьких офісів у Києві та Київській області.",
+      "Bianchi Talia Touch — преміальна кавомашина в оренду для переговорних і представницьких просторів у Києві та Київській області.",
     intro:
       "Bianchi Talia Touch — преміальний варіант для переговорних і представницьких просторів: 12 напоїв і чотири сухі інгредієнти для різноманіття, дизайн, який відповідає рівню зустрічей, що там проходять.",
     audienceFit: "Представницькі та переговорні простори",

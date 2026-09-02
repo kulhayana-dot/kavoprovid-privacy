@@ -4,6 +4,8 @@ type LeadPayload = {
   name?: string;
   phone?: string;
   company?: string;
+  employees?: string;
+  volume?: string;
   source?: string;
 };
 
@@ -18,9 +20,11 @@ export async function POST(request: Request) {
   const name = (body.name ?? "").trim();
   const phone = (body.phone ?? "").trim();
   const company = (body.company ?? "").trim();
+  const employees = (body.employees ?? "").trim();
+  const volume = (body.volume ?? "").trim();
   const source = (body.source ?? "сайт").trim();
 
-  if (!name || !phone) {
+  if (!name || !phone || !company || !employees || !volume) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
 
@@ -36,7 +40,9 @@ export async function POST(request: Request) {
     "Нова заявка з сайту",
     `Ім'я: ${name}`,
     `Телефон: ${phone}`,
-    company ? `Компанія: ${company}` : null,
+    `Компанія: ${company}`,
+    `Співробітників: ${employees}`,
+    `Об'єм кави на місяць: ${volume}`,
     `Джерело: ${source}`,
   ]
     .filter(Boolean)

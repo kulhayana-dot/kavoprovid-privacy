@@ -45,6 +45,7 @@ export function Infrastructure() {
       <div className="mx-auto max-w-2xl px-6 pb-20 lg:px-8">
         <div className="relative">
           <div className="absolute left-6 top-2 bottom-2 w-px -translate-x-1/2 bg-paper/10" />
+          <div className="animate-flow-line absolute left-6 top-2 bottom-2 w-[3px] -translate-x-1/2" />
           <div className="space-y-10">
             {NODES.map((node, i) => (
               <motion.div

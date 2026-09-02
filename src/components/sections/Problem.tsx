@@ -42,10 +42,10 @@ export function Problem() {
   }
 
   return (
-    <section id="problem" className="relative bg-ink text-paper">
+    <section id="problem" className="relative bg-paper text-ink">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 sm:py-28">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
             Знайомо?
           </span>
           <RevealText
@@ -56,7 +56,7 @@ export function Problem() {
           </RevealText>
         </div>
 
-        <div className="mt-16 border-t border-paper/10">
+        <div className="mt-16 border-t border-ink/10">
           {BREAKS.map((item, i) => {
             const active = open.has(i) || hovered === i;
             return (
@@ -71,11 +71,11 @@ export function Problem() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
                 className={cn(
-                  "flex w-full items-baseline gap-6 border-b border-paper/10 py-8 text-left transition-colors sm:gap-8",
-                  active && "bg-paper/[0.03]",
+                  "flex w-full items-baseline gap-6 border-b border-ink/10 px-4 py-8 text-left transition-colors sm:gap-8",
+                  active && "bg-ink text-paper",
                 )}
               >
-                <span className="font-display w-10 shrink-0 text-base font-bold text-signal/50">
+                <span className="font-display w-10 shrink-0 text-base font-bold text-signal">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex-1">
@@ -89,8 +89,8 @@ export function Problem() {
                   </span>
                   <span
                     className={cn(
-                      "block overflow-hidden text-base text-paper/55 transition-[max-height,opacity,margin-top] duration-300 ease-out sm:text-lg",
-                      active ? "max-h-20 mt-3 opacity-100" : "max-h-0 opacity-0",
+                      "block overflow-hidden text-base transition-[max-height,opacity,margin-top] duration-300 ease-out sm:text-lg",
+                      active ? "max-h-20 mt-3 opacity-100 text-paper/70" : "max-h-0 opacity-0",
                     )}
                   >
                     {item.text}
@@ -101,11 +101,11 @@ export function Problem() {
           })}
         </div>
 
-        <div className="mt-16 max-w-md border-t border-paper/10 pt-8">
+        <div className="mt-16 max-w-md border-t border-ink/10 pt-8">
           <p className="font-display text-xl font-bold leading-snug sm:text-2xl">
             Проблема не в кавомашині.
           </p>
-          <p className="mt-3 text-paper/60">
+          <p className="mt-3 text-ink/60">
             Проблема в тому, що між нею і вашим бізнесом немає жодного
             зв&apos;язку.
           </p>

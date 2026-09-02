@@ -44,14 +44,14 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => setConsent("declined")}
-            className="chamfer-sm border border-paper/25 px-5 py-2.5 text-sm text-paper/90 transition-colors hover:border-paper/50"
+            className="chamfer-sm border border-paper/25 px-5 py-2.5 text-sm font-medium text-paper/90 transition-colors duration-200 hover:text-signal"
           >
             Відхилити
           </button>
           <button
             type="button"
             onClick={() => setConsent("accepted")}
-            className="chamfer-sm bg-signal px-5 py-2.5 text-sm font-medium text-ink"
+            className="chamfer-sm bg-signal px-5 py-2.5 text-sm font-medium text-ink transition-[filter] duration-200 hover:brightness-90"
           >
             Прийняти
           </button>

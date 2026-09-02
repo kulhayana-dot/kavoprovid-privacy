@@ -36,6 +36,8 @@ export function LeadForm({
           name: data.get("name"),
           phone: data.get("phone"),
           company: data.get("company"),
+          employees: data.get("employees"),
+          volume: data.get("volume"),
           source,
         }),
       });
@@ -66,6 +68,8 @@ export function LeadForm({
   const nameId = `${idPrefix}-name`;
   const phoneId = `${idPrefix}-phone`;
   const companyId = `${idPrefix}-company`;
+  const employeesId = `${idPrefix}-employees`;
+  const volumeId = `${idPrefix}-volume`;
 
   return (
     <form onSubmit={handleSubmit} className={cn("w-full space-y-3", className)}>
@@ -103,20 +107,59 @@ export function LeadForm({
       />
 
       <label htmlFor={companyId} className="sr-only">
-        Компанія (необов&apos;язково)
+        Компанія
       </label>
       <input
         id={companyId}
         type="text"
         name="company"
-        placeholder="Компанія (необов'язково)"
+        required
+        placeholder="Компанія"
         className={inputClass}
       />
+
+      <label htmlFor={employeesId} className="sr-only">
+        Кількість співробітників
+      </label>
+      <select
+        id={employeesId}
+        name="employees"
+        required
+        defaultValue=""
+        className={inputClass}
+      >
+        <option value="" disabled>
+          Кількість співробітників
+        </option>
+        <option value="50-100">50–100</option>
+        <option value="101-300">101–300</option>
+        <option value="301-600">301–600</option>
+        <option value="600+">Понад 600</option>
+      </select>
+
+      <label htmlFor={volumeId} className="sr-only">
+        Бажаний об&apos;єм кави на місяць
+      </label>
+      <select
+        id={volumeId}
+        name="volume"
+        required
+        defaultValue=""
+        className={inputClass}
+      >
+        <option value="" disabled>
+          Бажаний об&apos;єм кави на місяць
+        </option>
+        <option value="до 10 кг">До 10 кг</option>
+        <option value="10-20 кг">10–20 кг</option>
+        <option value="20-40 кг">20–40 кг</option>
+        <option value="40+ кг">Понад 40 кг</option>
+      </select>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="chamfer-sm w-full bg-signal px-7 py-3.5 text-sm font-medium text-ink transition-opacity disabled:opacity-50"
+        className="chamfer-sm w-full bg-signal px-7 py-3.5 text-sm font-medium text-ink transition-[filter,opacity] duration-200 hover:brightness-90 disabled:opacity-50"
       >
         {status === "submitting" ? "Надсилаємо…" : "Залишити заявку"}
       </button>

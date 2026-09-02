@@ -110,6 +110,34 @@ body {
   animation: flow-travel-x 4.2s linear infinite;
 }
 
+/* Continuous current running down a long connecting line (e.g. the
+   Infrastructure chain) — several signal-yellow segments streaming at
+   once, unlike animate-flow-travel's single pulse (tuned for a short
+   scroll-indicator, not a multi-node list). */
+@keyframes flow-line-y {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: 96px;
+  }
+}
+
+.animate-flow-line {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 28px,
+    var(--color-signal) 28px,
+    var(--color-signal) 48px,
+    transparent 48px,
+    transparent 96px
+  );
+  background-size: 100% 96px;
+  filter: drop-shadow(0 0 4px rgba(252, 237, 79, 0.6));
+  animation: flow-line-y 3.6s linear infinite;
+}
+
 /* Faster variant for the nav underline "signal" — a quick hover
    interaction needs a snappier travel than the 4.2s ambient version. */
 .animate-nav-flow {

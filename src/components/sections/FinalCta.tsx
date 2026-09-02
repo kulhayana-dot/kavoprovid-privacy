@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
-import { MagneticButton } from "@/components/ui/MagneticButton";
+import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
 
 export function FinalCta() {
@@ -52,9 +52,9 @@ export function FinalCta() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <MagneticButton href="tel:+380636271567">
+          <Button href="tel:+380636271567">
             Провести каву в мій бізнес
-          </MagneticButton>
+          </Button>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-paper/60">

@@ -76,11 +76,11 @@ export function Solutions() {
             as="h2"
             className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Ми вже вирішили, яка машина вам підійде.
+            Кавомашина під розмір вашої команди — не навмання.
           </RevealText>
           <p className="mt-5 text-paper/60">
-            П&apos;ять перевірених конфігурацій під різні команди. Оберіть
-            свою — решта деталей нижче.
+            Перевірені конфігурації під різні команди. Оберіть свою —
+            решта деталей нижче.
           </p>
         </div>
       </div>
