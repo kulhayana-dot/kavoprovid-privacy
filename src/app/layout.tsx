@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
@@ -116,6 +117,15 @@ export default function RootLayout({
         </a>
         {children}
         <CookieConsent />
+
+        {/* Binotel call tracking — swaps the site phone number per traffic
+            source and ties calls back to a session. Loaded unconditionally
+            so number substitution always runs; call analytics forwarding to
+            GA4 / Google Ads is configured on the Binotel side. */}
+        <Script
+          src="https://widgets.binotel.com/calltracking/widgets/9tnpxez0uw1xmev76v8w.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
