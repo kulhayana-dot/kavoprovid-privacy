@@ -35,13 +35,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Kavoprovid",
-      item: "https://kavoprovid.com.ua/",
+      item: "https://www.kavoprovid.com.ua/",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Рішення",
-      item: "https://kavoprovid.com.ua/rishennya",
+      item: "https://www.kavoprovid.com.ua/rishennya",
     },
   ],
 };

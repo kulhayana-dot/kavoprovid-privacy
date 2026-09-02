@@ -34,7 +34,7 @@ const SITE_OG_IMAGE = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kavoprovid.com.ua"),
+  metadataBase: new URL("https://www.kavoprovid.com.ua"),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   openGraph: {
@@ -57,8 +57,8 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Kavoprovid",
   legalName: "ТОВ «ЮНІТ КЕЙ»",
-  url: "https://kavoprovid.com.ua",
-  logo: "https://kavoprovid.com.ua/brand/kavoprovid-mark.svg",
+  url: "https://www.kavoprovid.com.ua",
+  logo: "https://www.kavoprovid.com.ua/brand/kavoprovid-mark.svg",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+380-63-627-15-67",

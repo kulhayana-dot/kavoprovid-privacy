@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { MACHINES } from "@/lib/machines";
 import { ARTICLES } from "@/lib/knowledge";
 
-const BASE_URL = "https://kavoprovid.com.ua";
+const BASE_URL = "https://www.kavoprovid.com.ua";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

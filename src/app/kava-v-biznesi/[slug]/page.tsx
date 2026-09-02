@@ -64,7 +64,7 @@ export default async function ArticlePage({
     description: article.metaDescription,
     publisher: { "@type": "Organization", name: "Kavoprovid" },
     author: { "@type": "Organization", name: "Kavoprovid" },
-    mainEntityOfPage: `https://kavoprovid.com.ua/kava-v-biznesi/${article.slug}`,
+    mainEntityOfPage: `https://www.kavoprovid.com.ua/kava-v-biznesi/${article.slug}`,
   };
 
   const faqJsonLd = {
@@ -81,18 +81,18 @@ export default async function ArticlePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://kavoprovid.com.ua/" },
+      { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://www.kavoprovid.com.ua/" },
       {
         "@type": "ListItem",
         position: 2,
         name: "Кава в бізнесі",
-        item: "https://kavoprovid.com.ua/kava-v-biznesi",
+        item: "https://www.kavoprovid.com.ua/kava-v-biznesi",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: article.title,
-        item: `https://kavoprovid.com.ua/kava-v-biznesi/${article.slug}`,
+        item: `https://www.kavoprovid.com.ua/kava-v-biznesi/${article.slug}`,
       },
     ],
   };

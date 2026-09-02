@@ -29,13 +29,13 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://kavoprovid.com.ua/" },
-    { "@type": "ListItem", position: 2, name: "Рішення", item: "https://kavoprovid.com.ua/rishennya" },
+    { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://www.kavoprovid.com.ua/" },
+    { "@type": "ListItem", position: 2, name: "Рішення", item: "https://www.kavoprovid.com.ua/rishennya" },
     {
       "@type": "ListItem",
       position: 3,
       name: "Порівняння",
-      item: "https://kavoprovid.com.ua/rishennya/porivnyannya",
+      item: "https://www.kavoprovid.com.ua/rishennya/porivnyannya",
     },
   ],
 };

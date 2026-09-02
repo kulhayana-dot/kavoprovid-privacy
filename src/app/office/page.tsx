@@ -73,8 +73,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://kavoprovid.com.ua/" },
-    { "@type": "ListItem", position: 2, name: "Офіси", item: "https://kavoprovid.com.ua/office" },
+    { "@type": "ListItem", position: 1, name: "Kavoprovid", item: "https://www.kavoprovid.com.ua/" },
+    { "@type": "ListItem", position: 2, name: "Офіси", item: "https://www.kavoprovid.com.ua/office" },
   ],
 };
 
