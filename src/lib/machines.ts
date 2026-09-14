@@ -55,7 +55,7 @@ export const MACHINES: Machine[] = [
     machine: "Bianchi Gaia Touch",
     brand: "Bianchi",
     tag: "Просто і без зайвого",
-    threshold: 10,
+    threshold: 12,
     metaTitle: "Оренда кавомашини Bianchi Gaia Touch — Kavoprovid",
     metaDescription:
       "Bianchi Gaia Touch в оренду для бізнесу у Києві та Київській області. Кавомашина, зерно, сервіс і підтримка — в одного партнера.",
