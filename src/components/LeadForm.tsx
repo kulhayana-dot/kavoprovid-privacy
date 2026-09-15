@@ -131,10 +131,9 @@ export function LeadForm({
         <option value="" disabled>
           Кількість співробітників
         </option>
-        <option value="50-100">50–100</option>
-        <option value="101-300">101–300</option>
-        <option value="301-600">301–600</option>
-        <option value="600+">Понад 600</option>
+        <option value="up-to-50">До 50</option>
+        <option value="50+">Від 50</option>
+        <option value="100+">Від 100</option>
       </select>
 
       <label htmlFor={volumeId} className="sr-only">
