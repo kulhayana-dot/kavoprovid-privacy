@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -193,10 +194,12 @@ export default async function MachinePage({
                       "radial-gradient(ellipse at center, rgba(252,237,79,.22), rgba(252,237,79,.06) 45%, transparent 72%)",
                   }}
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={machine.photo.src}
                   alt={machine.machine}
+                  width={1000}
+                  height={1000}
+                  priority
                   className="w-full object-contain"
                   style={{
                     filter:

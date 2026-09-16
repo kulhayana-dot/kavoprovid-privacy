@@ -14,6 +14,8 @@ export type Article = {
   metaTitle: string;
   metaDescription: string;
   dek: string;
+  datePublished: string;
+  dateModified: string;
   sections: ArticleSection[];
   faq: ArticleFaqItem[];
 };
@@ -27,6 +29,8 @@ export const ARTICLES: Article[] = [
     metaDescription:
       "Великий штат — непрогнозовані витрати на каву. Як картки, які вже є на виробництві, дають компанії прогнозований щомісячний бюджет на каву.",
     dek: "Великий штат — непрогнозовані витрати на каву. Показуємо, як картки, які вже є на вашому виробництві, вирішують це без ручного контролю.",
+    datePublished: "2026-08-05",
+    dateModified: "2026-08-08",
     sections: [
       {
         heading: "Проблема великого споживання",

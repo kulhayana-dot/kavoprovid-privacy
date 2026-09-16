@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Machine } from "@/lib/machines";
 import { cn } from "@/lib/cn";
@@ -28,11 +29,12 @@ export function MachineCard({
     >
       {m.photo && (
         <div className={cn("relative bg-ink", aspectClassName)}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={m.photo.src}
             alt={m.machine}
-            className="absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
           />
         </div>
       )}

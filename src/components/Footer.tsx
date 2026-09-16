@@ -28,13 +28,13 @@ export function Footer() {
 
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="text-sm text-paper/60 transition-colors hover:text-paper"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

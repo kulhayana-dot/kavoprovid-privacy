@@ -62,9 +62,14 @@ export default async function ArticlePage({
     "@type": "Article",
     headline: article.title,
     description: article.metaDescription,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
     publisher: { "@type": "Organization", name: "Kavoprovid" },
     author: { "@type": "Organization", name: "Kavoprovid" },
     mainEntityOfPage: `https://www.kavoprovid.com.ua/kava-v-biznesi/${article.slug}`,
+    ...(article.slug === "kontrol-vytrat-na-kavu-na-vyrobnytstvi" && {
+      image: "https://www.kavoprovid.com.ua/hero/kontrol-vytrat-cutout.png",
+    }),
   };
 
   const faqJsonLd = {

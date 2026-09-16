@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
@@ -127,11 +128,13 @@ export function Solutions() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[5%]"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={profile.photo.src}
                   alt={profile.machine}
+                  width={1000}
+                  height={1000}
                   draggable={false}
+                  priority
                   className="h-[85%] max-w-[80%] w-auto object-contain sm:h-[86%] sm:max-w-[58%]"
                   style={{
                     filter:

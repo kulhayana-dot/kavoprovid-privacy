@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/button";
 
@@ -21,7 +22,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="group relative flex items-center gap-2.5 text-sm font-medium text-paper/85 transition-colors hover:text-paper"
@@ -34,7 +35,7 @@ export function Header() {
               <span className="absolute -bottom-1 left-0 h-px w-full overflow-hidden bg-paper/15">
                 <span className="absolute inset-y-0 left-0 w-1/3 bg-signal opacity-0 transition-opacity duration-200 group-hover:animate-nav-flow group-hover:opacity-100" />
               </span>
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -78,14 +79,14 @@ export function Header() {
         <div className="border-t border-paper/10 bg-ink px-6 py-6 md:hidden">
           <nav className="flex flex-col gap-4">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="text-base font-medium text-paper/90"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a href="tel:+380636271567" className="text-base font-medium text-paper/90">
               063 627-15-67

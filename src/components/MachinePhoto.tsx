@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 export type PhotoCallout = {
@@ -58,11 +59,12 @@ export function MachinePhoto({
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-signal" />
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1.5 bg-signal" />
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={src}
         alt={alt}
-        className="absolute object-contain"
+        fill
+        sizes="(min-width: 640px) 28rem, 90vw"
+        className="object-contain"
         style={{
           top: "6%",
           bottom: "6%",
