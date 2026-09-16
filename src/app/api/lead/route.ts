@@ -9,6 +9,31 @@ type LeadPayload = {
   source?: string;
 };
 
+async function reportLeadToGA4(request: Request, formSource: string) {
+  const measurementId = process.env.GA4_MEASUREMENT_ID;
+  const apiSecret = process.env.GA4_API_SECRET;
+  if (!measurementId || !apiSecret) return;
+
+  const cookieHeader = request.headers.get("cookie") ?? "";
+  const gaCookieMatch = cookieHeader.match(/_ga=GA\d\.\d\.(\d+\.\d+)/);
+  const clientId = gaCookieMatch?.[1] ?? crypto.randomUUID();
+
+  try {
+    await fetch(
+      `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          client_id: clientId,
+          events: [{ name: "generate_lead", params: { form_source: formSource } }],
+        }),
+      },
+    );
+  } catch (err) {
+    console.error("GA4 Measurement Protocol request failed", err);
+  }
+}
+
 export async function POST(request: Request) {
   let body: LeadPayload;
   try {
@@ -61,6 +86,8 @@ export async function POST(request: Request) {
     console.error("Telegram sendMessage failed", await telegramRes.text());
     return NextResponse.json({ ok: false, error: "delivery_failed" }, { status: 502 });
   }
+
+  await reportLeadToGA4(request, source);
 
   return NextResponse.json({ ok: true });
 }
