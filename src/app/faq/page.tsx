@@ -4,7 +4,6 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { Button } from "@/components/ui/button";
 import { RevealText } from "@/components/RevealText";
 import { cn } from "@/lib/cn";
-import { Wordmark } from "@/components/Wordmark";
 
 const TITLE = "Запитання про Kavoprovid — кавова інфраструктура для бізнесу";
 const DESCRIPTION =
@@ -101,8 +100,8 @@ export default function FaqPage() {
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center gap-2 text-xs text-paper/50">
               <li>
-                <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
-                  <Wordmark tone="dark" className="h-4" />
+                <Link href="/" className="hover:text-paper/70">
+                  Головна
                 </Link>
               </li>
               <li aria-hidden="true">/</li>

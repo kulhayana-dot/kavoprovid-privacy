@@ -7,7 +7,6 @@ import { RevealText } from "@/components/RevealText";
 import { IconCheck, IconGauge } from "@/components/icons";
 import { MachineCard } from "@/components/MachineCard";
 import { MACHINES } from "@/lib/machines";
-import { Wordmark } from "@/components/Wordmark";
 
 const TITLE = "Кава для виробництва — кавова інфраструктура на зміну | Kavoprovid";
 const DESCRIPTION =
@@ -109,8 +108,8 @@ export default function ProductionPage() {
           <nav aria-label="breadcrumb" className="mb-4">
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
-                <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
-                  <Wordmark tone="dark" className="h-4" />
+                <Link href="/" className="hover:text-paper/70">
+                  Головна
                 </Link>
               </li>
               <li aria-hidden="true">/</li>

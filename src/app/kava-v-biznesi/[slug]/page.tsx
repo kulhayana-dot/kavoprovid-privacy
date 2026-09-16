@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/accordion";
 import { ARTICLES, getArticle } from "@/lib/knowledge";
 import { cn } from "@/lib/cn";
-import { Wordmark } from "@/components/Wordmark";
 
 export function generateStaticParams() {
   return ARTICLES.map((a) => ({ slug: a.slug }));
@@ -129,8 +128,8 @@ export default async function ArticlePage({
             <nav aria-label="breadcrumb" className="mb-4">
               <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
                 <li>
-                  <Link href="/" className="inline-flex opacity-90 transition-opacity hover:opacity-100">
-                    <Wordmark tone="dark" className="h-4" />
+                  <Link href="/" className="hover:text-paper/70">
+                    Головна
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>
@@ -150,6 +149,16 @@ export default async function ArticlePage({
               {article.title}
             </h1>
             <p className="mt-5 max-w-2xl text-paper/60">{article.dek}</p>
+            <time
+              dateTime={article.datePublished}
+              className="mt-3 block text-xs text-paper/40"
+            >
+              {new Date(article.datePublished).toLocaleDateString("uk-UA", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </time>
           </div>
 
           {article.slug === "kontrol-vytrat-na-kavu-na-vyrobnytstvi" && (
@@ -210,6 +219,25 @@ export default async function ArticlePage({
                   </AccordionItem>
                 ))}
               </Accordion>
+            </div>
+          )}
+
+          {article.related && article.related.length > 0 && (
+            <div className="mt-16 border-t border-ink/10 pt-14">
+              <h2 className="font-display text-xl font-bold">Читайте також</h2>
+              <ul className="mt-6 space-y-3">
+                {article.related.map((r) => (
+                  <li key={r.href}>
+                    <Link
+                      href={r.href}
+                      className="inline-flex items-center gap-2 text-ink underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
+                    >
+                      {r.label}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>
