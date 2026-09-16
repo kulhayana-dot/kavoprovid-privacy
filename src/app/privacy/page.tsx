@@ -4,6 +4,9 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Політика конфіденційності — Kavoprovid",
+  description:
+    "Політика конфіденційності сайту Kavoprovid: які дані ми збираємо, для чого їх використовуємо і як їх захищаємо.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
