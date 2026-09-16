@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { CookieConsent } from "@/components/CookieConsent";
+import { TrackingEvents } from "@/components/TrackingEvents";
 import "./globals.css";
+
+const GTM_ID = "GTM-PDKGZ8ZT";
 
 // Brand typeface per brandbook p.38-39 ("Gilroy — чистий, сучасний і
 // добре читабельний гротеск"). All 9 weights we have on file — no
@@ -99,7 +103,29 @@ export default function RootLayout({
       lang="uk"
       className={`${gilroy.variable} h-full antialiased`}
     >
+      {/* Google Consent Mode v2 — everything denied until the visitor
+          accepts in the cookie banner (see CookieConsent). Must run before
+          GTM so tags start in the right state. */}
+      <Script id="google-consent-default" strategy="beforeInteractive">
+        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+gtag('set','ads_data_redaction',true);
+gtag('set','url_passthrough',true);`}
+      </Script>
+      {/* Google Tag Manager */}
+      <Script id="gtm-base" strategy="afterInteractive">
+        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
+      </Script>
+
       <body className="min-h-full flex flex-col bg-ink text-paper font-sans">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -115,7 +141,17 @@ export default function RootLayout({
           Перейти до основного контенту
         </a>
         {children}
+        <TrackingEvents />
         <CookieConsent />
+
+        {/* Binotel call tracking — swaps the site phone number per traffic
+            source and ties calls back to a session. Loaded unconditionally
+            so number substitution always runs; call analytics forwarding to
+            GA4 / Google Ads is configured on the Binotel side. */}
+        <Script
+          src="https://widgets.binotel.com/calltracking/widgets/9tnpxez0uw1xmev76v8w.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
