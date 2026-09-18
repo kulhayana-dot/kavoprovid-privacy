@@ -149,7 +149,7 @@ gtag('set','url_passthrough',true);`}
             so number substitution always runs; call analytics forwarding to
             GA4 / Google Ads is configured on the Binotel side. */}
         <Script
-          src="https://widgets.binotel.com/calltracking/widgets/9tnpxez0uw1xmev76v8w.js"
+          src="https://widgets.binotel.com/calltracking/widgets/ab2q50d0rp8u02633wtv.js"
           strategy="afterInteractive"
         />
       </body>
