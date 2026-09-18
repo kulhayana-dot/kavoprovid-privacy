@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-signal: #fced4f;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-signal: var(--color-signal);
+  /* Gilroy is now the site's only typeface (display, body, and label
+     all point here) — no Unbounded/Inter fallback left in any role. */
+  --font-display: var(--font-gilroy);
+  --font-sans: var(--font-gilroy);
+  --font-label: var(--font-gilroy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+/* Brand system is flat and printed, not glowing — no blurred shadows.
+   A single 15deg-cut corner echoes the wordmark's construction angle. */
+.chamfer {
+  clip-path: polygon(
+    14px 0,
+    100% 0,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    0 100%,
+    0 14px
+  );
+}
+
+.chamfer-sm {
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
+}
+
+/* Double signal-yellow band, the recurring wordmark lockup pattern. */
+.stripe-band {
+  --stripe-h: 0.4em;
+  background-image:
+    linear-gradient(var(--color-signal), var(--color-signal)),
+    linear-gradient(var(--color-signal), var(--color-signal));
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    100% var(--stripe-h),
+    100% var(--stripe-h);
+  background-position:
+    0 0,
+    0 100%;
+}
+
+@keyframes flow-travel {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(220%);
+  }
+}
+
+.animate-flow-travel {
+  animation: flow-travel 3.4s linear infinite;
+}
+
+@keyframes flow-travel-x {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+.animate-flow-travel-x {
+  animation: flow-travel-x 4.2s linear infinite;
+}
+
+/* Continuous current running down a long connecting line (e.g. the
+   Infrastructure chain) — several signal-yellow segments streaming at
+   once, unlike animate-flow-travel's single pulse (tuned for a short
+   scroll-indicator, not a multi-node list). */
+@keyframes flow-line-y {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: 96px;
+  }
+}
+
+.animate-flow-line {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 28px,
+    var(--color-signal) 28px,
+    var(--color-signal) 48px,
+    transparent 48px,
+    transparent 96px
+  );
+  background-size: 100% 96px;
+  filter: drop-shadow(0 0 4px rgba(252, 237, 79, 0.6));
+  animation: flow-line-y 3.6s linear infinite;
+}
+
+/* Faster variant for the nav underline "signal" — a quick hover
+   interaction needs a snappier travel than the 4.2s ambient version. */
+.animate-nav-flow {
+  animation: flow-travel-x 1.1s linear infinite;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* The hero's full-bleed pipeline bars: solid signal yellow, continuing
+   the wordmark's own bars edge to edge. Thickness/position (TOP_BAND /
+   BOTTOM_BAND in HeroPipeline.tsx) is measured exactly off
+   kavoprovid-wordmark-dark.svg's own bar rects, not estimated — so the
+   bars really are one continuous line, not a same-color coincidence.
+   The fade keeps that continuation from reading as a flat rectangle
+   dropped onto the viewport: it thins out toward both edges instead of
+   hard-cutting at the screen boundary, like a pipe running off past
+   what's in frame rather than a panel with a border. */
+.pipe-flow-x {
+  background-color: var(--color-signal);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.25s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-accordion-down,
+  .animate-accordion-up {
+    animation: none;
+  }
+}
