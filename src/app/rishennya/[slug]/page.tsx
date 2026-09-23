@@ -251,9 +251,9 @@ export default async function MachinePage({
 
           <div className="mt-16 grid gap-10 border-t border-ink/10 pt-14 sm:grid-cols-2">
             <div>
-              <h2 className="font-display text-lg font-bold">
+              <h3 className="font-display text-lg font-bold">
                 Кому підходимо:
-              </h2>
+              </h3>
               <ul className="mt-4 space-y-2">
                 {FIT_AUDIENCE.map((f) => (
                   <li key={f} className="flex items-center gap-3 text-ink/60">
@@ -264,7 +264,7 @@ export default async function MachinePage({
               </ul>
             </div>
             <div>
-              <h2 className="font-display text-lg font-bold">Кому — ні:</h2>
+              <h3 className="font-display text-lg font-bold">Кому — ні:</h3>
               <ul className="mt-4 space-y-2">
                 {NOT_FIT_AUDIENCE.map((f) => (
                   <li key={f} className="flex items-center gap-3 text-ink/60">

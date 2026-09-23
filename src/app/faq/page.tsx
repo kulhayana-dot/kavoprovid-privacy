@@ -34,6 +34,10 @@ const FAQ = [
     a: "Оренда обладнання безкоштовна від 12 кг кави на місяць. Конкретну умову для вашого офісу назвемо після короткої розмови про команду.",
   },
   {
+    q: "Доставка обладнання платна?",
+    a: "Ні, доставка кавомашини безкоштовна.",
+  },
+  {
     q: "А якщо команда збільшиться?",
     a: "Додамо ще одну кавомашину або поставимо модель на більше навантаження — договір при цьому не переукладаємо.",
   },
@@ -137,29 +141,31 @@ export default function FaqPage() {
                 value={item.q}
                 className="group chamfer-sm border border-paper/12 bg-paper/[0.03] transition-colors data-[state=open]:border-signal/50 data-[state=open]:bg-paper/[0.05]"
               >
-                <AccordionPrimitive.Header className="flex">
-                  <AccordionPrimitive.Trigger
-                    className={cn(
-                      "flex w-full items-center gap-5 p-6 text-left",
-                      "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal",
-                    )}
-                  >
-                    <span
+                <AccordionPrimitive.Header asChild>
+                  <h2 className="flex">
+                    <AccordionPrimitive.Trigger
                       className={cn(
-                        "font-display shrink-0 text-2xl font-bold tabular-nums text-paper/25 transition-colors",
-                        "group-data-[state=open]:text-signal",
+                        "flex w-full items-center gap-5 p-6 text-left",
+                        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal",
                       )}
                     >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-display flex-1 text-lg font-bold leading-snug sm:text-xl">
-                      {item.q}
-                    </span>
-                    <span className="relative size-5 shrink-0" aria-hidden="true">
-                      <span className="absolute left-0 top-1/2 h-px w-5 -translate-y-1/2 bg-paper/40 transition-colors group-data-[state=open]:bg-signal" />
-                      <span className="absolute left-1/2 top-0 h-5 w-px -translate-x-1/2 bg-paper/40 transition-transform duration-200 group-data-[state=open]:rotate-90 group-data-[state=open]:bg-signal" />
-                    </span>
-                  </AccordionPrimitive.Trigger>
+                      <span
+                        className={cn(
+                          "font-display shrink-0 text-2xl font-bold tabular-nums text-paper/25 transition-colors",
+                          "group-data-[state=open]:text-signal",
+                        )}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-display flex-1 text-lg font-bold leading-snug sm:text-xl">
+                        {item.q}
+                      </span>
+                      <span className="relative size-5 shrink-0" aria-hidden="true">
+                        <span className="absolute left-0 top-1/2 h-px w-5 -translate-y-1/2 bg-paper/40 transition-colors group-data-[state=open]:bg-signal" />
+                        <span className="absolute left-1/2 top-0 h-5 w-px -translate-x-1/2 bg-paper/40 transition-transform duration-200 group-data-[state=open]:rotate-90 group-data-[state=open]:bg-signal" />
+                      </span>
+                    </AccordionPrimitive.Trigger>
+                  </h2>
                 </AccordionPrimitive.Header>
                 <AccordionPrimitive.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                   <div className="flex gap-5 px-6 pb-6">

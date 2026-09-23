@@ -8,9 +8,9 @@ import { IconCheck, IconGauge } from "@/components/icons";
 import { MachineCard } from "@/components/MachineCard";
 import { MACHINES } from "@/lib/machines";
 
-const TITLE = "Кава для виробництва — кавова інфраструктура на зміну | Kavoprovid";
+const TITLE = "Кава для виробництва — кавова інфраструктура | Kavoprovid";
 const DESCRIPTION =
-  "Кавова інфраструктура для виробництв: обладнання, кава, постачання й сервіс на кожну зміну від Kavoprovid у Києві та Київській області. Без простоїв і зупинки процесів.";
+  "Кавова інфраструктура для виробництва під ключ: обладнання, кава, постачання й сервіс від Kavoprovid у Києві та області. Без простоїв.";
 
 export const metadata: Metadata = {
   title: TITLE,

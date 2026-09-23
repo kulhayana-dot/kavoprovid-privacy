@@ -4,7 +4,7 @@ import { MachineComparisonPanel } from "@/components/MachineComparisonPanel";
 
 const TITLE = "Порівняння кавомашин — Kavoprovid";
 const DESCRIPTION =
-  "Технічні характеристики кавомашин Dr. Coffee та Bianchi від Kavoprovid: кількість напоїв, продуктивність, габарити, тип молока. Оберіть кілька моделей для порівняння.";
+  "Технічні характеристики кавомашин Dr. Coffee та Bianchi: кількість напоїв, продуктивність, габарити, тип молока. Оберіть моделі для порівняння.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -84,6 +84,7 @@ export default function PorivnyannyaPage() {
 
       <section className="bg-paper py-16 text-ink sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="sr-only">Порівняльна таблиця кавомашин</h2>
           <MachineComparisonPanel />
         </div>
       </section>
