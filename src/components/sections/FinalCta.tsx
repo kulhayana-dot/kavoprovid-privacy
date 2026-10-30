@@ -59,7 +59,7 @@ export function FinalCta() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-paper/60">
           <a href="tel:+380636271567" className="hover:text-paper/70">
-            063 627-15-67
+            +380 63 627-15-67
           </a>
           <a
             href="mailto:office@kavoprovid.com.ua"

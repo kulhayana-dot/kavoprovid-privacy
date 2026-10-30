@@ -40,7 +40,7 @@ export function Footer() {
 
           <div className="flex flex-col gap-2 text-sm text-paper/60">
             <a href="tel:+380636271567" className="hover:text-paper">
-              063 627-15-67
+              +380 63 627-15-67
             </a>
             <a
               href="mailto:office@kavoprovid.com.ua"

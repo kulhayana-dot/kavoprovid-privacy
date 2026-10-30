@@ -158,7 +158,7 @@ export function Solutions() {
         <div
           role="tablist"
           aria-label="Профілі офісу"
-          className="relative z-10 flex flex-wrap gap-2 p-6 sm:p-8"
+          className="relative z-10 flex flex-wrap gap-2 px-4 py-6 lg:px-6 sm:py-8"
         >
           {MACHINES.map((p, i) => (
             <button
@@ -178,7 +178,7 @@ export function Solutions() {
           ))}
         </div>
 
-        <div className="relative z-10 flex flex-col px-6 pb-2 sm:h-[calc(100%-72px)] sm:max-w-lg sm:justify-center sm:px-10 sm:pb-0">
+        <div className="relative z-10 flex flex-col px-4 pb-2 lg:px-6 sm:h-[calc(100%-72px)] sm:max-w-lg sm:justify-center sm:pb-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={profile.slug}
@@ -230,7 +230,7 @@ export function Solutions() {
           </AnimatePresence>
         </div>
 
-        <div className="relative z-10 mt-4 flex items-center justify-between px-6 pb-6 sm:absolute sm:inset-x-8 sm:bottom-8 sm:mt-0 sm:px-0 sm:pb-0">
+        <div className="relative z-10 mt-4 flex items-center justify-between px-4 pb-6 lg:px-6 sm:absolute sm:inset-x-4 lg:inset-x-6 sm:bottom-8 sm:mt-0 sm:pb-0">
           <button
             type="button"
             aria-label="Попередня модель"

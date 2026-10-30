@@ -54,9 +54,9 @@ export function Header() {
         <div className="hidden items-center gap-6 md:flex">
           <a
             href="tel:+380636271567"
-            className="text-sm font-medium text-paper/85 transition-colors hover:text-paper"
+            className="text-sm font-medium whitespace-nowrap text-paper/85 transition-colors hover:text-paper"
           >
-            063 627-15-67
+            +380 63 627-15-67
           </a>
           <Button href="/#cta" className="px-5 py-2.5">
             Провести каву в мій бізнес
@@ -101,7 +101,7 @@ export function Header() {
               </Link>
             ))}
             <a href="tel:+380636271567" className="text-base font-medium text-paper/90">
-              063 627-15-67
+              +380 63 627-15-67
             </a>
             <Button
               href="/#cta"

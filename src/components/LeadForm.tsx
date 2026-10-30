@@ -169,7 +169,7 @@ export function LeadForm({
         <p role="alert" className="text-sm text-paper/60">
           Не вдалося надіслати. Зателефонуйте нам:{" "}
           <a href="tel:+380636271567" className="text-paper underline">
-            063 627-15-67
+            +380 63 627-15-67
           </a>
         </p>
       )}
