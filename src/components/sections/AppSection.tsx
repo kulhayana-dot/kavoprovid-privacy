@@ -73,7 +73,7 @@ function AppScreens() {
 
   return (
     <div ref={wrapRef} className="flex shrink-0 flex-col items-center">
-      <div className="relative aspect-[1320/2868] w-[220px] overflow-hidden rounded-[2rem] border border-ink/10 shadow-2xl shadow-ink/20 sm:w-[260px]">
+      <div className="relative aspect-[1320/2868] w-[240px] overflow-hidden rounded-[2rem] border border-ink/15 shadow-2xl shadow-ink/20 sm:w-[260px]">
         <AnimatePresence initial={false}>
           <motion.div
             key={active}
@@ -102,8 +102,8 @@ function AppScreens() {
             aria-label={`Показати екран ${i + 1} з ${SCREENS.length}`}
             onClick={() => setActive(i)}
             className={cn(
-              "h-1.5 rounded-full transition-all duration-300",
-              i === active ? "w-5 bg-ink" : "w-1.5 bg-ink/20 hover:bg-ink/40",
+              "relative h-1.5 rounded-full transition-all duration-300 before:absolute before:-inset-3 before:content-['']",
+              i === active ? "w-5 bg-ink" : "w-1.5 bg-ink/30 hover:bg-ink/50",
             )}
           />
         ))}
@@ -114,11 +114,11 @@ function AppScreens() {
 
 export function AppSection() {
   return (
-    <section id="app" className="relative bg-paper py-20 text-ink sm:py-28">
+    <section id="app" className="relative bg-paper pb-16 pt-24 text-ink sm:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="lg:flex lg:items-start lg:justify-between lg:gap-16">
           <div className="max-w-2xl">
-            <span className="font-label text-xs uppercase tracking-widest text-ink/60">
+            <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
               KAVOPROVID App
             </span>
             <RevealText
@@ -127,11 +127,14 @@ export function AppSection() {
             >
               Керуйте своєю кавовою інфраструктурою в KAVOPROVID App.
             </RevealText>
-            <p className="mt-5 text-ink/60">
+            <p className="mt-5 text-ink/75">
               Це не застосунок для замовлення кави — це цифровий інтерфейс
               управління кавовим потоком: план споживання, замовлення й
-              сервіс в одному місці. Доступний клієнтам KAVOPROVID на iOS та
-              Android після онбордингу.
+              сервіс в одному місці.
+            </p>
+            <p className="chamfer-sm mt-5 inline-flex items-center gap-2.5 bg-ink px-4 py-2.5 text-sm font-medium text-paper">
+              <span aria-hidden="true" className="size-1.5 shrink-0 bg-signal" />
+              iOS та Android · доступ після онбордингу
             </p>
           </div>
 
@@ -140,14 +143,14 @@ export function AppSection() {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-12 sm:grid-cols-3 sm:gap-10">
+        <div className="mt-12 grid gap-4 sm:mt-20 sm:grid-cols-3 sm:gap-10">
           {FEATURES.map((f, i) => (
-            <TiltCard key={f.title} className="bg-ink/[0.02] p-6 sm:p-8">
+            <TiltCard key={f.title} className="border-ink/25 bg-ink/[0.04] p-6 sm:p-8">
               <div className="flex items-center justify-between">
-                <div className="chamfer-sm flex size-12 items-center justify-center border border-ink/15 bg-paper text-ink">
+                <div className="chamfer-sm flex size-12 items-center justify-center border border-ink bg-signal text-ink">
                   <f.icon className="size-5" />
                 </div>
-                <span className="font-label text-xs tracking-widest text-ink/30">
+                <span className="font-label text-sm font-bold tracking-widest text-ink/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -156,8 +159,8 @@ export function AppSection() {
               </h3>
               <ul className="mt-4 space-y-2.5">
                 {f.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-ink/60">
-                    <IconCheck className="mt-0.5 size-4 shrink-0 text-signal" />
+                  <li key={point} className="flex items-start gap-3 text-base text-ink/80 sm:text-sm">
+                    <IconCheck className="mt-1 size-4 shrink-0 text-ink sm:mt-0.5" />
                     {point}
                   </li>
                 ))}

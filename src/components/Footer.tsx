@@ -5,7 +5,7 @@ import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 const SOLUTIONS_NAV = [
   { href: "/office", label: "Офіси" },
   { href: "/production", label: "Виробництва" },
-  { href: "/rishennya", label: "Рішення" },
+  { href: "/rishennya", label: "Усі рішення" },
   { href: "/rishennya/porivnyannya", label: "Порівняння кавомашин" },
 ];
 
@@ -20,26 +20,26 @@ const COMPANY_NAV = [
 export function Footer() {
   return (
     <footer className="border-t border-paper/10 bg-ink text-paper">
-      <div className="mx-auto max-w-7xl px-4 py-14 lg:px-6">
+      <div className="mx-auto max-w-7xl px-4 pb-[calc(3.5rem+env(safe-area-inset-bottom))] pt-14 lg:px-6">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo tone="dark" className="h-6" />
-            <p className="mt-4 max-w-xs text-sm text-paper/50">
+            <p className="mt-4 max-w-xs text-base text-paper/75 sm:text-sm">
               Кавова інфраструктура для бізнесу в Києві та Київській
               області.
             </p>
           </div>
 
           <nav aria-label="Рішення">
-            <span className="font-label text-xs uppercase tracking-widest text-paper/40">
+            <span className="font-label text-sm uppercase tracking-widest text-paper/70 sm:text-xs">
               Рішення
             </span>
-            <ul className="mt-4 flex flex-col gap-3">
+            <ul className="mt-2 flex flex-col sm:mt-4 sm:gap-3">
               {SOLUTIONS_NAV.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-paper/60 transition-colors hover:text-paper"
+                    className="block py-2.5 text-base text-paper/80 transition-colors hover:text-paper sm:py-0 sm:text-sm"
                   >
                     {item.label}
                   </Link>
@@ -49,15 +49,15 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Про компанію">
-            <span className="font-label text-xs uppercase tracking-widest text-paper/40">
+            <span className="font-label text-sm uppercase tracking-widest text-paper/70 sm:text-xs">
               Компанія
             </span>
-            <ul className="mt-4 flex flex-col gap-3">
+            <ul className="mt-2 flex flex-col sm:mt-4 sm:gap-3">
               {COMPANY_NAV.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-paper/60 transition-colors hover:text-paper"
+                    className="block py-2.5 text-base text-paper/80 transition-colors hover:text-paper sm:py-0 sm:text-sm"
                   >
                     {item.label}
                   </Link>
@@ -67,25 +67,25 @@ export function Footer() {
           </nav>
 
           <div>
-            <span className="font-label text-xs uppercase tracking-widest text-paper/40">
+            <span className="font-label text-sm uppercase tracking-widest text-paper/70 sm:text-xs">
               Контакти
             </span>
-            <div className="mt-4 flex flex-col gap-2 text-sm text-paper/60">
-              <a href="tel:+380636271567" className="hover:text-paper">
+            <div className="mt-2 flex flex-col text-base text-paper sm:mt-4 sm:gap-2 sm:text-sm sm:text-paper/75">
+              <a href="tel:+380636271567" className="py-2.5 font-medium hover:text-paper sm:py-0 sm:font-normal">
                 +380 63 627-15-67
               </a>
               <a
                 href="mailto:office@kavoprovid.com.ua"
-                className="hover:text-paper"
+                className="py-2.5 font-medium hover:text-paper sm:py-0 sm:font-normal"
               >
                 office@kavoprovid.com.ua
               </a>
-              <span>Київ та Київська область</span>
+              <span className="py-2.5 text-paper/75 sm:py-0">Київ та Київська область</span>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-paper/10 pt-8 text-sm text-paper/70 sm:flex-row sm:text-xs sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} ТОВ «ЮНІТ КЕЙ», ЄДРПОУ 46306370.
             Усі права захищені.

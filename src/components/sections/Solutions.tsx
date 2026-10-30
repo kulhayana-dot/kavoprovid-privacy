@@ -70,7 +70,7 @@ export function Solutions() {
     <section id="solutions" className="relative bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-4 pt-12 lg:px-6 sm:pt-16">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             Підбір рішення
           </span>
           <RevealText
@@ -79,7 +79,7 @@ export function Solutions() {
           >
             Кавомашина під розмір вашої команди — не навмання.
           </RevealText>
-          <p className="mt-5 text-paper/60">
+          <p className="mt-5 text-paper/75">
             Перевірені конфігурації під різні команди. Оберіть свою —
             решта деталей нижче.
           </p>
@@ -90,7 +90,7 @@ export function Solutions() {
         ref={stageRef}
         onMouseEnter={() => { hovering.current = true; }}
         onMouseLeave={() => { hovering.current = false; }}
-        className="relative mt-14 overflow-hidden sm:h-[640px] lg:h-[720px]"
+        className="relative mt-8 overflow-hidden sm:mt-14 sm:h-[640px] lg:h-[720px]"
       >
         {/* Signal-yellow glow behind the machine so it separates from the dark stage */}
         <div
@@ -102,6 +102,15 @@ export function Solutions() {
           }}
         />
 
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-6 top-0 h-80 sm:hidden"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 60% at 50% 55%, rgba(255,255,255,.16), rgba(252,237,79,.10) 45%, transparent 75%)",
+          }}
+        />
+
         {/* Draggable photo layer — swipe left/right to switch machines.
             Mobile: its own contained box, photo centered, in flow — the
             fixed-height overlay below only works once the photo and text
@@ -109,7 +118,7 @@ export function Solutions() {
             that same layout let the photo's cord/base bleed into the text
             and the bottom nav, so mobile stacks instead of overlaying. */}
         <motion.div
-          className="relative h-64 w-full sm:absolute sm:inset-0 sm:h-auto"
+          className="relative h-80 w-full sm:absolute sm:inset-0 sm:h-auto"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -125,7 +134,7 @@ export function Solutions() {
                 initial={{ opacity: 0, scale: 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[5%]"
               >
                 <Image
@@ -135,10 +144,10 @@ export function Solutions() {
                   height={1000}
                   draggable={false}
                   priority
-                  className="h-[85%] max-w-[80%] w-auto object-contain sm:h-[86%] sm:max-w-[58%]"
+                  className="h-[92%] max-w-[80%] w-auto object-contain sm:h-[86%] sm:max-w-[58%]"
                   style={{
                     filter:
-                      "drop-shadow(0 40px 70px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.12))",
+                      "drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(0 30px 50px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.18))",
                   }}
                 />
               </motion.div>
@@ -163,7 +172,7 @@ export function Solutions() {
           <div
             role="tablist"
             aria-label="Профілі офісу"
-            className="relative z-10 flex flex-wrap gap-2 px-4 py-6 lg:px-6 sm:py-8"
+            className="scrollbar-none relative z-10 flex gap-2 overflow-x-auto px-4 py-5 lg:px-6 sm:flex-wrap sm:overflow-visible sm:py-8"
           >
             {MACHINES.map((p, i) => (
               <button
@@ -172,10 +181,10 @@ export function Solutions() {
                 aria-selected={i === active}
                 onClick={() => setActive(i)}
                 className={cn(
-                  "chamfer-sm border px-4 py-2 text-xs font-medium transition-colors duration-200",
+                  "chamfer-sm min-h-11 shrink-0 whitespace-nowrap border px-4 text-sm font-medium transition-colors duration-200 sm:min-h-0 sm:py-2 sm:text-xs",
                   i === active
                     ? "border-signal bg-signal text-ink"
-                    : "border-paper/25 text-paper/60 hover:border-paper/40 hover:text-paper",
+                    : "border-paper/40 text-paper/85 hover:border-paper/60 hover:text-paper",
                 )}
               >
                 {p.machine.split(" ").slice(-2).join(" ")}
@@ -183,16 +192,16 @@ export function Solutions() {
             ))}
           </div>
 
-          <div className="relative z-10 flex flex-col px-4 pb-2 lg:px-6 sm:h-[calc(100%-72px)] sm:max-w-lg sm:justify-center sm:pb-0">
+          <div className="relative z-10 flex min-h-[25rem] flex-col px-4 pb-2 lg:px-6 sm:h-[calc(100%-72px)] sm:min-h-0 sm:max-w-lg sm:justify-center sm:pb-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={profile.slug}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
               >
-                <span className="font-label block text-xs uppercase tracking-widest text-paper/40">
+                <span className="font-label block text-sm uppercase tracking-widest text-paper/70">
                   {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
                 </span>
 
@@ -208,25 +217,25 @@ export function Solutions() {
 
                 <ul className="mt-5 space-y-2">
                   {profile.features.slice(0, 2).map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-paper/70">
-                      <IconCheck className="size-4 shrink-0 text-signal" />
+                    <li key={f} className="flex items-start gap-3 text-paper/85">
+                      <IconCheck className="mt-1 size-4 shrink-0 text-signal" />
                       {f}
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-5 flex items-baseline gap-2 text-sm text-paper/60">
+                <div className="chamfer-sm mt-5 inline-flex flex-wrap items-baseline gap-x-2 border border-signal/60 bg-signal/10 px-4 py-2.5 text-sm text-paper/90">
                   <span className="font-label uppercase tracking-widest">
                     Оренда безкоштовна від
                   </span>
-                  <span className="font-display text-lg font-bold text-paper">
+                  <span className="font-display text-xl font-bold text-signal">
                     <ThresholdNumber value={profile.threshold} /> кг
                   </span>
                 </div>
 
                 <Link
                   href={`/rishennya/${profile.slug}`}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4 transition-colors hover:decoration-paper"
+                  className="mt-3 flex min-h-11 w-fit items-center gap-2 text-base font-medium text-paper underline decoration-paper/50 sm:text-sm underline-offset-4 transition-colors hover:decoration-paper"
                 >
                   Детальніше про модель
                   <span aria-hidden="true">→</span>
@@ -240,18 +249,18 @@ export function Solutions() {
               type="button"
               aria-label="Попередня модель"
               onClick={() => step(-1)}
-              className="chamfer-sm flex size-11 items-center justify-center border border-paper/25 bg-ink/40 text-paper/80 transition-colors hover:border-signal"
+              className="chamfer-sm flex size-11 items-center justify-center border border-paper/50 bg-ink/40 text-paper transition-colors hover:border-signal"
             >
               <ArrowIcon direction="left" />
             </button>
-            <span className="font-label hidden text-xs uppercase tracking-widest text-paper/35 sm:block">
+            <span className="font-label hidden text-xs uppercase tracking-widest text-paper/60 sm:block">
               Перетягніть, щоб гортати
             </span>
             <button
               type="button"
               aria-label="Наступна модель"
               onClick={() => step(1)}
-              className="chamfer-sm flex size-11 items-center justify-center border border-paper/25 bg-ink/40 text-paper/80 transition-colors hover:border-signal"
+              className="chamfer-sm flex size-11 items-center justify-center border border-paper/50 bg-ink/40 text-paper transition-colors hover:border-signal"
             >
               <ArrowIcon direction="right" />
             </button>

@@ -26,9 +26,14 @@ export function StackSection({
   // up by OVERLAP_PX) visually covers it. Scaling and dimming this
   // section over that same window sells the "next slide covers this
   // one" read without requiring either section to fit one screen.
+  //
+  // Desktop only: on phones every section is several screens tall, so the
+  // dim kicked in while its last block was still being read — white
+  // sections turned grey and looked disabled.
   useEffect(() => {
     if (!dim) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
     const el = ref.current;
     if (!el) return;
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -35,6 +35,14 @@ const SITE_OG_IMAGE = {
   width: 1200,
   height: 630,
   alt: SITE_TITLE,
+};
+
+// viewport-fit=cover makes env(safe-area-inset-*) report real values, so
+// the footer can clear the iOS home indicator / Safari bottom toolbar.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {

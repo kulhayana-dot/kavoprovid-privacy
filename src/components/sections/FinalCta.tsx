@@ -24,13 +24,13 @@ export function FinalCta() {
     <section
       ref={sectionRef}
       id="cta"
-      className="relative overflow-hidden bg-ink py-20 text-paper sm:py-28"
+      className="relative overflow-hidden bg-ink py-16 text-paper sm:py-28"
     >
       {!reduced && (
         <motion.div
           aria-hidden="true"
           style={{ x: markX }}
-          className="font-display pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-center text-[22vw] font-extrabold leading-none text-paper/[0.03]"
+          className="font-display pointer-events-none absolute inset-x-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap sm:block text-center text-[22vw] font-extrabold leading-none text-paper/[0.03]"
         >
           KAVOPROVID
         </motion.div>
@@ -47,30 +47,33 @@ export function FinalCta() {
           </RevealText>
         </div>
 
-        <p className="mx-auto mt-8 max-w-lg text-lg text-paper/60">
+        <p className="mx-auto mt-8 max-w-lg text-lg text-paper/80">
           Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
         </p>
 
-        <div className="mt-10 flex justify-center">
-          <Button href="tel:+380636271567">
+        <div className="mx-auto mt-10 flex max-w-sm justify-center sm:max-w-none">
+          <Button href="tel:+380636271567" className="w-full sm:w-auto">
             Провести каву в мій бізнес
           </Button>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-paper/60">
-          <a href="tel:+380636271567" className="hover:text-paper/70">
+        <div className="mx-auto mt-4 grid max-w-sm gap-3 sm:mt-8 sm:flex sm:max-w-none sm:justify-center sm:gap-4">
+          <a
+            href="tel:+380636271567"
+            className="chamfer-sm flex min-h-12 items-center justify-center border border-paper/40 px-5 text-base font-medium text-paper transition-colors hover:border-signal"
+          >
             +380 63 627-15-67
           </a>
           <a
             href="mailto:office@kavoprovid.com.ua"
-            className="hover:text-paper/70"
+            className="chamfer-sm flex min-h-12 items-center justify-center border border-paper/40 px-5 text-base font-medium text-paper transition-colors hover:border-signal"
           >
             office@kavoprovid.com.ua
           </a>
         </div>
 
-        <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10">
-          <p className="text-sm text-paper/60">
+        <div className="mx-auto mt-12 max-w-sm border-t border-paper/15 pt-10 sm:mt-14">
+          <p className="text-base text-paper/80">
             Або залиште контакти — передзвонимо самі.
           </p>
           <LeadForm source="Головна — фінальний CTA" className="mt-5 text-left" />

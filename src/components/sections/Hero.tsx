@@ -20,13 +20,13 @@ export function Hero() {
         <div className="flex max-w-3xl flex-col items-start text-left">
           <HeroEntrance>
             <HeroEntranceItem>
-              <span className="font-label inline-flex items-center gap-2 border border-paper/20 px-4 py-1.5 text-xs uppercase tracking-widest text-paper/60">
+              <span className="font-label inline-flex items-center gap-2 border border-paper/30 bg-ink/70 px-4 py-2 text-xs uppercase tracking-widest text-paper/90 backdrop-blur-sm">
                 <span className="size-1.5 bg-signal" />
                 Київ та Київська область
               </span>
             </HeroEntranceItem>
 
-            <h1 className="font-display mt-8 text-5xl font-bold leading-[1.05] tracking-tight text-paper sm:text-6xl lg:text-7xl">
+            <h1 className="font-display mt-8 text-5xl font-bold leading-[1.05] tracking-tight text-paper [text-shadow:0_2px_24px_rgba(10,10,10,.6)] sm:text-6xl lg:text-7xl">
               <RevealText
                 as="div"
                 trigger="load"
@@ -43,15 +43,17 @@ export function Hero() {
               </RevealText>
             </h1>
 
-            <HeroEntranceItem className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 sm:text-xl">
+            <HeroEntranceItem className="mt-8 max-w-xl text-lg leading-relaxed text-paper/80 sm:text-xl">
               Кавомашина, зерно, сервіс і відповідальність — в одного
               партнера, а не в списку контактів у телефоні. Ваша команда
               просто п&apos;є каву.
             </HeroEntranceItem>
 
             <HeroEntranceItem className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button href="#cta">Провести каву в мій бізнес</Button>
-              <Button href="#solutions" variant="secondary">
+              <Button href="#cta" className="w-full sm:w-auto">
+                Провести каву в мій бізнес
+              </Button>
+              <Button href="#solutions" variant="secondary" className="w-full sm:w-auto">
                 Як це працює
               </Button>
             </HeroEntranceItem>

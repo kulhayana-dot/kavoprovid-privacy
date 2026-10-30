@@ -68,7 +68,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Меню"
-          className="chamfer-sm ml-auto flex size-10 items-center justify-center border border-paper/20 xl:hidden"
+          className="chamfer-sm ml-auto flex size-11 items-center justify-center border border-paper/50 xl:hidden"
         >
           <span className="relative block h-3 w-4">
             <span
@@ -89,24 +89,24 @@ export function Header() {
 
       {open && (
         <div className="border-t border-paper/10 bg-ink px-4 py-6 xl:hidden">
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col gap-1">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-base font-medium text-paper/90"
+                className="py-2.5 text-lg font-medium text-paper/90"
               >
                 {item.label}
               </Link>
             ))}
-            <a href="tel:+380636271567" className="text-base font-medium text-paper/90">
+            <a href="tel:+380636271567" className="py-2.5 text-lg font-medium text-paper/90">
               +380 63 627-15-67
             </a>
             <Button
               href="/#cta"
               onClick={() => setOpen(false)}
-              className="mt-2"
+              className="mt-3"
             >
               Провести каву в мій бізнес
             </Button>

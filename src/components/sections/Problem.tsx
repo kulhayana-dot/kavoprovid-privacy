@@ -43,9 +43,9 @@ export function Problem() {
 
   return (
     <section id="problem" className="relative bg-paper text-ink">
-      <div className="mx-auto max-w-7xl px-4 py-20 lg:px-6 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 pb-28 pt-24 lg:px-6 sm:py-28">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
             Знайомо?
           </span>
           <RevealText
@@ -56,7 +56,7 @@ export function Problem() {
           </RevealText>
         </div>
 
-        <div className="mt-16 border-t border-ink/10">
+        <div className="mt-10 border-t border-ink/15 sm:mt-16">
           {BREAKS.map((item, i) => {
             const active = open.has(i) || hovered === i;
             return (
@@ -68,14 +68,19 @@ export function Problem() {
                 onMouseLeave={() => setHovered(null)}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.3, ease: "easeOut", delay: i * 0.04 }}
                 className={cn(
-                  "flex w-full items-baseline gap-6 border-b border-ink/10 px-4 py-8 text-left transition-colors sm:gap-8",
+                  "flex w-full items-baseline gap-4 border-b border-ink/15 px-4 py-5 text-left transition-colors sm:gap-8 sm:py-8",
                   active && "bg-ink text-paper",
                 )}
               >
-                <span className="font-display w-10 shrink-0 text-base font-bold text-signal">
+                <span
+                  className={cn(
+                    "font-display w-8 shrink-0 text-base font-bold sm:w-10",
+                    active ? "text-signal" : "text-ink",
+                  )}
+                >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="flex-1">
@@ -90,7 +95,7 @@ export function Problem() {
                   <span
                     className={cn(
                       "block overflow-hidden text-base transition-[max-height,opacity,margin-top] duration-300 ease-out sm:text-lg",
-                      active ? "max-h-20 mt-3 opacity-100 text-paper/70" : "max-h-0 opacity-0",
+                      active ? "max-h-24 mt-3 opacity-100 text-paper/80" : "max-h-0 opacity-0",
                     )}
                   >
                     {item.text}
@@ -101,11 +106,12 @@ export function Problem() {
           })}
         </div>
 
-        <div className="mt-16 max-w-md border-t border-ink/10 pt-8">
-          <p className="font-display text-xl font-bold leading-snug sm:text-2xl">
+        <div className="chamfer mt-10 max-w-md bg-ink p-6 text-paper sm:mt-16 sm:p-8">
+          <span aria-hidden="true" className="block h-1 w-10 bg-signal" />
+          <p className="font-display mt-4 text-xl font-bold leading-snug sm:text-2xl">
             Проблема не в кавомашині.
           </p>
-          <p className="mt-3 text-ink/60">
+          <p className="mt-3 text-paper/80">
             Проблема в тому, що між нею і вашим бізнесом немає жодного
             зв&apos;язку.
           </p>

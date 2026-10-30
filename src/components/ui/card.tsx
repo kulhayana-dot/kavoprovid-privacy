@@ -26,7 +26,7 @@ export function CardDescription({
   className,
   ...props
 }: React.ComponentProps<"p">) {
-  return <p className={cn("text-ink/60", className)} {...props} />;
+  return <p className={cn("text-ink/75", className)} {...props} />;
 }
 
 export function CardContent({ className, ...props }: React.ComponentProps<"div">) {

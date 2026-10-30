@@ -58,10 +58,10 @@ export function TiltCard({ className, children, ...props }: TiltCardProps) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onViewportEnter={handleViewportEnter}
-      viewport={{ once: true, amount: 0.4 }}
-      initial={reduced ? undefined : { opacity: 0, y: 20 }}
+      viewport={{ once: true, amount: 0.15 }}
+      initial={reduced ? undefined : { opacity: 0, y: 12 }}
       whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       style={
         reduced
           ? undefined

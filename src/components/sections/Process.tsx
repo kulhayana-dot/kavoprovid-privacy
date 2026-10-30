@@ -34,11 +34,11 @@ export function Process() {
   return (
     <section
       id="process"
-      className="relative bg-paper py-20 text-ink sm:py-28"
+      className="relative bg-paper pb-16 pt-24 text-ink sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="max-w-2xl">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/60">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
             Як це відбувається
           </span>
           <RevealText
@@ -49,19 +49,19 @@ export function Process() {
           </RevealText>
         </div>
 
-        <div className="relative mt-16 max-w-3xl">
+        <div className="relative mt-10 max-w-3xl sm:mt-16">
           <div className="absolute left-6 top-2 bottom-2 hidden w-px bg-ink/10 sm:block" />
           <div className="animate-flow-line absolute left-6 top-2 bottom-2 hidden w-[3px] sm:block" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {STEPS.map((step, i) => (
               <motion.div
                 key={step.title}
                 className="relative flex gap-6 sm:gap-8"
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center bg-ink text-sm font-bold text-paper">
                   {String(i + 1).padStart(2, "0")}
@@ -70,7 +70,7 @@ export function Process() {
                   <h3 className="font-display text-lg font-bold sm:text-xl">
                     {step.title}
                   </h3>
-                  <p className="mt-2 max-w-xl text-ink/60">{step.text}</p>
+                  <p className="mt-2 max-w-xl text-ink/75">{step.text}</p>
                 </div>
               </motion.div>
             ))}

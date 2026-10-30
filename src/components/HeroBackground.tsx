@@ -54,8 +54,8 @@ export function HeroBackground() {
         <source src="/hero/office.mp4" type="video/mp4" />
       </video>
       {/* Dark overlay to mute the footage and keep hero text readable. */}
-      <div className="absolute inset-0 bg-ink/50" />
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-ink" />
+      <div className="absolute inset-0 bg-ink/60 sm:bg-ink/50" />
+      <div className="absolute inset-0 bg-linear-to-b from-ink/40 via-transparent to-ink" />
     </div>
   );
 }

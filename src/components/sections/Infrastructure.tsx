@@ -26,7 +26,7 @@ export function Infrastructure() {
   return (
     <section id="infrastructure" className="relative bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 lg:px-6">
-        <span className="font-label block text-xs uppercase tracking-widest text-paper/50">
+        <span className="font-label block text-sm font-medium uppercase tracking-widest text-paper/70">
           Як це працює
         </span>
         <div className="stripe-band mt-5 inline-block max-w-5xl px-1 py-3 sm:py-4">
@@ -37,36 +37,36 @@ export function Infrastructure() {
             Кавова інфраструктура — це ланцюг, а не кавомашина.
           </RevealText>
         </div>
-        <p className="mt-6 max-w-2xl text-paper/50">
+        <p className="mt-6 max-w-2xl text-paper/75">
           Кожна ланка тримає наступну — від кавомашини до підтримки.
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 pb-20 lg:px-6">
+      <div className="mx-auto max-w-7xl px-4 pb-10 sm:pb-20 lg:px-6">
         <div className="relative max-w-2xl">
-          <div className="absolute left-6 top-2 bottom-2 w-px -translate-x-1/2 bg-paper/10" />
+          <div className="absolute left-6 top-2 bottom-2 w-0.5 -translate-x-1/2 bg-signal/35" />
           <div className="animate-flow-line absolute left-6 top-2 bottom-2 w-[3px] -translate-x-1/2" />
-          <div className="space-y-10">
+          <div className="space-y-6 sm:space-y-10">
             {NODES.map((node, i) => (
               <motion.div
                 key={node.title}
                 className="relative flex items-start gap-6"
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <div className="chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-paper/25 bg-ink">
-                  <node.icon className="size-5 text-paper" />
+                <div className="chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-signal/60 bg-ink">
+                  <node.icon className="size-6 text-signal" />
                 </div>
                 <div className="pt-1.5">
-                  <span className="font-label text-xs tracking-widest text-paper/40">
+                  <span className="font-label text-xs tracking-widest text-paper/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display mt-1 text-base font-bold sm:text-lg">
+                  <h3 className="font-display mt-1 text-lg font-bold">
                     {node.title}
                   </h3>
-                  <p className="mt-1 max-w-xs text-sm leading-relaxed text-paper/55">
+                  <p className="mt-1 max-w-xs text-base leading-relaxed text-paper/75 sm:text-sm">
                     {node.text}
                   </p>
                 </div>
@@ -76,8 +76,8 @@ export function Infrastructure() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-20 lg:px-6">
-        <p className="max-w-xl text-lg font-medium text-paper/80">
+      <div className="mx-auto max-w-7xl px-4 pb-20 pt-4 lg:px-6 sm:py-20">
+        <p className="max-w-xl text-lg font-medium text-paper/85">
           Прибери одну ланку — і решта тримається на випадковості. Ми
           продаємо весь ланцюг, а не окрему ланку.
         </p>

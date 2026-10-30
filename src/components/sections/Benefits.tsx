@@ -10,7 +10,6 @@ import {
   IconSwitch,
 } from "@/components/icons";
 import { cn } from "@/lib/cn";
-import { Wordmark } from "@/components/Wordmark";
 
 const PILLARS = [
   {
@@ -44,11 +43,11 @@ export function Benefits() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="why" className="relative bg-ink py-20 text-paper sm:py-28">
+    <section id="why" className="relative bg-ink py-16 text-paper sm:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="max-w-2xl">
-          <span className="font-label inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-paper/50">
-            Чому <Wordmark tone="dark" className="h-4" />
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
+            Чому KAVOPROVID
           </span>
           <div className="stripe-band mt-4 inline-block px-1 py-3 sm:py-4">
             <RevealText
@@ -58,56 +57,56 @@ export function Benefits() {
               Ви купуєте не каву. Ви купуєте ось це.
             </RevealText>
           </div>
-          <p className="mt-5 text-paper/50">
+          <p className="mt-5 text-paper/75">
             Смак — це данність. Різницю роблять речі, які ви помічаєте лише
             тоді, коли щось іде не так — або не помічаєте взагалі.
           </p>
         </div>
 
         <div
-          className="relative mt-16"
+          className="relative mt-10 sm:mt-16"
           onMouseLeave={() => setActive(0)}
         >
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-10 lg:grid-cols-6 lg:gap-6">
             {PILLARS.map((p, i) => (
               <div
                 key={p.title}
                 onMouseEnter={() => setActive(i)}
                 className={cn(
-                  "relative",
-                  i === 0 && "lg:col-span-2",
-                  i === 0 &&
-                    "chamfer border border-signal/25 bg-signal/[0.04] p-6",
+                  "chamfer relative border p-6",
+                  i === 0
+                    ? "border-signal/40 bg-signal/[0.06] lg:col-span-2"
+                    : "border-paper/15 bg-paper/[0.03] sm:border-transparent sm:bg-transparent sm:p-0",
                 )}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className={cn(
                       "chamfer-sm flex items-center justify-center border transition-colors duration-200",
-                      i === 0 ? "size-14" : "size-12",
+                      "size-12",
                       i === active
                         ? "border-signal bg-signal text-ink"
-                        : "border-paper/25 text-paper",
+                        : "border-signal/60 text-signal",
                     )}
                   >
-                    <p.icon className={i === 0 ? "size-6" : "size-5"} />
+                    <p.icon className="size-6" />
                   </div>
-                  <span className="font-label text-xs tracking-widest text-paper/60">
+                  <span className="font-label text-sm tracking-widest text-paper/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <h3
                   className={cn(
                     "font-display mt-5 font-bold",
-                    i === 0 ? "text-xl" : "text-base",
+                    i === 0 ? "text-xl" : "text-lg sm:text-base",
                   )}
                 >
                   {p.title}
                 </h3>
                 <p
                   className={cn(
-                    "mt-2 leading-relaxed text-paper/55",
-                    i === 0 ? "max-w-sm text-base" : "text-sm",
+                    "mt-2 text-base leading-relaxed text-paper/75",
+                    i === 0 ? "max-w-sm" : "sm:text-sm",
                   )}
                 >
                   {p.text}

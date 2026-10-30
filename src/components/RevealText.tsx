@@ -67,7 +67,7 @@ export function RevealText({
   const reduced = useReducedMotion();
   const inView = useInView(ref, {
     once: true,
-    margin: "0px 0px -15% 0px",
+    margin: "0px 0px -5% 0px",
   });
   const words = useMemo(() => splitIntoWords(children), [children]);
 
@@ -90,7 +90,7 @@ export function RevealText({
             initial={reduced ? false : { y: "110%" }}
             animate={play ? { y: "0%" } : { y: "110%" }}
             transition={{
-              duration: 0.85,
+              duration: 0.5,
               ease: [0.16, 1, 0.3, 1],
               delay: delay + i * stagger,
             }}

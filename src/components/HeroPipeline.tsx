@@ -40,8 +40,8 @@ export function HeroPipeline() {
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, -14]);
 
   return (
-    <div ref={rootRef} className="relative w-full">
-      <div className="relative flex h-9 items-center justify-center sm:h-14 md:h-20 lg:h-24 xl:h-28">
+    <div ref={rootRef} className="relative mt-6 w-full sm:mt-0">
+      <div className="relative flex h-12 items-center justify-center sm:h-14 md:h-20 lg:h-24 xl:h-28">
         <motion.div
           className="pipe-flow-x absolute inset-x-0"
           style={TOP_BAND}
