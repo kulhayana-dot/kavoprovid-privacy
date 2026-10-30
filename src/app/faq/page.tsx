@@ -100,7 +100,7 @@ export default function FaqPage() {
 
       <section className="relative overflow-hidden bg-ink pb-20 pt-32 text-paper sm:pt-40">
         <div className="absolute inset-x-0 top-24 h-px bg-paper/10" />
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center gap-2 text-xs text-paper/50">
               <li>
@@ -133,7 +133,7 @@ export default function FaqPage() {
       </section>
 
       <section className="bg-ink pb-28 text-paper">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <AccordionPrimitive.Root type="single" collapsible className="space-y-3">
             {FAQ.map((item, i) => (
               <AccordionPrimitive.Item
@@ -180,7 +180,7 @@ export default function FaqPage() {
       </section>
 
       <section className="bg-paper py-20 text-center text-ink sm:py-28">
-        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Не знайшли своє запитання?
           </h2>

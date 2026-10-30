@@ -68,7 +68,7 @@ export function Solutions() {
 
   return (
     <section id="solutions" className="relative bg-ink text-paper">
-      <div className="mx-auto max-w-7xl px-6 pt-12 lg:px-8 sm:pt-16">
+      <div className="mx-auto max-w-7xl px-4 pt-12 lg:px-6 sm:pt-16">
         <div className="max-w-2xl">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Підбір рішення

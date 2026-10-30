@@ -123,7 +123,7 @@ export default async function ArticlePage({
             className="absolute inset-0 bg-[radial-gradient(circle_at_82%_58%,rgba(252,237,79,0.16),transparent_55%)]"
           />
         )}
-        <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-10 px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-10 px-4 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-6">
           <div className="max-w-2xl">
             <nav aria-label="breadcrumb" className="mb-4">
               <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
@@ -177,7 +177,7 @@ export default async function ArticlePage({
       </section>
 
       <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <article>
             {article.sections.map((section, i) => (
               <div
@@ -244,7 +244,7 @@ export default async function ArticlePage({
       </section>
 
       <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть кавову інфраструктуру для виробництва.
           </h2>

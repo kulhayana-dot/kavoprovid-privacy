@@ -43,7 +43,7 @@ export function Problem() {
 
   return (
     <section id="problem" className="relative bg-paper text-ink">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 py-20 lg:px-6 sm:py-28">
         <div className="max-w-2xl">
           <span className="font-label text-xs uppercase tracking-widest text-ink/50">
             Знайомо?

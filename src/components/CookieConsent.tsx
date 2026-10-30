@@ -39,7 +39,7 @@ export function CookieConsent() {
       aria-label="Налаштування cookie-файлів"
       className="fixed inset-x-0 bottom-0 z-50 border-t border-paper/10 bg-ink text-paper"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-6">
         <p className="max-w-2xl text-sm text-paper/70">
           Аналітичні cookie-файли допомагають нам розуміти, які розділи
           сайту цікавлять відвідувачів.{" "}

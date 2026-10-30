@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-8 px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-8 px-4 lg:px-6">
         <Link href="/" className="shrink-0" aria-label="Kavoprovid — на головну">
           <Image
             src="/brand/kavoprovid-wordmark-dark.svg"
@@ -88,7 +88,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-paper/10 bg-ink px-6 py-6 md:hidden">
+        <div className="border-t border-paper/10 bg-ink px-4 py-6 md:hidden">
           <nav className="flex flex-col gap-4">
             {NAV.map((item) => (
               <Link

@@ -115,7 +115,7 @@ export default async function MachinePage({
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div
             className={
               machine.photo
@@ -212,7 +212,7 @@ export default async function MachinePage({
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 lg:px-6">
           <div className="grid gap-10 sm:grid-cols-[1fr_auto] sm:items-start">
             <ul className="space-y-3">
               {machine.features.map((f) => (
@@ -293,7 +293,7 @@ export default async function MachinePage({
       </section>
 
       <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть {machine.machine} до офісу.
           </h2>

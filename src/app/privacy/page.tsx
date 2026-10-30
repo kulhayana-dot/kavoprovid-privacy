@@ -14,7 +14,7 @@ export default function PrivacyPage() {
     <>
       <Header />
       <main id="main-content" className="bg-paper pb-24 pt-32 text-ink">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Політика конфіденційності сайту Kavoprovid
           </h1>

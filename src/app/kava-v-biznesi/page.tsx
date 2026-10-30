@@ -48,7 +48,7 @@ export default function KnowledgeHubPage() {
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
@@ -77,7 +77,7 @@ export default function KnowledgeHubPage() {
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 lg:px-6">
           <div className="grid gap-6 sm:grid-cols-2">
             {ARTICLES.map((a) => (
               <Link

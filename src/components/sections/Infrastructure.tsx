@@ -25,7 +25,7 @@ const NODES = [
 export function Infrastructure() {
   return (
     <section id="infrastructure" className="relative bg-ink text-paper">
-      <div className="mx-auto max-w-7xl px-6 pb-12 pt-8 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 lg:px-6">
         <span className="font-label block text-xs uppercase tracking-widest text-paper/50">
           Як це працює
         </span>
@@ -42,7 +42,7 @@ export function Infrastructure() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-20 lg:px-6">
         <div className="relative max-w-2xl">
           <div className="absolute left-6 top-2 bottom-2 w-px -translate-x-1/2 bg-paper/10" />
           <div className="animate-flow-line absolute left-6 top-2 bottom-2 w-[3px] -translate-x-1/2" />
@@ -76,7 +76,7 @@ export function Infrastructure() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-20 lg:px-6">
         <p className="max-w-xl text-lg font-medium text-paper/80">
           Прибери одну ланку — і решта тримається на випадковості. Ми
           продаємо весь ланцюг, а не окрему ланку.

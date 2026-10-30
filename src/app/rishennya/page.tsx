@@ -55,7 +55,7 @@ export default function RishennyaPage() {
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
@@ -85,7 +85,7 @@ export default function RishennyaPage() {
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MACHINES.map((m) => (
               <MachineCard
@@ -112,7 +112,7 @@ export default function RishennyaPage() {
       </section>
 
       <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Ще не визначились із моделлю?
           </h2>

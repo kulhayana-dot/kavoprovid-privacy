@@ -36,7 +36,7 @@ export function FinalCta() {
         </motion.div>
       )}
 
-      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
+      <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-6">
         <div className="stripe-band inline-block px-2 py-4 sm:py-5">
           <RevealText
             as="h2"

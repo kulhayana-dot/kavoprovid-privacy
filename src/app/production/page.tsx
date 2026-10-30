@@ -104,7 +104,7 @@ export default function ProductionPage() {
           className="object-contain object-top sm:object-cover sm:object-center"
         />
         <div className="absolute inset-0 bg-ink/50" />
-        <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
             <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
               <li>
@@ -145,7 +145,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <RevealText
             as="h2"
             className="font-display max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
@@ -185,7 +185,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="border-t border-ink/10 bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="chamfer grid gap-10 border border-ink/10 bg-ink/[0.02] p-8 sm:p-10 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-14">
             <div className="chamfer-sm flex size-14 items-center justify-center border border-ink/15 bg-paper">
               <IconGauge className="size-6 text-signal" />
@@ -223,7 +223,7 @@ export default function ProductionPage() {
       </section>
 
       <section id="process" className="scroll-mt-24 bg-ink py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Як це працює
           </span>
@@ -254,7 +254,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-ink/65">
             Обладнання для виробництв
           </span>
@@ -280,7 +280,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="border-t border-paper/10 bg-ink py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 text-center lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Кейси
           </span>
@@ -295,7 +295,7 @@ export default function ProductionPage() {
       </section>
 
       <section id="faq" className="scroll-mt-24 bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Запитання</h2>
           <p className="mt-3 text-ink/60">
             Відповіді на часті запитання про графік змін, обслуговування й
@@ -310,7 +310,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть виробництво до кавопроводу.
           </h2>

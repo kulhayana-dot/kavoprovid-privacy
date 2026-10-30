@@ -6,7 +6,7 @@ import { TiltCard } from "@/components/ui/TiltCard";
 export function Trust() {
   return (
     <section id="trust" className="relative bg-ink py-20 text-paper sm:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
           <span className="font-label shrink-0 text-xs uppercase tracking-widest text-paper/50">
             Кому ми довіряємо
