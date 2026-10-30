@@ -155,101 +155,107 @@ export function Solutions() {
           }}
         />
 
-        <div
-          role="tablist"
-          aria-label="Профілі офісу"
-          className="relative z-10 flex flex-wrap gap-2 px-4 py-6 lg:px-6 sm:py-8"
-        >
-          {MACHINES.map((p, i) => (
-            <button
-              key={p.slug}
-              role="tab"
-              aria-selected={i === active}
-              onClick={() => setActive(i)}
-              className={cn(
-                "chamfer-sm border px-4 py-2 text-xs font-medium transition-colors duration-200",
-                i === active
-                  ? "border-signal bg-signal text-ink"
-                  : "border-paper/25 text-paper/60 hover:border-paper/40 hover:text-paper",
-              )}
-            >
-              {p.machine.split(" ").slice(-2).join(" ")}
-            </button>
-          ))}
-        </div>
-
-        <div className="relative z-10 flex flex-col px-4 pb-2 lg:px-6 sm:h-[calc(100%-72px)] sm:max-w-lg sm:justify-center sm:pb-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={profile.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              <span className="font-label block text-xs uppercase tracking-widest text-paper/40">
-                {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
-              </span>
-
-              {profile.badge && (
-                <span className="font-label mt-4 inline-block bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
-                  {profile.badge}
-                </span>
-              )}
-
-              <h3 className="font-display mt-4 text-2xl font-bold sm:text-4xl">
-                {profile.machine}
-              </h3>
-
-              <ul className="mt-5 space-y-2">
-                {profile.features.slice(0, 2).map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-paper/70">
-                    <IconCheck className="size-4 shrink-0 text-signal" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-5 flex items-baseline gap-2 text-sm text-paper/60">
-                <span className="font-label uppercase tracking-widest">
-                  Оренда безкоштовна від
-                </span>
-                <span className="font-display text-lg font-bold text-paper">
-                  <ThresholdNumber value={profile.threshold} /> кг
-                </span>
-              </div>
-
-              <Link
-                href={`/rishennya/${profile.slug}`}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4 transition-colors hover:decoration-paper"
+        {/* Centered the same way as every other section (mx-auto max-w-7xl)
+            so the tabs/info/nav line up with the heading above and the
+            header logo, instead of hugging the raw viewport edge like the
+            full-bleed photo layers behind them do. */}
+        <div className="relative mx-auto h-full max-w-7xl">
+          <div
+            role="tablist"
+            aria-label="Профілі офісу"
+            className="relative z-10 flex flex-wrap gap-2 px-4 py-6 lg:px-6 sm:py-8"
+          >
+            {MACHINES.map((p, i) => (
+              <button
+                key={p.slug}
+                role="tab"
+                aria-selected={i === active}
+                onClick={() => setActive(i)}
+                className={cn(
+                  "chamfer-sm border px-4 py-2 text-xs font-medium transition-colors duration-200",
+                  i === active
+                    ? "border-signal bg-signal text-ink"
+                    : "border-paper/25 text-paper/60 hover:border-paper/40 hover:text-paper",
+                )}
               >
-                Детальніше про модель
-                <span aria-hidden="true">→</span>
-              </Link>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+                {p.machine.split(" ").slice(-2).join(" ")}
+              </button>
+            ))}
+          </div>
 
-        <div className="relative z-10 mt-4 flex items-center justify-between px-4 pb-6 lg:px-6 sm:absolute sm:inset-x-4 lg:inset-x-6 sm:bottom-8 sm:mt-0 sm:pb-0">
-          <button
-            type="button"
-            aria-label="Попередня модель"
-            onClick={() => step(-1)}
-            className="chamfer-sm flex size-11 items-center justify-center border border-paper/25 bg-ink/40 text-paper/80 transition-colors hover:border-signal"
-          >
-            <ArrowIcon direction="left" />
-          </button>
-          <span className="font-label hidden text-xs uppercase tracking-widest text-paper/35 sm:block">
-            Перетягніть, щоб гортати
-          </span>
-          <button
-            type="button"
-            aria-label="Наступна модель"
-            onClick={() => step(1)}
-            className="chamfer-sm flex size-11 items-center justify-center border border-paper/25 bg-ink/40 text-paper/80 transition-colors hover:border-signal"
-          >
-            <ArrowIcon direction="right" />
-          </button>
+          <div className="relative z-10 flex flex-col px-4 pb-2 lg:px-6 sm:h-[calc(100%-72px)] sm:max-w-lg sm:justify-center sm:pb-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={profile.slug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <span className="font-label block text-xs uppercase tracking-widest text-paper/40">
+                  {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+                </span>
+
+                {profile.badge && (
+                  <span className="font-label mt-4 inline-block bg-signal px-3 py-1 text-xs uppercase tracking-widest text-ink">
+                    {profile.badge}
+                  </span>
+                )}
+
+                <h3 className="font-display mt-4 text-2xl font-bold sm:text-4xl">
+                  {profile.machine}
+                </h3>
+
+                <ul className="mt-5 space-y-2">
+                  {profile.features.slice(0, 2).map((f) => (
+                    <li key={f} className="flex items-center gap-3 text-paper/70">
+                      <IconCheck className="size-4 shrink-0 text-signal" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 flex items-baseline gap-2 text-sm text-paper/60">
+                  <span className="font-label uppercase tracking-widest">
+                    Оренда безкоштовна від
+                  </span>
+                  <span className="font-display text-lg font-bold text-paper">
+                    <ThresholdNumber value={profile.threshold} /> кг
+                  </span>
+                </div>
+
+                <Link
+                  href={`/rishennya/${profile.slug}`}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4 transition-colors hover:decoration-paper"
+                >
+                  Детальніше про модель
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="relative z-10 mt-4 flex items-center justify-between px-4 pb-6 lg:px-6 sm:absolute sm:inset-x-4 lg:inset-x-6 sm:bottom-8 sm:mt-0 sm:pb-0">
+            <button
+              type="button"
+              aria-label="Попередня модель"
+              onClick={() => step(-1)}
+              className="chamfer-sm flex size-11 items-center justify-center border border-paper/25 bg-ink/40 text-paper/80 transition-colors hover:border-signal"
+            >
+              <ArrowIcon direction="left" />
+            </button>
+            <span className="font-label hidden text-xs uppercase tracking-widest text-paper/35 sm:block">
+              Перетягніть, щоб гортати
+            </span>
+            <button
+              type="button"
+              aria-label="Наступна модель"
+              onClick={() => step(1)}
+              className="chamfer-sm flex size-11 items-center justify-center border border-paper/25 bg-ink/40 text-paper/80 transition-colors hover:border-signal"
+            >
+              <ArrowIcon direction="right" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
