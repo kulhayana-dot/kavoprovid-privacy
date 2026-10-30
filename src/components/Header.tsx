@@ -32,12 +32,12 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 xl:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group relative flex items-center gap-2.5 text-sm font-medium text-paper/85 transition-colors hover:text-paper"
+              className="group relative flex items-center gap-2.5 whitespace-nowrap text-sm font-medium text-paper/85 transition-colors hover:text-paper"
             >
               <span
                 aria-hidden="true"
@@ -51,14 +51,14 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-6 xl:flex">
           <a
             href="tel:+380636271567"
             className="text-sm font-medium whitespace-nowrap text-paper/85 transition-colors hover:text-paper"
           >
             +380 63 627-15-67
           </a>
-          <Button href="/#cta" className="px-5 py-2.5">
+          <Button href="/#cta" className="whitespace-nowrap px-5 py-2.5">
             Провести каву в мій бізнес
           </Button>
         </div>
@@ -68,7 +68,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Меню"
-          className="chamfer-sm ml-auto flex size-10 items-center justify-center border border-paper/20 md:hidden"
+          className="chamfer-sm ml-auto flex size-10 items-center justify-center border border-paper/20 xl:hidden"
         >
           <span className="relative block h-3 w-4">
             <span
@@ -88,7 +88,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-paper/10 bg-ink px-4 py-6 md:hidden">
+        <div className="border-t border-paper/10 bg-ink px-4 py-6 xl:hidden">
           <nav className="flex flex-col gap-4">
             {NAV.map((item) => (
               <Link
