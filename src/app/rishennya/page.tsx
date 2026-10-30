@@ -55,9 +55,9 @@ export default function RishennyaPage() {
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
+        <div className="container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="hover:text-paper/70">
                   Головна
@@ -75,7 +75,7 @@ export default function RishennyaPage() {
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Обладнання — частина кавової інфраструктури.
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/60">
             Ми не продаємо кавомашини поштучно. Кожна модель — вузол одного
             рішення: обладнання, кава, сервіс і підтримка працюють разом.
             Оберіть модель під ваше навантаження — решту інфраструктури ми
@@ -99,7 +99,7 @@ export default function RishennyaPage() {
             ))}
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex">
             <Link
               href="/rishennya/porivnyannya"
               className="chamfer-sm inline-flex items-center gap-2 border border-ink/15 px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-signal"
@@ -111,8 +111,8 @@ export default function RishennyaPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-paper sm:py-28">
+        <div className="container-start max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Ще не визначились із моделлю?
           </h2>
@@ -122,7 +122,7 @@ export default function RishennyaPage() {
           </p>
           <LeadForm
             source="Rishennya hub"
-            className="mx-auto mt-8 max-w-sm text-left"
+            className="mt-8 max-w-sm"
           />
         </div>
       </section>

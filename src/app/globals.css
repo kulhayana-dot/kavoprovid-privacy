@@ -212,3 +212,10 @@ body {
     animation: none;
   }
 }
+
+/* Left edge of the site grid (max-w-7xl, the header/logo column) for a
+   narrower block: the block keeps its own max-width but starts where the
+   header content starts instead of being centered on the page. */
+@utility container-start {
+  margin-inline-start: max(0px, calc((100% - 80rem) / 2));
+}

@@ -177,7 +177,7 @@ export default async function ArticlePage({
       </section>
 
       <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-3xl px-4 lg:px-6">
+        <div className="container-start max-w-3xl px-4 lg:px-6">
           <article>
             {article.sections.map((section, i) => (
               <div
@@ -243,8 +243,8 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-paper sm:py-28">
+        <div className="container-start max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть кавову інфраструктуру для виробництва.
           </h2>
@@ -252,7 +252,7 @@ export default async function ArticlePage({
             Одна розмова — і порахуємо, який ліміт і яке обладнання підійдуть
             саме вашому майданчику.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <Button href="tel:+380636271567">Підключити виробництво</Button>
             <Button href="/production" variant="secondary">
               Про інфраструктуру для виробництв

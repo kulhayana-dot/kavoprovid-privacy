@@ -103,10 +103,11 @@ export default function ProductionPage() {
           sizes="100vw"
           className="object-contain object-top sm:object-cover sm:object-center"
         />
-        <div className="absolute inset-0 bg-ink/50" />
-        <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-6">
+        {/* Darker on the left, where the text sits over the busiest part of the photo */}
+        <div className="absolute inset-0 bg-ink/60 sm:bg-transparent sm:bg-gradient-to-r sm:from-ink/90 sm:via-ink/60 sm:to-ink/20" />
+        <div className="relative container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="hover:text-paper/70">
                   Головна
@@ -129,13 +130,13 @@ export default function ProductionPage() {
           >
             Кавова інфраструктура, яка працює разом із вашим виробництвом.
           </RevealText>
-          <p className="mx-auto mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/85">
             Kavoprovid забезпечує виробництва безперервною кавовою
             інфраструктурою на кожну зміну — обладнання, кава, постачання й
             сервіс в одного партнера.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <Button href="tel:+380636271567">Провести каву на виробництво</Button>
             <Button href="#process" variant="secondary">
               Як це працює
@@ -145,7 +146,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+        <div className="container-start max-w-5xl px-4 lg:px-6">
           <RevealText
             as="h2"
             className="font-display max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
@@ -185,7 +186,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="border-t border-ink/10 bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+        <div className="container-start max-w-5xl px-4 lg:px-6">
           <div className="chamfer grid gap-10 border border-ink/10 bg-ink/[0.02] p-8 sm:p-10 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-14">
             <div className="chamfer-sm flex size-14 items-center justify-center border border-ink/15 bg-paper">
               <IconGauge className="size-6 text-signal" />
@@ -223,7 +224,7 @@ export default function ProductionPage() {
       </section>
 
       <section id="process" className="scroll-mt-24 bg-ink py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+        <div className="container-start max-w-5xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Як це працює
           </span>
@@ -254,7 +255,7 @@ export default function ProductionPage() {
       </section>
 
       <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-6xl px-4 lg:px-6">
+        <div className="container-start max-w-6xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-ink/65">
             Обладнання для виробництв
           </span>
@@ -280,14 +281,14 @@ export default function ProductionPage() {
       </section>
 
       <section className="border-t border-paper/10 bg-ink py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-3xl px-4 text-center lg:px-6">
+        <div className="container-start max-w-3xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Кейси
           </span>
           <h2 className="font-display mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
             Реальні виробництва на кавопроводі.
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mt-4 max-w-md text-paper/50">
             Готуємо добірку кейсів наших виробничих клієнтів — з&apos;явиться тут
             найближчим часом.
           </p>
@@ -295,13 +296,13 @@ export default function ProductionPage() {
       </section>
 
       <section id="faq" className="scroll-mt-24 bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
+        <div className="container-start max-w-4xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Запитання</h2>
           <p className="mt-3 text-ink/60">
             Відповіді на часті запитання про графік змін, обслуговування й
             контроль витрат зібрані на окремій сторінці.
           </p>
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex">
             <Button href="/faq" variant="outline">
               Усі запитання <span aria-hidden="true">→</span>
             </Button>
@@ -309,8 +310,8 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-paper sm:py-28">
+        <div className="container-start max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть виробництво до кавопроводу.
           </h2>
@@ -318,12 +319,12 @@ export default function ProductionPage() {
             Одна розмова на 10 хвилин — і кава перестає бути залежною від
             того, хто сьогодні поїде в магазин.
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex">
             <Button href="tel:+380636271567">Провести каву на виробництво</Button>
           </div>
 
-          <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
-            <p className="text-center text-sm text-paper/60">
+          <div className="mt-14 max-w-sm border-t border-paper/10 pt-10">
+            <p className="text-sm text-paper/60">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source="Production page" className="mt-5" />

@@ -115,7 +115,7 @@ export default async function MachinePage({
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="mx-auto max-w-6xl px-4 lg:px-6">
+        <div className="container-start max-w-6xl px-4 lg:px-6">
           <div
             className={
               machine.photo
@@ -212,7 +212,7 @@ export default async function MachinePage({
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 lg:px-6">
+        <div className="container-start max-w-4xl px-4 lg:px-6">
           <div className="grid gap-10 sm:grid-cols-[1fr_auto] sm:items-start">
             <ul className="space-y-3">
               {machine.features.map((f) => (
@@ -292,20 +292,20 @@ export default async function MachinePage({
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-paper sm:py-28">
+        <div className="container-start max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть {machine.machine} до офісу.
           </h2>
           <p className="mt-4 text-paper/60">
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex">
             <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
           </div>
 
-          <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
-            <p className="text-center text-sm text-paper/60">
+          <div className="mt-14 max-w-sm border-t border-paper/10 pt-10">
+            <p className="text-sm text-paper/60">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source={`Модель — ${machine.machine}`} className="mt-5" />

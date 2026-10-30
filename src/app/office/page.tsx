@@ -87,9 +87,9 @@ export default function OfficePage() {
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-24 sm:pt-40">
-        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
+        <div className="container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center justify-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/58">
               <li>
                 <Link href="/" className="hover:text-paper/70">
                   Головна
@@ -112,13 +112,13 @@ export default function OfficePage() {
           >
             Кава, яка працює разом із вашим офісом.
           </RevealText>
-          <p className="mx-auto mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/60">
             Kavoprovid бере на себе обладнання, каву, постачання й сервіс для
             офісів у Києві та Київській області — одним рішенням, а не
             списком підрядників.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
             <Button href="#process" variant="secondary">
               Як це працює
@@ -128,7 +128,7 @@ export default function OfficePage() {
       </section>
 
       <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+        <div className="container-start max-w-5xl px-4 lg:px-6">
           <RevealText
             as="h2"
             className="font-display max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
@@ -168,7 +168,7 @@ export default function OfficePage() {
       </section>
 
       <section id="process" className="scroll-mt-24 bg-ink py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+        <div className="container-start max-w-5xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Як це працює
           </span>
@@ -199,7 +199,7 @@ export default function OfficePage() {
       </section>
 
       <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-6xl px-4 lg:px-6">
+        <div className="container-start max-w-6xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-ink/65">
             Обладнання для офісів
           </span>
@@ -225,14 +225,14 @@ export default function OfficePage() {
       </section>
 
       <section className="border-t border-paper/10 bg-ink py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-3xl px-4 text-center lg:px-6">
+        <div className="container-start max-w-3xl px-4 lg:px-6">
           <span className="font-label text-xs uppercase tracking-widest text-paper/50">
             Кейси
           </span>
           <h2 className="font-display mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
             Реальні офіси на кавопроводі.
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mt-4 max-w-md text-paper/50">
             Готуємо добірку кейсів наших офісних клієнтів — з&apos;явиться тут
             найближчим часом.
           </p>
@@ -240,13 +240,13 @@ export default function OfficePage() {
       </section>
 
       <section id="faq" className="scroll-mt-24 bg-paper py-20 text-ink sm:py-28">
-        <div className="mx-auto max-w-4xl px-4 text-center lg:px-6">
+        <div className="container-start max-w-4xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">Запитання</h2>
           <p className="mt-3 text-ink/60">
             Відповіді на часті запитання про вартість, обслуговування й
             географію зібрані на окремій сторінці.
           </p>
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex">
             <Button href="/faq" variant="outline">
               Усі запитання <span aria-hidden="true">→</span>
             </Button>
@@ -254,20 +254,20 @@ export default function OfficePage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
-        <div className="mx-auto max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-paper sm:py-28">
+        <div className="container-start max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть офіс до кавопроводу.
           </h2>
           <p className="mt-4 text-paper/60">
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex">
             <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
           </div>
 
-          <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
-            <p className="text-center text-sm text-paper/60">
+          <div className="mt-14 max-w-sm border-t border-paper/10 pt-10">
+            <p className="text-sm text-paper/60">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source="Office page" className="mt-5" />
