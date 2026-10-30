@@ -46,8 +46,8 @@ export function Benefits() {
     <section id="why" className="relative bg-ink py-16 text-paper sm:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="max-w-2xl">
-          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
-            Чому KAVOPROVID
+          <span className="font-label text-lg font-semibold uppercase tracking-widest text-paper/85 sm:text-2xl">
+            Чому <span className="text-signal">KAVOPROVID</span>
           </span>
           <div className="stripe-band mt-4 inline-block px-1 py-3 sm:py-4">
             <RevealText

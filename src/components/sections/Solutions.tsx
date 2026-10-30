@@ -14,7 +14,7 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
     <svg
       viewBox="0 0 20 20"
       fill="none"
-      className={cn("size-4", direction === "left" && "rotate-180")}
+      className={cn("size-5", direction === "left" && "rotate-180")}
       aria-hidden="true"
     >
       <path
@@ -39,6 +39,13 @@ function ThresholdNumber({ value }: { value: number }) {
       {value}
     </motion.span>
   );
+}
+
+// The product PNGs carry wide transparent margins (sized for the callout
+// layout on the model pages), which made the machines look tiny here.
+// public/products/stage/ holds the same photos cropped to the machine.
+function stagePhoto(src: string) {
+  return src.replace("/products/", "/products/stage/");
 }
 
 export function Solutions() {
@@ -67,7 +74,12 @@ export function Solutions() {
   const profile = MACHINES[active];
 
   return (
-    <section id="solutions" className="relative bg-ink text-paper">
+    <section
+      id="solutions"
+      // The next section is pulled up 72px over this one; pad by the same
+      // amount so it covers empty stage instead of the prev/next arrows.
+      className="relative bg-ink pb-[72px] text-paper"
+    >
       <div className="mx-auto max-w-7xl px-4 pt-12 lg:px-6 sm:pt-16">
         <div className="max-w-2xl">
           <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
@@ -92,16 +104,6 @@ export function Solutions() {
         onMouseLeave={() => { hovering.current = false; }}
         className="relative mt-8 flex flex-col overflow-hidden sm:mt-14 sm:block sm:h-[640px] lg:h-[720px]"
       >
-        {/* Signal-yellow glow behind the machine so it separates from the dark stage */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[6%] top-1/2 hidden h-[80%] w-[56%] -translate-y-1/2 blur-[4px] sm:block"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(252,237,79,.22), rgba(252,237,79,.06) 45%, transparent 72%)",
-          }}
-        />
-
         {/* Draggable photo layer — swipe left/right to switch machines.
             Mobile: its own contained box between the model tabs and the
             info, photo centered, in flow — the
@@ -110,7 +112,7 @@ export function Solutions() {
             that same layout let the photo's cord/base bleed into the text
             and the bottom nav, so mobile stacks instead of overlaying. */}
         <motion.div
-          className="relative h-72 w-full sm:absolute sm:inset-0 sm:h-auto"
+          className="relative h-[22rem] w-full sm:absolute sm:inset-0 sm:h-auto"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -135,21 +137,38 @@ export function Solutions() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[5%]"
+                className="absolute inset-0 mx-auto flex max-w-7xl items-center justify-center sm:justify-end sm:px-4 lg:px-6"
               >
+                <div className="relative flex h-[88%] max-w-[88%] items-end justify-center sm:h-[76%] sm:max-w-[52%]">
+                  {/* Signal-yellow glow so the dark machine separates from the stage */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-[20%] hidden blur-[4px] sm:block"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at center, rgba(252,237,79,.22), rgba(252,237,79,.06) 45%, transparent 72%)",
+                    }}
+                  />
+                  {/* Floor shadow: grounds the machine so it reads as
+                      standing equipment, not a floating product cutout. */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute -bottom-3 left-1/2 h-8 w-[115%] -translate-x-1/2 rounded-[50%] bg-black blur-lg"
+                  />
                 <Image
-                  src={profile.photo.src}
+                  src={stagePhoto(profile.photo.src)}
                   alt={profile.machine}
                   width={1000}
                   height={1000}
                   draggable={false}
                   priority
-                  className="h-[92%] max-w-[80%] w-auto object-contain sm:h-[86%] sm:max-w-[58%]"
+                  className="relative h-full max-w-full w-auto object-contain"
                   style={{
                     filter:
                       "drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(0 30px 50px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.18))",
                   }}
                 />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -226,7 +245,13 @@ export function Solutions() {
                   ))}
                 </ul>
 
-                <div className="chamfer-sm mt-5 inline-flex flex-wrap items-baseline gap-x-2 border border-signal/60 bg-signal/10 px-4 py-2.5 text-sm text-paper/90">
+                <p className="font-label mt-5 text-sm uppercase tracking-widest text-paper/70">
+                  До <span className="text-paper">{profile.specs.dailyCapacity}</span> чашок на добу
+                  {" · "}
+                  <span className="text-paper">{profile.specs.hourlyCapacity}</span> на годину в пік
+                </p>
+
+                <div className="chamfer-sm mt-4 inline-flex flex-wrap items-baseline gap-x-2 border border-signal/60 bg-signal/10 px-4 py-2.5 text-sm text-paper/90">
                   <span className="font-label uppercase tracking-widest">
                     Оренда безкоштовна від
                   </span>
@@ -251,7 +276,7 @@ export function Solutions() {
               type="button"
               aria-label="Попередня модель"
               onClick={() => step(-1)}
-              className="chamfer-sm flex size-11 items-center justify-center border border-paper/50 bg-ink/40 text-paper transition-colors hover:border-signal"
+              className="chamfer-sm flex size-12 items-center justify-center border border-signal bg-ink/60 text-signal transition-colors hover:bg-signal hover:text-ink"
             >
               <ArrowIcon direction="left" />
             </button>
@@ -262,7 +287,7 @@ export function Solutions() {
               type="button"
               aria-label="Наступна модель"
               onClick={() => step(1)}
-              className="chamfer-sm flex size-11 items-center justify-center border border-paper/50 bg-ink/40 text-paper transition-colors hover:border-signal"
+              className="chamfer-sm flex size-12 items-center justify-center border border-signal bg-ink/60 text-signal transition-colors hover:bg-signal hover:text-ink"
             >
               <ArrowIcon direction="right" />
             </button>

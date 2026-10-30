@@ -8,9 +8,13 @@ import { PRELOADER_SECONDS } from "@/lib/motion";
 
 export function Hero() {
   return (
+    // The next section is pulled up 72px over the hero (StackSection), so
+    // on desktop the hero runs 72px past the fold and pads its bottom by the same
+    // amount: the white section then starts below the first screen instead
+    // of showing as a strip under the buttons.
     <section
       id="top"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-ink pt-16"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-ink pt-16 md:min-h-[calc(100svh+72px)] md:pb-[72px]"
     >
       <HeroBackground />
 
