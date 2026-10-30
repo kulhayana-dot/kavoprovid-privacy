@@ -280,22 +280,7 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="border-t border-paper/10 bg-ink py-16 text-paper sm:py-28">
-        <div className="container-start max-w-3xl px-4 lg:px-6">
-          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
-            Кейси
-          </span>
-          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Реальні виробництва на кавопроводі.
-          </h2>
-          <p className="mt-4 max-w-md text-paper/75">
-            Готуємо добірку кейсів наших виробничих клієнтів — з&apos;явиться тут
-            найближчим часом.
-          </p>
-        </div>
-      </section>
-
-      <section id="faq" className="scroll-mt-24 bg-paper py-16 text-ink sm:py-28">
+      <section id="faq" className="scroll-mt-24 border-t border-ink/10 bg-paper py-16 text-ink sm:py-28">
         <div className="container-start max-w-4xl px-4 lg:px-6">
           <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Запитання</h2>
           <p className="mt-3 text-ink/75">
