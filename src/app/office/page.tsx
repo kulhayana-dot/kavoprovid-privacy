@@ -254,20 +254,20 @@ export default function OfficePage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-paper sm:py-28">
-        <div className="container-start max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть офіс до кавопроводу.
           </h2>
           <p className="mt-4 text-paper/60">
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
-          <div className="mt-8 flex">
+          <div className="mt-8 flex justify-center">
             <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
           </div>
 
-          <div className="mt-14 max-w-sm border-t border-paper/10 pt-10">
-            <p className="text-sm text-paper/60">
+          <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
+            <p className="text-center text-sm text-paper/60">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source="Office page" className="mt-5" />

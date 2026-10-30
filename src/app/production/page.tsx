@@ -310,8 +310,8 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-paper sm:py-28">
-        <div className="container-start max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Підключіть виробництво до кавопроводу.
           </h2>
@@ -319,12 +319,12 @@ export default function ProductionPage() {
             Одна розмова на 10 хвилин — і кава перестає бути залежною від
             того, хто сьогодні поїде в магазин.
           </p>
-          <div className="mt-8 flex">
+          <div className="mt-8 flex justify-center">
             <Button href="tel:+380636271567">Провести каву на виробництво</Button>
           </div>
 
-          <div className="mt-14 max-w-sm border-t border-paper/10 pt-10">
-            <p className="text-sm text-paper/60">
+          <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
+            <p className="text-center text-sm text-paper/60">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source="Production page" className="mt-5" />

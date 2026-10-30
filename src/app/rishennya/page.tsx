@@ -111,8 +111,8 @@ export default function RishennyaPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-paper sm:py-28">
-        <div className="container-start max-w-2xl px-4 lg:px-6">
+      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Ще не визначились із моделлю?
           </h2>
@@ -122,7 +122,7 @@ export default function RishennyaPage() {
           </p>
           <LeadForm
             source="Rishennya hub"
-            className="mt-8 max-w-sm"
+            className="mx-auto mt-8 max-w-sm text-left"
           />
         </div>
       </section>

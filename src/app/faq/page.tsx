@@ -179,15 +179,15 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="container-start max-w-2xl px-4 lg:px-6">
+      <section className="bg-paper py-20 text-center text-ink sm:py-28">
+        <div className="mx-auto max-w-2xl px-4 lg:px-6">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Не знайшли своє запитання?
           </h2>
           <p className="mt-3 text-ink/60">
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
-          <div className="mt-8 flex">
+          <div className="mt-8 flex justify-center">
             <Button href="tel:+380636271567">Провести каву в мій бізнес</Button>
           </div>
         </div>
