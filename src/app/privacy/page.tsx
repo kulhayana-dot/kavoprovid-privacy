@@ -18,11 +18,11 @@ export default function PrivacyPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Політика конфіденційності сайту Kavoprovid
           </h1>
-          <p className="mt-3 text-sm text-ink/60">
+          <p className="mt-3 text-sm text-ink/75">
             Дата набрання чинності: 3 серпня 2026 р.
           </p>
 
-          <div className="mt-8 space-y-6 text-ink/70">
+          <div className="mt-8 space-y-6 text-ink/75">
             <p>
               Ця Політика конфіденційності описує, як ТОВ «ЮНІТ КЕЙ»
               (ЄДРПОУ 46306370, далі — «Компанія», «ми») обробляє дані
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               1. Яку інформацію ми збираємо
             </h2>
-            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/70">
+            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/75">
               <li>
                 <strong className="text-ink">Дані веб-аналітики:</strong>{" "}
                 тип пристрою та браузера, орієнтовне місцезнаходження за
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               2. Cookie-файли та аналітика
             </h2>
-            <p className="mt-4 text-ink/70">
+            <p className="mt-4 text-ink/75">
               Сайт використовує аналітичні cookie-файли — щоб розуміти,
               які розділи цікавлять відвідувачів, і покращувати контент.
               При першому візиті ви обираєте «Прийняти» або «Відхилити» у
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               3. Мета обробки
             </h2>
-            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/70">
+            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/75">
               <li>
                 Розуміти, які розділи сайту цікавлять відвідувачів, і
                 покращувати контент.
@@ -99,11 +99,11 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               4. Передача даних третім особам
             </h2>
-            <p className="mt-4 text-ink/70">
+            <p className="mt-4 text-ink/75">
               Ми не продаємо дані відвідувачів третім особам. Дані можуть
               передаватися виключно:
             </p>
-            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/70">
+            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/75">
               <li>
                 Постачальникам сервісів веб-аналітики — в межах їхніх
                 власних політик конфіденційності;
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               5. Зберігання даних
             </h2>
-            <p className="mt-4 text-ink/70">
+            <p className="mt-4 text-ink/75">
               Аналітичні дані зберігаються відповідно до налаштувань
               використовуваного аналітичного інструменту. Контактні дані,
               отримані через звернення, зберігаються протягом строку,
@@ -140,8 +140,8 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               6. Ваші права
             </h2>
-            <p className="mt-4 text-ink/70">Ви маєте право:</p>
-            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/70">
+            <p className="mt-4 text-ink/75">Ви маєте право:</p>
+            <ul className="mt-4 list-disc space-y-2 pl-6 text-ink/75">
               <li>
                 Отримати інформацію про те, які дані про вас
                 обробляються;
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               7. Діти
             </h2>
-            <p className="mt-4 text-ink/70">
+            <p className="mt-4 text-ink/75">
               Сайт орієнтований на представників бізнесу і не призначений
               для осіб віком до 18 років.
             </p>
@@ -173,7 +173,7 @@ export default function PrivacyPage() {
             <h2 className="font-display border-l-4 border-signal pl-4 text-xl font-bold">
               8. Зміни до цієї Політики
             </h2>
-            <p className="mt-4 text-ink/70">
+            <p className="mt-4 text-ink/75">
               Ми можемо періодично оновлювати цю Політику конфіденційності.
               Актуальна версія завжди доступна за цим посиланням. Дата
               останнього оновлення вказана на початку сторінки.
@@ -185,7 +185,7 @@ export default function PrivacyPage() {
               9. Контакти
             </h2>
             <div className="chamfer-sm mt-4 border border-ink/10 bg-ink/[0.03] p-6">
-              <p className="text-ink/70">
+              <p className="text-ink/75">
                 <strong className="text-ink">ТОВ «ЮНІТ КЕЙ»</strong>
                 <br />
                 ЄДРПОУ: 46306370

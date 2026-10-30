@@ -63,7 +63,7 @@ export function Process() {
                 viewport={{ once: true, margin: "0px 0px -5% 0px" }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center bg-ink text-sm font-bold text-paper">
+                <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-ink bg-signal text-sm font-bold text-ink">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="pt-1.5">

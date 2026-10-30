@@ -41,7 +41,7 @@ export function MachineCard({
 
       <div className={cn("flex flex-1 flex-col", headingLevel === "h2" ? "p-7" : "p-6")}>
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/60">
+          <span className="font-label border border-ink/20 px-3 py-1 text-xs uppercase tracking-widest text-ink/75">
             {m.tag}
           </span>
           {showBadge && m.badge && (
@@ -60,12 +60,12 @@ export function MachineCard({
           {m.machine}
         </Heading>
 
-        <p className="font-label mt-2 text-xs uppercase tracking-widest text-ink/65">
+        <p className="font-label mt-2 text-sm font-medium uppercase tracking-widest text-ink/70">
           {m.audienceFit}
         </p>
 
         {showFeature && (
-          <p className="mt-3 flex-1 text-sm text-ink/60">{m.features[0]}</p>
+          <p className="mt-3 flex-1 text-sm text-ink/75">{m.features[0]}</p>
         )}
 
         <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">

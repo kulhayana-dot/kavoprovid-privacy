@@ -143,7 +143,7 @@ export function MachineComparisonPanel() {
 
       {selectedMachines.length >= 2 && (
         <div className="mt-14">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
             Порівняння обраного ({selectedMachines.length})
           </span>
           <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -157,7 +157,7 @@ export function MachineComparisonPanel() {
                   <button
                     type="button"
                     onClick={() => toggle(m.slug)}
-                    className="font-label shrink-0 text-xs uppercase tracking-widest text-ink/40 hover:text-ink"
+                    className="font-label shrink-0 text-xs uppercase tracking-widest text-ink/60 hover:text-ink"
                     aria-label={`Прибрати ${m.machine} з порівняння`}
                   >
                     Прибрати
@@ -166,7 +166,7 @@ export function MachineComparisonPanel() {
                 <dl className="mt-4 space-y-2 text-sm">
                   {SPEC_ROWS.map((row) => (
                     <div key={row.label} className="flex justify-between gap-4">
-                      <dt className="text-ink/50">{row.label}</dt>
+                      <dt className="text-ink/70">{row.label}</dt>
                       <dd className="text-right text-ink/80">{row.render(m)}</dd>
                     </div>
                   ))}

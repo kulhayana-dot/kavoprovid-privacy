@@ -102,9 +102,9 @@ export default function FaqPage() {
         <div className="absolute inset-x-0 top-24 h-px bg-paper/10" />
         <div className="container-start max-w-3xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2 text-xs text-paper/50">
+            <ol className="flex items-center gap-2 text-xs text-paper/75">
               <li>
-                <Link href="/" className="hover:text-paper/70">
+                <Link href="/" className="hover:text-paper">
                   Головна
                 </Link>
               </li>
@@ -115,7 +115,7 @@ export default function FaqPage() {
             </ol>
           </nav>
 
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             База знань
           </span>
           <RevealText
@@ -125,7 +125,7 @@ export default function FaqPage() {
           >
             Питання, які нам ставлять найчастіше.
           </RevealText>
-          <p className="mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/75">
             Якщо тут немає відповіді — зателефонуйте, і ми розберемо саме
             вашу ситуацію.
           </p>
@@ -170,7 +170,7 @@ export default function FaqPage() {
                 <AccordionPrimitive.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                   <div className="flex gap-5 px-6 pb-6">
                     <span className="w-[2ch] shrink-0" aria-hidden="true" />
-                    <p className="max-w-xl text-paper/60">{item.a}</p>
+                    <p className="max-w-xl text-paper/75">{item.a}</p>
                   </div>
                 </AccordionPrimitive.Content>
               </AccordionPrimitive.Item>
@@ -179,12 +179,12 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 text-center text-ink sm:py-28">
+      <section className="bg-paper py-16 text-center text-ink sm:py-28">
         <div className="mx-auto max-w-2xl px-4 lg:px-6">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Не знайшли своє запитання?
           </h2>
-          <p className="mt-3 text-ink/60">
+          <p className="mt-3 text-ink/75">
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
           <div className="mt-8 flex justify-center">

@@ -57,25 +57,25 @@ export default function RishennyaPage() {
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
         <div className="container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/75">
               <li>
-                <Link href="/" className="hover:text-paper/70">
+                <Link href="/" className="hover:text-paper">
                   Головна
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-paper/60" aria-current="page">
+              <li className="text-paper/75" aria-current="page">
                 Рішення
               </li>
             </ol>
           </nav>
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             Кавові рішення
           </span>
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Обладнання — частина кавової інфраструктури.
           </h1>
-          <p className="mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/75">
             Ми не продаємо кавомашини поштучно. Кожна модель — вузол одного
             рішення: обладнання, кава, сервіс і підтримка працюють разом.
             Оберіть модель під ваше навантаження — решту інфраструктури ми
@@ -84,7 +84,7 @@ export default function RishennyaPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-16 text-ink sm:py-20">
+      <section className="bg-paper py-16 text-ink sm:py-28">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MACHINES.map((m) => (
@@ -111,12 +111,12 @@ export default function RishennyaPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+      <section className="bg-ink py-16 text-center text-paper sm:py-28">
         <div className="mx-auto max-w-2xl px-4 lg:px-6">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Ще не визначились із моделлю?
           </h2>
-          <p className="mt-4 text-paper/60">
+          <p className="mt-4 text-paper/75">
             Залиште контакти — розкажемо про вашу команду й підберемо модель
             самі.
           </p>

@@ -129,6 +129,24 @@ export function Solutions() {
                 "radial-gradient(ellipse 70% 60% at 50% 55%, rgba(255,255,255,.16), rgba(252,237,79,.10) 45%, transparent 75%)",
             }}
           />
+          {/* Phones: arrows sit on the photo, where the thumb already is —
+              the bottom row (sm+) was out of sight below the description. */}
+          <button
+            type="button"
+            aria-label="Попередня модель"
+            onClick={() => step(-1)}
+            className="chamfer-sm absolute left-4 top-1/2 z-10 flex size-12 -translate-y-1/2 items-center justify-center border border-signal bg-ink/70 text-signal sm:hidden"
+          >
+            <ArrowIcon direction="left" />
+          </button>
+          <button
+            type="button"
+            aria-label="Наступна модель"
+            onClick={() => step(1)}
+            className="chamfer-sm absolute right-4 top-1/2 z-10 flex size-12 -translate-y-1/2 items-center justify-center border border-signal bg-ink/70 text-signal sm:hidden"
+          >
+            <ArrowIcon direction="right" />
+          </button>
           <AnimatePresence initial={false}>
             {profile.photo && (
               <motion.div
@@ -139,7 +157,7 @@ export function Solutions() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[4vw]"
               >
-                <div className="relative flex h-[88%] max-w-[88%] items-end justify-center sm:h-[76%] sm:max-w-[52%]">
+                <div className="relative flex h-[88%] max-w-[calc(100%-7rem)] items-end justify-center sm:h-[76%] sm:max-w-[52%]">
                   {/* Signal-yellow glow so the dark machine separates from the stage */}
                   <div
                     aria-hidden="true"
@@ -193,7 +211,7 @@ export function Solutions() {
           <div
             role="tablist"
             aria-label="Профілі офісу"
-            className="scrollbar-none relative z-10 order-first flex gap-2 overflow-x-auto px-4 pb-2 pt-1 lg:px-6 sm:flex-wrap sm:overflow-visible sm:py-8"
+            className="relative z-10 order-first flex flex-wrap gap-2 px-4 pb-2 pt-1 lg:px-6 sm:py-8"
           >
             {MACHINES.map((p, i) => (
               <button
@@ -271,7 +289,7 @@ export function Solutions() {
             </AnimatePresence>
           </div>
 
-          <div className="relative z-10 mt-4 flex items-center justify-between px-4 pb-6 lg:px-6 sm:absolute sm:inset-x-4 lg:inset-x-6 sm:bottom-8 sm:mt-0 sm:pb-0">
+          <div className="relative z-10 mt-4 hidden items-center justify-between px-4 pb-6 lg:px-6 sm:absolute sm:flex sm:inset-x-4 lg:inset-x-6 sm:bottom-8 sm:mt-0 sm:pb-0">
             <button
               type="button"
               aria-label="Попередня модель"

@@ -115,7 +115,7 @@ export default async function MachinePage({
       />
 
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
-        <div className="container-start max-w-6xl px-4 lg:px-6">
+        <div className="container-start max-w-7xl px-4 lg:px-6">
           <div
             className={
               machine.photo
@@ -125,33 +125,33 @@ export default async function MachinePage({
           >
             <div>
               <nav aria-label="breadcrumb" className="mb-3">
-                <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
+                <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/75">
                   <li>
-                    <Link href="/" className="hover:text-paper/70">
+                    <Link href="/" className="hover:text-paper">
                       Головна
                     </Link>
                   </li>
                   <li aria-hidden="true">/</li>
                   <li>
-                    <Link href="/rishennya" className="hover:text-paper/70">
+                    <Link href="/rishennya" className="hover:text-paper">
                       Рішення
                     </Link>
                   </li>
                   <li aria-hidden="true">/</li>
-                  <li className="text-paper/60" aria-current="page">
+                  <li className="text-paper/75" aria-current="page">
                     {machine.machine}
                   </li>
                 </ol>
               </nav>
               <Link
                 href="/rishennya"
-                className="text-sm text-paper/50 transition-colors hover:text-paper/80"
+                className="text-sm text-paper/75 transition-colors hover:text-paper"
               >
                 ← Усі рішення
               </Link>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <span className="font-label border border-paper/20 px-3 py-1 text-xs uppercase tracking-widest text-paper/50">
+                <span className="font-label border border-paper/20 px-3 py-1 text-xs uppercase tracking-widest text-paper/75">
                   {machine.tag}
                 </span>
                 {machine.badge && (
@@ -165,13 +165,13 @@ export default async function MachinePage({
                 {machine.machine} в оренду
               </h1>
 
-              <p className="font-label mt-3 text-xs uppercase tracking-widest text-paper/58">
+              <p className="font-label mt-3 text-sm font-medium uppercase tracking-widest text-paper/70">
                 Підходить: {machine.audienceFit}
               </p>
 
-              <p className="mt-6 max-w-2xl text-paper/60">{machine.intro}</p>
+              <p className="mt-6 max-w-2xl text-paper/75">{machine.intro}</p>
 
-              <p className="mt-4 max-w-2xl border-l-2 border-signal pl-4 text-sm text-paper/50">
+              <p className="mt-4 max-w-2xl border-l-2 border-signal pl-4 text-sm text-paper/75">
                 {machine.infraNote}
               </p>
 
@@ -211,23 +211,23 @@ export default async function MachinePage({
         </div>
       </section>
 
-      <section className="bg-paper py-16 text-ink sm:py-20">
+      <section className="bg-paper py-16 text-ink sm:py-28">
         <div className="container-start max-w-4xl px-4 lg:px-6">
           <div className="grid gap-10 sm:grid-cols-[1fr_auto] sm:items-start">
             <ul className="space-y-3">
               {machine.features.map((f) => (
-                <li key={f} className="flex items-center gap-3 text-ink/70">
-                  <IconCheck className="size-4 shrink-0 text-signal" />
+                <li key={f} className="flex items-center gap-3 text-ink/75">
+                  <IconCheck className="size-4 shrink-0 text-ink" />
                   {f}
                 </li>
               ))}
             </ul>
 
-            <div className="chamfer-sm flex items-center justify-between gap-6 border border-ink/10 bg-ink/[0.02] px-5 py-4 sm:flex-col sm:items-start sm:justify-start">
-              <span className="font-label text-xs uppercase tracking-widest text-ink/60">
+            <div className="chamfer-sm flex items-center justify-between gap-6 border-l-4 border-signal bg-ink px-5 py-4 text-paper sm:flex-col sm:items-start sm:justify-start">
+              <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/80">
                 Оренда безкоштовна від
               </span>
-              <span className="font-display text-2xl font-bold">
+              <span className="font-display text-3xl font-bold text-signal">
                 {machine.threshold} кг
               </span>
             </div>
@@ -235,8 +235,8 @@ export default async function MachinePage({
 
           {machine.slug.startsWith("dr-coffee") && !machine.photo && (
             <div className="mt-16 border-t border-ink/10 pt-14">
-              <h2 className="font-display text-lg font-bold">У комплекті:</h2>
-              <p className="mt-2 max-w-lg text-ink/60">
+              <h2 className="font-display text-xl font-bold sm:text-2xl">У комплекті:</h2>
+              <p className="mt-2 max-w-lg text-ink/75">
                 Холодильник для молока йде разом з кавомашиною — без окремої
                 оренди чи пошуку постачальника.
               </p>
@@ -251,24 +251,24 @@ export default async function MachinePage({
 
           <div className="mt-16 grid gap-10 border-t border-ink/10 pt-14 sm:grid-cols-2">
             <div>
-              <h3 className="font-display text-lg font-bold">
+              <h3 className="font-display text-xl font-bold sm:text-2xl">
                 Кому підходимо:
               </h3>
               <ul className="mt-4 space-y-2">
                 {FIT_AUDIENCE.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-ink/60">
-                    <IconCheck className="size-4 shrink-0 text-signal" />
+                  <li key={f} className="flex items-center gap-3 text-ink/75">
+                    <IconCheck className="size-4 shrink-0 text-ink" />
                     {f}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold">Кому — ні:</h3>
+              <h3 className="font-display text-xl font-bold sm:text-2xl">Кому — ні:</h3>
               <ul className="mt-4 space-y-2">
                 {NOT_FIT_AUDIENCE.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-ink/60">
-                    <span className="block size-4 shrink-0 text-center leading-4 text-ink/65">
+                  <li key={f} className="flex items-center gap-3 text-ink/75">
+                    <span className="block size-4 shrink-0 text-center leading-4 text-ink">
                       ×
                     </span>
                     {f}
@@ -279,7 +279,7 @@ export default async function MachinePage({
           </div>
 
           <div id="faq" className="mt-16 scroll-mt-24 border-t border-ink/10 pt-14">
-            <h2 className="font-display text-2xl font-bold">Запитання</h2>
+            <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">Запитання</h2>
             <Accordion type="single" collapsible className="mt-8 space-y-4">
               {faq.map((item) => (
                 <AccordionItem key={item.q} value={item.q}>
@@ -292,12 +292,12 @@ export default async function MachinePage({
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+      <section className="bg-ink py-16 text-center text-paper sm:py-28">
         <div className="mx-auto max-w-2xl px-4 lg:px-6">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Підключіть {machine.machine} до офісу.
           </h2>
-          <p className="mt-4 text-paper/60">
+          <p className="mt-4 text-paper/75">
             Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
           </p>
           <div className="mt-8 flex justify-center">
@@ -305,7 +305,7 @@ export default async function MachinePage({
           </div>
 
           <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
-            <p className="text-center text-sm text-paper/60">
+            <p className="text-center text-sm text-paper/75">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source={`Модель — ${machine.machine}`} className="mt-5" />

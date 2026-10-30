@@ -107,20 +107,20 @@ export default function ProductionPage() {
         <div className="absolute inset-0 bg-ink/60 sm:bg-transparent sm:bg-gradient-to-r sm:from-ink/90 sm:via-ink/60 sm:to-ink/20" />
         <div className="relative container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/75">
               <li>
-                <Link href="/" className="hover:text-paper/70">
+                <Link href="/" className="hover:text-paper">
                   Головна
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-paper/60" aria-current="page">
+              <li className="text-paper/75" aria-current="page">
                 Виробництва
               </li>
             </ol>
           </nav>
 
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             Для виробництв
           </span>
           <RevealText
@@ -145,37 +145,37 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-16 text-ink sm:py-20">
-        <div className="container-start max-w-5xl px-4 lg:px-6">
+      <section className="bg-paper py-16 text-ink sm:py-28">
+        <div className="container-start max-w-7xl px-4 lg:px-6">
           <RevealText
             as="h2"
-            className="font-display max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
+            className="font-display max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
             Зміна не чекає, поки хтось поїде по каву.
           </RevealText>
 
           <div className="mt-12 grid gap-10 sm:grid-cols-2">
             <div>
-              <h3 className="font-label text-xs uppercase tracking-widest text-ink/65">
+              <h3 className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
                 Що важливо на виробництві
               </h3>
               <ul className="mt-4 space-y-3">
                 {EXPECTATIONS.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-ink/70">
-                    <IconCheck className="mt-1 size-4 shrink-0 text-signal" />
+                  <li key={f} className="flex items-start gap-3 text-ink/75">
+                    <IconCheck className="mt-1 size-4 shrink-0 text-ink" />
                     {f}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="font-label text-xs uppercase tracking-widest text-ink/65">
+              <h3 className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
                 Що ми беремо на себе
               </h3>
               <ul className="mt-4 space-y-3">
                 {WE_HANDLE.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-ink/70">
-                    <IconCheck className="mt-1 size-4 shrink-0 text-signal" />
+                  <li key={f} className="flex items-start gap-3 text-ink/75">
+                    <IconCheck className="mt-1 size-4 shrink-0 text-ink" />
                     {f}
                   </li>
                 ))}
@@ -185,20 +185,20 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="border-t border-ink/10 bg-paper py-20 text-ink sm:py-28">
-        <div className="container-start max-w-5xl px-4 lg:px-6">
+      <section className="border-t border-ink/10 bg-paper py-16 text-ink sm:py-28">
+        <div className="container-start max-w-7xl px-4 lg:px-6">
           <div className="chamfer grid gap-10 border border-ink/10 bg-ink/[0.02] p-8 sm:p-10 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-14">
-            <div className="chamfer-sm flex size-14 items-center justify-center border border-ink/15 bg-paper">
-              <IconGauge className="size-6 text-signal" />
+            <div className="chamfer-sm flex size-14 items-center justify-center border border-ink bg-signal">
+              <IconGauge className="size-6 text-ink" />
             </div>
             <div>
-              <span className="font-label text-xs uppercase tracking-widest text-ink/65">
+              <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
                 Для великих виробництв
               </span>
-              <h2 className="font-display mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+              <h2 className="font-display mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 Контрольовані витрати на каву.
               </h2>
-              <p className="mt-4 max-w-2xl text-ink/60">
+              <p className="mt-4 max-w-2xl text-ink/75">
                 Для виробництв із великим споживанням ми підключаємо систему
                 обліку на тих самих картках, які вже використовуються на
                 майданчику — наприклад, для доступу через прохідну. До картки
@@ -206,7 +206,7 @@ export default function ProductionPage() {
                 норму, скажімо, три порції на співробітника на день —
                 кавомашина не видасть понад неї. Пити менше можна, більше — ні.
               </p>
-              <p className="mt-4 max-w-2xl text-ink/60">
+              <p className="mt-4 max-w-2xl text-ink/75">
                 Це дає прогнозовані витрати на каву щомісяця: кількість
                 співробітників × встановлений ліміт, без несподіванок і без
                 ручного контролю споживання.
@@ -223,29 +223,29 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section id="process" className="scroll-mt-24 bg-ink py-20 text-paper sm:py-28">
-        <div className="container-start max-w-5xl px-4 lg:px-6">
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+      <section id="process" className="scroll-mt-24 bg-ink py-16 text-paper sm:py-28">
+        <div className="container-start max-w-7xl px-4 lg:px-6">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             Як це працює
           </span>
           <RevealText
             as="h2"
-            className="font-display mt-4 max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
+            className="font-display mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
             Від навантаження до безперервної роботи — п&apos;ять кроків.
           </RevealText>
 
           <div className="relative mt-14 max-w-3xl">
-            <div className="absolute left-6 top-2 bottom-2 hidden w-px bg-paper/10 sm:block" />
+            <div className="absolute left-6 top-2 bottom-2 hidden w-0.5 bg-signal/35 sm:block" />
             <div className="space-y-10">
               {STEPS.map((step, i) => (
                 <div key={step.title} className="relative flex gap-6 sm:gap-8">
-                  <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-paper/15 bg-ink text-sm font-bold text-paper/70">
+                  <div className="font-display chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-signal bg-signal text-sm font-bold text-ink">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div className="pt-1.5">
-                    <h3 className="font-display text-lg font-bold">{step.title}</h3>
-                    <p className="mt-2 max-w-xl text-paper/60">{step.text}</p>
+                    <h3 className="font-display text-lg font-bold sm:text-xl">{step.title}</h3>
+                    <p className="mt-2 max-w-xl text-paper/75">{step.text}</p>
                   </div>
                 </div>
               ))}
@@ -254,14 +254,14 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-20 text-ink sm:py-28">
-        <div className="container-start max-w-6xl px-4 lg:px-6">
-          <span className="font-label text-xs uppercase tracking-widest text-ink/65">
+      <section className="bg-paper py-16 text-ink sm:py-28">
+        <div className="container-start max-w-7xl px-4 lg:px-6">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
             Обладнання для виробництв
           </span>
           <RevealText
             as="h2"
-            className="font-display mt-4 max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl"
+            className="font-display mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
             Розраховане на безперервний потік, а не на поодинокі чашки.
           </RevealText>
@@ -272,7 +272,7 @@ export default function ProductionPage() {
             ))}
           </div>
 
-          <p className="mt-8 max-w-2xl text-sm text-ink/65">
+          <p className="mt-8 max-w-2xl text-sm text-ink/75">
             Більше змін, більше людей — інфраструктура масштабується
             додаванням кавомашин і точок доступу, без зупинки процесів на
             майданчику.
@@ -280,25 +280,25 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="border-t border-paper/10 bg-ink py-20 text-paper sm:py-28">
+      <section className="border-t border-paper/10 bg-ink py-16 text-paper sm:py-28">
         <div className="container-start max-w-3xl px-4 lg:px-6">
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             Кейси
           </span>
-          <h2 className="font-display mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Реальні виробництва на кавопроводі.
           </h2>
-          <p className="mt-4 max-w-md text-paper/50">
+          <p className="mt-4 max-w-md text-paper/75">
             Готуємо добірку кейсів наших виробничих клієнтів — з&apos;явиться тут
             найближчим часом.
           </p>
         </div>
       </section>
 
-      <section id="faq" className="scroll-mt-24 bg-paper py-20 text-ink sm:py-28">
+      <section id="faq" className="scroll-mt-24 bg-paper py-16 text-ink sm:py-28">
         <div className="container-start max-w-4xl px-4 lg:px-6">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Запитання</h2>
-          <p className="mt-3 text-ink/60">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Запитання</h2>
+          <p className="mt-3 text-ink/75">
             Відповіді на часті запитання про графік змін, обслуговування й
             контроль витрат зібрані на окремій сторінці.
           </p>
@@ -310,12 +310,12 @@ export default function ProductionPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+      <section className="bg-ink py-16 text-center text-paper sm:py-28">
         <div className="mx-auto max-w-2xl px-4 lg:px-6">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Підключіть виробництво до кавопроводу.
           </h2>
-          <p className="mt-4 text-paper/60">
+          <p className="mt-4 text-paper/75">
             Одна розмова на 10 хвилин — і кава перестає бути залежною від
             того, хто сьогодні поїде в магазин.
           </p>
@@ -324,7 +324,7 @@ export default function ProductionPage() {
           </div>
 
           <div className="mx-auto mt-14 max-w-sm border-t border-paper/10 pt-10 text-left">
-            <p className="text-center text-sm text-paper/60">
+            <p className="text-center text-sm text-paper/75">
               Або залиште контакти — передзвонимо самі.
             </p>
             <LeadForm source="Production page" className="mt-5" />

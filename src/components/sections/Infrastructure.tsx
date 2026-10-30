@@ -59,8 +59,8 @@ export function Infrastructure() {
                 viewport={{ once: true, margin: "0px 0px -5% 0px" }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <div className="chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-signal/60 bg-ink">
-                  <node.icon className="size-6 text-signal" />
+                <div className="chamfer-sm relative z-10 flex size-12 shrink-0 items-center justify-center border border-signal bg-signal">
+                  <node.icon className="size-6 text-ink" />
                 </div>
                 <div className="pt-1.5">
                   <span className="font-label text-xs tracking-widest text-paper/70">

@@ -126,20 +126,20 @@ export default async function ArticlePage({
         <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-10 px-4 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-6">
           <div className="max-w-2xl">
             <nav aria-label="breadcrumb" className="mb-4">
-              <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/58">
+              <ol className="flex flex-wrap items-center gap-2 text-xs text-paper/75">
                 <li>
-                  <Link href="/" className="hover:text-paper/70">
+                  <Link href="/" className="hover:text-paper">
                     Головна
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <Link href="/kava-v-biznesi" className="hover:text-paper/70">
+                  <Link href="/kava-v-biznesi" className="hover:text-paper">
                     Кава в бізнесі
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>
-                <li className="text-paper/60" aria-current="page">
+                <li className="text-paper/75" aria-current="page">
                   {article.title}
                 </li>
               </ol>
@@ -148,10 +148,10 @@ export default async function ArticlePage({
             <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
               {article.title}
             </h1>
-            <p className="mt-5 max-w-2xl text-paper/60">{article.dek}</p>
+            <p className="mt-5 max-w-2xl text-paper/75">{article.dek}</p>
             <time
               dateTime={article.datePublished}
-              className="mt-3 block text-xs text-paper/40"
+              className="mt-3 block text-xs text-paper/60"
             >
               {new Date(article.datePublished).toLocaleDateString("uk-UA", {
                 day: "numeric",
@@ -176,7 +176,7 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      <section className="bg-paper py-20 text-ink sm:py-28">
+      <section className="bg-paper py-16 text-ink sm:py-28">
         <div className="container-start max-w-3xl px-4 lg:px-6">
           <article>
             {article.sections.map((section, i) => (
@@ -198,7 +198,7 @@ export default async function ArticlePage({
                   )}
                   <div className="mt-5 space-y-4">
                     {section.paragraphs.map((p) => (
-                      <p key={p} className="text-lg leading-relaxed text-ink/70">
+                      <p key={p} className="text-lg leading-relaxed text-ink/75">
                         {p}
                       </p>
                     ))}
@@ -210,7 +210,7 @@ export default async function ArticlePage({
 
           {article.faq.length > 0 && (
             <div className="mt-16 border-t border-ink/10 pt-14">
-              <h2 className="font-display text-xl font-bold">Запитання</h2>
+              <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">Запитання</h2>
               <Accordion type="single" collapsible className="mt-6 space-y-4">
                 {article.faq.map((item) => (
                   <AccordionItem key={item.q} value={item.q}>
@@ -224,7 +224,7 @@ export default async function ArticlePage({
 
           {article.related && article.related.length > 0 && (
             <div className="mt-16 border-t border-ink/10 pt-14">
-              <h2 className="font-display text-xl font-bold">Читайте також</h2>
+              <h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">Читайте також</h2>
               <ul className="mt-6 space-y-3">
                 {article.related.map((r) => (
                   <li key={r.href}>
@@ -243,12 +243,12 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-center text-paper sm:py-28">
+      <section className="bg-ink py-16 text-center text-paper sm:py-28">
         <div className="mx-auto max-w-2xl px-4 lg:px-6">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Підключіть кавову інфраструктуру для виробництва.
           </h2>
-          <p className="mt-4 text-paper/60">
+          <p className="mt-4 text-paper/75">
             Одна розмова — і порахуємо, який ліміт і яке обладнання підійдуть
             саме вашому майданчику.
           </p>

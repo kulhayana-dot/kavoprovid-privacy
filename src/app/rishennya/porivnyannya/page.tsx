@@ -51,38 +51,38 @@ export default function PorivnyannyaPage() {
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
         <div className="container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/75">
               <li>
-                <Link href="/" className="hover:text-paper/70">
+                <Link href="/" className="hover:text-paper">
                   Головна
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <Link href="/rishennya" className="hover:text-paper/70">
+                <Link href="/rishennya" className="hover:text-paper">
                   Рішення
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-paper/60" aria-current="page">
+              <li className="text-paper/75" aria-current="page">
                 Порівняння
               </li>
             </ol>
           </nav>
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             Технічні характеристики
           </span>
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Порівняйте кавомашини за цифрами.
           </h1>
-          <p className="mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/75">
             Характеристики виробника — без округлень. Позначте кілька
             моделей прапорцем, щоб побачити їх поруч.
           </p>
         </div>
       </section>
 
-      <section className="bg-paper py-16 text-ink sm:py-20">
+      <section className="bg-paper py-16 text-ink sm:py-28">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <h2 className="sr-only">Порівняльна таблиця кавомашин</h2>
           <MachineComparisonPanel />

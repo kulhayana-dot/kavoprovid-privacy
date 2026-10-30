@@ -50,33 +50,33 @@ export default function KnowledgeHubPage() {
       <section className="bg-ink pb-16 pt-32 text-paper sm:pb-20 sm:pt-40">
         <div className="container-start max-w-4xl px-4 lg:px-6">
           <nav aria-label="breadcrumb" className="mb-4">
-            <ol className="flex items-center gap-2 text-xs text-paper/58">
+            <ol className="flex items-center gap-2 text-xs text-paper/75">
               <li>
-                <Link href="/" className="hover:text-paper/70">
+                <Link href="/" className="hover:text-paper">
                   Головна
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-paper/60" aria-current="page">
+              <li className="text-paper/75" aria-current="page">
                 Кава в бізнесі
               </li>
             </ol>
           </nav>
 
-          <span className="font-label text-xs uppercase tracking-widest text-paper/50">
+          <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
             База знань
           </span>
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Кава в бізнесі.
           </h1>
-          <p className="mt-5 max-w-xl text-paper/60">
+          <p className="mt-5 max-w-xl text-paper/75">
             Практичні матеріали про кавову інфраструктуру для офісів і
             виробництв — з досвіду Kavoprovid.
           </p>
         </div>
       </section>
 
-      <section className="bg-paper py-16 text-ink sm:py-20">
+      <section className="bg-paper py-16 text-ink sm:py-28">
         <div className="container-start max-w-4xl px-4 lg:px-6">
           <div className="grid gap-6 sm:grid-cols-2">
             {ARTICLES.map((a) => (
@@ -86,7 +86,7 @@ export default function KnowledgeHubPage() {
                 className="chamfer group flex flex-col border border-ink/10 bg-ink/[0.02] p-7 transition-colors hover:border-signal"
               >
                 <h2 className="font-display text-xl font-bold">{a.title}</h2>
-                <p className="mt-3 flex-1 text-sm text-ink/60">{a.dek}</p>
+                <p className="mt-3 flex-1 text-sm text-ink/75">{a.dek}</p>
                 <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-ink/30 underline-offset-4 transition-colors group-hover:decoration-ink">
                   Читати
                   <span aria-hidden="true">→</span>
