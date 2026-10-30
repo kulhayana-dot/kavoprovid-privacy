@@ -18,7 +18,7 @@ export function Hero() {
       <HeroPipeline />
 
       <HeroContent>
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <div className="mx-auto flex max-w-3xl flex-col items-start text-left">
           <HeroEntrance>
             <HeroEntranceItem>
               <span className="font-label inline-flex items-center gap-2 border border-paper/20 px-4 py-1.5 text-xs uppercase tracking-widest text-paper/60">

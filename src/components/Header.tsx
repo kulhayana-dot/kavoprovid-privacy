@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,18 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-8 px-6 lg:px-8">
+        <Link href="/" className="shrink-0" aria-label="Kavoprovid — на головну">
+          <Image
+            src="/brand/kavoprovid-wordmark-dark.svg"
+            alt="Kavoprovid"
+            width={567}
+            height={100}
+            priority
+            className="h-6 w-auto sm:h-7"
+          />
+        </Link>
+
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
             <Link
