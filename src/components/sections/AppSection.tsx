@@ -138,7 +138,7 @@ export function AppSection() {
             </p>
           </div>
 
-          <div className="mt-10 flex shrink-0 justify-center lg:mt-0">
+          <div className="mt-10 flex shrink-0 justify-center lg:mt-0 lg:align-stage-end">
             <AppScreens />
           </div>
         </div>

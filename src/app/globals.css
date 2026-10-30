@@ -219,3 +219,11 @@ body {
 @utility container-start {
   margin-inline-start: max(0px, calc((100% - 80rem) / 2));
 }
+
+/* Shared right edge for the big product visuals (coffee machine stage,
+   app phone): 4vw from the viewport edge, i.e. right of the text grid.
+   align-stage-end pulls an element that sits inside the max-w-7xl
+   container (px-6) out to that same line. */
+@utility align-stage-end {
+  margin-inline-end: calc(4vw - max(1.5rem, 50vw - 38.5rem));
+}

@@ -137,7 +137,7 @@ export function Solutions() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="absolute inset-0 mx-auto flex max-w-7xl items-center justify-center sm:justify-end sm:px-4 lg:px-6"
+                className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[4vw]"
               >
                 <div className="relative flex h-[88%] max-w-[88%] items-end justify-center sm:h-[76%] sm:max-w-[52%]">
                   {/* Signal-yellow glow so the dark machine separates from the stage */}
