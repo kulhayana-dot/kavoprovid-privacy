@@ -86,7 +86,8 @@ export function Benefits() {
                       "size-12",
                       i === active
                         ? "border-signal bg-signal text-ink"
-                        : "border-signal/60 text-signal",
+                        : // Phones have no hover, so every icon stays highlighted there.
+                          "border-signal bg-signal text-ink sm:border-signal/60 sm:bg-transparent sm:text-signal",
                     )}
                   >
                     <p.icon className="size-6" />
