@@ -32,9 +32,12 @@ export function Infrastructure() {
         <div className="stripe-band mt-5 inline-block max-w-5xl px-1 py-3 sm:py-4">
           <RevealText
             as="h2"
-            className="font-display text-4xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+            className="font-display text-[min(7.4vw,2.25rem)] font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
           >
-            Кавова інфраструктура — це ланцюг, а не кавомашина.
+            {/* One token for RevealText, kept on a single line: phones
+                otherwise split it into "Кавова" / "інфраструктура". */}
+            <span className="whitespace-nowrap sm:whitespace-normal">Кавова інфраструктура</span>
+            {" — це ланцюг, а не кавомашина."}
           </RevealText>
         </div>
         <p className="mt-6 max-w-2xl text-paper/75">

@@ -90,7 +90,7 @@ export function Solutions() {
         ref={stageRef}
         onMouseEnter={() => { hovering.current = true; }}
         onMouseLeave={() => { hovering.current = false; }}
-        className="relative mt-8 overflow-hidden sm:mt-14 sm:h-[640px] lg:h-[720px]"
+        className="relative mt-8 flex flex-col overflow-hidden sm:mt-14 sm:block sm:h-[640px] lg:h-[720px]"
       >
         {/* Signal-yellow glow behind the machine so it separates from the dark stage */}
         <div
@@ -102,23 +102,15 @@ export function Solutions() {
           }}
         />
 
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-6 top-0 h-80 sm:hidden"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 60% at 50% 55%, rgba(255,255,255,.16), rgba(252,237,79,.10) 45%, transparent 75%)",
-          }}
-        />
-
         {/* Draggable photo layer — swipe left/right to switch machines.
-            Mobile: its own contained box, photo centered, in flow — the
+            Mobile: its own contained box between the model tabs and the
+            info, photo centered, in flow — the
             fixed-height overlay below only works once the photo and text
             columns have room to sit side by side (sm+); on narrow screens
             that same layout let the photo's cord/base bleed into the text
             and the bottom nav, so mobile stacks instead of overlaying. */}
         <motion.div
-          className="relative h-80 w-full sm:absolute sm:inset-0 sm:h-auto"
+          className="relative h-72 w-full sm:absolute sm:inset-0 sm:h-auto"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.5}
@@ -127,6 +119,14 @@ export function Solutions() {
             else if (info.offset.x < -70) step(1);
           }}
         >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-6 inset-y-0 sm:hidden"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 60% at 50% 55%, rgba(255,255,255,.16), rgba(252,237,79,.10) 45%, transparent 75%)",
+            }}
+          />
           <AnimatePresence initial={false}>
             {profile.photo && (
               <motion.div
@@ -167,12 +167,14 @@ export function Solutions() {
         {/* Centered the same way as every other section (mx-auto max-w-7xl)
             so the tabs/info/nav line up with the heading above and the
             header logo, instead of hugging the raw viewport edge like the
-            full-bleed photo layers behind them do. */}
-        <div className="relative mx-auto h-full max-w-7xl">
+            full-bleed photo layers behind them do. On mobile the wrapper
+            dissolves (`contents`) so the tabs can be ordered above the
+            photo: switching models then shows the name changing first. */}
+        <div className="contents sm:relative sm:mx-auto sm:block sm:h-full sm:max-w-7xl">
           <div
             role="tablist"
             aria-label="Профілі офісу"
-            className="scrollbar-none relative z-10 flex gap-2 overflow-x-auto px-4 py-5 lg:px-6 sm:flex-wrap sm:overflow-visible sm:py-8"
+            className="scrollbar-none relative z-10 order-first flex gap-2 overflow-x-auto px-4 pb-2 pt-1 lg:px-6 sm:flex-wrap sm:overflow-visible sm:py-8"
           >
             {MACHINES.map((p, i) => (
               <button

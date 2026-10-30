@@ -71,7 +71,7 @@ export function Problem() {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.3, ease: "easeOut", delay: i * 0.04 }}
                 className={cn(
-                  "flex w-full items-baseline gap-4 border-b border-ink/15 px-4 py-5 text-left transition-colors sm:gap-8 sm:py-8",
+                  "flex w-full items-baseline gap-4 border-b border-ink/15 px-4 py-5 text-left transition-colors last:border-b-0 sm:gap-8 sm:py-8",
                   active && "bg-ink text-paper",
                 )}
               >
