@@ -196,14 +196,10 @@ export default async function MachinePage({
                 <Image
                   src={machine.photo.src}
                   alt={machine.machine}
-                  width={1000}
-                  height={1000}
+                  width={1100}
+                  height={1100}
                   priority
-                  className="w-full object-contain"
-                  style={{
-                    filter:
-                      "drop-shadow(0 40px 70px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.12))",
-                  }}
+                  className="mx-auto h-auto max-h-[70vh] w-auto max-w-full object-contain"
                 />
               </div>
             )}

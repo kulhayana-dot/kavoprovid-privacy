@@ -86,7 +86,7 @@ export const MACHINES: Machine[] = [
       dimensionsCm: "47,5×31×63,5",
     },
     photo: {
-      src: "/products/bianchi-gaia.png",
+      src: "/products/bianchi-gaia.webp",
       aspectClassName: "aspect-square",
       marginPct: 20,
       callouts: [
@@ -137,7 +137,7 @@ export const MACHINES: Machine[] = [
       fridgeDimensionsCm: "47×24×47,2",
     },
     photo: {
-      src: "/products/dr-coffee-minibar-s.png",
+      src: "/products/dr-coffee-minibar-s.webp",
       aspectClassName: "aspect-square",
       marginPct: 17,
       callouts: [
@@ -188,7 +188,7 @@ export const MACHINES: Machine[] = [
       fridgeDimensionsCm: "47×24×47,2",
     },
     photo: {
-      src: "/products/dr-coffee-coffeebar-plus.png",
+      src: "/products/dr-coffee-coffeebar-plus.webp",
       aspectClassName: "aspect-square",
       marginPct: 17,
       callouts: [
@@ -239,7 +239,7 @@ export const MACHINES: Machine[] = [
       fridgeDimensionsCm: "47×24×47,2",
     },
     photo: {
-      src: "/products/dr-coffee-coffeecenter.png",
+      src: "/products/dr-coffee-coffeecenter.webp",
       aspectClassName: "aspect-square",
       marginPct: 17,
       callouts: [
@@ -286,7 +286,7 @@ export const MACHINES: Machine[] = [
       dimensionsCm: "57,6×39,5×72",
     },
     photo: {
-      src: "/products/bianchi-vending.png",
+      src: "/products/bianchi-vending.webp",
       aspectClassName: "aspect-square",
       marginPct: 20,
       callouts: [

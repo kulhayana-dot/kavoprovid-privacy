@@ -41,13 +41,6 @@ function ThresholdNumber({ value }: { value: number }) {
   );
 }
 
-// The product PNGs carry wide transparent margins (sized for the callout
-// layout on the model pages), which made the machines look tiny here.
-// public/products/stage/ holds the same photos cropped to the machine.
-function stagePhoto(src: string) {
-  return src.replace("/products/", "/products/stage/");
-}
-
 export function Solutions() {
   const [active, setActive] = useState(0);
   const count = MACHINES.length;
@@ -158,7 +151,7 @@ export function Solutions() {
                 className="absolute inset-0 flex items-center justify-center sm:justify-end sm:pr-[4vw]"
               >
                 <div className="relative flex h-[88%] max-w-[calc(100%-7rem)] items-end justify-center sm:h-[76%] sm:max-w-[52%]">
-                  {/* Signal-yellow glow so the dark machine separates from the stage */}
+                  {/* Soft signal-yellow glow behind the photo's feathered edges */}
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute -inset-[20%] hidden blur-[4px] sm:block"
@@ -167,25 +160,17 @@ export function Solutions() {
                         "radial-gradient(ellipse at center, rgba(252,237,79,.22), rgba(252,237,79,.06) 45%, transparent 72%)",
                     }}
                   />
-                  {/* Floor shadow: grounds the machine so it reads as
-                      standing equipment, not a floating product cutout. */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute -bottom-3 left-1/2 h-8 w-[115%] -translate-x-1/2 rounded-[50%] bg-black blur-lg"
+                  {/* Studio shots on black with feathered edges: they melt into
+                      the stage, so no drop-shadow (it would outline the fade). */}
+                  <Image
+                    src={profile.photo.src}
+                    alt={profile.machine}
+                    width={1100}
+                    height={1100}
+                    draggable={false}
+                    priority
+                    className="relative h-full max-w-full w-auto object-contain"
                   />
-                <Image
-                  src={stagePhoto(profile.photo.src)}
-                  alt={profile.machine}
-                  width={1000}
-                  height={1000}
-                  draggable={false}
-                  priority
-                  className="relative h-full max-w-full w-auto object-contain"
-                  style={{
-                    filter:
-                      "drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(0 30px 50px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(252,237,79,.18))",
-                  }}
-                />
                 </div>
               </motion.div>
             )}
