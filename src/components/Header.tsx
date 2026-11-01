@@ -28,9 +28,9 @@ function LangSwitch({ className }: { className?: string }) {
     <div className={cn("font-label flex items-center text-xs font-semibold tracking-widest", className)}>
       {LANGS.map((l, i) => (
         <span key={l} className="flex items-center">
-          {i > 0 && <span aria-hidden="true" className="px-1.5 text-paper/30">/</span>}
+          {i > 0 && <span aria-hidden="true" className="px-1 text-paper/30 xl:px-1.5">/</span>}
           {l === lang ? (
-            <span aria-current="true" className="py-2 text-signal">
+            <span aria-current="true" className="flex min-h-11 items-center px-1 text-signal xl:min-h-0 xl:px-0 xl:py-2">
               {LANG_LABEL[l]}
             </span>
           ) : (
@@ -38,7 +38,7 @@ function LangSwitch({ className }: { className?: string }) {
               href={switchLangPath(pathname, l)}
               hrefLang={l}
               lang={l}
-              className="py-2 text-paper/70 transition-colors hover:text-paper"
+              className="flex min-h-11 items-center px-1 text-paper/70 transition-colors hover:text-paper xl:min-h-0 xl:px-0 xl:py-2"
             >
               {LANG_LABEL[l]}
             </a>
@@ -127,6 +127,12 @@ export function Header() {
 
       {open && (
         <div className="border-t border-paper/10 bg-ink px-4 py-6 xl:hidden">
+          <div className="mb-4 flex items-center justify-between border-b border-paper/10 pb-4">
+            <span className="font-label text-xs uppercase tracking-widest text-paper/60">
+              {t("Мова сайту", "Язык сайта")}
+            </span>
+            <LangSwitch className="text-sm" />
+          </div>
           <nav className="flex flex-col gap-1">
             {NAV.map((item) => (
               <Link
