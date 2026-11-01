@@ -14,54 +14,65 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/cn";
-import { COMPARISON_MACHINES, type ComparisonMachine } from "@/lib/machines";
+import { getComparisonMachines, type ComparisonMachine } from "@/lib/machines";
+import { useLang } from "@/i18n/client";
 
-const BRANDS = ["Усі", "Dr. Coffee", "Bianchi"] as const;
+const BRANDS = ["all", "Dr. Coffee", "Bianchi"] as const;
 
-const SPEC_ROWS: Array<{
+type T = <V>(uk: V, ru: V) => V;
+
+function specRows(t: T): Array<{
   label: string;
   render: (m: ComparisonMachine) => string;
-}> = [
-  { label: "Напоїв", render: (m) => String(m.specs.drinksCount) },
-  { label: "Інгредієнтів", render: (m) => String(m.specs.ingredientsCount) },
-  { label: "Молоко", render: (m) => m.specs.milk },
-  {
-    label: "Продуктивність",
-    render: (m) => `${m.specs.dailyCapacity}/добу · ${m.specs.hourlyCapacity}/год`,
-  },
-  { label: "Бункер зерна", render: (m) => m.specs.beanHopperKg },
-  { label: "Бункер порошку", render: (m) => m.specs.powderHopperKg ?? "Відсутній" },
-  { label: "Бак води", render: (m) => m.specs.waterTankL },
-  { label: "Контейнер гущі", render: (m) => m.specs.groundsCapacity },
-  { label: "Потужність", render: (m) => m.specs.powerW },
-  { label: "Водопровід", render: (m) => (m.specs.plumbing ? "Так" : "Ні") },
-  { label: "Каналізація", render: (m) => (m.specs.drainage ? "Так" : "Ні") },
-  { label: "Вага апарата", render: (m) => `${m.specs.weightKg} кг` },
-  { label: "Габарити Д×Ш×В", render: (m) => `${m.specs.dimensionsCm} см` },
-  {
-    label: "Холодильник для молока",
-    render: (m) =>
-      m.specs.fridgeWeightKg
-        ? `${m.specs.fridgeWeightKg} кг, ${m.specs.fridgeDimensionsCm} см`
-        : "Не потрібен",
-  },
-];
+}> {
+  const yes = t("Так", "Да");
+  const no = t("Ні", "Нет");
+  return [
+    { label: t("Напоїв", "Напитков"), render: (m) => String(m.specs.drinksCount) },
+    { label: t("Інгредієнтів", "Ингредиентов"), render: (m) => String(m.specs.ingredientsCount) },
+    { label: t("Молоко", "Молоко"), render: (m) => m.specs.milk },
+    {
+      label: t("Продуктивність", "Производительность"),
+      render: (m) =>
+        `${m.specs.dailyCapacity}/${t("добу", "сутки")} · ${m.specs.hourlyCapacity}/${t("год", "час")}`,
+    },
+    { label: t("Бункер зерна", "Бункер зерна"), render: (m) => m.specs.beanHopperKg },
+    {
+      label: t("Бункер порошку", "Бункер порошка"),
+      render: (m) => m.specs.powderHopperKg ?? t("Відсутній", "Отсутствует"),
+    },
+    { label: t("Бак води", "Бак воды"), render: (m) => m.specs.waterTankL },
+    { label: t("Контейнер гущі", "Контейнер гущи"), render: (m) => m.specs.groundsCapacity },
+    { label: t("Потужність", "Мощность"), render: (m) => m.specs.powerW },
+    { label: t("Водопровід", "Водопровод"), render: (m) => (m.specs.plumbing ? yes : no) },
+    { label: t("Каналізація", "Канализация"), render: (m) => (m.specs.drainage ? yes : no) },
+    { label: t("Вага апарата", "Вес аппарата"), render: (m) => `${m.specs.weightKg} кг` },
+    { label: t("Габарити Д×Ш×В", "Габариты Д×Ш×В"), render: (m) => `${m.specs.dimensionsCm} см` },
+    {
+      label: t("Холодильник для молока", "Холодильник для молока"),
+      render: (m) =>
+        m.specs.fridgeWeightKg
+          ? `${m.specs.fridgeWeightKg} кг, ${m.specs.fridgeDimensionsCm} см`
+          : t("Не потрібен", "Не нужен"),
+    },
+  ];
+}
 
 export function MachineComparisonPanel() {
-  const [brand, setBrand] = useState<(typeof BRANDS)[number]>("Усі");
+  const [brand, setBrand] = useState<(typeof BRANDS)[number]>("all");
   const [selected, setSelected] = useState<string[]>([]);
+  const { lang, t } = useLang();
+  const machines = useMemo(() => getComparisonMachines(lang), [lang]);
+  const SPEC_ROWS = specRows(t);
 
   const filtered = useMemo(
-    () =>
-      brand === "Усі"
-        ? COMPARISON_MACHINES
-        : COMPARISON_MACHINES.filter((m) => m.brand === brand),
-    [brand],
+    () => (brand === "all" ? machines : machines.filter((m) => m.brand === brand)),
+    [brand, machines],
   );
 
   const selectedMachines = useMemo(
-    () => COMPARISON_MACHINES.filter((m) => selected.includes(m.slug)),
-    [selected],
+    () => machines.filter((m) => selected.includes(m.slug)),
+    [selected, machines],
   );
 
   function toggle(slug: string) {
@@ -76,7 +87,7 @@ export function MachineComparisonPanel() {
         <TabsList>
           {BRANDS.map((b) => (
             <TabsTrigger key={b} value={b}>
-              {b}
+              {b === "all" ? t("Усі", "Все") : b}
             </TabsTrigger>
           ))}
         </TabsList>
@@ -87,7 +98,7 @@ export function MachineComparisonPanel() {
               <TableHeader>
                 <TableRow>
                   <TableHead className="w-10" />
-                  <TableHead>Модель</TableHead>
+                  <TableHead>{t("Модель", "Модель")}</TableHead>
                   {SPEC_ROWS.map((row) => (
                     <TableHead key={row.label} className="whitespace-nowrap">
                       {row.label}
@@ -108,7 +119,7 @@ export function MachineComparisonPanel() {
                       <Checkbox
                         checked={selected.includes(m.slug)}
                         onCheckedChange={() => toggle(m.slug)}
-                        aria-label={`Обрати ${m.machine} для порівняння`}
+                        aria-label={t(`Обрати ${m.machine} для порівняння`, `Выбрать ${m.machine} для сравнения`)}
                       />
                     </TableCell>
                     <TableCell className="whitespace-nowrap font-medium text-ink">
@@ -124,7 +135,7 @@ export function MachineComparisonPanel() {
                       )}
                       {!m.hasPhoto && (
                         <Badge variant="outline" className="ml-2 align-middle">
-                          Без фото
+                          {t("Без фото", "Без фото")}
                         </Badge>
                       )}
                     </TableCell>
@@ -144,7 +155,7 @@ export function MachineComparisonPanel() {
       {selectedMachines.length >= 2 && (
         <div className="mt-14">
           <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
-            Порівняння обраного ({selectedMachines.length})
+            {t("Порівняння обраного", "Сравнение выбранного")} ({selectedMachines.length})
           </span>
           <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {selectedMachines.map((m) => (
@@ -158,9 +169,9 @@ export function MachineComparisonPanel() {
                     type="button"
                     onClick={() => toggle(m.slug)}
                     className="font-label shrink-0 text-xs uppercase tracking-widest text-ink/60 hover:text-ink"
-                    aria-label={`Прибрати ${m.machine} з порівняння`}
+                    aria-label={t(`Прибрати ${m.machine} з порівняння`, `Убрать ${m.machine} из сравнения`)}
                   >
-                    Прибрати
+                    {t("Прибрати", "Убрать")}
                   </button>
                 </div>
                 <dl className="mt-4 space-y-2 text-sm">

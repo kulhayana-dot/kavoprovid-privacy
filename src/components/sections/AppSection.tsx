@@ -7,23 +7,28 @@ import { RevealText } from "@/components/RevealText";
 import { IconCheck, IconGauge, IconRefresh, IconWrench } from "@/components/icons";
 import { cn } from "@/lib/cn";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { useLang } from "@/i18n/client";
 
 const SCREENS = [
   {
     src: "/app/kavoprovid-app-home.jpg",
     alt: "Головний екран KAVOPROVID App — локація, замовлення й звернення до Кавопровідника",
+    ru: { alt: "Главный экран KAVOPROVID App — локация, заказы и обращения к Кавопроводнику" },
   },
   {
     src: "/app/kavoprovid-app-catalog.jpg",
     alt: "Каталог замовлення — кава в зернах, інгредієнти для вендингу та інші витратні матеріали",
+    ru: { alt: "Каталог заказа — кофе в зёрнах, ингредиенты для вендинга и другие расходные материалы" },
   },
   {
     src: "/app/kavoprovid-app-service.png",
     alt: "Кавопровідник — опис проблеми з кавомашиною та фото поломки для AI-діагнозу",
+    ru: { alt: "Кавопроводник — описание проблемы с кофемашиной и фото поломки для AI-диагноза" },
   },
   {
     src: "/app/kavoprovid-app-orders.png",
     alt: "Мої замовлення — історія замовлень і повтор одним дотиком",
+    ru: { alt: "Мои заказы — история заказов и повтор одним касанием" },
   },
 ];
 
@@ -36,6 +41,7 @@ const FEATURES = [
       "Push-нагадування та сповіщення про майбутню доставку",
       "Планування обсягу наперед",
     ],
+    ru: { title: "План потребления", points: ["Сколько кофе уже использовано и сколько осталось до месячного объёма", "Push-напоминания и уведомления о предстоящей доставке", "Планирование объёма наперёд"] },
   },
   {
     icon: IconRefresh,
@@ -45,6 +51,7 @@ const FEATURES = [
       "Історія попередніх замовлень",
       "Повтор попереднього замовлення без повторного вводу",
     ],
+    ru: { title: "Заказы", points: ["Каталог кофе в зёрнах, ингредиентов для вендинга и расходных материалов", "История предыдущих заказов", "Повтор предыдущего заказа без повторного ввода"] },
   },
   {
     icon: IconWrench,
@@ -54,10 +61,12 @@ const FEATURES = [
       "Попередній AI-аналіз від Кавопровідника — асистента, який підкаже причину",
       "Кнопка «Звернутись до Кавопровідника» — спершу дистанційне рішення, виїзд майстра лише якщо дистанційно не вдалось",
     ],
+    ru: { title: "Сервисные обращения", points: ["Сообщение о проблеме с фото или видео поломки", "Предварительный AI-анализ от Кавопроводника — ассистента, который подскажет причину", "Кнопка «Обратиться к Кавопроводнику» — сначала дистанционное решение, выезд мастера только если дистанционно не удалось"] },
   },
 ];
 
 function AppScreens() {
+  const { lang, t } = useLang();
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -85,7 +94,7 @@ function AppScreens() {
           >
             <Image
               src={SCREENS[active].src}
-              alt={SCREENS[active].alt}
+              alt={lang === "ru" ? SCREENS[active].ru.alt : SCREENS[active].alt}
               fill
               className="object-cover object-top"
               sizes="(min-width: 640px) 260px, 220px"
@@ -99,7 +108,7 @@ function AppScreens() {
           <button
             key={s.src}
             type="button"
-            aria-label={`Показати екран ${i + 1} з ${SCREENS.length}`}
+            aria-label={t(`Показати екран ${i + 1} з ${SCREENS.length}`, `Показать экран ${i + 1} из ${SCREENS.length}`)}
             onClick={() => setActive(i)}
             className={cn(
               "relative h-1.5 rounded-full transition-all duration-300 before:absolute before:-inset-3 before:content-['']",
@@ -113,6 +122,7 @@ function AppScreens() {
 }
 
 export function AppSection() {
+  const { lang, t } = useLang();
   return (
     <section id="app" className="relative bg-paper pb-16 pt-24 text-ink sm:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
@@ -125,16 +135,20 @@ export function AppSection() {
               as="h2"
               className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
             >
-              Керуйте своєю кавовою інфраструктурою в KAVOPROVID App.
+              {t(
+                "Керуйте своєю кавовою інфраструктурою в KAVOPROVID App.",
+                "Управляйте своей кофейной инфраструктурой в KAVOPROVID App.",
+              )}
             </RevealText>
             <p className="mt-5 text-ink/75">
-              Це не застосунок для замовлення кави — це цифровий інтерфейс
-              управління кавовим потоком: план споживання, замовлення й
-              сервіс в одному місці.
+              {t(
+                "Це не застосунок для замовлення кави — це цифровий інтерфейс управління кавовим потоком: план споживання, замовлення й сервіс в одному місці.",
+                "Это не приложение для заказа кофе — это цифровой интерфейс управления кофейным потоком: план потребления, заказы и сервис в одном месте.",
+              )}
             </p>
             <p className="chamfer-sm mt-5 inline-flex items-center gap-2.5 bg-ink px-4 py-2.5 text-sm font-medium text-paper">
               <span aria-hidden="true" className="size-1.5 shrink-0 bg-signal" />
-              iOS та Android · доступ після онбордингу
+              {t("iOS та Android · доступ після онбордингу", "iOS и Android · доступ после онбординга")}
             </p>
           </div>
 
@@ -155,10 +169,10 @@ export function AppSection() {
                 </span>
               </div>
               <h3 className="font-display mt-5 text-lg font-bold sm:text-xl">
-                {f.title}
+                {lang === "ru" ? f.ru.title : f.title}
               </h3>
               <ul className="mt-4 space-y-2.5">
-                {f.points.map((point) => (
+                {(lang === "ru" ? f.ru.points : f.points).map((point) => (
                   <li key={point} className="flex items-start gap-3 text-base text-ink/80 sm:text-sm">
                     <IconCheck className="mt-1 size-4 shrink-0 text-ink sm:mt-0.5" />
                     {point}

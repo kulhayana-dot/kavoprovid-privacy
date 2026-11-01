@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { useLang } from "@/i18n/client";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -87,6 +88,9 @@ export function LeadForm({
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const idPrefix = useId();
+  const { lang, t } = useLang();
+  // Tag Russian-page leads so the manager knows which language to call in.
+  const leadSource = lang === "ru" ? `${source} (RU)` : source;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -108,13 +112,13 @@ export function LeadForm({
           company: data.get("company"),
           employees: data.get("employees"),
           volume: data.get("volume"),
-          source,
+          source: leadSource,
         }),
       });
       if (!res.ok) throw new Error("request failed");
       setStatus("success");
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "generate_lead", form_source: source });
+      window.dataLayer.push({ event: "generate_lead", form_source: leadSource });
     } catch {
       setStatus("error");
     }
@@ -129,9 +133,9 @@ export function LeadForm({
           className,
         )}
       >
-        <p className="font-display text-lg font-bold text-paper">Дякуємо!</p>
+        <p className="font-display text-lg font-bold text-paper">{t("Дякуємо!", "Спасибо!")}</p>
         <p className="mt-2 text-sm text-paper/80">
-          Ми зв&apos;яжемося з вами найближчим часом.
+          {t("Ми зв'яжемося з вами найближчим часом.", "Мы свяжемся с вами в ближайшее время.")}
         </p>
       </div>
     );
@@ -155,17 +159,17 @@ export function LeadForm({
       />
 
       <p className="text-sm text-paper/70">
-        Усі поля обов&apos;язкові.
+        {t("Усі поля обов'язкові.", "Все поля обязательны.")}
       </p>
 
-      <Field id={nameId} label="Ваше ім'я">
+      <Field id={nameId} label={t("Ваше ім'я", "Ваше имя")}>
         <input
           id={nameId}
           type="text"
           name="name"
           required
           autoComplete="name"
-          placeholder="Олена"
+          placeholder={t("Олена", "Елена")}
           className={inputClass}
         />
       </Field>
@@ -193,7 +197,7 @@ export function LeadForm({
         />
       </Field>
 
-      <Field id={companyId} label="Компанія">
+      <Field id={companyId} label={t("Компанія", "Компания")}>
         <input
           id={companyId}
           type="text"
@@ -204,26 +208,26 @@ export function LeadForm({
         />
       </Field>
 
-      <Field id={employeesId} label="Кількість співробітників">
+      <Field id={employeesId} label={t("Кількість співробітників", "Количество сотрудников")}>
         <Select id={employeesId} name="employees">
           <option value="" disabled>
-            Оберіть варіант
+            {t("Оберіть варіант", "Выберите вариант")}
           </option>
-          <option value="up-to-50">До 50</option>
-          <option value="50+">Від 50</option>
-          <option value="100+">Від 100</option>
+          <option value="up-to-50">{t("До 50", "До 50")}</option>
+          <option value="50+">{t("Від 50", "От 50")}</option>
+          <option value="100+">{t("Від 100", "От 100")}</option>
         </Select>
       </Field>
 
-      <Field id={volumeId} label="Бажаний об'єм кави на місяць">
+      <Field id={volumeId} label={t("Бажаний об'єм кави на місяць", "Желаемый объём кофе в месяц")}>
         <Select id={volumeId} name="volume">
           <option value="" disabled>
-            Оберіть варіант
+            {t("Оберіть варіант", "Выберите вариант")}
           </option>
           <option value="до 10 кг">До 10 кг</option>
           <option value="10-20 кг">10–20 кг</option>
           <option value="20-40 кг">20–40 кг</option>
-          <option value="40+ кг">Понад 40 кг</option>
+          <option value="40+ кг">{t("Понад 40 кг", "Более 40 кг")}</option>
         </Select>
       </Field>
 
@@ -232,12 +236,12 @@ export function LeadForm({
         disabled={status === "submitting"}
         className="chamfer-sm min-h-12 w-full bg-signal px-7 py-3.5 text-base font-medium text-ink sm:text-sm transition-[filter,opacity] duration-200 hover:brightness-90 disabled:opacity-50"
       >
-        {status === "submitting" ? "Надсилаємо…" : "Залишити заявку"}
+        {status === "submitting" ? t("Надсилаємо…", "Отправляем…") : t("Залишити заявку", "Оставить заявку")}
       </button>
 
       {status === "error" && (
         <p role="alert" className="text-sm text-paper/80">
-          Не вдалося надіслати. Зателефонуйте нам:{" "}
+          {t("Не вдалося надіслати. Зателефонуйте нам:", "Не удалось отправить. Позвоните нам:")}{" "}
           <a href="tel:+380636271567" className="text-paper underline">
             +380 63 627-15-67
           </a>

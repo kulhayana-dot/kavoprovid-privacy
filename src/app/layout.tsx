@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { CookieConsent } from "@/components/CookieConsent";
 import { TrackingEvents } from "@/components/TrackingEvents";
+import { HtmlLang, SkipLink } from "@/components/HtmlLang";
 import "./globals.css";
 
 const GTM_ID = "GTM-PDKGZ8ZT";
@@ -142,12 +143,8 @@ gtag('set','url_passthrough',true);`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-signal focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"
-        >
-          Перейти до основного контенту
-        </a>
+        <HtmlLang />
+        <SkipLink />
         {children}
         <TrackingEvents />
         <CookieConsent />

@@ -7,6 +7,7 @@ import {
   getConsent,
   setConsent,
 } from "@/lib/consent";
+import { useLang } from "@/i18n/client";
 
 /**
  * Hidden by default so server and first client render match; an effect
@@ -15,6 +16,7 @@ import {
  */
 export function CookieConsent() {
   const ref = useRef<HTMLDivElement>(null);
+  const { t, href } = useLang();
 
   useEffect(() => {
     function sync() {
@@ -36,15 +38,17 @@ export function CookieConsent() {
       ref={ref}
       style={{ display: "none" }}
       role="region"
-      aria-label="Налаштування cookie-файлів"
+      aria-label={t("Налаштування cookie-файлів", "Настройки cookie-файлов")}
       className="fixed inset-x-0 bottom-0 z-50 border-t border-paper/10 bg-ink text-paper"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-6">
         <p className="max-w-2xl text-sm text-paper/70">
-          Аналітичні cookie-файли допомагають нам розуміти, які розділи
-          сайту цікавлять відвідувачів.{" "}
-          <a href="/privacy" className="text-paper underline">
-            Детальніше в політиці конфіденційності
+          {t(
+            "Аналітичні cookie-файли допомагають нам розуміти, які розділи сайту цікавлять відвідувачів.",
+            "Аналитические cookie-файлы помогают нам понимать, какие разделы сайта интересуют посетителей.",
+          )}{" "}
+          <a href={href("/privacy")} className="text-paper underline">
+            {t("Детальніше в політиці конфіденційності", "Подробнее в политике конфиденциальности")}
           </a>
           .
         </p>
@@ -54,14 +58,14 @@ export function CookieConsent() {
             onClick={() => setConsent("declined")}
             className="chamfer-sm border border-paper/25 px-5 py-2.5 text-sm font-medium text-paper/90 transition-colors duration-200 hover:text-signal"
           >
-            Відхилити
+            {t("Відхилити", "Отклонить")}
           </button>
           <button
             type="button"
             onClick={() => setConsent("accepted")}
             className="chamfer-sm bg-signal px-5 py-2.5 text-sm font-medium text-ink transition-[filter] duration-200 hover:brightness-90"
           >
-            Прийняти
+            {t("Прийняти", "Принять")}
           </button>
         </div>
       </div>

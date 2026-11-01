@@ -11,23 +11,25 @@ import {
   IconWrench,
 } from "@/components/icons";
 import { RevealText } from "@/components/RevealText";
+import { useLang } from "@/i18n/client";
 
 const NODES = [
-  { icon: IconMachine, title: "Кавомашина", text: "Точна модель під розмір команди, а не найближча за ціною." },
-  { icon: IconValve, title: "Кава", text: "Зерно Strauss Ukraine — офіційно, без посередників між обсмажувальнею і вашою чашкою." },
-  { icon: IconWrench, title: "Сервіс", text: "Смак підлаштовуємо на місці — за графіком, а не за скаргою." },
-  { icon: IconTruck, title: "Постачання", text: "Зерно приїжджає раніше, ніж закінчується. Рахувати запаси — не ваша робота." },
-  { icon: IconRefresh, title: "Обслуговування", text: "Кавомашина вийшла з ладу — на заміну приїжджає рівнозначна, поки вашу ремонтують." },
-  { icon: IconHeadset, title: "Підтримка", text: "Один номер. Одна відповідальна команда." },
-  { icon: IconBuilding, title: "Бізнес", text: "Кава працює на вас, а не навпаки." },
+  { icon: IconMachine, title: "Кавомашина", text: "Точна модель під розмір команди, а не найближча за ціною.", ru: { title: "Кофемашина", text: "Точная модель под размер команды, а не ближайшая по цене." } },
+  { icon: IconValve, title: "Кава", text: "Зерно Strauss Ukraine — офіційно, без посередників між обсмажувальнею і вашою чашкою.", ru: { title: "Кофе", text: "Зерно Strauss Ukraine — официально, без посредников между обжарщиком и вашей чашкой." } },
+  { icon: IconWrench, title: "Сервіс", text: "Смак підлаштовуємо на місці — за графіком, а не за скаргою.", ru: { title: "Сервис", text: "Вкус настраиваем на месте — по графику, а не по жалобе." } },
+  { icon: IconTruck, title: "Постачання", text: "Зерно приїжджає раніше, ніж закінчується. Рахувати запаси — не ваша робота.", ru: { title: "Поставки", text: "Зерно приезжает раньше, чем заканчивается. Считать запасы — не ваша работа." } },
+  { icon: IconRefresh, title: "Обслуговування", text: "Кавомашина вийшла з ладу — на заміну приїжджає рівнозначна, поки вашу ремонтують.", ru: { title: "Обслуживание", text: "Кофемашина вышла из строя — на замену приезжает равноценная, пока вашу ремонтируют." } },
+  { icon: IconHeadset, title: "Підтримка", text: "Один номер. Одна відповідальна команда.", ru: { title: "Поддержка", text: "Один номер. Одна ответственная команда." } },
+  { icon: IconBuilding, title: "Бізнес", text: "Кава працює на вас, а не навпаки.", ru: { title: "Бизнес", text: "Кофе работает на вас, а не наоборот." } },
 ] as const;
 
 export function Infrastructure() {
+  const { lang, t } = useLang();
   return (
     <section id="infrastructure" className="relative bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 lg:px-6">
         <span className="font-label block text-sm font-medium uppercase tracking-widest text-paper/70">
-          Як це працює
+          {t("Як це працює", "Как это работает")}
         </span>
         <div className="stripe-band mt-5 inline-block max-w-5xl px-1 py-3 sm:py-4">
           <RevealText
@@ -36,12 +38,17 @@ export function Infrastructure() {
           >
             {/* One token for RevealText, kept on a single line: phones
                 otherwise split it into "Кавова" / "інфраструктура". */}
-            <span className="whitespace-nowrap sm:whitespace-normal">Кавова інфраструктура</span>
-            {" — це ланцюг, а не кавомашина."}
+            <span className="whitespace-nowrap sm:whitespace-normal">
+              {t("Кавова інфраструктура", "Кофейная инфраструктура")}
+            </span>
+            {t(" — це ланцюг, а не кавомашина.", " — это цепь, а не кофемашина.")}
           </RevealText>
         </div>
         <p className="mt-6 max-w-2xl text-paper/75">
-          Кожна ланка тримає наступну — від кавомашини до підтримки.
+          {t(
+            "Кожна ланка тримає наступну — від кавомашини до підтримки.",
+            "Каждое звено держит следующее — от кофемашины до поддержки.",
+          )}
         </p>
       </div>
 
@@ -67,10 +74,10 @@ export function Infrastructure() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-display mt-1 text-lg font-bold">
-                    {node.title}
+                    {lang === "ru" ? node.ru.title : node.title}
                   </h3>
                   <p className="mt-1 max-w-xs text-base leading-relaxed text-paper/75 sm:text-sm">
-                    {node.text}
+                    {lang === "ru" ? node.ru.text : node.text}
                   </p>
                 </div>
               </motion.div>
@@ -81,8 +88,10 @@ export function Infrastructure() {
 
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-4 lg:px-6 sm:py-20">
         <p className="max-w-xl text-lg font-medium text-paper/85">
-          Прибери одну ланку — і решта тримається на випадковості. Ми
-          продаємо весь ланцюг, а не окрему ланку.
+          {t(
+            "Прибери одну ланку — і решта тримається на випадковості. Ми продаємо весь ланцюг, а не окрему ланку.",
+            "Убери одно звено — и остальное держится на случайности. Мы продаём всю цепь, а не отдельное звено.",
+          )}
         </p>
       </div>
     </section>

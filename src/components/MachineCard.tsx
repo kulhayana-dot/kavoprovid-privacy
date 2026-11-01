@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Machine } from "@/lib/machines";
 import { cn } from "@/lib/cn";
+import { lp, type Lang } from "@/i18n";
 
 type MachineCardProps = {
   machine: Machine;
@@ -10,6 +11,7 @@ type MachineCardProps = {
   showBadge?: boolean;
   showFeature?: boolean;
   ctaLabel?: string;
+  lang?: Lang;
 };
 
 export function MachineCard({
@@ -18,13 +20,15 @@ export function MachineCard({
   aspectClassName = "aspect-[4/3]",
   showBadge = false,
   showFeature = false,
-  ctaLabel = "Детальніше про модель",
+  ctaLabel,
+  lang = "uk",
 }: MachineCardProps) {
+  ctaLabel ??= lang === "ru" ? "Подробнее о модели" : "Детальніше про модель";
   const Heading = headingLevel;
 
   return (
     <Link
-      href={`/rishennya/${m.slug}`}
+      href={lp(lang, `/rishennya/${m.slug}`)}
       className="chamfer group flex flex-col overflow-hidden border border-ink/10 bg-ink/[0.02] transition-colors hover:border-signal"
     >
       {m.photo && (

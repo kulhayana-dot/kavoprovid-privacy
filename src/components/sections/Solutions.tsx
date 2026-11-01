@@ -1,13 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
 import { IconCheck } from "@/components/icons";
 import { cn } from "@/lib/cn";
-import { MACHINES } from "@/lib/machines";
+import { getMachines } from "@/lib/machines";
+import { useLang } from "@/i18n/client";
 
 function ArrowIcon({ direction }: { direction: "left" | "right" }) {
   return (
@@ -43,7 +44,9 @@ function ThresholdNumber({ value }: { value: number }) {
 
 export function Solutions() {
   const [active, setActive] = useState(0);
-  const count = MACHINES.length;
+  const { lang, t, href } = useLang();
+  const machines = useMemo(() => getMachines(lang), [lang]);
+  const count = machines.length;
   const stageRef = useRef<HTMLDivElement>(null);
   const hovering = useRef(false);
 
@@ -64,7 +67,7 @@ export function Solutions() {
     return () => window.removeEventListener("keydown", onKey);
   }, [step]);
 
-  const profile = MACHINES[active];
+  const profile = machines[active];
 
   return (
     <section
@@ -76,17 +79,22 @@ export function Solutions() {
       <div className="mx-auto max-w-7xl px-4 pt-12 lg:px-6 sm:pt-16">
         <div className="max-w-2xl">
           <span className="font-label text-sm font-medium uppercase tracking-widest text-paper/70">
-            Підбір рішення
+            {t("Підбір рішення", "Подбор решения")}
           </span>
           <RevealText
             as="h2"
             className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Кавомашина під розмір вашої команди — не навмання.
+            {t(
+              "Кавомашина під розмір вашої команди — не навмання.",
+              "Кофемашина под размер вашей команды — не наугад.",
+            )}
           </RevealText>
           <p className="mt-5 text-paper/75">
-            Перевірені конфігурації під різні команди. Оберіть свою —
-            решта деталей нижче.
+            {t(
+              "Перевірені конфігурації під різні команди. Оберіть свою — решта деталей нижче.",
+              "Проверенные конфигурации под разные команды. Выберите свою — остальные детали ниже.",
+            )}
           </p>
         </div>
       </div>
@@ -126,7 +134,7 @@ export function Solutions() {
               the bottom row (sm+) was out of sight below the description. */}
           <button
             type="button"
-            aria-label="Попередня модель"
+            aria-label={t("Попередня модель", "Предыдущая модель")}
             onClick={() => step(-1)}
             className="chamfer-sm absolute left-4 top-1/2 z-10 flex size-12 -translate-y-1/2 items-center justify-center border border-signal bg-ink/70 text-signal sm:hidden"
           >
@@ -134,7 +142,7 @@ export function Solutions() {
           </button>
           <button
             type="button"
-            aria-label="Наступна модель"
+            aria-label={t("Наступна модель", "Следующая модель")}
             onClick={() => step(1)}
             className="chamfer-sm absolute right-4 top-1/2 z-10 flex size-12 -translate-y-1/2 items-center justify-center border border-signal bg-ink/70 text-signal sm:hidden"
           >
@@ -195,10 +203,10 @@ export function Solutions() {
         <div className="contents sm:relative sm:mx-auto sm:block sm:h-full sm:max-w-7xl">
           <div
             role="tablist"
-            aria-label="Профілі офісу"
+            aria-label={t("Профілі офісу", "Профили офиса")}
             className="relative z-10 order-first flex flex-wrap gap-2 px-4 pb-2 pt-1 lg:px-6 sm:py-8"
           >
-            {MACHINES.map((p, i) => (
+            {machines.map((p, i) => (
               <button
                 key={p.slug}
                 role="tab"
@@ -249,14 +257,16 @@ export function Solutions() {
                 </ul>
 
                 <p className="font-label mt-5 text-sm uppercase tracking-widest text-paper/70">
-                  До <span className="text-paper">{profile.specs.dailyCapacity}</span> чашок на добу
+                  {t("До", "До")} <span className="text-paper">{profile.specs.dailyCapacity}</span>{" "}
+                  {t("чашок на добу", "чашек в сутки")}
                   {" · "}
-                  <span className="text-paper">{profile.specs.hourlyCapacity}</span> на годину в пік
+                  <span className="text-paper">{profile.specs.hourlyCapacity}</span>{" "}
+                  {t("на годину в пік", "в час в пик")}
                 </p>
 
                 <div className="chamfer-sm mt-4 inline-flex flex-wrap items-baseline gap-x-2 border border-signal/60 bg-signal/10 px-4 py-2.5 text-sm text-paper/90">
                   <span className="font-label uppercase tracking-widest">
-                    Оренда безкоштовна від
+                    {t("Оренда безкоштовна від", "Аренда бесплатна от")}
                   </span>
                   <span className="font-display text-xl font-bold text-signal">
                     <ThresholdNumber value={profile.threshold} /> кг
@@ -264,10 +274,10 @@ export function Solutions() {
                 </div>
 
                 <Link
-                  href={`/rishennya/${profile.slug}`}
+                  href={href(`/rishennya/${profile.slug}`)}
                   className="mt-3 flex min-h-11 w-fit items-center gap-2 text-base font-medium text-paper underline decoration-paper/50 sm:text-sm underline-offset-4 transition-colors hover:decoration-paper"
                 >
-                  Детальніше про модель
+                  {t("Детальніше про модель", "Подробнее о модели")}
                   <span aria-hidden="true">→</span>
                 </Link>
               </motion.div>
@@ -277,18 +287,18 @@ export function Solutions() {
           <div className="relative z-10 mt-4 hidden items-center justify-between px-4 pb-6 lg:px-6 sm:absolute sm:flex sm:inset-x-4 lg:inset-x-6 sm:bottom-8 sm:mt-0 sm:pb-0">
             <button
               type="button"
-              aria-label="Попередня модель"
+              aria-label={t("Попередня модель", "Предыдущая модель")}
               onClick={() => step(-1)}
               className="chamfer-sm flex size-12 items-center justify-center border border-signal bg-ink/60 text-signal transition-colors hover:bg-signal hover:text-ink"
             >
               <ArrowIcon direction="left" />
             </button>
             <span className="font-label hidden text-xs uppercase tracking-widest text-paper/60 sm:block">
-              Перетягніть, щоб гортати
+              {t("Перетягніть, щоб гортати", "Перетащите, чтобы листать")}
             </span>
             <button
               type="button"
-              aria-label="Наступна модель"
+              aria-label={t("Наступна модель", "Следующая модель")}
               onClick={() => step(1)}
               className="chamfer-sm flex size-12 items-center justify-center border border-signal bg-ink/60 text-signal transition-colors hover:bg-signal hover:text-ink"
             >

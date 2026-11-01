@@ -4,8 +4,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { RevealText } from "@/components/RevealText";
 import { cn } from "@/lib/cn";
+import { useLang } from "@/i18n/client";
 
-const BREAKS = [
+const BREAKS = {
+  uk: [
   {
     title: "Кавомашина ламається",
     text: "У понеділок вранці. Найгірший можливий момент.",
@@ -26,11 +28,35 @@ const BREAKS = [
     title: "Гроші ідуть в нікуди",
     text: "Оренда, ремонт, зерна — окремі рахунки, жодної системи.",
   },
-];
+  ],
+  ru: [
+    {
+      title: "Кофемашина ломается",
+      text: "В понедельник утром. В самый неподходящий момент.",
+    },
+    {
+      title: "Кофе заканчивается",
+      text: "Никто не следил за остатками — теперь офис без кофе.",
+    },
+    {
+      title: "Сотрудники ждут",
+      text: "Пять минут превращаются в ежедневный ритуал раздражения.",
+    },
+    {
+      title: "Никто не знает, кому звонить",
+      text: "Арендодателю? Поставщику? Мастеру с прошлого раза?",
+    },
+    {
+      title: "Деньги уходят в никуда",
+      text: "Аренда, ремонт, зерно — отдельные счета, никакой системы.",
+    },
+  ],
+};
 
 export function Problem() {
   const [open, setOpen] = useState<Set<number>>(new Set());
   const [hovered, setHovered] = useState<number | null>(null);
+  const { lang, t } = useLang();
 
   function toggle(i: number) {
     setOpen((prev) => {
@@ -46,18 +72,21 @@ export function Problem() {
       <div className="mx-auto max-w-7xl px-4 pb-28 pt-24 lg:px-6 sm:py-28">
         <div className="max-w-2xl">
           <span className="font-label text-sm font-medium uppercase tracking-widest text-ink/70">
-            Знайомо?
+            {t("Знайомо?", "Знакомо?")}
           </span>
           <RevealText
             as="h2"
             className="font-display mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
           >
-            Кавомашина — це одна річ в офісі. Проблем навколо неї — п&apos;ять.
+            {t(
+              "Кавомашина — це одна річ в офісі. Проблем навколо неї — п'ять.",
+              "Кофемашина — это одна вещь в офисе. Проблем вокруг неё — пять.",
+            )}
           </RevealText>
         </div>
 
         <div className="mt-10 border-t border-ink/15 sm:mt-16">
-          {BREAKS.map((item, i) => {
+          {BREAKS[lang].map((item, i) => {
             const active = open.has(i) || hovered === i;
             return (
               <motion.button
@@ -109,11 +138,13 @@ export function Problem() {
         <div className="chamfer mt-10 max-w-md bg-ink p-6 text-paper sm:mt-16 sm:p-8">
           <span aria-hidden="true" className="block h-1 w-10 bg-signal" />
           <p className="font-display mt-4 text-xl font-bold leading-snug sm:text-2xl">
-            Проблема не в кавомашині.
+            {t("Проблема не в кавомашині.", "Проблема не в кофемашине.")}
           </p>
           <p className="mt-3 text-paper/80">
-            Проблема в тому, що між нею і вашим бізнесом немає жодного
-            зв&apos;язку.
+            {t(
+              "Проблема в тому, що між нею і вашим бізнесом немає жодного зв'язку.",
+              "Проблема в том, что между ней и вашим бизнесом нет никакой связи.",
+            )}
           </p>
         </div>
       </div>

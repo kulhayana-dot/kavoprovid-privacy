@@ -1,3 +1,6 @@
+import type { Lang } from "@/i18n";
+import { MACHINES_RU, MILK_FRIDGE_CALLOUTS_RU, specRu } from "@/lib/machines.ru";
+
 export type PhotoCallout = {
   x: number;
   y: number;
@@ -9,7 +12,8 @@ export type PhotoCallout = {
 export type MachineSpecs = {
   drinksCount: number;
   ingredientsCount: number;
-  milk: "Свіже (холодильник)" | "Сухе" | "Сухе / рідке";
+  /** "Свіже (холодильник)" | "Сухе" | "Сухе / рідке" (localized via specRu) */
+  milk: string;
   dailyCapacity: number;
   hourlyCapacity: number;
   waterTankL: string;
@@ -298,8 +302,41 @@ export const MACHINES: Machine[] = [
   },
 ];
 
-export function getMachine(slug: string): Machine | undefined {
-  return MACHINES.find((m) => m.slug === slug);
+function localizeSpecs(specs: MachineSpecs, lang: Lang): MachineSpecs {
+  if (lang === "uk") return specs;
+  const out = { ...specs } as Record<string, unknown>;
+  for (const [k, v] of Object.entries(out)) if (typeof v === "string") out[k] = specRu(v);
+  return out as MachineSpecs;
+}
+
+function localizeMachine(m: Machine, lang: Lang): Machine {
+  const ru = MACHINES_RU[m.slug];
+  if (lang === "uk" || !ru) return m;
+  return {
+    ...m,
+    tag: ru.tag,
+    badge: ru.badge,
+    metaTitle: ru.metaTitle,
+    metaDescription: ru.metaDescription,
+    intro: ru.intro,
+    audienceFit: ru.audienceFit,
+    infraNote: ru.infraNote,
+    features: ru.features,
+    specs: localizeSpecs(m.specs, lang),
+    photo: m.photo && {
+      ...m.photo,
+      callouts: m.photo.callouts.map((c, i) => ({ ...c, label: ru.callouts[i] ?? c.label })),
+    },
+  };
+}
+
+export function getMachines(lang: Lang = "uk"): Machine[] {
+  return MACHINES.map((m) => localizeMachine(m, lang));
+}
+
+export function getMachine(slug: string, lang: Lang = "uk"): Machine | undefined {
+  const m = MACHINES.find((x) => x.slug === slug);
+  return m && localizeMachine(m, lang);
 }
 
 /**
@@ -436,6 +473,14 @@ const NEW_MACHINES: ComparisonMachine[] = [
   },
 ];
 
+export function getComparisonMachines(lang: Lang = "uk"): ComparisonMachine[] {
+  return COMPARISON_MACHINES.map((m) => ({
+    ...m,
+    specs: localizeSpecs(m.specs, lang),
+    detailHref: m.detailHref && (lang === "ru" ? `/ru${m.detailHref}` : m.detailHref),
+  }));
+}
+
 export const COMPARISON_MACHINES: ComparisonMachine[] = [
   ...MACHINES.map(
     (m): ComparisonMachine => ({
@@ -459,3 +504,11 @@ export const MILK_FRIDGE_PHOTO = {
     { x: 0.42, y: 0.57, label: "Молоко завжди свіже", side: "right" as const },
   ],
 };
+
+export function getMilkFridgePhoto(lang: Lang = "uk") {
+  if (lang === "uk") return MILK_FRIDGE_PHOTO;
+  return {
+    ...MILK_FRIDGE_PHOTO,
+    callouts: MILK_FRIDGE_PHOTO.callouts.map((c, i) => ({ ...c, label: MILK_FRIDGE_CALLOUTS_RU[i] ?? c.label })),
+  };
+}

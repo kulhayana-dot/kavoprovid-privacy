@@ -5,10 +5,12 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
 import { LeadForm } from "@/components/LeadForm";
+import { useLang } from "@/i18n/client";
 
 export function FinalCta() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const { t } = useLang();
 
   // Section-crossing progress (0 entering the bottom of the viewport, 1
   // leaving the top) drives a slow horizontal drift on the oversized
@@ -43,17 +45,20 @@ export function FinalCta() {
             trigger="scroll"
             className="font-display text-3xl font-bold leading-tight tracking-tight text-paper sm:text-4xl lg:text-5xl"
           >
-            Підключіть офіс до кавопроводу.
+            {t("Підключіть офіс до кавопроводу.", "Подключите офис к кавопроводу.")}
           </RevealText>
         </div>
 
         <p className="mx-auto mt-8 max-w-lg text-lg text-paper/80">
-          Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.
+          {t(
+            "Одна розмова на 10 хвилин — і кава перестає бути вашою проблемою.",
+            "Один разговор на 10 минут — и кофе перестаёт быть вашей проблемой.",
+          )}
         </p>
 
         <div className="mx-auto mt-10 flex max-w-sm justify-center sm:max-w-none">
           <Button href="tel:+380636271567" className="w-full sm:w-auto">
-            Провести каву в мій бізнес
+            {t("Провести каву в мій бізнес", "Провести кофе в мой бизнес")}
           </Button>
         </div>
 
@@ -74,7 +79,7 @@ export function FinalCta() {
 
         <div className="mx-auto mt-12 max-w-sm border-t border-paper/15 pt-10 sm:mt-14">
           <p className="text-base text-paper/80">
-            Або залиште контакти — передзвонимо самі.
+            {t("Або залиште контакти — передзвонимо самі.", "Или оставьте контакты — перезвоним сами.")}
           </p>
           <LeadForm source="Головна — фінальний CTA" className="mt-5 text-left" />
         </div>

@@ -1,3 +1,6 @@
+import { lp, type Lang } from "@/i18n";
+import { ARTICLES_RU } from "@/lib/knowledge.ru";
+
 export type ArticleSection = {
   heading?: string;
   paragraphs: string[];
@@ -232,6 +235,30 @@ export const ARTICLES: Article[] = [
   },
 ];
 
-export function getArticle(slug: string): Article | undefined {
-  return ARTICLES.find((a) => a.slug === slug);
+function localizeArticle(a: Article, lang: Lang): Article {
+  const ru = ARTICLES_RU[a.slug];
+  const related = a.related?.map((r, i) => ({
+    href: lp(lang, r.href),
+    label: lang === "ru" && ru ? (ru.relatedLabels[i] ?? r.label) : r.label,
+  }));
+  if (lang === "uk" || !ru) return { ...a, related };
+  return {
+    ...a,
+    title: ru.title,
+    metaTitle: ru.metaTitle,
+    metaDescription: ru.metaDescription,
+    dek: ru.dek,
+    sections: ru.sections,
+    faq: ru.faq,
+    related,
+  };
+}
+
+export function getArticles(lang: Lang = "uk"): Article[] {
+  return ARTICLES.map((a) => localizeArticle(a, lang));
+}
+
+export function getArticle(slug: string, lang: Lang = "uk"): Article | undefined {
+  const a = ARTICLES.find((x) => x.slug === slug);
+  return a && localizeArticle(a, lang);
 }

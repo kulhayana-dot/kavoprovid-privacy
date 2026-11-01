@@ -5,8 +5,10 @@ import { HeroPipeline } from "@/components/HeroPipeline";
 import { RevealText } from "@/components/RevealText";
 import { Button } from "@/components/ui/button";
 import { PRELOADER_SECONDS } from "@/lib/motion";
+import { tr, type Lang } from "@/i18n";
 
-export function Hero() {
+export function Hero({ lang = "uk" }: { lang?: Lang }) {
+  const t = tr(lang);
   return (
     // The next section is pulled up 72px over the hero (StackSection), so
     // on desktop the hero runs 72px past the fold and pads its bottom by the same
@@ -26,7 +28,7 @@ export function Hero() {
             <HeroEntranceItem>
               <span className="font-label inline-flex items-center gap-2 border border-paper/30 bg-ink/70 px-4 py-2 text-xs uppercase tracking-widest text-paper/90 backdrop-blur-sm">
                 <span className="size-1.5 bg-signal" />
-                Київ та Київська область
+                {t("Київ та Київська область", "Киев и Киевская область")}
               </span>
             </HeroEntranceItem>
 
@@ -36,29 +38,30 @@ export function Hero() {
                 trigger="load"
                 delay={PRELOADER_SECONDS + 1.8}
               >
-                Проводимо каву в бізнес
+                {t("Проводимо каву в бізнес", "Проводим кофе в бизнес")}
               </RevealText>
               <RevealText
                 as="div"
                 trigger="load"
                 delay={PRELOADER_SECONDS + 1.92}
               >
-                під ключ<span className="text-signal">.</span>
+                {t("під ключ", "под ключ")}<span className="text-signal">.</span>
               </RevealText>
             </h1>
 
             <HeroEntranceItem className="mt-8 max-w-xl text-lg leading-relaxed text-paper/80 sm:text-xl">
-              Кавомашина, зерно, сервіс і відповідальність — в одного
-              партнера, а не в списку контактів у телефоні. Ваша команда
-              просто п&apos;є каву.
+              {t(
+                "Кавомашина, зерно, сервіс і відповідальність — в одного партнера, а не в списку контактів у телефоні. Ваша команда просто п'є каву.",
+                "Кофемашина, зерно, сервис и ответственность — у одного партнёра, а не в списке контактов в телефоне. Ваша команда просто пьёт кофе.",
+              )}
             </HeroEntranceItem>
 
             <HeroEntranceItem className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button href="#cta" className="w-full sm:w-auto">
-                Провести каву в мій бізнес
+                {t("Провести каву в мій бізнес", "Провести кофе в мой бизнес")}
               </Button>
               <Button href="#solutions" variant="secondary" className="w-full sm:w-auto">
-                Як це працює
+                {t("Як це працює", "Как это работает")}
               </Button>
             </HeroEntranceItem>
           </HeroEntrance>
