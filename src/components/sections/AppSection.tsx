@@ -124,7 +124,10 @@ function AppScreens() {
 export function AppSection() {
   const { lang, t } = useLang();
   return (
-    <section id="app" className="relative bg-paper pb-16 pt-24 text-ink sm:py-28">
+    // data-nosnippet: keep app-only copy ("доступ після онбордингу", screen
+    // alt texts) out of Google's search snippet for brand queries — it's
+    // secondary info for existing clients, not what a prospect should see.
+    <section id="app" data-nosnippet className="relative bg-paper pb-16 pt-24 text-ink sm:py-28">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="lg:flex lg:items-start lg:justify-between lg:gap-16">
           <div className="max-w-2xl">
